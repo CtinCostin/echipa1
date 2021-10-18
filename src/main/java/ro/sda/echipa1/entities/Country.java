@@ -1,0 +1,25 @@
+package ro.sda.echipa1.entities;
+
+import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
+
+@Entity
+@Table(name = "country")
+public class Country {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
+
+    private String countryName;
+
+    @ManyToOne
+    private Continent continent;
+
+    @OneToMany(mappedBy = "country",
+            fetch = FetchType.EAGER,
+            cascade = CascadeType.ALL)
+    private List<City> cityList = new ArrayList<>();
+
+}
