@@ -13,7 +13,7 @@ public class Hotel {
     private String hotelName;
 
     @Enumerated(EnumType.STRING)
-    private HotelStandard hotelStandard;
+    private StarRating starRating;
 
     private String description;
 
