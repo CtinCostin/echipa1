@@ -10,7 +10,7 @@ public class Hotel {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    private String hotelName;
+    private String name;
 
     @Enumerated(EnumType.STRING)
     private StarRating starRating;
@@ -19,4 +19,56 @@ public class Hotel {
 
     @ManyToOne
     private City city;
+
+    public Hotel(Long id, String name, StarRating starRating, String description, City city) {
+        this.id = id;
+        this.name = name;
+        this.starRating = starRating;
+        this.description = description;
+        this.city = city;
+    }
+
+    public Hotel(){
+
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public StarRating getStarRating() {
+        return starRating;
+    }
+
+    public void setStarRating(StarRating starRating) {
+        this.starRating = starRating;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public City getCity() {
+        return city;
+    }
+
+    public void setCity(City city) {
+        this.city = city;
+    }
 }

@@ -12,7 +12,7 @@ public class Continent {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    private String continentName;
+    private String name;
 
     @OneToMany(mappedBy = "continent",
             fetch = FetchType.EAGER,

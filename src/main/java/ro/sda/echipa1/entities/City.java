@@ -12,7 +12,7 @@ public class City {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    private String cityName;
+    private String name;
 
     @ManyToOne
     private Country country;
