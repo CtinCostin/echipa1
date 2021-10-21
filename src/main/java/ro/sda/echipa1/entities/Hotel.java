@@ -28,6 +28,7 @@ public class Hotel {
         this.city = city;
     }
 
+
     public Hotel(){
 
     }

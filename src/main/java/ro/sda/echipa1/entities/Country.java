@@ -22,4 +22,8 @@ public class Country {
             cascade = CascadeType.ALL)
     private List<City> cityList = new ArrayList<>();
 
+    public Country(String name, Continent continent) {
+        this.name = name;
+        this.continent = continent;
+    }
 }

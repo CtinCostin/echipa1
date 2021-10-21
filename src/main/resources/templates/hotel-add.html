@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+    <title>Create new hotel</title>
+</head>
+<body>
+<div align="center">
+    <h1>Create new hotel</h1>
+
+    <div>
+        <form method="post" th:action="@{/hotel/add}" th:object="${hotel}">
+
+            <div>
+                <label for="name">Name</label>
+                <input id="name" th:field="*{name}" type="text">
+            </div>
+
+
+            <div>
+                <label for="description">Description</label>
+                <input id="description" th:field="*{description}" type="text">
+            </div>
+            <div>
+                <label for="starRating">StarRating</label>
+                <input id="starRating" th:field="*{starRating}" type="text">
+            </div>
+
+            <div>
+                <label for="city">City</label>
+                <input id="city" th:field="*{city}" type="text">
+            </div>
+
+
+            <div>
+                <a th:href="@{/hotel}">
+                    <button class="btn btn-secondary" id="cancel" name="cancel" type="button">Cancel</button>
+                </a>
+                <button class="btn btn-primary" id="save" name="save" type="submit">Save</button>
+            </div>
+        </form>
+    </div>
+
+</div>
+</body>
+</html>
