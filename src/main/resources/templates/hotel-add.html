@@ -17,19 +17,20 @@
                 <input id="name" th:field="*{name}" type="text">
             </div>
 
+            <div>
+                <label for="starRating">StarRating</label>
+                <input id="starRating" th:value="${starRating}" type="text">
+            </div>
 
             <div>
                 <label for="description">Description</label>
                 <input id="description" th:field="*{description}" type="text">
             </div>
-            <div>
-                <label for="starRating">StarRating</label>
-                <input id="starRating" th:field="*{starRating}" type="text">
-            </div>
+
 
             <div>
                 <label for="city">City</label>
-                <input id="city" th:field="*{city}" type="text">
+                <input id="city" th:object="${city}" type="text">
             </div>
 
 

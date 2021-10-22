@@ -20,16 +20,14 @@ public class Hotel {
     @ManyToOne
     private City city;
 
-    public Hotel(Long id, String name, StarRating starRating, String description, City city) {
-        this.id = id;
+    public Hotel(String name, StarRating starRating, String description, City city) {
         this.name = name;
         this.starRating = starRating;
         this.description = description;
         this.city = city;
     }
 
-
-    public Hotel(){
+    public Hotel() {
 
     }
 

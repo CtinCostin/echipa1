@@ -5,6 +5,7 @@ import javax.persistence.*;
 @Entity
 @Table(name = "purchasing_tour")
 public class PurchasingTour {
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;

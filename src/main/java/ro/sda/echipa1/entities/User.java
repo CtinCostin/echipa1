@@ -13,18 +13,24 @@ public class User {
     @OneToOne
     private Card card;
 
+
     private String name;
 
     private Integer age;
+
     private String email;
-    private String password;
+
     private String role = "";
+
+    private String password;
+
 
     public User(String name, String password, String role) {
         this.name = name;
         this.password = password;
         this.role = role;
     }
+
 
     public Long getId() {
         return id;
@@ -66,19 +72,19 @@ public class User {
         this.email = email;
     }
 
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
     public String getRole() {
         return role;
     }
 
     public void setRole(String role) {
         this.role = role;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 }

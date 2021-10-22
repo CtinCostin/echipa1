@@ -24,6 +24,9 @@ public class HotelService {
         return hotelRepository.save(hotel);
     }
 
+    public List<Hotel> getAllHotels() {
+        return hotelRepository.findAll();
+    }
 
     public List<Hotel> findAll() {
         return hotelRepository.findAll();
@@ -44,8 +47,9 @@ public class HotelService {
 
     private Hotel updateEntity(HotelDto hotelDto, Hotel existingHotel) {
         existingHotel.setName(hotelDto.getName());
-
+        existingHotel.setStarRating(hotelDto.getStarRating());
         existingHotel.setDescription(hotelDto.getDescription());
+        existingHotel.setCity(hotelDto.getCity());
 
         return existingHotel;
     }
@@ -55,7 +59,7 @@ public class HotelService {
         String name = hotel.getName();
         hotelRepository.findByNameIgnoreCase(name)
                 .filter(existingHotel -> existingHotel.getId().equals(hotel.getId()))
-                .map(existingProduct -> hotelRepository.save(hotel))
+                .map(existingHotel -> hotelRepository.save(hotel))
                 .orElseThrow(() -> {
 
                     throw new RuntimeException("hotel already exist");

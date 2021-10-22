@@ -1,8 +1,8 @@
 package ro.sda.echipa1.entities;
 
-
 import javax.persistence.*;
 import java.time.LocalDate;
+
 @Entity
 @Table(name = "tour")
 public class Tour {
@@ -28,3 +28,5 @@ public class Tour {
 
 
 }
+
+

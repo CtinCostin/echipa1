@@ -1,24 +1,15 @@
-package ro.sda.echipa1.entities;
+package ro.sda.echipa1.dto;
 
-import javax.persistence.*;
+import ro.sda.echipa1.entities.City;
 
-@Entity
-@Table(name = "airport")
-public class Airport {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+public class AirportDto {
+
     private Long id;
 
     private String name;
 
-    @OneToOne
     private City city;
-
-    public Airport(String name, City city) {
-        this.name = name;
-        this.city = city;
-    }
 
     public Long getId() {
         return id;

@@ -1,29 +1,15 @@
-package ro.sda.echipa1.entities;
+package ro.sda.echipa1.dto;
 
-import javax.persistence.*;
 import java.util.Date;
 
-@Entity
-@Table(name = "card")
-public class Card {
+public class CardDto {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-
     private String firstName;
     private String lastName;
     private Long cardNumber;
     private Date expiredDate;
     private Integer securityCode;
-
-    public Card(String firstName, String lastName, Long cardNumber, Date expiredDate, Integer securityCode) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.cardNumber = cardNumber;
-        this.expiredDate = expiredDate;
-        this.securityCode = securityCode;
-    }
 
     public String getFirstName() {
         return firstName;
