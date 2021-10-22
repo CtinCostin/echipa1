@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="utf-8"/>
+  <title>Hotel</title>
+</head>
+<body>
+
+<div align="center">
+  <h1>Hotel list</h1>
+
+  <a th:href="@{/hotel/add}">Create hotel</a>
+
+  <table>
+    <!-- table header -->
+    <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+    </tr>
+    </thead>
+
+    <!-- table body -->
+    <tbody>
+
+    <!-- product entry -->
+    <tr th:each="hotel : ${hotelsInView}">
+      <td th:text="${hotel.name}"></td>
+      <td th:text="${hotel.description}"></td>
+      <td th:text="${hotel.starRating}"></td>
+      <td th:text="${hotel.city}"></td>
+
+      <!-- action buttons -->
+      <td>
+        <div class="actions">
+          <a th:href="@{/hotel/{id}/edit(id = ${hotel.id})}">Edit</a>
+          <a th:href="@{/hotel/{id}/delete(id = ${hotel.id})}">Delete</a>
+        </div>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+
+</div>
+
+</body>
+</html>
