@@ -17,10 +17,6 @@
                 <input id="name" th:field="*{name}" type="text">
             </div>
 
-            <div>
-                <label for="starRating">StarRating</label>
-                <input id="starRating" th:value="${starRating}" type="text">
-            </div>
 
             <div>
                 <label for="description">Description</label>
@@ -30,7 +26,12 @@
 
             <div>
                 <label for="city">City</label>
-                <input id="city" th:object="${city}" type="text">
+                <select th:field="*{city}" id="city">
+                    <option th:each="city : ${cities}"
+                            th:value="${city.id}"
+                            th:text="${city.name}">
+                    </option>
+                </select>
             </div>
 
 

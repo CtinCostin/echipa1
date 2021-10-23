@@ -16,4 +16,6 @@ public class PurchasingTour {
     @OneToOne
     private User user;
 
+    public PurchasingTour() {
+    }
 }

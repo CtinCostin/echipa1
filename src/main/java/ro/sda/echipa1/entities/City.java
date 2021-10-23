@@ -25,6 +25,9 @@ public class City {
     @OneToOne(mappedBy = "city")
     private Airport airport;
 
+    public City() {
+    }
+
     public City(String name, Country country) {
         this.name = name;
         this.country = country;
@@ -69,4 +72,6 @@ public class City {
     public void setId(Long id) {
         this.id = id;
     }
+
+
 }

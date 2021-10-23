@@ -9,5 +9,6 @@ public class Admin {
     private Hotel hotel;
     private Tour tour;
 
-
+    public Admin() {
+    }
 }

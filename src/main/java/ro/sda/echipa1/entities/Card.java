@@ -17,6 +17,9 @@ public class Card {
     private Date expiredDate;
     private Integer securityCode;
 
+    public Card() {
+    }
+
     public Card(String firstName, String lastName, Long cardNumber, Date expiredDate, Integer securityCode) {
         this.firstName = firstName;
         this.lastName = lastName;

@@ -19,6 +19,9 @@ public class Continent {
             cascade = CascadeType.ALL)
     private List<Country> countryList = new ArrayList<>();
 
+    public Continent() {
+    }
+
     public Continent(String name, List<Country> countryList) {
         this.name = name;
         this.countryList = countryList;

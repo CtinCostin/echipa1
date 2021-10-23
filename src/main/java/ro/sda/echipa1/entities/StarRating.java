@@ -1,6 +1,10 @@
 package ro.sda.echipa1.entities;
 
+
+
+
 public enum StarRating {
+
 
     ONE_STAR,
     TWO_STARS,

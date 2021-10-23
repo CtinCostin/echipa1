@@ -38,12 +38,12 @@ public class DbInit {
     public CommandLineRunner initialData() {
         return args -> {
             // load initial data in db
-            List<Country> countryList = new ArrayList<>();
-            Continent europa = new Continent("Europa", countryList);
-            Country romania = new Country("Romania", europa);
-            City cluj = new City("Cluj Napoca", romania);
-            Airport avramIancu = new Airport("Avram Iancu", cluj);
-            Hotel ramada = new Hotel("Ramada", FIVE_STARS, "cel mai fain hotel", cluj);
+//            List<Country> countryList = new ArrayList<>();
+//            Continent europa = new Continent("Europa", countryList);
+//            Country romania = new Country("Romania", europa);
+//            City cluj = new City("Cluj Napoca", romania);
+//            Airport avramIancu = new Airport("Avram Iancu", cluj);
+//            Hotel ramada = new Hotel("Ramada", FIVE_STARS, "cel mai fain hotel", cluj);
 
 
         };

@@ -26,7 +26,8 @@ public class Tour {
     private Integer numberOfAdult;
     private Integer numberOfPLacesForChildren;
 
-
+    public Tour() {
+    }
 }
 
 

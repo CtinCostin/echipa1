@@ -15,6 +15,9 @@ public class Airport {
     @OneToOne
     private City city;
 
+    public Airport() {
+    }
+
     public Airport(String name, City city) {
         this.name = name;
         this.city = city;
