@@ -22,14 +22,22 @@
                 <label for="description">Description</label>
                 <input id="description" th:field="*{description}" type="text">
             </div>
+            <div>
+                <label for="starRating">StarRating</label>
+                <select th:field="*{starRating}" id="starRating">
+                    <option th:each="starRating : ${stars}"
+                            th:text="${starRating}" th:value="${starRating}">
+                    </option>
+                </select>
+            </div>
 
 
             <div>
                 <label for="city">City</label>
                 <select th:field="*{city}" id="city">
                     <option th:each="city : ${cities}"
-                            th:value="${city.id}"
-                            th:text="${city.name}">
+                            th:text="${city.name}"
+                            th:value="${city.id}">
                     </option>
                 </select>
             </div>

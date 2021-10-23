@@ -8,6 +8,7 @@ import ro.sda.echipa1.entities.City;
 import ro.sda.echipa1.repository.CityRepository;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class CityService {

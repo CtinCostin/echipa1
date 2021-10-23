@@ -6,6 +6,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import ro.sda.echipa1.dto.HotelDto;
 import ro.sda.echipa1.entities.Hotel;
+import ro.sda.echipa1.entities.StarRating;
 import ro.sda.echipa1.service.CityService;
 import ro.sda.echipa1.service.HotelService;
 
@@ -42,6 +43,7 @@ public class HotelController {
         Hotel newHotel = new Hotel();
         model.addAttribute("hotel", newHotel);
         model.addAttribute("cities",cityService.findAll());
+        model.addAttribute("stars", StarRating.values());
         return "hotel-add";
     }
 
