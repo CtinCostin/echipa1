@@ -12,7 +12,7 @@
 	<artifactId>echipa1</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>echipa1</name>
-	<description>Demo project for Spring Boot</description>
+	<description>Final Project</description>
 	<properties>
 		<java.version>11</java.version>
 	</properties>
@@ -29,10 +29,10 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-thymeleaf</artifactId>
 		</dependency>
-<!--		<dependency>-->
-<!--			<groupId>org.springframework.boot</groupId>-->
-<!--			<artifactId>spring-boot-starter-validation</artifactId>-->
-<!--		</dependency>-->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-validation</artifactId>
+		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
@@ -42,22 +42,6 @@
 <!--			<artifactId>thymeleaf-extras-springsecurity5</artifactId>-->
 <!--		</dependency>-->
 
-		<dependency>
-			<groupId>jakarta.validation</groupId>
-			<artifactId>jakarta.validation-api</artifactId>
-			<version>2.0.2</version>
-		</dependency>
-		<dependency>
-			<groupId>com.h2database</groupId>
-			<artifactId>h2</artifactId>
-			<scope>runtime</scope>
-		</dependency>
-		<dependency>
-			<groupId>nl.jqno.equalsverifier</groupId>
-			<artifactId>equalsverifier</artifactId>
-			<version>3.7.2</version>
-			<scope>test</scope>
-		</dependency>
 
 		<dependency>
 			<groupId>mysql</groupId>
@@ -80,16 +64,6 @@
 <!--			<scope>test</scope>-->
 <!--		</dependency>-->
 
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-web</artifactId>
-			<version>5.3.11</version>
-		</dependency>
-<!--		<dependency>-->
-<!--			<groupId>org.springframework.security</groupId>-->
-<!--			<artifactId>spring-security-config</artifactId>-->
-<!--			<version>5.4.6</version>-->
-<!--		</dependency>-->
 
 		<dependency>
 			<groupId>org.webjars</groupId>
@@ -108,23 +82,29 @@
 			<artifactId>webjars-locator</artifactId>
 			<version>0.42</version>
 		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-devtools</artifactId>
+			<scope>runtime</scope>
+			<optional>true</optional>
+		</dependency>
 	</dependencies>
 
-<!--&lt;!&ndash;	<build>&ndash;&gt;-->
-<!--&lt;!&ndash;		<plugins>&ndash;&gt;-->
-<!--&lt;!&ndash;			<plugin>&ndash;&gt;-->
-<!--				<groupId>org.springframework.boot</groupId>-->
-<!--&lt;!&ndash;				<artifactId>spring-boot-maven-plugin</artifactId>&ndash;&gt;-->
-<!--				<configuration>-->
-<!--					<excludes>-->
-<!--						<exclude>-->
-<!--							<groupId>org.projectlombok</groupId>-->
-<!--							<artifactId>lombok</artifactId>-->
-<!--						</exclude>-->
-<!--					</excludes>-->
-<!--				</configuration>-->
-<!--			</plugin>-->
-<!--		</plugins>-->
-<!--	</build>-->
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+				<configuration>
+					<excludes>
+						<exclude>
+							<groupId>org.projectlombok</groupId>
+							<artifactId>lombok</artifactId>
+						</exclude>
+					</excludes>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
 
 </project>

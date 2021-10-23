@@ -1,6 +1,9 @@
 package ro.sda.echipa1.entities;
 
 import javax.persistence.*;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 @Entity
 @Table(name = "hotel")
@@ -9,12 +12,13 @@ public class Hotel {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-
+    @NotNull
+    @Size(min=1, max=25,message = "Please use minimum 1 character and maximum 25 for name")
     private String name;
 
     @Enumerated(EnumType.STRING)
     private StarRating starRating;
-
+    @NotNull
     private String description;
 
     @ManyToOne

@@ -19,7 +19,7 @@ public class City {
 
     @OneToMany(mappedBy = "city",
             fetch = FetchType.EAGER,
-            cascade = CascadeType.ALL)
+            cascade = CascadeType.REMOVE)
     private List<Hotel> hotelList = new ArrayList<>();
 
     @OneToOne(mappedBy = "city")

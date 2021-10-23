@@ -15,6 +15,7 @@
             <div>
                 <label for="name">Name</label>
                 <input id="name" th:field="*{name}" type="text">
+                <span th:if="${#fields.hasErrors('name')}" th:error="*{name}" class="text-danger"></span>
             </div>
 
 
