@@ -15,11 +15,16 @@
             <div>
                 <label for="name">Name</label>
                 <input id="name" th:field="*{name}" type="text">
+                <span th:if="${#fields.hasErrors('name')}" th:error="*{name}" class="text-danger"></span>
             </div>
 
             <div>
                 <label for="starRating">StarRating</label>
-                <input id="starRating" th:field="*{starRating}" type="text">
+                <select th:field="*{starRating}" id="starRating">
+                    <option th:each="starRating : ${stars}"
+                            th:text="${starRating}" th:value="${starRating}">
+                    </option>
+                </select>
             </div>
             <div>
                 <label for="description">Description</label>
@@ -27,7 +32,12 @@
             </div>
             <div>
                 <label for="city">City</label>
-                <input id="city" th:field="*{city}" type="text">
+                <select th:field="*{city}" id="city">
+                    <option th:each="city : ${cities}"
+                            th:text="${city.name}"
+                            th:value="${city.id}">
+                    </option>
+                </select>
             </div>
 
             <div>
