@@ -5,7 +5,7 @@ spring:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://localhost:3306/javaremote22_echipa1?createDatabaseIfNotExist=true
     username: root
-    password: ingerasulmeu88
+    password: Rares2010
   jpa:
     hibernate:
       ddl-auto: update
@@ -16,3 +16,8 @@ spring:
         dialect: org.hibernate.dialect.MySQL8Dialect
         show_sql: true
         format_sql: false
+    defer-datasource-initialization: true
+  sql:
+    init:
+      mode: always
+      continue-on-error: true

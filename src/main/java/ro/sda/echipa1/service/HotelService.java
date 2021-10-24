@@ -35,7 +35,7 @@ public class HotelService {
 
     public Hotel findById(Long id) {
         return hotelRepository.findById(id).orElseThrow(
-                ()-> new RuntimeException("product not found!"));
+                ()-> new RuntimeException("hotel not found!"));
     }
 
     public void update(Long id, HotelDto hotelDto) {
