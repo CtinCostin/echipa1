@@ -30,7 +30,6 @@ public class HotelController {
         List<Hotel> hotel = hotelService.findAll();
         model.addAttribute("hotelsInView", hotel);
 
-        // resolved by the view resolver
         return "index";
     }
 
