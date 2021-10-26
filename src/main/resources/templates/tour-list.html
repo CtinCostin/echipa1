@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+    <title>TourOffer</title>
+    <link th:href="@{https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/locales/bootstrap-datepicker.ro.min.js}"/>
+    <link th:href="@{https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.standalone.min.css}"/>
+    <link th:href="@{webjars/bootstrap/4.0.0-2/css/bootstrap.min.css} "/>
+    <link th:href="@{webjars/font-awesome/5.11.2/css/all.css} "/>
+</head>
+<body>
+
+<div align="center">
+    <h1>Tour Offer list</h1>
+
+    <a th:href="@{/tourOffer/add}">Create tour offer</a>
+
+
+    <table>
+        <!-- table header -->
+        <thead>
+        <tr>
+            <th>City</th>
+            <th>Airport</th>
+            <th>Hotel</th>
+            <th>Departure date</th>
+            <th>Date of return</th>
+            <th>Number of days</th>
+            <th>Type of service</th>
+            <th>Price for an adult</th>
+            <th>Price for a child</th>
+            <th>Promoted</th>
+            <th>Number of adults</th>
+            <th>Number of children</th>
+
+
+        </tr>
+        </thead>
+
+        <!-- table body -->
+        <tbody>
+
+        <!-- product entry -->
+        <tr th:each="tourOffer : ${tourOfferInView}">
+            <td th:text="${tourOffer.city.name}"></td>
+            <td th:text="${tourOffer.airport.name}"></td>
+            <td th:text="${tourOffer.hotel.name}"></td>
+            <td th:text="${tourOffer.departureDate}"></td>
+            <td th:text="${tourOffer.dateOfReturn}"></td>
+            <td th:text="${tourOffer.numberOfDays}"></td>
+            <td th:text="${tourOffer.typeOfService}"></td>
+            <td th:text="${tourOffer.priceForAnAdult}"></td>
+            <td th:text="${tourOffer.priceForAChild}"></td>
+            <td th:text="${tourOffer.promoted}"></td>
+            <td th:text="${tourOffer.numberOfAdult}"></td>
+            <td th:text="${tourOffer.numberOfPLacesForChildren}"></td>
+
+            <!-- action buttons -->
+            <td>
+                <div class="actions">
+                    <a th:href="@{/tourOffer/{id}/edit(id = ${tourOffer.id})}">Edit</a>
+                    <a th:href="@{/tourOffer/{id}/delete(id = ${tourOffer.id})}">Delete</a>
+                </div>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+</div>
+
+</body>
+</html>
