@@ -29,9 +29,12 @@ public class HotelController {
 
         List<Hotel> hotel = hotelService.findAll();
         model.addAttribute("hotelsInView", hotel);
+ 
+        return "hotel-list";
 
         // resolved by the view resolver
         return "hotel-list";
+
     }
 
     @GetMapping("/hotel/add")
