@@ -1,5 +1,7 @@
 package ro.sda.echipa1.entities;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import javax.persistence.*;
 import java.time.LocalDate;
 
@@ -18,7 +20,9 @@ public class TourOffer {
     private Airport airport;
     @ManyToOne
     private Hotel hotel;
+    @DateTimeFormat(pattern = "dd/MM/yyyy")
     private LocalDate departureDate;
+    @DateTimeFormat(pattern = "dd/MM/yyyy")
     private LocalDate dateOfReturn;
     private Integer numberOfDays;
     @Enumerated(EnumType.STRING)
