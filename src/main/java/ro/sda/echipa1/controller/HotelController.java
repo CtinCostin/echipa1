@@ -31,10 +31,6 @@ public class HotelController {
         model.addAttribute("hotelsInView", hotel);
  
         return "hotel-list";
-
-        // resolved by the view resolver
-        return "hotel-list";
-
     }
 
     @GetMapping("/hotel/add")
