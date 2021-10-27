@@ -1,6 +1,8 @@
 package ro.sda.echipa1.entities;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,6 +14,8 @@ public class Continent {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
+    @NotNull
+    @Size(min=1, max=100,message = "Please use minimum 1 character and maximum 100 for name")
     private String name;
 
     @OneToMany(mappedBy = "continent",
@@ -25,5 +29,9 @@ public class Continent {
     public Continent(String name, List<Country> countryList) {
         this.name = name;
         this.countryList = countryList;
+
     }
+
+
+
 }

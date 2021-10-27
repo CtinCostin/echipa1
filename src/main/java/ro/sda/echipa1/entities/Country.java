@@ -1,6 +1,9 @@
 package ro.sda.echipa1.entities;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+import java.lang.annotation.Repeatable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,6 +15,8 @@ public class Country {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
+    @NotNull
+    @Size(min=1, max=100, message = "Please use minimum 50 character and maximum 4000 for name")
     private String name;
 
     @ManyToOne
@@ -28,6 +33,10 @@ public class Country {
     public Country(String name, Continent continent) {
         this.name = name;
         this.continent = continent;
+    }
+
+    public Country(List<City> cityList) {
+        this.cityList = cityList;
     }
 
     public String getName() {
