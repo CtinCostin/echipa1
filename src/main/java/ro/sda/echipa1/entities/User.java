@@ -1,6 +1,9 @@
 package ro.sda.echipa1.entities;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 @Entity
 @Table(name = "user")
@@ -13,7 +16,7 @@ public class User {
     @OneToOne
     private Card card;
 
-
+    @Column(nullable = false, unique = true)
     private String name;
 
     private Integer age;
@@ -22,6 +25,7 @@ public class User {
 
     private String role = "";
 
+    @Column(nullable = false)
     private String password;
 
     public User() {
@@ -88,5 +92,13 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public List<String> getRolesList() {
+
+        if (this.role.length() > 0) {
+            return Arrays.asList(this.role.split(","));
+        }
+        return new ArrayList<>();
     }
 }

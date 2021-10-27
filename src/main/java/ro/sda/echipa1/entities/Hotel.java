@@ -12,22 +12,25 @@ public class Hotel {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+
     @NotNull
-    @Size(min=1, max=25,message = "Please use minimum 1 character and maximum 25 for name")
+    @Size(min=1, max=7000,message = "Please use minimum 1 character and maximum 4000 for name")
     private String name;
 
     @Enumerated(EnumType.STRING)
     private StarRating starRating;
+
     @NotNull
+    @Size(min=1, max=7000,message = "Please use minimum 1 character and maximum 4000 name")
     private String description;
 
     @ManyToOne
     private City city;
 
-    public Hotel(String name, StarRating starRating, String description, City city) {
+    public Hotel(String description, String name, StarRating starRating, City city){
+        this.description = description;
         this.name = name;
         this.starRating = starRating;
-        this.description = description;
         this.city = city;
     }
 
