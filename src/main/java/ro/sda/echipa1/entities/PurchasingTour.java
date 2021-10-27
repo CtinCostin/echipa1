@@ -11,7 +11,7 @@ public class PurchasingTour {
     private Long id;
 
     @OneToOne
-    private Tour tour;
+    private TourOffer tourOffer;
 
     @OneToOne
     private User user;

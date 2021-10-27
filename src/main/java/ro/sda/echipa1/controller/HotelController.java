@@ -29,13 +29,12 @@ public class HotelController {
 
         List<Hotel> hotel = hotelService.findAll();
         model.addAttribute("hotelsInView", hotel);
-
-        // resolved by the view resolver
-        return "index";
+ 
+        return "hotel-list";
     }
 
     @GetMapping("/hotel/add")
-    public String showAddFrom(Model model) {
+    public String showAddForm(Model model) {
         Hotel newHotel = new Hotel();
         model.addAttribute("hotel", newHotel);
         model.addAttribute("cities",cityService.findAll());
