@@ -15,6 +15,10 @@ public class TourOffer {
     private String name;
 
     @ManyToOne
+    private Continent continent;
+    @ManyToOne
+    private Country country;
+    @ManyToOne
     private City city;
     @ManyToOne
     private Airport airport;
@@ -36,10 +40,11 @@ public class TourOffer {
     public TourOffer() {
     }
 
-    public TourOffer(String name, City city, Airport airport, Hotel hotel, LocalDate departureDate, LocalDate dateOfReturn,
-                     Integer numberOfDays, TypeOfService typeOfService, Double priceForAnAdult,
-                     Double priceForAChild, Boolean isPromoted, Integer numberOfAdult, Integer numberOfPLacesForChildren) {
+    public TourOffer(Long id, String name, Continent continent, Country country, City city, Airport airport, Hotel hotel, LocalDate departureDate, LocalDate dateOfReturn, Integer numberOfDays, TypeOfService typeOfService, Double priceForAnAdult, Double priceForAChild, Boolean isPromoted, Integer numberOfAdult, Integer numberOfPLacesForChildren) {
+        this.id = id;
         this.name = name;
+        this.continent = continent;
+        this.country = country;
         this.city = city;
         this.airport = airport;
         this.hotel = hotel;
@@ -54,6 +59,14 @@ public class TourOffer {
         this.numberOfPLacesForChildren = numberOfPLacesForChildren;
     }
 
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
     public String getName() {
         return name;
     }
@@ -62,12 +75,20 @@ public class TourOffer {
         this.name = name;
     }
 
-    public Long getId() {
-        return id;
+    public Continent getContinent() {
+        return continent;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setContinent(Continent continent) {
+        this.continent = continent;
+    }
+
+    public Country getCountry() {
+        return country;
+    }
+
+    public void setCountry(Country country) {
+        this.country = country;
     }
 
     public City getCity() {
@@ -142,12 +163,12 @@ public class TourOffer {
         this.priceForAChild = priceForAChild;
     }
 
-    public Boolean getIsPromoted() {
+    public Boolean getPromoted() {
         return isPromoted;
     }
 
-    public void setIsPromoted(Boolean isPromoted) {
-        this.isPromoted = isPromoted;
+    public void setPromoted(Boolean promoted) {
+        isPromoted = promoted;
     }
 
     public Integer getNumberOfAdult() {
@@ -164,6 +185,10 @@ public class TourOffer {
 
     public void setNumberOfPLacesForChildren(Integer numberOfPLacesForChildren) {
         this.numberOfPLacesForChildren = numberOfPLacesForChildren;
+    }
+
+    public void setIsPromoted(Boolean promoted) {
+
     }
 }
 

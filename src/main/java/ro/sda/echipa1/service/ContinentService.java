@@ -3,6 +3,9 @@ package ro.sda.echipa1.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import ro.sda.echipa1.dto.CityDto;
+import ro.sda.echipa1.dto.ContinentDto;
+import ro.sda.echipa1.entities.City;
 import ro.sda.echipa1.entities.Continent;
 import ro.sda.echipa1.repository.ContinentRepository;
 
@@ -29,8 +32,33 @@ public class ContinentService {
     }
 
     public Continent findById(Long id) {
-        Optional<Continent> continentOptional = continentRepository.findById(id);
-        return continentOptional.orElseThrow(() -> new RuntimeException("Continent not found"));
+        return continentRepository.findById(id).orElseThrow(
+                () -> new RuntimeException("Continent not found"));
+    }
+
+    public void update(Long id, ContinentDto continentDto) {
+        continentRepository.findById(id)
+                .map(existingContinent -> updateEntity(continentDto, existingContinent))
+                .map(updatedContinent -> continentRepository.save(updatedContinent))
+                .orElseThrow(() -> new RuntimeException("continent not found"));
+    }
+
+    private Continent updateEntity(ContinentDto continentDto, Continent existingContinent) {
+        existingContinent.setName(continentDto.getName());
+
+        return existingContinent;
+    }
+
+    public void updateNew(Continent continent) {
+
+        String name = continent.getName();
+        continentRepository.findByNameIgnoreCase(name)
+                .filter(existingContinent -> existingContinent.getId().equals(continent.getId()))
+                .map(existingContinent -> continentRepository.save(continent))
+                .orElseThrow(() -> {
+
+                    throw new RuntimeException("continent already exist");
+                });
     }
 
 
