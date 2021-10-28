@@ -21,6 +21,8 @@
         <!-- table header -->
         <thead>
         <tr>
+            <th>Continent</th>
+            <th>Country</th>
             <th>City</th>
             <th>Airport</th>
             <th>Hotel</th>
@@ -43,6 +45,8 @@
 
         <!-- product entry -->
         <tr th:each="tourOffer : ${tourOfferInView}">
+            <td th:text="${tourOffer.continent.name}"></td>
+            <td th:text="${tourOffer.country.name}"></td>
             <td th:text="${tourOffer.city.name}"></td>
             <td th:text="${tourOffer.airport.name}"></td>
             <td th:text="${tourOffer.hotel.name}"></td>

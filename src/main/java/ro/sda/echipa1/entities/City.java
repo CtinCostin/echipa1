@@ -22,19 +22,28 @@ public class City {
     private Country country;
 
     @OneToMany(mappedBy = "city",
-            fetch = FetchType.EAGER,
-            cascade = CascadeType.REMOVE)
+            cascade = CascadeType.ALL)
     private List<Hotel> hotelList = new ArrayList<>();
 
     @OneToOne(mappedBy = "city")
     private Airport airport;
 
+    @OneToMany(mappedBy = "city",
+            cascade = CascadeType.ALL)
+    private  List<TourOffer> tourOffer = new ArrayList<>();
+
     public City() {
     }
 
-    public City(String name, Country country) {
+    public City(String name, Country country, List<Hotel> hotelList, Airport airport) {
         this.name = name;
         this.country = country;
+        this.hotelList = hotelList;
+        this.airport = airport;
+    }
+
+    public City(List<TourOffer> tourOffer) {
+        this.tourOffer = tourOffer;
     }
 
     public String getName() {
@@ -77,5 +86,11 @@ public class City {
         this.id = id;
     }
 
+    public List<TourOffer> getTourOffer() {
+        return tourOffer;
+    }
 
+    public void setTourOffer(List<TourOffer> tourOffer) {
+        this.tourOffer = tourOffer;
+    }
 }
