@@ -41,6 +41,8 @@ public class TourOfferService {
     }
 
     private TourOffer updateEntity(TourOfferDto tourOfferDto, TourOffer existingTourOffer) {
+        existingTourOffer.setContinent(tourOfferDto.getContinent());
+        existingTourOffer.setCountry(tourOfferDto.getCountry());
         existingTourOffer.setCity(tourOfferDto.getCity());
         existingTourOffer.setAirport(tourOfferDto.getAirport());
         existingTourOffer.setHotel(tourOfferDto.getHotel());

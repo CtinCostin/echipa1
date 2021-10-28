@@ -8,10 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import ro.sda.echipa1.dto.TourOfferDto;
 import ro.sda.echipa1.entities.TourOffer;
 import ro.sda.echipa1.entities.TypeOfService;
-import ro.sda.echipa1.service.AirportService;
-import ro.sda.echipa1.service.CityService;
-import ro.sda.echipa1.service.HotelService;
-import ro.sda.echipa1.service.TourOfferService;
+import ro.sda.echipa1.service.*;
 
 
 import javax.validation.Valid;
@@ -29,6 +26,10 @@ public class TourOfferController {
     private CityService cityService;
     @Autowired
     private AirportService airportService;
+    @Autowired
+    private ContinentService continentService;
+    @Autowired
+    private CountryService countryService;
 
 
     @GetMapping("/tourOffer")
@@ -45,6 +46,8 @@ public class TourOfferController {
     public String showAddForm(Model model) {
         TourOffer newTourOffer = new TourOffer();
         model.addAttribute("tourOffer", newTourOffer);
+        model.addAttribute("continents", continentService.findAll());
+        model.addAttribute("countries", countryService.findAll());
         model.addAttribute("cities",cityService.findAll());
         model.addAttribute("hotels", hotelService.findAll());
         model.addAttribute("airports", airportService.findAll());

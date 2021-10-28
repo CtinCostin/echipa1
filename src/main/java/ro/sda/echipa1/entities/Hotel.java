@@ -4,6 +4,8 @@ import javax.persistence.*;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "hotel")
@@ -27,6 +29,14 @@ public class Hotel {
     @ManyToOne
     private City city;
 
+    @OneToMany(mappedBy = "hotel",
+            cascade = CascadeType.ALL)
+    private List<TourOffer> tourOffer = new ArrayList<>();
+
+    public Hotel() {
+
+    }
+
     public Hotel(String description, String name, StarRating starRating, City city){
         this.description = description;
         this.name = name;
@@ -34,9 +44,6 @@ public class Hotel {
         this.city = city;
     }
 
-    public Hotel() {
-
-    }
 
     public Long getId() {
         return id;

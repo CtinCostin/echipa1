@@ -27,16 +27,29 @@ public class Country {
             cascade = CascadeType.ALL)
     private List<City> cityList = new ArrayList<>();
 
+    @OneToMany(mappedBy = "country",
+            cascade = CascadeType.ALL)
+    private  List<TourOffer> tourOffer = new ArrayList<>();
+
     public Country() {
     }
 
-    public Country(String name, Continent continent) {
-        this.name = name;
-        this.continent = continent;
+    public Country(List<TourOffer> tourOffer) {
+        this.tourOffer = tourOffer;
     }
 
-    public Country(List<City> cityList) {
+    public Country(String name, Continent continent, List<City> cityList) {
+        this.name = name;
+        this.continent = continent;
         this.cityList = cityList;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getName() {
@@ -61,5 +74,13 @@ public class Country {
 
     public void setCityList(List<City> cityList) {
         this.cityList = cityList;
+    }
+
+    public List<TourOffer> getTourOffer() {
+        return tourOffer;
+    }
+
+    public void setTourOffer(List<TourOffer> tourOffer) {
+        this.tourOffer = tourOffer;
     }
 }

@@ -34,6 +34,26 @@
                         </div>
 
                         <div>
+                            <label for="continent">Continent</label>
+                            <select th:field="*{continent}" id="continent">
+                                <option th:each="continent : ${continents}"
+                                        th:text="${continent.name}"
+                                        th:value="${continent.id}">
+                                </option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label for="country">Country</label>
+                            <select th:field="*{country}" id="country">
+                                <option th:each="country : ${countries}"
+                                        th:text="${country.name}"
+                                        th:value="${country.id}">
+                                </option>
+                            </select>
+                        </div>
+
+                        <div>
                             <label for="city">City</label>
                             <select th:field="*{city}" id="city">
                                 <option th:each="city : ${cities}"
