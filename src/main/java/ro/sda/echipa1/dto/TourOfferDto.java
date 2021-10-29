@@ -1,9 +1,6 @@
 package ro.sda.echipa1.dto;
 
-import ro.sda.echipa1.entities.Airport;
-import ro.sda.echipa1.entities.City;
-import ro.sda.echipa1.entities.Hotel;
-import ro.sda.echipa1.entities.TypeOfService;
+import ro.sda.echipa1.entities.*;
 
 import java.time.LocalDate;
 
@@ -12,6 +9,8 @@ public class TourOfferDto {
 
     private Long id;
     private String name;
+    private Continent continent;
+    private Country country;
     private City city;
     private Airport airport;
     private Hotel hotel;
@@ -25,25 +24,20 @@ public class TourOfferDto {
     private Integer numberOfAdult;
     private Integer numberOfPLacesForChildren;
 
-    public TourOfferDto() {
+    public Continent getContinent() {
+        return continent;
     }
 
-    public TourOfferDto(String name, City city, Airport airport, Hotel hotel, LocalDate departureDate, LocalDate dateOfReturn,
-                        Integer numberOfDays, TypeOfService typeOfService, Double priceForAnAdult,
-                        Double priceForAChild, Boolean promoted, Integer numberOfAdult, Integer numberOfPLacesForChildren) {
-        this.name = name;
-        this.city = city;
-        this.airport = airport;
-        this.hotel = hotel;
-        this.departureDate = departureDate;
-        this.dateOfReturn = dateOfReturn;
-        this.numberOfDays = numberOfDays;
-        this.typeOfService = typeOfService;
-        this.priceForAnAdult = priceForAnAdult;
-        this.priceForAChild = priceForAChild;
-        this.promoted = promoted;
-        this.numberOfAdult = numberOfAdult;
-        this.numberOfPLacesForChildren = numberOfPLacesForChildren;
+    public void setContinent(Continent continent) {
+        this.continent = continent;
+    }
+
+    public Country getCountry() {
+        return country;
+    }
+
+    public void setCountry(Country country) {
+        this.country = country;
     }
 
     public String getName() {

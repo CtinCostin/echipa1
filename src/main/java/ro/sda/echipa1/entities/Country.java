@@ -1,6 +1,9 @@
 package ro.sda.echipa1.entities;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+import java.lang.annotation.Repeatable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,6 +15,8 @@ public class Country {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
+    @NotNull
+    @Size(min=1, max=100, message = "Please use minimum 50 character and maximum 4000 for name")
     private String name;
 
     @ManyToOne
@@ -22,12 +27,29 @@ public class Country {
             cascade = CascadeType.ALL)
     private List<City> cityList = new ArrayList<>();
 
+    @OneToMany(mappedBy = "country",
+            cascade = CascadeType.ALL)
+    private  List<TourOffer> tourOffer = new ArrayList<>();
+
     public Country() {
     }
 
-    public Country(String name, Continent continent) {
+    public Country(List<TourOffer> tourOffer) {
+        this.tourOffer = tourOffer;
+    }
+
+    public Country(String name, Continent continent, List<City> cityList) {
         this.name = name;
         this.continent = continent;
+        this.cityList = cityList;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getName() {
@@ -52,5 +74,13 @@ public class Country {
 
     public void setCityList(List<City> cityList) {
         this.cityList = cityList;
+    }
+
+    public List<TourOffer> getTourOffer() {
+        return tourOffer;
+    }
+
+    public void setTourOffer(List<TourOffer> tourOffer) {
+        this.tourOffer = tourOffer;
     }
 }

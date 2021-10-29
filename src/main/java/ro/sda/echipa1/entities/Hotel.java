@@ -4,6 +4,8 @@ import javax.persistence.*;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "hotel")
@@ -14,28 +16,34 @@ public class Hotel {
     private Long id;
 
     @NotNull
-    @Size(min=1, max=25,message = "Please use minimum 1 character and maximum 25 for name")
+    @Size(min=1, max=7000,message = "Please use minimum 1 character and maximum 4000 for name")
     private String name;
 
     @Enumerated(EnumType.STRING)
     private StarRating starRating;
 
     @NotNull
+    @Size(min=1, max=7000,message = "Please use minimum 1 character and maximum 4000 name")
     private String description;
 
     @ManyToOne
     private City city;
 
-    public Hotel(String name, StarRating starRating, String description, City city) {
-        this.name = name;
-        this.starRating = starRating;
-        this.description = description;
-        this.city = city;
-    }
+    @OneToMany(mappedBy = "hotel",
+            cascade = CascadeType.ALL)
+    private List<TourOffer> tourOffer = new ArrayList<>();
 
     public Hotel() {
 
     }
+
+    public Hotel(String description, String name, StarRating starRating, City city){
+        this.description = description;
+        this.name = name;
+        this.starRating = starRating;
+        this.city = city;
+    }
+
 
     public Long getId() {
         return id;
