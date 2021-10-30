@@ -1,4 +1,4 @@
-package ro.sda.echipa1.entities;
+package ro.sda.echipa1.entities.enums;
 
 public enum TypeOfService {
 

@@ -1,7 +1,7 @@
 package ro.sda.echipa1.dto;
 
 import ro.sda.echipa1.entities.City;
-import ro.sda.echipa1.entities.StarRating;
+import ro.sda.echipa1.entities.enums.StarRating;
 
 public class HotelDto {
 
