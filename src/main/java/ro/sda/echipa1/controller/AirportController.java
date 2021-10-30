@@ -38,7 +38,7 @@ public class AirportController {
     public String showAddForm(Model model) {
         Airport newAirport = new Airport();
         model.addAttribute("airport", newAirport);
-        model.addAttribute("city", cityService.findAll());
+        model.addAttribute("cities", cityService.findAll());
 
         return "airport-add";
     }
@@ -49,7 +49,7 @@ public class AirportController {
             return "airport-add";
         }
         airportService.save(airport);
-        return "redirect:/airport";
+        return "redirect:/airport/";
     }
 
 
@@ -67,13 +67,13 @@ public class AirportController {
             @ModelAttribute AirportDto airportDto) {
 
         airportService.update(id, airportDto);
-        return "redirect:/airport";
+        return "redirect:/airport/";
     }
 
     @GetMapping("/{id}/delete")
     public String delete(@PathVariable Long id) {
         airportService.delete(id);
-        return "redirect:/airport";
+        return "redirect:/airport/";
     }
 
 
