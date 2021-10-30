@@ -14,7 +14,7 @@
 <div align="center">
     <h1>Tour Offer list</h1>
 
-    <a th:href="@{/tourOffer/add}">Create tour offer</a>
+    <a th:href="@{/tourOfferAdmin/add}">Create tour offer</a>
 
 
     <table>
@@ -44,27 +44,27 @@
         <tbody>
 
         <!-- product entry -->
-        <tr th:each="tourOffer : ${tourOfferInView}">
-            <td th:text="${tourOffer.continent.name}"></td>
-            <td th:text="${tourOffer.country.name}"></td>
-            <td th:text="${tourOffer.city.name}"></td>
-            <td th:text="${tourOffer.airport.name}"></td>
-            <td th:text="${tourOffer.hotel.name}"></td>
-            <td th:text="${tourOffer.departureDate}"></td>
-            <td th:text="${tourOffer.dateOfReturn}"></td>
-            <td th:text="${tourOffer.numberOfDays}"></td>
-            <td th:text="${tourOffer.typeOfService}"></td>
-            <td th:text="${tourOffer.priceForAnAdult}"></td>
-            <td th:text="${tourOffer.priceForAChild}"></td>
-            <td th:text="${tourOffer.promoted}"></td>
-            <td th:text="${tourOffer.numberOfAdult}"></td>
-            <td th:text="${tourOffer.numberOfPLacesForChildren}"></td>
+        <tr th:each="tourOfferAdmin : ${tourOfferInView}">
+            <td th:text="${tourOfferAdmin.continent.name}"></td>
+            <td th:text="${tourOfferAdmin.country.name}"></td>
+            <td th:text="${tourOfferAdmin.city.name}"></td>
+            <td th:text="${tourOfferAdmin.airport.name}"></td>
+            <td th:text="${tourOfferAdmin.hotel.name}"></td>
+            <td th:text="${tourOfferAdmin.departureDate}"></td>
+            <td th:text="${tourOfferAdmin.dateOfReturn}"></td>
+            <td th:text="${tourOfferAdmin.numberOfDays}"></td>
+            <td th:text="${tourOfferAdmin.typeOfService}"></td>
+            <td th:text="${tourOfferAdmin.priceForAnAdult}"></td>
+            <td th:text="${tourOfferAdmin.priceForAChild}"></td>
+            <td th:text="${tourOfferAdmin.promoted}"></td>
+            <td th:text="${tourOfferAdmin.numberOfAdult}"></td>
+            <td th:text="${tourOfferAdmin.numberOfPLacesForChildren}"></td>
 
             <!-- action buttons -->
             <td>
                 <div class="actions">
-                    <a th:href="@{/tourOffer/{id}/edit(id = ${tourOffer.id})}">Edit</a>
-                    <a th:href="@{/tourOffer/{id}/delete(id = ${tourOffer.id})}">Delete</a>
+                    <a th:href="@{/tourOfferAdmin/{id}/edit(id = ${tourOfferAdmin.id})}">Edit</a>
+                    <a th:href="@{/tourOfferAdmin/{id}/delete(id = ${tourOfferAdmin.id})}">Delete</a>
                 </div>
 
                 <div class="container">

@@ -5,15 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import ro.sda.echipa1.entities.*;
-import ro.sda.echipa1.repository.UserRepository;
 import ro.sda.echipa1.service.*;
-
-import java.util.ArrayList;
-import java.util.List;
-
-import static ro.sda.echipa1.entities.StarRating.FIVE_STARS;
-import static ro.sda.echipa1.entities.StarRating.ONE_STAR;
 
 @Configuration
 public class DbInit {

@@ -1,7 +1,8 @@
 package ro.sda.echipa1.entities;
 
+import ro.sda.echipa1.entities.enums.StarRating;
+
 import javax.persistence.*;
-import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.util.ArrayList;
@@ -31,7 +32,7 @@ public class Hotel {
 
     @OneToMany(mappedBy = "hotel",
             cascade = CascadeType.ALL)
-    private List<TourOffer> tourOffer = new ArrayList<>();
+    private List<TourOfferAdmin> tourOfferAdmin = new ArrayList<>();
 
     public Hotel() {
 
