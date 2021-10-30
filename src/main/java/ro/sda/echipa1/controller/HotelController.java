@@ -26,10 +26,8 @@ public class HotelController {
 
     @GetMapping("/hotel")
     public String showHotelsPage(Model model) {
-
         List<Hotel> hotel = hotelService.findAll();
         model.addAttribute("hotelsInView", hotel);
- 
         return "hotel-list";
     }
 
@@ -48,7 +46,7 @@ public class HotelController {
             return "hotel-add";
         }
         hotelService.save(hotel);
-        return "redirect:/hotel";
+        return "redirect:/hotel/";
     }
 
 
@@ -72,6 +70,6 @@ public class HotelController {
     @GetMapping("/hotel/{id}/delete")
     public String delete(@PathVariable Long id) {
         hotelService.delete(id);
-        return "redirect:/hotel";
+        return "redirect:/hotel/";
     }
 }

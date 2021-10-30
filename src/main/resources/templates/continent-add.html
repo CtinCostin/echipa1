@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+    <title>Create new continent</title>
+</head>
+<body>
+<div align="center">
+    <h1>Create new continent</h1>
+
+    <div>
+        <form method="post" th:action="@{/continent/add}" th:object="${continent}">
+
+            <div>
+                <label for="name">Name</label>
+                <input id="name" th:field="*{name}" type="text">
+                <span th:if="${#fields.hasErrors('name')}" th:error="*{name}" class="text-danger"></span>
+            </div>
+
+            <div>
+                <a th:href="@{/continent}">
+                    <button class="btn btn-secondary" id="cancel" name="cancel" type="button">Cancel</button>
+                </a>
+                <button class="btn btn-primary" id="save" name="save" type="submit">Save</button>
+            </div>
+        </form>
+    </div>
+
+</div>
+</body>
+</html>

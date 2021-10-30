@@ -55,12 +55,12 @@ public class CityController {
             return "city-add";
         }
         cityService.save(city);
-        return "redirect:/city";
+        return "redirect:/city/";
     }
 
     @GetMapping("/city/{id}/delete")
     public String delete(@PathVariable Long id) {
         cityService.delete(id);
-        return "redirect:/city";
+        return "redirect:/city/";
     }
 }
