@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+    <title>Airport</title>
+</head>
+<body>
+
+<div align="center">
+    <h1>Airport list</h1>
+
+    <a th:href="@{/airport/add}">Create airport</a>
+
+    <table>
+        <!-- table header -->
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>City</th>
+        </tr>
+        </thead>
+
+        <!-- table body -->
+        <tbody>
+
+        <!-- product entry -->
+        <tr th:each="hotel : ${airportInView}">
+            <td th:text="${airport.name}"></td>
+            <td th:text="${airport.city.name}"></td>
+
+            <!-- action buttons -->
+            <td>
+                <div class="actions">
+                    <a th:href="@{/airport/{id}/edit(id = ${airport.id})}">Edit</a>
+                    <a th:href="@{/airport/{id}/delete(id = ${airport.id})}">Delete</a>
+                </div>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+</div>
+
+</body>
+</html>

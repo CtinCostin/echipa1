@@ -20,20 +20,16 @@ public class CountryController {
 
     @Autowired
     private CountryService countryService;
-
     @Autowired
     private ContinentService continentService;
-
-    @Autowired
-    private CityService cityService;
+//    @Autowired
+//    private CityService cityService;
 
 
     @GetMapping("/country")
     public String showCountriesPage(Model model) {
-
         List<Country> countryList = countryService.findAll();
         model.addAttribute("countriesInView", countryList);
-
         return "country-list";
     }
 
@@ -42,7 +38,6 @@ public class CountryController {
         Country newCountry = new Country();
         model.addAttribute("country", newCountry);
         model.addAttribute("continent", continentService.findAll());
-        model.addAttribute("cities", cityService.findAll());
         return "country-add";
     }
 
@@ -52,13 +47,13 @@ public class CountryController {
             return "country-add";
         }
         countryService.save(country);
-        return "redirect:/country";
+        return "redirect:/country/";
     }
 
     @GetMapping("/country/{id}/delete")
     public String delete(@PathVariable Long id) {
         countryService.delete(id);
-        return "redirect:/country";
+        return "redirect:/country/";
     }
 
 }

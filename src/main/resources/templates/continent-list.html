@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+    <title>Continent</title>
+</head>
+<body>
+
+<div align="center">
+    <h1>Continent list</h1>
+
+    <a th:href="@{/continent/add}">Create continent</a>
+
+    <table>
+        <!-- table header -->
+        <thead>
+        <tr>
+            <th>Name</th>
+        </tr>
+        </thead>
+
+        <!-- table body -->
+        <tbody>
+
+        <!-- product entry -->
+        <tr th:each="continent : ${continentsInView}">
+            <td th:text="${continent.name}"></td>
+
+            <!-- action buttons -->
+            <td>
+                <div class="actions">
+                    <a th:href="@{/continent/{id}/edit(id = ${continent.id})}">Edit</a>
+                    <a th:href="@{/continent/{id}/delete(id = ${continent.id})}">Delete</a>
+                </div>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+</div>
+
+</body>
+</html>
