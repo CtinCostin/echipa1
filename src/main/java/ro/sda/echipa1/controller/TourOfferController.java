@@ -16,6 +16,7 @@ import java.time.LocalDate;
 import java.util.List;
 
 @Controller
+@RequestMapping("/tourOffer")
 public class TourOfferController {
 
     @Autowired
@@ -32,7 +33,7 @@ public class TourOfferController {
     private CountryService countryService;
 
 
-    @GetMapping("/tourOffer")
+    @GetMapping("/")
     public String showToursOfferPage(Model model) {
 
         List<TourOffer> tourOfferList = tourOfferService.findAll();
@@ -41,7 +42,7 @@ public class TourOfferController {
         return "tour-list";
     }
 
-    @GetMapping("/tourOffer/add")
+    @GetMapping("/add")
     public String showAddForm(Model model) {
         TourOffer newTourOffer = new TourOffer();
         model.addAttribute("tourOffer", newTourOffer);
@@ -56,7 +57,7 @@ public class TourOfferController {
         return "tourOffer-add";
     }
 
-    @PostMapping("/tourOffer/add")
+    @PostMapping("/add")
     public String addNewTourOffer(@Valid TourOffer tourOffer, BindingResult bindingResult){
         if(bindingResult.hasErrors()){
             return "tourOffer-add";
@@ -66,7 +67,7 @@ public class TourOfferController {
     }
 
 
-    @GetMapping("/tourOffer/{id}/edit")
+    @GetMapping("/{id}/edit")
     public String showEditForm(Model model,
                                @PathVariable Long id) {
 
@@ -74,7 +75,7 @@ public class TourOfferController {
         return "tourOffer-edit";
     }
 
-    @PostMapping("/tourOffer/{id}/edit")
+    @PostMapping("/{id}/edit")
     public String edit(
             @PathVariable Long id,
             @ModelAttribute TourOfferDto tourOfferDto) {
@@ -83,7 +84,7 @@ public class TourOfferController {
         return "redirect:/tourOffer/";
     }
 
-    @GetMapping("/tourOffer/{id}/delete")
+    @GetMapping("/{id}/delete")
     public String delete(@PathVariable Long id) {
         tourOfferService.delete(id);
         return "redirect:/tourOffer/";

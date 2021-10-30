@@ -16,6 +16,7 @@ import javax.validation.Valid;
 import java.util.List;
 
 @Controller
+@RequestMapping("/hotel")
 public class HotelController {
 
     @Autowired
@@ -24,7 +25,7 @@ public class HotelController {
     private CityService cityService;
 
 
-    @GetMapping("/hotel")
+    @GetMapping("/")
     public String showHotelsPage(Model model) {
 
         List<Hotel> hotel = hotelService.getAllHotels();
@@ -33,7 +34,7 @@ public class HotelController {
         return "hotel-list";
     }
 
-    @GetMapping("/hotel/add")
+    @GetMapping("/add")
     public String showAddForm(Model model) {
         Hotel newHotel = new Hotel();
         model.addAttribute("hotel", newHotel);
@@ -42,17 +43,17 @@ public class HotelController {
         return "hotel-add";
     }
 
-    @PostMapping("/hotel/add")
+    @PostMapping("/add")
     public String addNewHotel(@Valid Hotel hotel, BindingResult bindingResult){
         if(bindingResult.hasErrors()){
             return "hotel-add";
         }
         hotelService.save(hotel);
-        return "redirect:/hotel";
+        return "redirect:/hotel/";
     }
 
 
-    @GetMapping("/hotel/{id}/edit")
+    @GetMapping("/{id}/edit")
     public String showEditForm(Model model,
                                @PathVariable Long id) {
 
@@ -60,18 +61,18 @@ public class HotelController {
         return "hotel-edit";
     }
 
-    @PostMapping("/hotel/{id}/edit")
+    @PostMapping("/{id}/edit")
     public String edit(
             @PathVariable Long id,
             @ModelAttribute HotelDto hotelDto) {
 
        hotelService.update(id, hotelDto);
-        return "redirect:/hotel";
+        return "redirect:/hotel/";
     }
 
-    @GetMapping("/hotel/{id}/delete")
+    @GetMapping("/{id}/delete")
     public String delete(@PathVariable Long id) {
         hotelService.delete(id);
-        return "redirect:/hotel";
+        return "redirect:/hotel/";
     }
 }

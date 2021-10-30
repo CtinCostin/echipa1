@@ -4,10 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 import ro.sda.echipa1.dto.AirportDto;
 import ro.sda.echipa1.entities.Airport;
 import ro.sda.echipa1.service.AirportService;
@@ -18,6 +15,7 @@ import javax.validation.Valid;
 import java.util.List;
 
 @Controller
+@RequestMapping("/airport")
 public class AirportController {
 
     @Autowired
@@ -27,7 +25,7 @@ public class AirportController {
     private CityService cityService;
 
 
-    @GetMapping("/airport")
+    @GetMapping("/")
     public String showAirportsPage(Model model) {
 
         List<Airport> airportList = airportService.findAll();
@@ -36,7 +34,7 @@ public class AirportController {
         return "airport-list";
     }
 
-    @GetMapping("/airport/add")
+    @GetMapping("/add")
     public String showAddForm(Model model) {
         Airport newAirport = new Airport();
         model.addAttribute("airport", newAirport);
@@ -45,7 +43,7 @@ public class AirportController {
         return "airport-add";
     }
 
-    @PostMapping("/airport/add")
+    @PostMapping("/add")
     public String addNewAirport(@Valid Airport airport, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
             return "airport-add";
@@ -55,7 +53,7 @@ public class AirportController {
     }
 
 
-    @GetMapping("/airport/{id}/edit")
+    @GetMapping("/{id}/edit")
     public String showEditForm(Model model,
                                @PathVariable Long id) {
 
@@ -63,7 +61,7 @@ public class AirportController {
         return "airport-edit";
     }
 
-    @PostMapping("/airport/{id}/edit")
+    @PostMapping("/{id}/edit")
     public String edit(
             @PathVariable Long id,
             @ModelAttribute AirportDto airportDto) {
@@ -72,7 +70,7 @@ public class AirportController {
         return "redirect:/airport";
     }
 
-    @GetMapping("/airport/{id}/delete")
+    @GetMapping("/{id}/delete")
     public String delete(@PathVariable Long id) {
         airportService.delete(id);
         return "redirect:/airport";

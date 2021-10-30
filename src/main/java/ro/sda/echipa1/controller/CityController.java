@@ -7,6 +7,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import ro.sda.echipa1.entities.City;
 import ro.sda.echipa1.service.*;
 
@@ -14,6 +15,7 @@ import javax.validation.Valid;
 import java.util.List;
 
 @Controller
+@RequestMapping("/city")
 public class CityController {
 
     @Autowired
@@ -29,7 +31,7 @@ public class CityController {
     private HotelService hotelService;
 
 
-    @GetMapping("/city")
+    @GetMapping("/")
     public String showCitiesPage(Model model) {
 
         List<City> cityList = cityService.findAll();
@@ -38,7 +40,7 @@ public class CityController {
         return "city-list";
     }
 
-    @GetMapping("/city/add")
+    @GetMapping("/add")
     public String showAddForm(Model model) {
         City newCity = new City();
         model.addAttribute("city", newCity);
@@ -49,18 +51,18 @@ public class CityController {
         return "city-add";
     }
 
-    @PostMapping("/city/add")
+    @PostMapping("/add")
     public String addNewCity(@Valid City city, BindingResult bindingResult){
         if(bindingResult.hasErrors()){
             return "city-add";
         }
         cityService.save(city);
-        return "redirect:/city";
+        return "redirect:/city/";
     }
 
-    @GetMapping("/city/{id}/delete")
+    @GetMapping("/{id}/delete")
     public String delete(@PathVariable Long id) {
         cityService.delete(id);
-        return "redirect:/city";
+        return "redirect:/city/";
     }
 }
