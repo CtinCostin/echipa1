@@ -4,7 +4,7 @@ insert into continent values (4,'America de Sud'), (5,'Africa');
 insert into country values (1,'Romania', 1),(2,'Grecia', 1),(3,'Turcia', 1), (4,'Italia', 1), (5,'Spania', 1);
 insert into country values (6,'Thailanda', 2), (7,'Japonia', 2), (8,'Singapore', 2), (9,'Maldive', 2);
 insert into country values (10,'SUA', 3), (11,'Canada', 3), (12,'Mexic', 3);
-insert into country values (13,'Brazilia', 4), (14'Argentina', 4), (15,'Chile', 4);
+insert into country values (13,'Brazilia', 4), (14,'Argentina', 4), (15,'Chile', 4);
 insert into country values (16,'Egipt', 5), (17,'Tunisia', 5), (18,'Africa de Sud', 5), (19,'Maroc', 5);
 insert into city values (1,'Constanta', 1), (2,'Brasov', 1), (3,'Atena', 2), (4,'Mikonos', 2), (5,'Antalia', 3), (6,'Istanbul', 3), (7,'Roma', 4), (8,'Milano', 4), (9,'Madrid', 5), (10,'Barcelona', 5);
 insert into city values (11,'Phuket', 6), (12,'Bangkok', 6), (13,'Tokio', 7), (14,'Osaka', 7), (15,'Singapore', 8), (16,'Male', 9);
@@ -19,7 +19,6 @@ insert into airport values (29, 'HRG', 29),  (30, 'SSH', 30),  (31, 'MIR', 31), 
 insert into hotel values (1, 'Hotelul Ramada by Wyndham Constanta este situat în Mamaia,pe malul lacului Tăbăcăria, la mai puțin de 10 minute de mers pe jos de plajă și la 500 de metri de Satul de Vacanță', 'Ramada Wyndham Constanta', 'FIVE_STARS', 1);
 insert into hotel values (2, 'New Royal oferă cazare de 4 stele în Constanța, la 5 km de centrul comercial Tom Constanțași la 6 km de portul de agrement și clubul de iahturi Tomis.', 'New Royal', 'FOUR_STARS', 1);
 insert into hotel values (3, 'Situat în nordul staţiunii Eforie Nord, lângă promenadă şi plaja cu nisip, Hotelul Mirage oferă o piscină interioară, precum şi tratamente spa şi wellness, la un cost suplimentar.', 'Mirage Medspa Hotel', 'THREE_STARS',1);
-
 insert into hotel values (4, 'Hotelul Rainer se află la numai 5 minute de mers cu maşina de centrul oraşului Braşov şi beneficiază de o locaţie plăcută şi liniştită, cu legături bune spre oraşul vechi şi centrul comercial.', 'Hotel Rainer', 'THREE_STARS', 2);
 
 insert into hotel values (5, 'Situat în apropiere de centrul de afaceri, financiar, cultural şi comercial al orașului,acest hotel nou oferă o ambianță luxoasă de 4 stele, bucătărie rafinată şi servicii impecabile.', 'Hotel HP Tower One', 'FOUR_STARS', 2);
@@ -109,7 +108,7 @@ insert into hotel values (47, 'Situat convenabil în cartierul Pinheiros, Mercur
                           'Mercure Sao Paulo Pinheiros', 'FOUR_STARS', 24);
 insert into hotel values (48, 'Hotelul Maksoud Plaza Distributed by Accorhotels este situat în inima orașului Sao Paulo și este situat ideal, la 260 de metri de faimosul Bulevar Paulista. Proprietatea se află la doar 15 minute de mers cu mașina de Aeroportul Intern Congonhas din Sao Paulo.În mijlocul fântânilor liniștitoare și amenajării teritoriului din holul Atrium, restaurantul informal "150 Maksoud" servește micul dejun. Hotelul Maksoud Plaza Distribuit de Frank Bar de la Accorhotels a câștigat cel mai bun barman și cel mai bun meniu de băuturi de către Veja Comer e Beber, barul oferă o listă de 33 de băuturi.',
                           'Hotel Maksoud Plaza Distribuit de Accorhotels', 'FOUR_STARS', 24);
-insert into hotel values (49, 'Situat în cartierul elegant Puerto Madero, Hilton Buenos Aires oferă unități de cazare luxoase, cu vedere la oraș și la râu. Hotelul are facilități de spa, un centru de fitness, o piscină pe acoperiș și se mândrește cu un hol iconic și impresionant cu atrium din sticlă. Oaspeții de la Hilton Buenos Aires se pot bucura de camere confortabile și spațioase, cu mochetă, cu decor clasic și facilități moderne. Camerele Executive oferă acces exclusiv la Executive Lounge. La fața locului sunt oferite trei concepte gastronomice elegante. Oaspeții se pot delecta cu mâncăruri internaționale la restaurantul El Faro, pot bea un cocktail sau două la barul Alberto's Lobby sau pot gusta cafea regională la Croutons grab and go.',
+insert into hotel values (49, 'Situat în cartierul elegant Puerto Madero, Hilton Buenos Aires oferă unități de cazare luxoase, cu vedere la oraș și la râu. Hotelul are facilități de spa, un centru de fitness, o piscină pe acoperiș și se mândrește cu un hol iconic și impresionant cu atrium din sticlă. Oaspeții de la Hilton Buenos Aires se pot bucura de camere confortabile și spațioase, cu mochetă, cu decor clasic și facilități moderne. Camerele Executive oferă acces exclusiv la Executive Lounge. La fața locului sunt oferite trei concepte gastronomice elegante. Oaspeții se pot delecta cu mâncăruri internaționale la restaurantul El Faro, pot bea un cocktail sau două la barul Alberto`s Lobby sau pot gusta cafea regională la Croutons grab and go.',
                           'Hilton Buenos Aires', 'FIVE_STARS', 25);
 insert into hotel values (50, 'Claridge este un hotel de lux amplasat într-o clădire neoclasică din centrul orașului Buenos Aires, la doar 400 de metri de bulevardul 9 de Julio. Facilitățile oferite includ opțiuni rafinate de luat masa, precum și acces la o serie de expoziții de pictură, evenimente culturale și recitaluri de operă. În timpul verii, oaspeții au la dispoziție o sală de fitness şi o piscină. Camerele elegante ale Hotelului Claridge au interior clasic și ferestre franceze mari. Toate oferă aer condiționat, TV cu ecran plat și canale prin cablu și WiFi gratuit.',
                           'Claridge Hotel', 'FIVE_STARS', 25);
@@ -162,7 +161,3 @@ insert into hotel values (71, 'Unitățile de cazare sunt dotate cu aer condiți
 insert into hotel values (72, 'Acest hotel situat la 6 km de moscheea Hassan II și centrul comercial Morocco Mall pune la dispoziţie o piscină, un centru de fitness și un centru spa. Hotelul are grădini cu plante tropicale și oferă vedere la mare şi la La Corniche, promenada de pe malul mării.  Fiecare cameră, suită și bungalou include balcon cu vedere la mare, la piscina în aer liber sau la grădină. Unităţile de cazare includ aer condiționat, TV cu ecran plat, Wi-Fi gratuit și baie proprie. Oaspeții pot savura mâncăruri din bucătăria marocană sau internațională în oricare dintre cele 3 restaurante, care oferă şi meniuri pentru diete speciale. În fiecare dimineaţă este servit un bufet de mic dejun. Aveţi la dispoziţie și 2 baruri în care vă puteți petrece serile. De asemenea, hotelul oferă Wi-Fi gratuit în toate zonele publice.',
 
                           'Casablanca Le Lido Thalasso & Spa (ex Riad Salam)', 'FOUR_STARS', 36);
-
-                          
-
-
