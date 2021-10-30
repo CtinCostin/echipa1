@@ -45,6 +45,7 @@ public class CityService {
     private City updateEntity(CityDto cityDto, City existingCity) {
         existingCity.setName(cityDto.getName());
         existingCity.setCountry(cityDto.getCountry());
+        existingCity.setAirport(cityDto.getAirport());
 
         return existingCity;
     }

@@ -5,9 +5,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
-import ro.sda.echipa1.dto.TourOfferDto;
-import ro.sda.echipa1.entities.TourOffer;
-import ro.sda.echipa1.entities.TypeOfService;
+import ro.sda.echipa1.dto.TourOfferAdminDto;
+import ro.sda.echipa1.entities.TourOfferAdmin;
+import ro.sda.echipa1.entities.enums.TypeOfService;
 import ro.sda.echipa1.service.*;
 
 
@@ -16,10 +16,11 @@ import java.time.LocalDate;
 import java.util.List;
 
 @Controller
+@RequestMapping("/tourOfferAdmin")
 public class TourOfferController {
 
     @Autowired
-    private TourOfferService tourOfferService;
+    private TourOfferAdminService tourOfferAdminService;
     @Autowired
     private HotelService hotelService;
     @Autowired
@@ -32,20 +33,18 @@ public class TourOfferController {
     private CountryService countryService;
 
 
-    @GetMapping("/tourOffer")
+    @GetMapping("/")
     public String showToursOfferPage(Model model) {
 
-        List<TourOffer> tourOfferList = tourOfferService.findAll();
-        model.addAttribute("tourOfferInView", tourOfferList);
-
-        // resolved by the view resolver
-        return "tour-list";
+        List<TourOfferAdmin> tourOfferAdminList = tourOfferAdminService.findAll();
+        model.addAttribute("tourOfferInView", tourOfferAdminList);
+        return "tourOfferAdmin-list";
     }
 
-    @GetMapping("/tourOffer/add")
+    @GetMapping("/add")
     public String showAddForm(Model model) {
-        TourOffer newTourOffer = new TourOffer();
-        model.addAttribute("tourOffer", newTourOffer);
+        TourOfferAdmin newTourOfferAdmin = new TourOfferAdmin();
+        model.addAttribute("tourOffer", newTourOfferAdmin);
         model.addAttribute("continents", continentService.findAll());
         model.addAttribute("countries", countryService.findAll());
         model.addAttribute("cities",cityService.findAll());
@@ -54,39 +53,39 @@ public class TourOfferController {
         model.addAttribute("departureDate", LocalDate.now());
         model.addAttribute("dateOfReturn", LocalDate.now());
         model.addAttribute("typeOfService", TypeOfService.values());
-        return "tourOffer-add";
+        return "tourOfferAdmin-add";
     }
 
-    @PostMapping("/tourOffer/add")
-    public String addNewTourOffer(@Valid TourOffer tourOffer, BindingResult bindingResult){
+    @PostMapping("/add")
+    public String addNewTourOffer(@Valid TourOfferAdmin tourOfferAdmin, BindingResult bindingResult){
         if(bindingResult.hasErrors()){
-            return "tourOffer-add";
+            return "tourOfferAdmin-add";
         }
-        tourOfferService.save(tourOffer);
-        return "redirect:/tourOffer";
+        tourOfferAdminService.save(tourOfferAdmin);
+        return "redirect:/tourOfferAdmin-list";
     }
 
 
-    @GetMapping("/tourOffer/{id}/edit")
+    @GetMapping("/{id}/edit")
     public String showEditForm(Model model,
                                @PathVariable Long id) {
 
-        model.addAttribute("tourOffer", tourOfferService.findById(id));
-        return "tourOffer-edit";
+        model.addAttribute("tourOfferAdmin", tourOfferAdminService.findById(id));
+        return "tourOfferAdmin-edit";
     }
 
-    @PostMapping("/tourOffer/{id}/edit")
+    @PostMapping("/{id}/edit")
     public String edit(
             @PathVariable Long id,
-            @ModelAttribute TourOfferDto tourOfferDto) {
+            @ModelAttribute TourOfferAdminDto tourOfferAdminDto) {
 
-        tourOfferService.update(id, tourOfferDto);
-        return "redirect:/tourOffer";
+        tourOfferAdminService.update(id, tourOfferAdminDto);
+        return "redirect:/tourOfferAdmin/";
     }
 
-    @GetMapping("/tourOffer/{id}/delete")
+    @GetMapping("/{id}/delete")
     public String delete(@PathVariable Long id) {
-        tourOfferService.delete(id);
-        return "redirect:/tourOffer";
+        tourOfferAdminService.delete(id);
+        return "redirect:/tourOfferAdmin/";
     }
 }

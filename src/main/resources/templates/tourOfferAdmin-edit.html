@@ -14,7 +14,7 @@
     <h1>Edit tour offer</h1>
 
     <div>
-        <form method="post" th:action="@{/tourOffer/add}" th:object="${tourOffer}">
+        <form method="post" th:action="@{/tourOfferAdmin/add}" th:object="${tourOfferAdmin}">
 
             <div>
                 <label for="name">Name</label>
@@ -115,7 +115,7 @@
             </div>
 
             <div>
-                <a th:href="@{/tourOffer}">
+                <a th:href="@{/tourOfferAdmin}">
                     <button class="btn btn-secondary" id="cancel" name="cancel" type="button">Cancel</button>
                 </a>
                 <button class="btn btn-primary" id="save" name="save" type="submit">Save</button>

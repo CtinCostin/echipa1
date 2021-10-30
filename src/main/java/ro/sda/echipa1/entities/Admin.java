@@ -7,7 +7,7 @@ public class Admin {
     private Continent continent;
     private Country country;
     private Hotel hotel;
-    private TourOffer tourOffer;
+    private TourOfferAdmin tourOfferAdmin;
 
     public Admin() {
     }

@@ -3,7 +3,6 @@ package ro.sda.echipa1.entities;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-import java.lang.annotation.Repeatable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -29,13 +28,13 @@ public class Country {
 
     @OneToMany(mappedBy = "country",
             cascade = CascadeType.ALL)
-    private  List<TourOffer> tourOffer = new ArrayList<>();
+    private  List<TourOfferAdmin> tourOfferAdmin = new ArrayList<>();
 
     public Country() {
     }
 
-    public Country(List<TourOffer> tourOffer) {
-        this.tourOffer = tourOffer;
+    public Country(List<TourOfferAdmin> tourOfferAdmin) {
+        this.tourOfferAdmin = tourOfferAdmin;
     }
 
     public Country(String name, Continent continent, List<City> cityList) {
@@ -76,11 +75,11 @@ public class Country {
         this.cityList = cityList;
     }
 
-    public List<TourOffer> getTourOffer() {
-        return tourOffer;
+    public List<TourOfferAdmin> getTourOffer() {
+        return tourOfferAdmin;
     }
 
-    public void setTourOffer(List<TourOffer> tourOffer) {
-        this.tourOffer = tourOffer;
+    public void setTourOffer(List<TourOfferAdmin> tourOfferAdmin) {
+        this.tourOfferAdmin = tourOfferAdmin;
     }
 }

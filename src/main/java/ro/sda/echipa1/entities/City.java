@@ -28,9 +28,7 @@ public class City {
     @OneToOne(mappedBy = "city")
     private Airport airport;
 
-    @OneToMany(mappedBy = "city",
-            cascade = CascadeType.ALL)
-    private  List<TourOffer> tourOffer = new ArrayList<>();
+
 
     public City() {
     }
@@ -42,9 +40,7 @@ public class City {
         this.airport = airport;
     }
 
-    public City(List<TourOffer> tourOffer) {
-        this.tourOffer = tourOffer;
-    }
+
 
     public String getName() {
         return name;
@@ -86,11 +82,5 @@ public class City {
         this.id = id;
     }
 
-    public List<TourOffer> getTourOffer() {
-        return tourOffer;
-    }
 
-    public void setTourOffer(List<TourOffer> tourOffer) {
-        this.tourOffer = tourOffer;
-    }
 }
