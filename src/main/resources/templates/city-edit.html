@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+    <title>Edit city</title>
+</head>
+<body>
+<div align="center">
+    <h1>Edit city</h1>
+
+    <div>
+        <form method="post" th:action="@{/city/{id}/edit(id=${city.id})}" th:object="${city}">
+
+            <div>
+                <label for="name">Name</label>
+                <input id="name" th:field="*{name}" type="text">
+                <span th:if="${#fields.hasErrors('name')}" th:error="*{name}" class="text-danger"></span>
+            </div>
+
+            <div>
+                <label for="country">Country</label>
+                <select th:field="*{country}" id="country">
+                    <option th:each="country : ${countries}"
+                            th:text="${country.name}"
+                            th:value="${country.id}">
+                    </option>
+                </select>
+            </div>
+
+
+            <div>
+                <a th:href="@{/city}">
+                    <button class="btn btn-secondary" id="cancel" name="cancel" type="button">Cancel</button>
+                </a>
+                <button class="btn btn-primary" id="save" name="save" type="submit">Update</button>
+            </div>
+        </form>
+    </div>
+
+
+</div>
+</body>
+</html>
