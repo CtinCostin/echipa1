@@ -9,7 +9,7 @@ import java.time.LocalDate;
 @Table(name = "tour")
 public class TourOffer {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private String name;
