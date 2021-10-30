@@ -44,7 +44,7 @@ public class CityController {
         model.addAttribute("city", newCity);
         model.addAttribute("country",countryService.findAll());
         model.addAttribute("airports", airportService.findAll());
-        model.addAttribute("hotels", hotelService.findAll());
+        model.addAttribute("hotels", hotelService.getAllHotels());
 
         return "city-add";
     }

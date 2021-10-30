@@ -38,7 +38,6 @@ public class TourOfferController {
         List<TourOffer> tourOfferList = tourOfferService.findAll();
         model.addAttribute("tourOfferInView", tourOfferList);
 
-        // resolved by the view resolver
         return "tour-list";
     }
 
@@ -49,7 +48,7 @@ public class TourOfferController {
         model.addAttribute("continents", continentService.findAll());
         model.addAttribute("countries", countryService.findAll());
         model.addAttribute("cities",cityService.findAll());
-        model.addAttribute("hotels", hotelService.findAll());
+        model.addAttribute("hotels", hotelService.getAllHotels());
         model.addAttribute("airports", airportService.findAll());
         model.addAttribute("departureDate", LocalDate.now());
         model.addAttribute("dateOfReturn", LocalDate.now());
@@ -63,7 +62,7 @@ public class TourOfferController {
             return "tourOffer-add";
         }
         tourOfferService.save(tourOffer);
-        return "redirect:/tourOffer";
+        return "redirect:/tourOffer/";
     }
 
 
@@ -81,12 +80,12 @@ public class TourOfferController {
             @ModelAttribute TourOfferDto tourOfferDto) {
 
         tourOfferService.update(id, tourOfferDto);
-        return "redirect:/tourOffer";
+        return "redirect:/tourOffer/";
     }
 
     @GetMapping("/tourOffer/{id}/delete")
     public String delete(@PathVariable Long id) {
         tourOfferService.delete(id);
-        return "redirect:/tourOffer";
+        return "redirect:/tourOffer/";
     }
 }
