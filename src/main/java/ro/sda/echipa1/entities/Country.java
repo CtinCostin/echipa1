@@ -23,11 +23,11 @@ public class Country {
 
     @OneToMany(mappedBy = "country",
             fetch = FetchType.EAGER,
-            cascade = CascadeType.ALL)
+            cascade = CascadeType.ALL, orphanRemoval = true)
     private List<City> cityList = new ArrayList<>();
 
     @OneToMany(mappedBy = "country",
-            cascade = CascadeType.ALL)
+            cascade = CascadeType.ALL, orphanRemoval = true)
     private  List<TourOfferAdmin> tourOfferAdmin = new ArrayList<>();
 
     public Country() {
