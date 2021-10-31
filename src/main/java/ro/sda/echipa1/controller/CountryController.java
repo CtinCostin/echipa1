@@ -4,9 +4,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
+import ro.sda.echipa1.dto.CountryDto;
+import ro.sda.echipa1.dto.HotelDto;
 import ro.sda.echipa1.entities.Country;
 import ro.sda.echipa1.service.CityService;
 import ro.sda.echipa1.service.ContinentService;
@@ -16,6 +16,7 @@ import javax.validation.Valid;
 import java.util.List;
 
 @Controller
+@RequestMapping("/country")
 public class CountryController {
 
     @Autowired
@@ -26,27 +27,44 @@ public class CountryController {
 //    private CityService cityService;
 
 
-    @GetMapping("/country")
+    @GetMapping("/")
     public String showCountriesPage(Model model) {
-        List<Country> countryList = countryService.findAll();
-        model.addAttribute("countriesInView", countryList);
+        List<Country> country = countryService.findAll();
+        model.addAttribute("countriesInView", country);
         return "country-list";
     }
 
-    @GetMapping("/country/add")
+    @GetMapping("/add")
     public String showAddForm(Model model) {
         Country newCountry = new Country();
         model.addAttribute("country", newCountry);
-        model.addAttribute("continent", continentService.findAll());
+        model.addAttribute("continents", continentService.findAll());
         return "country-add";
     }
 
-    @PostMapping("/country/add")
+    @PostMapping("/add")
     public String addNewCountry(@Valid Country country, BindingResult bindingResult){
         if(bindingResult.hasErrors()){
             return "country-add";
         }
         countryService.save(country);
+        return "redirect:/country/";
+    }
+
+    @GetMapping("/hotel/{id}/edit")
+    public String showEditForm(Model model,
+                               @PathVariable Long id) {
+
+        model.addAttribute("country", countryService.findById(id));
+        return "country-edit";
+    }
+
+    @PostMapping("/country/{id}/edit")
+    public String edit(
+            @PathVariable Long id,
+            @ModelAttribute CountryDto countryDto) {
+
+        countryService.update(id, countryDto);
         return "redirect:/country/";
     }
 
