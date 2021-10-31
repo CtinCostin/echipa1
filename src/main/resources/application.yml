@@ -21,3 +21,14 @@ spring:
     init:
       mode: always
       continue-on-error: true
+
+  output:
+    ansi:
+      enabled: ALWAYS
+logging:
+  level:
+    root: info
+    org:
+      hibernate: debug
+      springframework:
+        web: debug

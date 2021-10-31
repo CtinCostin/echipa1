@@ -51,7 +51,7 @@ public class CountryController {
         return "redirect:/country/";
     }
 
-    @GetMapping("/hotel/{id}/edit")
+    @GetMapping("/{id}/edit")
     public String showEditForm(Model model,
                                @PathVariable Long id) {
 
@@ -59,7 +59,7 @@ public class CountryController {
         return "country-edit";
     }
 
-    @PostMapping("/country/{id}/edit")
+    @PostMapping("/{id}/edit")
     public String edit(
             @PathVariable Long id,
             @ModelAttribute CountryDto countryDto) {
@@ -68,7 +68,7 @@ public class CountryController {
         return "redirect:/country/";
     }
 
-    @GetMapping("/country/{id}/delete")
+    @GetMapping("/{id}/delete")
     public String delete(@PathVariable Long id) {
         countryService.delete(id);
         return "redirect:/country/";

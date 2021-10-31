@@ -18,12 +18,12 @@
 
 
     <table>
-        <!-- table header -->
         <thead>
         <tr>
             <th>Continent</th>
             <th>Country</th>
             <th>City</th>
+            <th>Travel Option</th>
             <th>Airport</th>
             <th>Hotel</th>
             <th>Departure date</th>
@@ -32,7 +32,6 @@
             <th>Type of service</th>
             <th>Price for an adult</th>
             <th>Price for a child</th>
-            <th>Promoted</th>
             <th>Number of adults</th>
             <th>Number of children</th>
 
@@ -40,14 +39,13 @@
         </tr>
         </thead>
 
-        <!-- table body -->
         <tbody>
 
-        <!-- product entry -->
         <tr th:each="tourOfferAdmin : ${tourOfferInView}">
             <td th:text="${tourOfferAdmin.continent.name}"></td>
             <td th:text="${tourOfferAdmin.country.name}"></td>
             <td th:text="${tourOfferAdmin.city.name}"></td>
+            <td th:text="${tourOfferAdmin.travelOption}"></td>
             <td th:text="${tourOfferAdmin.airport.name}"></td>
             <td th:text="${tourOfferAdmin.hotel.name}"></td>
             <td th:text="${tourOfferAdmin.departureDate}"></td>
@@ -56,31 +54,14 @@
             <td th:text="${tourOfferAdmin.typeOfService}"></td>
             <td th:text="${tourOfferAdmin.priceForAnAdult}"></td>
             <td th:text="${tourOfferAdmin.priceForAChild}"></td>
-            <td th:text="${tourOfferAdmin.promoted}"></td>
             <td th:text="${tourOfferAdmin.numberOfAdult}"></td>
             <td th:text="${tourOfferAdmin.numberOfPLacesForChildren}"></td>
 
-            <!-- action buttons -->
             <td>
                 <div class="actions">
                     <a th:href="@{/tourOfferAdmin/{id}/edit(id = ${tourOfferAdmin.id})}">Edit</a>
                     <a th:href="@{/tourOfferAdmin/{id}/delete(id = ${tourOfferAdmin.id})}">Delete</a>
                 </div>
-
-                <div class="container">
-                    <h2 class="mt-5 mb-4">Event submitted</h2>
-
-
-                    <p><label>Date: </label> <strong th:text="${#departureDate.format(event.date, 'dd/MM/yyyy h:mm a')}"></strong></p>
-
-                    <a th:href="@{/}" class="btn btn-primary">Go back</a>
-                </div>
-
-
-
-
-
-
 
             </td>
 

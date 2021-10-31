@@ -12,7 +12,7 @@ public class Airport {
 
     private String name;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
     private City city;
 
     public Airport() {
