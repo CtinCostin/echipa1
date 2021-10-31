@@ -38,7 +38,7 @@ public class TourOfferCartController {
     public String showAddForm(Model model) {
         TourOfferCart newTourOfferCart = new TourOfferCart();
         model.addAttribute("tourOfferCart", newTourOfferCart);
-        model.addAttribute("tourOfferCartEntry", tourOfferCartEntryService.getAllTourOffersCartEntries());
+        model.addAttribute("tourOfferCartEntries", tourOfferCartEntryService.getAllTourOffersCartEntries());
         model.addAttribute("totalPrice", newTourOfferCart.getTotalPrice());
         model.addAttribute("user", newTourOfferCart.getUser());
         return "tourOfferCart-add";
