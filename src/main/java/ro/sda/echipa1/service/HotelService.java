@@ -28,11 +28,6 @@ public class HotelService {
         return hotelRepository.findAll();
     }
 
-    public List<Hotel> findAll() {
-        return hotelRepository.findAll();
-    }
-
-
     public Hotel findById(Long id) {
         return hotelRepository.findById(id).orElseThrow(
                 ()-> new RuntimeException("hotel not found!"));

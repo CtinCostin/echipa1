@@ -2,13 +2,13 @@ package ro.sda.echipa1.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
-import ro.sda.echipa1.entities.PurchasingTour;
+import ro.sda.echipa1.entities.TourOfferCart;
 
 import java.util.Optional;
 
 
 @Repository
-public interface PurchasingTourRepository extends JpaRepository<PurchasingTour, Long> {
+public interface TourOfferCartRepository extends JpaRepository<TourOfferCart, Long> {
 
-   Optional<PurchasingTour> findById(Long id);
+   Optional<TourOfferCart> findById(Long id);
 }

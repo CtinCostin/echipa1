@@ -7,6 +7,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import ro.sda.echipa1.entities.Country;
 import ro.sda.echipa1.service.CityService;
 import ro.sda.echipa1.service.ContinentService;
@@ -16,6 +17,7 @@ import javax.validation.Valid;
 import java.util.List;
 
 @Controller
+@RequestMapping("/country")
 public class CountryController {
 
     @Autowired
@@ -26,14 +28,14 @@ public class CountryController {
 //    private CityService cityService;
 
 
-    @GetMapping("/country")
+    @GetMapping("/")
     public String showCountriesPage(Model model) {
         List<Country> countryList = countryService.findAll();
         model.addAttribute("countriesInView", countryList);
         return "country-list";
     }
 
-    @GetMapping("/country/add")
+    @GetMapping("/add")
     public String showAddForm(Model model) {
         Country newCountry = new Country();
         model.addAttribute("country", newCountry);
@@ -41,7 +43,7 @@ public class CountryController {
         return "country-add";
     }
 
-    @PostMapping("/country/add")
+    @PostMapping("/add")
     public String addNewCountry(@Valid Country country, BindingResult bindingResult){
         if(bindingResult.hasErrors()){
             return "country-add";
@@ -50,7 +52,7 @@ public class CountryController {
         return "redirect:/country/";
     }
 
-    @GetMapping("/country/{id}/delete")
+    @GetMapping("/{id}/delete")
     public String delete(@PathVariable Long id) {
         countryService.delete(id);
         return "redirect:/country/";
