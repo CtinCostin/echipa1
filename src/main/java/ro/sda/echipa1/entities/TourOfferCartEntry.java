@@ -15,12 +15,12 @@ public class TourOfferCartEntry {
     private Double price;
 
     @OneToOne
-    private TourOffer tourOffer;
+    private TourOfferUser tourOfferUser;
 
-    public TourOfferCartEntry(int quantity, Double price, TourOffer tourOffer) {
+    public TourOfferCartEntry(int quantity, Double price, TourOfferUser tourOfferUser) {
         this.quantity = quantity;
         this.price = price;
-        this.tourOffer = tourOffer;
+        this.tourOfferUser = tourOfferUser;
     }
 
     public Long getId() {
@@ -47,11 +47,11 @@ public class TourOfferCartEntry {
         this.price = price;
     }
 
-    public TourOffer getTourOffer() {
-        return tourOffer;
+    public TourOfferUser getTourOfferUser() {
+        return tourOfferUser;
     }
 
-    public void setTourOffer(TourOffer tourOffer) {
-        this.tourOffer = tourOffer;
+    public void setTourOfferUser(TourOfferUser tourOfferUser) {
+        this.tourOfferUser = tourOfferUser;
     }
 }
