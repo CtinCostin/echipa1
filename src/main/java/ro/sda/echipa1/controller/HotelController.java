@@ -7,7 +7,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import ro.sda.echipa1.dto.HotelDto;
 import ro.sda.echipa1.entities.Hotel;
-import ro.sda.echipa1.entities.StarRating;
+import ro.sda.echipa1.entities.enums.StarRating;
 import ro.sda.echipa1.service.CityService;
 import ro.sda.echipa1.service.HotelService;
 
@@ -28,7 +28,7 @@ public class HotelController {
     @GetMapping("/")
     public String showHotelsPage(Model model) {
 
-        List<Hotel> hotel = hotelService.getAllHotels();
+        List<Hotel> hotel = hotelService.findAll();
         model.addAttribute("hotelsInView", hotel);
  
         return "hotel-list";
