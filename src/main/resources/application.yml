@@ -10,7 +10,7 @@ spring:
     hibernate:
       ddl-auto: update
       naming.physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
-      use-new-id-generator-mappings: true
+#      use-new-id-generator-mappings: true
     properties:
       hibernate:
         dialect: org.hibernate.dialect.MySQL8Dialect
@@ -21,3 +21,14 @@ spring:
     init:
       mode: always
       continue-on-error: true
+
+  output:
+    ansi:
+      enabled: ALWAYS
+logging:
+  level:
+    root: info
+    org:
+      hibernate: debug
+      springframework:
+        web: debug

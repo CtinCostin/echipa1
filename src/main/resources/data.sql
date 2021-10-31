@@ -19,7 +19,6 @@ insert into airport values (29, 'HRG', 29),  (30, 'SSH', 30),  (31, 'MIR', 31), 
 insert into hotel values (1, 'Hotelul Ramada by Wyndham Constanta este situat în Mamaia,pe malul lacului Tăbăcăria, la mai puțin de 10 minute de mers pe jos de plajă și la 500 de metri de Satul de Vacanță', 'Ramada Wyndham Constanta', 'FIVE_STARS', 1);
 insert into hotel values (2, 'New Royal oferă cazare de 4 stele în Constanța, la 5 km de centrul comercial Tom Constanțași la 6 km de portul de agrement și clubul de iahturi Tomis.', 'New Royal', 'FOUR_STARS', 1);
 insert into hotel values (3, 'Situat în nordul staţiunii Eforie Nord, lângă promenadă şi plaja cu nisip, Hotelul Mirage oferă o piscină interioară, precum şi tratamente spa şi wellness, la un cost suplimentar.', 'Mirage Medspa Hotel', 'THREE_STARS',1);
-
 insert into hotel values (4, 'Hotelul Rainer se află la numai 5 minute de mers cu maşina de centrul oraşului Braşov şi beneficiază de o locaţie plăcută şi liniştită, cu legături bune spre oraşul vechi şi centrul comercial.', 'Hotel Rainer', 'THREE_STARS', 2);
 
 insert into hotel values (5, 'Situat în apropiere de centrul de afaceri, financiar, cultural şi comercial al orașului,acest hotel nou oferă o ambianță luxoasă de 4 stele, bucătărie rafinată şi servicii impecabile.', 'Hotel HP Tower One', 'FOUR_STARS', 2);
@@ -162,7 +161,4 @@ insert into hotel values (71, 'Unitățile de cazare sunt dotate cu aer condiți
 insert into hotel values (72, 'Acest hotel situat la 6 km de moscheea Hassan II și centrul comercial Morocco Mall pune la dispoziţie o piscină, un centru de fitness și un centru spa. Hotelul are grădini cu plante tropicale și oferă vedere la mare şi la La Corniche, promenada de pe malul mării.  Fiecare cameră, suită și bungalou include balcon cu vedere la mare, la piscina în aer liber sau la grădină. Unităţile de cazare includ aer condiționat, TV cu ecran plat, Wi-Fi gratuit și baie proprie. Oaspeții pot savura mâncăruri din bucătăria marocană sau internațională în oricare dintre cele 3 restaurante, care oferă şi meniuri pentru diete speciale. În fiecare dimineaţă este servit un bufet de mic dejun. Aveţi la dispoziţie și 2 baruri în care vă puteți petrece serile. De asemenea, hotelul oferă Wi-Fi gratuit în toate zonele publice.',
 
                           'Casablanca Le Lido Thalasso & Spa (ex Riad Salam)', 'FOUR_STARS', 36);
-
-                          
-
 

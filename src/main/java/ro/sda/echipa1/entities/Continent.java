@@ -11,7 +11,7 @@ import java.util.List;
 public class Continent {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @NotNull
@@ -24,15 +24,15 @@ public class Continent {
 
     @OneToMany(mappedBy = "continent",
             cascade = CascadeType.ALL)
-    private  List<TourOffer> tourOffer = new ArrayList<>();
+    private  List<TourOfferAdmin> tourOfferAdmin = new ArrayList<>();
 
     public Continent() {
     }
 
-    public Continent(String name, List<Country> countryList, List<TourOffer> tourOffer){
+    public Continent(String name, List<Country> countryList, List<TourOfferAdmin> tourOfferAdmin){
         this.name = name;
         this.countryList = countryList;
-        this.tourOffer = tourOffer;
+        this.tourOfferAdmin = tourOfferAdmin;
     }
 
     public Long getId() {
@@ -59,12 +59,12 @@ public class Continent {
         this.countryList = countryList;
     }
 
-    public List<TourOffer> getTourOffer() {
-        return tourOffer;
+    public List<TourOfferAdmin> getTourOffer() {
+        return tourOfferAdmin;
     }
 
-    public void setTourOffer(List<TourOffer> tourOffer) {
-        this.tourOffer = tourOffer;
+    public void setTourOffer(List<TourOfferAdmin> tourOfferAdmin) {
+        this.tourOfferAdmin = tourOfferAdmin;
     }
 }
 

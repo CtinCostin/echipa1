@@ -22,20 +22,16 @@ public class CountryController {
 
     @Autowired
     private CountryService countryService;
-
     @Autowired
     private ContinentService continentService;
-
-    @Autowired
-    private CityService cityService;
+//    @Autowired
+//    private CityService cityService;
 
 
     @GetMapping("/")
     public String showCountriesPage(Model model) {
-
         List<Country> countryList = countryService.findAll();
         model.addAttribute("countriesInView", countryList);
-
         return "country-list";
     }
 
@@ -44,7 +40,6 @@ public class CountryController {
         Country newCountry = new Country();
         model.addAttribute("country", newCountry);
         model.addAttribute("continent", continentService.findAll());
-        model.addAttribute("cities", cityService.findAll());
         return "country-add";
     }
 

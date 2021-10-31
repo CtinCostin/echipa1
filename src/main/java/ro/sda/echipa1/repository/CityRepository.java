@@ -13,5 +13,6 @@ public interface CityRepository extends JpaRepository<City, Long> {
 
     List<City> findByName(String name);
 
+
     Optional<City> findByNameIgnoreCase(String name);
 }

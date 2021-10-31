@@ -4,10 +4,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
+import ro.sda.echipa1.dto.CityDto;
+import ro.sda.echipa1.dto.HotelDto;
 import ro.sda.echipa1.entities.City;
 import ro.sda.echipa1.service.*;
 
@@ -44,9 +43,7 @@ public class CityController {
     public String showAddForm(Model model) {
         City newCity = new City();
         model.addAttribute("city", newCity);
-        model.addAttribute("country",countryService.findAll());
-        model.addAttribute("airports", airportService.findAll());
-        model.addAttribute("hotels", hotelService.getAllHotels());
+        model.addAttribute("countries",countryService.findAll());
 
         return "city-add";
     }
@@ -57,6 +54,24 @@ public class CityController {
             return "city-add";
         }
         cityService.save(city);
+        return "redirect:/city/";
+    }
+
+    @GetMapping("/{id}/edit")
+    public String showEditForm(Model model,
+                               @PathVariable Long id) {
+
+        model.addAttribute("city", cityService.findById(id));
+        model.addAttribute("countries",countryService.findAll());
+        return "city-edit";
+    }
+
+    @PostMapping("/{id}/edit")
+    public String edit(
+            @PathVariable Long id,
+            @ModelAttribute CityDto cityDto) {
+
+        cityService.update(id, cityDto);
         return "redirect:/city/";
     }
 

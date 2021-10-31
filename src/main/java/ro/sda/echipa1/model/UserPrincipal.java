@@ -1,8 +1,9 @@
-package ro.sda.echipa1.entities;
+package ro.sda.echipa1.model;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
+import ro.sda.echipa1.entities.User;
 
 import java.util.ArrayList;
 import java.util.Collection;

@@ -1,15 +1,17 @@
 package ro.sda.echipa1.entities;
 
 import org.springframework.format.annotation.DateTimeFormat;
+import ro.sda.echipa1.entities.enums.TravelOption;
+import ro.sda.echipa1.entities.enums.TypeOfService;
 
 import javax.persistence.*;
 import java.time.LocalDate;
 
 @Entity
-@Table(name = "tour")
-public class TourOffer {
+@Table(name = "tour_offer_admin")
+public class TourOfferAdmin {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private String name;
@@ -20,6 +22,8 @@ public class TourOffer {
     private Country country;
     @ManyToOne
     private City city;
+    @Enumerated(EnumType.STRING)
+    private TravelOption travelOption;
     @ManyToOne
     private Airport airport;
     @ManyToOne
@@ -33,19 +37,23 @@ public class TourOffer {
     private TypeOfService typeOfService;
     private Double priceForAnAdult;
     private Double priceForAChild;
-    private Boolean isPromoted;
     private Integer numberOfAdult;
     private Integer numberOfPLacesForChildren;
 
-    public TourOffer() {
+    public TourOfferAdmin() {
     }
 
-    public TourOffer(Long id, String name, Continent continent, Country country, City city, Airport airport, Hotel hotel, LocalDate departureDate, LocalDate dateOfReturn, Integer numberOfDays, TypeOfService typeOfService, Double priceForAnAdult, Double priceForAChild, Boolean isPromoted, Integer numberOfAdult, Integer numberOfPLacesForChildren) {
+    public TourOfferAdmin(Long id, String name, Continent continent, Country country, City city,
+                          TravelOption travelOption, Airport airport, Hotel hotel, LocalDate departureDate,
+                          LocalDate dateOfReturn, Integer numberOfDays, TypeOfService typeOfService,
+                          Double priceForAnAdult, Double priceForAChild, Integer numberOfAdult,
+                          Integer numberOfPLacesForChildren) {
         this.id = id;
         this.name = name;
         this.continent = continent;
         this.country = country;
         this.city = city;
+        this.travelOption = travelOption;
         this.airport = airport;
         this.hotel = hotel;
         this.departureDate = departureDate;
@@ -54,7 +62,6 @@ public class TourOffer {
         this.typeOfService = typeOfService;
         this.priceForAnAdult = priceForAnAdult;
         this.priceForAChild = priceForAChild;
-        this.isPromoted = isPromoted;
         this.numberOfAdult = numberOfAdult;
         this.numberOfPLacesForChildren = numberOfPLacesForChildren;
     }
@@ -163,14 +170,6 @@ public class TourOffer {
         this.priceForAChild = priceForAChild;
     }
 
-    public Boolean getPromoted() {
-        return isPromoted;
-    }
-
-    public void setPromoted(Boolean promoted) {
-        isPromoted = promoted;
-    }
-
     public Integer getNumberOfAdult() {
         return numberOfAdult;
     }
@@ -187,8 +186,12 @@ public class TourOffer {
         this.numberOfPLacesForChildren = numberOfPLacesForChildren;
     }
 
-    public void setIsPromoted(Boolean promoted) {
+    public TravelOption getTravelOption() {
+        return travelOption;
+    }
 
+    public void setTravelOption(TravelOption travelOption) {
+        this.travelOption = travelOption;
     }
 }
 

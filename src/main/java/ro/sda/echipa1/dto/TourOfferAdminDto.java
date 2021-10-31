@@ -1,11 +1,12 @@
 package ro.sda.echipa1.dto;
 
 import ro.sda.echipa1.entities.*;
+import ro.sda.echipa1.entities.enums.TypeOfService;
 
 import java.time.LocalDate;
 
 
-public class TourOfferDto {
+public class TourOfferAdminDto {
 
     private Long id;
     private String name;

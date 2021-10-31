@@ -4,10 +4,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
+import ro.sda.echipa1.dto.AirportDto;
+import ro.sda.echipa1.dto.ContinentDto;
 import ro.sda.echipa1.entities.Continent;
 import ro.sda.echipa1.service.ContinentService;
 import ro.sda.echipa1.service.CountryService;
@@ -48,6 +47,23 @@ public class ContinentController {
             return "continent-add";
         }
         continentService.save(continent);
+        return "redirect:/continent/";
+    }
+
+    @GetMapping("/{id}/edit")
+    public String showEditForm(Model model,
+                               @PathVariable Long id) {
+        //TODO check if continent Exists
+        model.addAttribute("continent", continentService.findById(id));
+        return "continent-edit";
+    }
+
+    @PostMapping("/{id}/edit")
+    public String edit(
+            @PathVariable Long id,
+            @ModelAttribute ContinentDto continentDto) {
+
+        continentService.update(id, continentDto);
         return "redirect:/continent/";
     }
 

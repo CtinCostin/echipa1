@@ -1,0 +1,112 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+</head>
+
+<body>
+
+<div th:fragment="footer">
+
+    <div class="container">
+
+        <footer>
+            <div class="container">
+                ::before
+                <div class="row">
+                    ::before
+                    <div class="col-sm-3">
+                        <div class="footer-section footer-company">
+                            <h3>Mai mult decat o vacanta</h3>
+                            <ul class="list-unstyled">
+                                <li>
+                                    <a th:ref="/contact">Contact</a>
+                                </li>
+                                <li>
+                                    <a th:ref="/despre-noi"/>Despre noi</a>
+                                </li>
+                                <li class="footer-social">
+                                    <div class="fa-container facebook">
+                                        <a th:ref="http://www.facebook.com" target="_blank" rel="noopener">...</a>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-sm-5">
+                        <div class="footer-section footer-contact">
+                            <h3>Contact</h3>
+                            <ul class="list-unstyled">
+                                <li class="clearfix">
+                                    ::before
+                                    <div class="fa-container">
+                                        <i class="fa fa-map-marker">
+                                            ::before
+                                        </i>
+                                    </div>
+                                    <div class="text">
+                                        " Str. Pavel Stoica 2A, cam. 1, Timisoara "
+                                    </div>
+                                    ::after
+                                </li>
+                                <li class="clearfix">
+                                    ::before
+                                    <div class="fa-container">
+                                        <i class="fa fa-clock-o">
+                                            ::before
+                                        </i>
+                                    </div>
+                                    <div class="text">
+                                        " Luni-Vineri: 09:00 - 18:00 "
+                                        <br>
+                                        "Sambata: Inchis "
+                                        <br>
+                                        "Duminica: Inchis "
+                                    </div>
+                                    ::after
+                                </li>
+                                <li class="clearfix">
+                                    ::before
+                                    <div class="fa-container">
+                                        <i class="fa fa-envelope">
+                                            ::before
+                                        </i>
+                                    </div>
+                                    <div class="text">
+                                        <a th:ref="mailto:office@maimultdecatovacanta.ro" target="_blank">
+                                            office@maimultdecatovacanta.ro
+                                        </a>
+                                    </div>
+                                    ::after
+                                </li>
+                                <li class="clearfix">
+                                    ::before
+                                    <div class="fa-container">
+                                        <i class="fa fa-phone">
+                                            ::before
+                                        </i>
+                                    </div>
+                                    <div class="text">
+                                        " 0749686686 "
+                                    </div>
+                                    ::after
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="copyright">
+                            " © 2021 SDA, All rights reserved "
+                            <a href="http://www.gtravelcloud.com" target="_blank">Q Travel Cloud</a>
+                            ", un produs Aqua Development. Toate drepturile rezervate. "
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </footer>
+
+    </div>
+
+</div>
+
+</body>
+</html>

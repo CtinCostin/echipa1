@@ -5,19 +5,22 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import ro.sda.echipa1.dto.CityDto;
 import ro.sda.echipa1.entities.City;
+import ro.sda.echipa1.entities.Country;
 import ro.sda.echipa1.repository.CityRepository;
+import ro.sda.echipa1.repository.CountryRepository;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Service
 public class CityService {
 
     private CityRepository cityRepository;
+    private CountryRepository countryRepository;
 
     @Autowired
-    public CityService(CityRepository cityRepository) {
+    public CityService(CityRepository cityRepository, CountryRepository countryRepository) {
         this.cityRepository = cityRepository;
+        this.countryRepository = countryRepository;
     }
 
     public City addNewCity(City city) {
@@ -45,6 +48,7 @@ public class CityService {
     private City updateEntity(CityDto cityDto, City existingCity) {
         existingCity.setName(cityDto.getName());
         existingCity.setCountry(cityDto.getCountry());
+        existingCity.setAirport(cityDto.getAirport());
 
         return existingCity;
     }
@@ -63,6 +67,10 @@ public class CityService {
 
     @Transactional
     public void delete(Long id) {
+        City city = cityRepository.getById(id);
+        Country country = countryRepository.getById(city.getCountry().getId());
+        country.getCityList().remove(city);
+        countryRepository.save(country);
         cityRepository.deleteById(id);
     }
 
