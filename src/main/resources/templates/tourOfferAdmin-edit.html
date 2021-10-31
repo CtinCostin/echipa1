@@ -4,135 +4,204 @@
 <head>
     <meta charset="utf-8"/>
     <title>Edit tour offer</title>
-    <link th:href="@{https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/locales/bootstrap-datepicker.ro.min.js}"/>
-    <link th:href="@{https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.standalone.min.css}"/>
-    <link th:href="@{webjars/bootstrap/4.0.0-2/css/bootstrap.min.css} "/>
-    <link th:href="@{webjars/font-awesome/5.11.2/css/all.css} "/>
+    <link th:rel="stylesheet" th:href="@{/assets/tempusdominus-bootstrap-4/tempusdominus-bootstrap-4.min.css}"/>
+    <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/5.1.3/css/bootstrap.min.css} "/>
+    <link th:rel="stylesheet" th:href="@{/webjars/font-awesome/5.15.4/css/all.css} "/>
+
 </head>
 <body>
 <div align="center">
     <h1>Edit tour offer</h1>
 
-    <div>
-        <form method="post" th:action="@{/tourOfferAdmin/add}" th:object="${tourOfferAdmin}">
+    <div class="bootstrap-iso">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-6 col-sm-6 col-xs-12">
+                    <form method="post" th:action="@{/tourOfferAdmin/add}" th:object="${tourOfferAdmin}">
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label for="name">Name</label>
+                                <input id="name" th:field="*{name}" type="text">
+                                <span th:if="${#fields.hasErrors('name')}" th:error="*{name}"
+                                      class="text-danger"></span>
+                            </div>
 
-            <div>
-                <label for="name">Name</label>
-                <input id="name" th:field="*{name}" type="text">
-                <span th:if="${#fields.hasErrors('name')}" th:error="*{name}" class="text-danger"></span>
-            </div>
+                            <div class="form-group col-md-6">
+                                <label for="continent">Continent</label>
+                                <select th:field="*{continent}" id="continent">
+                                    <option th:each="continent : ${continents}"
+                                            th:text="${continent.name}"
+                                            th:value="${continent.id}">
+                                    </option>
+                                </select>
+                            </div>
+                        </div>
 
-            <div>
-                <label for="city">City</label>
-                <select th:field="*{city}" id="city">
-                    <option th:each="city : ${cities}"
-                            th:text="${city.name}"
-                            th:value="${city.id}">
-                    </option>
-                </select>
-            </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label for="country">Country</label>
+                                <select th:field="*{country}" id="country">
+                                    <option th:each="country : ${countries}"
+                                            th:text="${country.name}"
+                                            th:value="${country.id}">
+                                    </option>
+                                </select>
+                            </div>
 
-            <div>
-                <label for="airport">Airport</label>
-                <select th:field="*{airport}" id="airport">
-                    <option th:each="airport : ${airports}"
-                            th:text="${airport.name}"
-                            th:value="${airport.id}">
-                    </option>
-                </select>
-            </div>
+                            <div class="form-group col-md-6">
+                                <label for="city">City</label>
+                                <select th:field="*{city}" id="city">
+                                    <option th:each="city : ${cities}"
+                                            th:text="${city.name}"
+                                            th:value="${city.id}">
+                                    </option>
+                                </select>
+                            </div>
+                        </div>
 
-            <div>
-                <label for="hotel">Hotel</label>
-                <select th:field="*{hotel}" id="hotel">
-                    <option th:each="hotel : ${hotels}"
-                            th:text="${hotel.name}"
-                            th:text="${hotel.starRating}"
-                            th:value="${hotel.id}">
-                    </option>
-                </select>
-            </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label for="travelOption">Travel Option</label>
+                                <select th:field="*{travelOption}" id="travelOption">
+                                    <option th:each="travelOption : ${travelOption}"
+                                            th:text="${travelOption}" th:value="${travelOption}">
+                                    </option>
+                                </select>
+                            </div>
 
-            <div>
-                <label for="departureDate">DepartureDate</label>
-                <div class="input-group date">
-                    <input type="text" class="form-control" id="departureDate" autocomplete="off" th:field="*{departureDate}"/>
-                    <div class="input-group-append">
-                        <span class="input-group-text"><i class="far fa-calendar-alt"></i></span>
-                    </div>
+                            <div class="form-group col-md-6">
+                                <label for="airport">Airport</label>
+                                <select th:field="*{airport}" id="airport">
+                                    <option th:each="airport : ${airports}"
+                                            th:text="${airport.name}"
+                                            th:value="${airport.id}">
+                                    </option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label for="hotel">Hotel</label>
+                                <select th:field="*{hotel}" id="hotel">
+                                    <option th:each="hotel : ${hotels}"
+                                            th:text="${hotel.name}"
+                                            th:value="${hotel.id}">
+                                    </option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label for="departureDate">Departure Date</label>
+                                <div class="input-group date" id="datetimepicker1" data-target-input="nearest">
+                                    <input type="text" class="form-control datetimepicker-input"
+                                           data-target="#datetimepicker1"
+                                           th:field="*{departureDate}" id="departureDate" placeholder="Date"/>
+                                    <div class="input-group-append" data-target="#datetimepicker1"
+                                         data-toggle="datetimepicker">
+                                        <div class="input-group-text"><i class="fa fa-calendar-alt"></i></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group col-md-6">
+                                <label for="dateOfReturn">Return Date</label>
+                                <div class="input-group date" id="datetimepicker2" data-target-input="nearest">
+                                    <input type="text" class="form-control datetimepicker-input"
+                                           data-target="#datetimepicker2"
+                                           th:field="*{dateOfReturn}" id="dateOfReturn" placeholder="Date"/>
+                                    <div class="input-group-append" data-target="#datetimepicker2"
+                                         data-toggle="datetimepicker">
+                                        <div class="input-group-text"><i class="fa fa-calendar-alt"></i></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label for="numberOfDays">NumberOfDays</label>
+                                <input id="numberOfDays" th:field="*{numberOfDays}" type="text">
+                            </div>
+
+                            <div class="form-group col-md-6">
+                                <label for="typeOfService">TypeOfService</label>
+                                <select th:field="*{typeOfService}" id="typeOfService">
+                                    <option th:each="typeOfService : ${typeOfService}"
+                                            th:text="${typeOfService}" th:value="${typeOfService}">
+                                    </option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+
+                            <div class="form-group col-md-6">
+                                <label for="priceForAnAdult">PriceForAnAdult</label>
+                                <input id="priceForAnAdult" th:field="*{priceForAnAdult}" type="text">
+                            </div>
+
+                            <div class="form-group col-md-6">
+                                <label for="priceForAChild">PriceForAChild</label>
+                                <input id="priceForAChild" th:field="*{priceForAChild}" type="text">
+                            </div>
+                        </div>
+                        <div class="form-row">
+
+                            <div class="form-group col-md-6">
+                                <label for="numberOfAdult">NumberOfAdult</label>
+                                <input id="numberOfAdult" th:field="*{numberOfAdult}" type="text">
+                            </div>
+
+                            <div class="form-group col-md-6">
+                                <label for="numberOfPLacesForChildren">NumberOfPLacesForChildren</label>
+                                <input id="numberOfPLacesForChildren" th:field="*{numberOfPLacesForChildren}"
+                                       type="text">
+                            </div>
+                        </div>
+
+                        <div>
+                            <a th:href="@{/tourOfferAdmin}">
+                                <button class="btn btn-secondary" id="cancel" name="cancel" type="button">Cancel
+                                </button>
+                            </a>
+                            <button class="btn btn-primary" id="save" name="save" type="submit">Save</button>
+                        </div>
+                    </form>
                 </div>
             </div>
-
-            <div>
-                <label for="dateOfReturn">DateOfReturn</label>
-                <div class="input-group date">
-                    <input type="text" class="form-control" id="dateOfReturn" autocomplete="off" th:field="*{dateOfReturn}"/>
-                    <div class="input-group-append">
-                        <span class="input-group-text"><i class="far fa-calendar-alt"></i></span>
-                    </div>
-                </div>
-            </div>
-
-            <div>
-                <label for="numberOfDays">NumberOfDays</label>
-                <input id="numberOfDays" th:field="*{numberOfDays}" type="text">
-            </div>
-
-            <div>
-                <label for="typeOfService">TypeOfService</label>
-                <select th:field="*{typeOfService}" id="typeOfService">
-                    <option th:each="typeOfService : ${typeOfService}"
-                            th:text="${typeOfService}" th:value="${typeOfService}">
-                    </option>
-                </select>
-            </div>
-
-            <div>
-                <label for="priceForAnAdult">PriceForAnAdult</label>
-                <input id="priceForAnAdult" th:field="*{priceForAnAdult}" type="text">
-            </div>
-
-            <div>
-                <label for="priceForAChild">PriceForAChild</label>
-                <input id="priceForAChild" th:field="*{priceForAChild}" type="text">
-            </div>
-
-            <div>
-                <label for="promoted">Promoted</label>
-                <input id="promoted" th:field="*{promoted}" type="text">
-                <span th:if="${isPromoted}">YES</span>
-                <span th:if="${!isPromoted}">NO</span>
-            </div>
-
-            <div>
-                <label for="numberOfAdult">NumberOfAdult</label>
-                <input id="numberOfAdult" th:field="*{numberOfAdult}" type="text">
-            </div>
-
-            <div>
-                <label for="numberOfPLacesForChildren">NumberOfPLacesForChildren</label>
-                <input id="numberOfPLacesForChildren" th:field="*{numberOfPLacesForChildren}" type="text">
-            </div>
-
-            <div>
-                <a th:href="@{/tourOfferAdmin}">
-                    <button class="btn btn-secondary" id="cancel" name="cancel" type="button">Cancel</button>
-                </a>
-                <button class="btn btn-primary" id="save" name="save" type="submit">Save</button>
-            </div>
-        </form>
+        </div>
     </div>
 </div>
+
 <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
 <script th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
 <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
-<script th:src="@{https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/locales/bootstrap-datepicker.ro.min.js}"></script>
+<script th:src="@{/assets/moment/moment.min.js}"></script>
+<script th:src="@{/assets/tempusdominus-bootstrap-4/tempusdominus-bootstrap-4.min.js}"></script>
 
 <script>
-    $('.input-group.date').datepicker({
-        autoclose: true,
-        todayHighlight: true
+    $.fn.datetimepicker.Constructor.Default = $.extend({}, $.fn.datetimepicker.Constructor.Default, {
+        icons: {
+            time: 'far fa-clock',
+            date: 'far fa-calendar',
+            up: 'fas fa-arrow-up',
+            down: 'fas fa-arrow-down',
+            previous: 'fas fa-chevron-left',
+            next: 'fas fa-chevron-right',
+            today: 'far fa-calendar-check-o',
+            clear: 'far fa-trash',
+            close: 'far fa-times'
+        } });
+
+    $('#datetimepicker1').datetimepicker({
+    format: 'DD/MM/YYYY'
     });
+    $('#datetimepicker2').datetimepicker({
+    format: 'DD/MM/YYYY'
+    });
+
 </script>
 </body>
 </html>
