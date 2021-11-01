@@ -49,7 +49,7 @@ public class CityController {
     }
 
     @PostMapping("/add")
-    public String addNewCity(@Valid City city, BindingResult bindingResult){
+    public String addNewCity(@ModelAttribute("city") @Valid City city, BindingResult bindingResult){
         if(bindingResult.hasErrors()){
             return "city-add";
         }

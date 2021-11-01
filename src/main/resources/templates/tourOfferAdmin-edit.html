@@ -17,7 +17,7 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-6 col-sm-6 col-xs-12">
-                    <form method="post" th:action="@{/tourOfferAdmin/add}" th:object="${tourOfferAdmin}">
+                    <form method="post" th:action="@{/tourOfferAdmin/{id}/edit(id=${tourOfferAdmin.id})}" th:object="${tourOfferAdmin}">
                         <div class="form-row">
                             <div class="form-group col-md-6">
                                 <label for="name">Name</label>
