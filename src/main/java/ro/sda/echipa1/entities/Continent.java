@@ -66,6 +66,14 @@ public class Continent {
     public void setTourOffer(List<TourOfferAdmin> tourOfferAdmin) {
         this.tourOfferAdmin = tourOfferAdmin;
     }
+
+    public List<TourOfferAdmin> getTourOfferAdmin() {
+        return tourOfferAdmin;
+    }
+
+    public void setTourOfferAdmin(List<TourOfferAdmin> tourOfferAdmin) {
+        this.tourOfferAdmin = tourOfferAdmin;
+    }
 }
 
 

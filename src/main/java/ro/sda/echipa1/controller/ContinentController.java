@@ -42,7 +42,7 @@ public class ContinentController {
     }
 
     @PostMapping("/add")
-    public String addNewContinent(@Valid Continent continent, BindingResult bindingResult){
+    public String addNewContinent(@ModelAttribute("continent") @Valid Continent continent, BindingResult bindingResult){
         if(bindingResult.hasErrors()){
             return "continent-add";
         }
@@ -55,6 +55,7 @@ public class ContinentController {
                                @PathVariable Long id) {
         //TODO check if continent Exists
         model.addAttribute("continent", continentService.findById(id));
+        model.addAttribute("countries", countryService.findAll());
         return "continent-edit";
     }
 

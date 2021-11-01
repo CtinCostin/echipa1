@@ -42,7 +42,7 @@ public class TourOfferCartEntryService {
     private TourOfferCartEntry updateEntity(TourOfferCartEntryDto tourOfferCartEntryDto, TourOfferCartEntry existingTourOfferCartEntry) {
         existingTourOfferCartEntry.setQuantity(tourOfferCartEntryDto.getQuantity());
         existingTourOfferCartEntry.setPrice(tourOfferCartEntryDto.getPrice());
-        existingTourOfferCartEntry.setTourOfferUser(tourOfferCartEntryDto.getTourOffer());
+        existingTourOfferCartEntry.setTourOffer(tourOfferCartEntryDto.getTourOffer());
 
         return existingTourOfferCartEntry;
     }

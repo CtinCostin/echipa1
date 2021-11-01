@@ -38,13 +38,14 @@ public class AirportController {
     public String showAddForm(Model model) {
         Airport newAirport = new Airport();
         model.addAttribute("airport", newAirport);
+        model.addAttribute("name", newAirport.getName());
         model.addAttribute("cities", cityService.findAll());
 
         return "airport-add";
     }
 
     @PostMapping("/add")
-    public String addNewAirport(@Valid Airport airport, BindingResult bindingResult) {
+    public String addNewAirport(@ModelAttribute("airport") @Valid Airport airport, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
             return "airport-add";
         }
@@ -58,6 +59,8 @@ public class AirportController {
                                @PathVariable Long id) {
         //TODO check if airport Exists
         model.addAttribute("airport", airportService.findById(id));
+        model.addAttribute("name", airportService.findById(id).getName());
+        model.addAttribute("cities", cityService.findAll());
         return "airport-edit";
     }
 
