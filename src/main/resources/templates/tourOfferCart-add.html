@@ -38,7 +38,7 @@
                             <select th:field="*{tourOfferCartEntries}" id="tourOfferCartEntries">
                                 <option th:each="tourOfferCartEntries : ${tourOfferCartEntries}"
                                         th:value="{tourOfferCartEntries.id}"
-                                        th:text="{tourOfferCartEntries.price">
+                                        th:text="{tourOfferCartEntries.price}">
                                 </option>
                             </select>
                         </div>
@@ -54,13 +54,11 @@
 
                         <div>
                             <a th:href="@{/tourOfferCart}">
-                                <button class="btn btn-secondary" id="cancel" name="cancel" type="button">
-                                            Cancel
+                                <button class="btn btn-secondary" id="cancel" name="cancel" type="button">Cancel
                                 </button>
                             </a>
-                                    <button class="btn btn-primary" id="save" name="save" type="submit">Save</button>
-                                    <button class="btn btn-third" type="submit">Submit form</button>
-                                </div>
+                            <button class="btn btn-primary" id="save" name="save" type="submit">Save</button>
+                        </div>
                     </form>
                 </div>
             </div>
