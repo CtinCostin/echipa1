@@ -28,7 +28,7 @@ public class HotelController {
     @GetMapping("/")
     public String showHotelsPage(Model model) {
 
-        List<Hotel> hotel = hotelService.getAllHotels();
+        List<Hotel> hotel = hotelService.findAll();
         model.addAttribute("hotelsInView", hotel);
  
         return "hotel-list";
