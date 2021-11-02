@@ -41,6 +41,7 @@ public class TourOfferAdminService {
     }
 
     private TourOfferAdmin updateEntity(TourOfferAdminDto tourOfferAdminDto, TourOfferAdmin existingTourOfferAdmin) {
+        existingTourOfferAdmin.setName(tourOfferAdminDto.getName());
         existingTourOfferAdmin.setContinent(tourOfferAdminDto.getContinent());
         existingTourOfferAdmin.setCountry(tourOfferAdminDto.getCountry());
         existingTourOfferAdmin.setCity(tourOfferAdminDto.getCity());
