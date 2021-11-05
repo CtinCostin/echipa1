@@ -1,11 +1,20 @@
 package ro.sda.echipa1.dto;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import ro.sda.echipa1.entities.TourOfferCart;
 import ro.sda.echipa1.entities.TourOfferCartEntry;
 import ro.sda.echipa1.entities.User;
+import ro.sda.echipa1.repository.TourOfferCartRepository;
+import ro.sda.echipa1.service.TourOfferCartEntryService;
+
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 public class TourOfferCartDto {
+
+    private static final Logger log = LoggerFactory.getLogger(TourOfferCartDto.class);
 
     private Long id;
 
@@ -14,6 +23,7 @@ public class TourOfferCartDto {
     private Double totalPrice;
 
     private User user;
+    private TourOfferCartRepository tourOfferCartRepository;
 
 
     public Long getId() {
@@ -46,5 +56,17 @@ public class TourOfferCartDto {
 
     public void setUser(User user) {
         this.user = user;
+    }
+
+    public TourOfferCart getCurrentCart(TourOfferCart tourOfferCart) {
+
+        return tourOfferCartRepository.findById(id).
+                filter(existingTourOfferCart -> existingTourOfferCart.getId().
+                        equals(tourOfferCart.getId())).
+                map(existingTourOfferCart -> tourOfferCartRepository.save(tourOfferCart)).
+                orElseThrow(() -> {
+                    log.error("Offer already exists!");
+                    throw new RuntimeException("Offer already exists!");
+                });
     }
 }
