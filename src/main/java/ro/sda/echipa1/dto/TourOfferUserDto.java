@@ -24,13 +24,15 @@ public class TourOfferUserDto {
     private TypeOfService typeOfService;
     private Integer numberOfAdult;
     private Integer numberOfChildren;
+    private Double price;
+    private int stock;
 
     public TourOfferUserDto() {
     }
 
     public TourOfferUserDto(TravelOption travelOption, Country country, City city, Airport airport,
-                         LocalDate departureDate, Integer numberOfDays, Integer numberOfRooms,
-                         TypeOfService typeOfService, Integer numberOfAdult, Integer numberOfChildren) {
+                            LocalDate departureDate, Integer numberOfDays, Integer numberOfRooms,
+                            TypeOfService typeOfService, Integer numberOfAdult, Integer numberOfChildren, Double price, int stock) {
         this.travelOption = travelOption;
         this.country = country;
         this.city = city;
@@ -41,6 +43,8 @@ public class TourOfferUserDto {
         this.typeOfService = typeOfService;
         this.numberOfAdult = numberOfAdult;
         this.numberOfChildren = numberOfChildren;
+        this.price = price;
+        this.stock = stock;
     }
 
 
@@ -130,6 +134,22 @@ public class TourOfferUserDto {
 
     public void setNumberOfChildren(Integer numberOfChildren) {
         this.numberOfChildren = numberOfChildren;
+    }
+
+    public Double getPrice() {
+        return price;
+    }
+
+    public void setPrice(Double price) {
+        this.price = price;
+    }
+
+    public int getStock() {
+        return stock;
+    }
+
+    public void setStock(int stock) {
+        this.stock = stock;
     }
 }
 
