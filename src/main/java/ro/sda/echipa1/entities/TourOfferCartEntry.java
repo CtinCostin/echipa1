@@ -17,6 +17,9 @@ public class TourOfferCartEntry {
     @OneToOne
     private TourOfferUser tourOfferUser;
 
+    public TourOfferCartEntry() {
+    }
+
     public TourOfferCartEntry(int quantity, Double price, TourOfferUser tourOfferUser) {
         this.quantity = quantity;
         this.price = price;
