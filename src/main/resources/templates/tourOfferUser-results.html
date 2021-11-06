@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+    <title>TourOfferCart</title>
+    <link th:href="@{webjars/bootstrap/4.0.0-2/css/bootstrap.min.css}"/>
+    <link th:href="@{https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css}"/>
+    <link th:href="@{webjars/bootstrap/4.0.0-2/css/bootstrap.min.css} "/>
+    <link th:href="@{webjars/font-awesome/5.11.2/css/all.css} "/>
+</head>
+<body>
+
+<div align="center">
+    <h1>Tour Offer User results</h1>
+
+    <a th:href="@{/tourOfferUser/results}">Create tour offer user results</a>
+
+
+    <table>
+        <!-- table header -->
+        <thead>
+        <tr>
+            <th>Travel option</th>
+            <th>Country</th>
+            <th>City</th>
+            <th>Airport</th>
+            <th>Departure date</th>
+
+        </tr>
+        </thead>
+
+        <!-- table body -->
+        <tbody>
+
+        <!-- product entry -->
+        <tr th:each="tourOfferCart : ${tourOfferCartInView}">
+            <td th:text="${tourOfferCart.tourOfferCartEntries}"></td>
+            <td th:text="${tourOfferCart.totalPrice}"></td>
+            <td th:text="${tourOfferCart.user.name}"></td>
+
+            <!-- action buttons -->
+            <td>
+                <div class="actions">
+                    <a th:href="@{/tourOfferCart/{id}/edit(id = ${tourOfferCart.id})}">Edit</a>
+                    <a th:href="@{/tourOfferCart/{id}/delete(id = ${tourOfferCart.id})}">Delete</a>
+                </div>
+
+            </td>
+
+        </tr>
+        </tbody>
+    </table>
+
+</div>
+
+</body>
+</html>
