@@ -1,6 +1,7 @@
 package ro.sda.echipa1.entities;
 
 import ro.sda.echipa1.entities.enums.TourOfferCartStatus;
+import ro.sda.echipa1.model.User;
 
 import javax.persistence.*;
 import java.util.ArrayList;
