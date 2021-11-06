@@ -2,6 +2,7 @@ package ro.sda.echipa1.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import ro.sda.echipa1.dto.TourOfferAdminDto;
 import ro.sda.echipa1.entities.TourOfferAdmin;
 import ro.sda.echipa1.entities.TourOfferUser;
 import ro.sda.echipa1.repository.TourOfferUserRepository;
@@ -14,7 +15,6 @@ public class TourOfferUserService {
 
     private TourOfferUserRepository tourOfferUserRepository;
 
-    private  TourOfferAdmin tourOfferAdmin;
 
     @Autowired
     public TourOfferUserService(TourOfferUserRepository tourOfferUserRepository) {
@@ -59,13 +59,15 @@ public class TourOfferUserService {
         tourOfferUserRepository.save(tourOfferUser);
     }
 
-    public void calculatePrice(Long id, TourOfferUser tourOfferUser) {
+    public Double calculatePrice(Long id, TourOfferUser tourOfferUser, TourOfferAdminDto tourOfferAdminDto) {
         Optional<TourOfferUser> tourOfferUserOptional = tourOfferUserRepository.findById(id);
         Integer numberOfAdults = tourOfferUser.getNumberOfAdult();
         Integer numberOfChildren = tourOfferUser.getNumberOfChildren();
-        Double price = numberOfAdults * tourOfferAdmin.getPriceForAnAdult() + numberOfChildren *
-                tourOfferAdmin.getPriceForAChild();
+        Double price = numberOfAdults * tourOfferAdminDto.getPriceForAnAdult() + numberOfChildren *
+                tourOfferAdminDto.getPriceForAChild();
         tourOfferUserOptional.get().setPrice(price);
+
+        return price;
 
     }
 }

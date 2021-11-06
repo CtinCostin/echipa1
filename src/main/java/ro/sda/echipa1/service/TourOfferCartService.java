@@ -4,7 +4,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import ro.sda.echipa1.OutOfOffersException;
+import ro.sda.echipa1.dto.TourOfferAdminDto;
 import ro.sda.echipa1.dto.TourOfferCartDto;
+import ro.sda.echipa1.dto.TourOfferUserDto;
 import ro.sda.echipa1.entities.TourOfferAdmin;
 import ro.sda.echipa1.entities.TourOfferCart;
 import ro.sda.echipa1.entities.TourOfferCartEntry;
@@ -23,17 +25,12 @@ public class TourOfferCartService {
 
     private TourOfferCartRepository tourOfferCartRepository;
 
-    private TourOfferCartDto tourOfferCartDto;
-
     private List<TourOfferCartEntry> entries = new ArrayList<>();
 
     private TourOfferUserRepository tourOfferUserRepository;
 
-    private TourOfferUser tourOfferUser;
-
     private TourOfferUserService tourOfferUserService;
 
-    private TourOfferAdmin tourOfferAdmin;
 
     @Autowired
     public TourOfferCartService(TourOfferCartRepository tourOfferCartRepository,
@@ -83,7 +80,7 @@ public class TourOfferCartService {
         tourOfferCartRepository.save(tourOfferCart);
     }
 
-    public void addToCart(Long id) {
+    public void addToCart(Long id, TourOfferCartDto tourOfferCartDto) {
         TourOfferCart tourOfferCart = new TourOfferCart();
         try {
             tourOfferCart = tourOfferCartDto.getCurrentCart(tourOfferCart);
@@ -120,7 +117,7 @@ public class TourOfferCartService {
 
         List<TourOfferCartEntry> entries = tourOfferCart.getTourOfferCartEntries();
         double sum = 0;
-        for(TourOfferCartEntry entry : entries) {
+        for (TourOfferCartEntry entry : entries) {
             sum = sum + entry.getPrice();
         }
         tourOfferCart.setTotalPrice(sum);
@@ -134,16 +131,17 @@ public class TourOfferCartService {
         tourOfferCartRepository.save(tourOfferCart);
     }
 
-    public void calculatePrice(Long id) {
+    public Double calculatePrice(Long id, TourOfferUserDto tourOfferUserDto, TourOfferAdminDto tourOfferAdminDto) {
         Optional<TourOfferUser> tourOfferUserOptional = tourOfferUserRepository.findById(id);
-        Integer numberOfAdults = tourOfferUser.getNumberOfAdult();
-        Integer numberOfChildren = tourOfferUser.getNumberOfChildren();
-        Double price = numberOfAdults * tourOfferAdmin.getPriceForAnAdult() + numberOfChildren *
-                tourOfferAdmin.getPriceForAChild();
+        Integer numberOfAdults = tourOfferUserDto.getNumberOfAdult();
+        Integer numberOfChildren = tourOfferUserDto.getNumberOfChildren();
+        Double price = numberOfAdults * tourOfferAdminDto.getPriceForAnAdult() + numberOfChildren *
+                tourOfferAdminDto.getPriceForAChild();
         tourOfferUserOptional.get().setPrice(price);
 
+        return price;
+
+
     }
-
-
 
 }
