@@ -24,7 +24,7 @@ public class HotelService {
         return hotelRepository.save(hotel);
     }
 
-    public List<Hotel> getAllHotels() {
+    public List<Hotel> findAll() {
         return hotelRepository.findAll();
     }
 
@@ -69,4 +69,6 @@ public class HotelService {
     public void save(Hotel hotel) {
         hotelRepository.save(hotel);
     }
+
+
 }

@@ -57,7 +57,6 @@ public class TourOfferAdminController {
         model.addAttribute("numberOfDays", newTourOfferAdmin.getNumberOfDays());
         model.addAttribute("priceForAnAdult", newTourOfferAdmin.getPriceForAnAdult());
         model.addAttribute("priceForAChild", newTourOfferAdmin.getPriceForAChild());
-        model.addAttribute("numberOfPlacesForChildren", newTourOfferAdmin.getNumberOfPLacesForChildren());
         model.addAttribute("typeOfService", TypeOfService.values());
         return "tourOfferAdmin-add";
     }
@@ -88,7 +87,6 @@ public class TourOfferAdminController {
         model.addAttribute("numberOfDays", tourOfferAdminService.findById(id).getNumberOfDays());
         model.addAttribute("priceForAnAdult", tourOfferAdminService.findById(id).getPriceForAnAdult());
         model.addAttribute("priceForAChild", tourOfferAdminService.findById(id).getPriceForAChild());
-        model.addAttribute("numberOfPlacesForChildren", tourOfferAdminService.findById(id).getNumberOfPLacesForChildren());
         model.addAttribute("typeOfService", TypeOfService.values());
 
         return "tourOfferAdmin-edit";

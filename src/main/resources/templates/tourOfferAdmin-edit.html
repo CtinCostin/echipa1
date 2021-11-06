@@ -17,7 +17,7 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-6 col-sm-6 col-xs-12">
-                    <form method="post" th:action="@{/tourOfferAdmin/add}" th:object="${tourOfferAdmin}">
+                    <form method="post" th:action="@{/tourOfferAdmin/{id}/edit(id=${tourOfferAdmin.id})}" th:object="${tourOfferAdmin}">
                         <div class="form-row">
                             <div class="form-group col-md-6">
                                 <label for="name">Name</label>
@@ -145,19 +145,6 @@
                             <div class="form-group col-md-6">
                                 <label for="priceForAChild">PriceForAChild</label>
                                 <input id="priceForAChild" th:field="*{priceForAChild}" type="text">
-                            </div>
-                        </div>
-                        <div class="form-row">
-
-                            <div class="form-group col-md-6">
-                                <label for="numberOfAdult">NumberOfAdult</label>
-                                <input id="numberOfAdult" th:field="*{numberOfAdult}" type="text">
-                            </div>
-
-                            <div class="form-group col-md-6">
-                                <label for="numberOfPLacesForChildren">NumberOfPLacesForChildren</label>
-                                <input id="numberOfPLacesForChildren" th:field="*{numberOfPLacesForChildren}"
-                                       type="text">
                             </div>
                         </div>
 

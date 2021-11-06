@@ -19,10 +19,6 @@ public class TourOfferAdminService {
         this.tourOfferAdminRepository = tourOfferAdminRepository;
     }
 
-    public List<TourOfferAdmin> getAllTours() {
-        return tourOfferAdminRepository.findAll();
-    }
-
     public List<TourOfferAdmin> findAll() {
         return tourOfferAdminRepository.findAll();
     }
@@ -41,6 +37,7 @@ public class TourOfferAdminService {
     }
 
     private TourOfferAdmin updateEntity(TourOfferAdminDto tourOfferAdminDto, TourOfferAdmin existingTourOfferAdmin) {
+        existingTourOfferAdmin.setName(tourOfferAdminDto.getName());
         existingTourOfferAdmin.setContinent(tourOfferAdminDto.getContinent());
         existingTourOfferAdmin.setCountry(tourOfferAdminDto.getCountry());
         existingTourOfferAdmin.setCity(tourOfferAdminDto.getCity());
@@ -52,8 +49,6 @@ public class TourOfferAdminService {
         existingTourOfferAdmin.setTypeOfService(tourOfferAdminDto.getTypeOfService());
         existingTourOfferAdmin.setPriceForAnAdult(tourOfferAdminDto.getPriceForAnAdult());
         existingTourOfferAdmin.setPriceForAChild(tourOfferAdminDto.getPriceForAChild());
-        existingTourOfferAdmin.setNumberOfAdult(tourOfferAdminDto.getNumberOfAdult());
-        existingTourOfferAdmin.setNumberOfPLacesForChildren(tourOfferAdminDto.getNumberOfPLacesForChildren());
 
         return existingTourOfferAdmin;
     }

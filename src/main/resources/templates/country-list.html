@@ -13,7 +13,7 @@
     <a th:href="@{/country/add}">Create country</a>
 
     <table>
-        <!-- table header -->
+
         <thead>
         <tr>
             <th>Name</th>
@@ -21,15 +21,15 @@
         </tr>
         </thead>
 
-        <!-- table body -->
+
         <tbody>
 
-        <!-- product entry -->
-        <tr th:each="hotel : ${countryInView}">
+
+        <tr th:each="country : ${countriesInView}">
             <td th:text="${country.name}"></td>
             <td th:text="${country.continent.name}"></td>
 
-            <!-- action buttons -->
+
             <td>
                 <div class="actions">
                     <a th:href="@{/country/{id}/edit(id = ${country.id})}">Edit</a>

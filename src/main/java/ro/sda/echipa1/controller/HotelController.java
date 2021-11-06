@@ -27,7 +27,7 @@ public class HotelController {
     @GetMapping("/")
     public String showHotelsPage(Model model) {
 
-        List<Hotel> hotel = hotelService.getAllHotels();
+        List<Hotel> hotel = hotelService.findAll();
         model.addAttribute("hotelsInView", hotel);
  
         return "hotel-list";
@@ -37,13 +37,15 @@ public class HotelController {
     public String showAddForm(Model model) {
         Hotel newHotel = new Hotel();
         model.addAttribute("hotel", newHotel);
-        model.addAttribute("cities",cityService.findAll());
         model.addAttribute("stars", StarRating.values());
+        model.addAttribute("description", newHotel.getDescription());
+        model.addAttribute("cities",cityService.findAll());
+
         return "hotel-add";
     }
 
     @PostMapping("/add")
-    public String addNewHotel(@Valid Hotel hotel, BindingResult bindingResult){
+    public String addNewHotel(@ModelAttribute("hotel") @Valid Hotel hotel, BindingResult bindingResult){
         if(bindingResult.hasErrors()){
             return "hotel-add";
         }
@@ -57,6 +59,9 @@ public class HotelController {
                                @PathVariable Long id) {
 
         model.addAttribute("hotel", hotelService.findById(id));
+        model.addAttribute("stars", StarRating.values());
+        model.addAttribute("description", hotelService.findById(id).getDescription());
+        model.addAttribute("cities",cityService.findAll());
         return "hotel-edit";
     }
 

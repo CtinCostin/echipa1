@@ -15,60 +15,63 @@
 
     <a th:href="@{/tourOfferAdmin/add}">Create tour offer</a>
 
+        <table class="table table-sm">
+            <thead>
+            <tr>
+                <th>Name</th>
+                <th>Continent</th>
+                <th>Country</th>
+                <th>City</th>
+                <th>Travel Option</th>
+                <th>Airport</th>
+                <th>Hotel</th>
+                <th>Departure date</th>
+                <th>Date of return</th>
+                <th>Number of days</th>
+                <th>Type of service</th>
+                <th>Price for an adult</th>
+                <th>Price for a child</th>
 
-    <table>
-        <thead>
-        <tr>
-            <th>Continent</th>
-            <th>Country</th>
-            <th>City</th>
-            <th>Travel Option</th>
-            <th>Airport</th>
-            <th>Hotel</th>
-            <th>Departure date</th>
-            <th>Date of return</th>
-            <th>Number of days</th>
-            <th>Type of service</th>
-            <th>Price for an adult</th>
-            <th>Price for a child</th>
-            <th>Number of adults</th>
-            <th>Number of children</th>
+            </tr>
+            </thead>
+
+            <tbody>
+
+            <tr th:each="tourOfferAdmin : ${tourOfferInView}">
+                <td th:text="${tourOfferAdmin.name}"></td>
+                <td th:text="${tourOfferAdmin.continent.name}"></td>
+                <td th:text="${tourOfferAdmin.country.name}"></td>
+                <td th:text="${tourOfferAdmin.city.name}"></td>
+                <td th:text="${tourOfferAdmin.travelOption}"></td>
+                <td th:text="${tourOfferAdmin.airport.name}"></td>
+                <td th:text="${tourOfferAdmin.hotel.name}"></td>
+                <td th:text="${tourOfferAdmin.departureDate}"></td>
+                <td th:text="${tourOfferAdmin.dateOfReturn}"></td>
+                <td th:text="${tourOfferAdmin.numberOfDays}"></td>
+                <td th:text="${tourOfferAdmin.typeOfService}"></td>
+                <td th:text="${tourOfferAdmin.priceForAnAdult}"></td>
+                <td th:text="${tourOfferAdmin.priceForAChild}"></td>
+
+                <td>
+                    <div class="actions">
+                        <a th:href="@{/tourOfferAdmin/{id}/edit(id = ${tourOfferAdmin.id})}">Edit</a>
+                        <a th:href="@{/tourOfferAdmin/{id}/delete(id = ${tourOfferAdmin.id})}">Delete</a>
+                    </div>
+
+                </td>
+
+            </tr>
+            </tbody>
+        </table>
+
+    </div>
 
 
-        </tr>
-        </thead>
-
-        <tbody>
-
-        <tr th:each="tourOfferAdmin : ${tourOfferInView}">
-            <td th:text="${tourOfferAdmin.continent.name}"></td>
-            <td th:text="${tourOfferAdmin.country.name}"></td>
-            <td th:text="${tourOfferAdmin.city.name}"></td>
-            <td th:text="${tourOfferAdmin.travelOption}"></td>
-            <td th:text="${tourOfferAdmin.airport.name}"></td>
-            <td th:text="${tourOfferAdmin.hotel.name}"></td>
-            <td th:text="${tourOfferAdmin.departureDate}"></td>
-            <td th:text="${tourOfferAdmin.dateOfReturn}"></td>
-            <td th:text="${tourOfferAdmin.numberOfDays}"></td>
-            <td th:text="${tourOfferAdmin.typeOfService}"></td>
-            <td th:text="${tourOfferAdmin.priceForAnAdult}"></td>
-            <td th:text="${tourOfferAdmin.priceForAChild}"></td>
-            <td th:text="${tourOfferAdmin.numberOfAdult}"></td>
-            <td th:text="${tourOfferAdmin.numberOfPLacesForChildren}"></td>
-
-            <td>
-                <div class="actions">
-                    <a th:href="@{/tourOfferAdmin/{id}/edit(id = ${tourOfferAdmin.id})}">Edit</a>
-                    <a th:href="@{/tourOfferAdmin/{id}/delete(id = ${tourOfferAdmin.id})}">Delete</a>
-                </div>
-
-            </td>
-
-        </tr>
-        </tbody>
-    </table>
-
-</div>
+<script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+<script th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
+<script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+<script th:src="@{/assets/moment/moment.min.js}"></script>
+<script th:src="@{/assets/tempusdominus-bootstrap-4/tempusdominus-bootstrap-4.min.js}"></script>
 
 <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
 <script th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
