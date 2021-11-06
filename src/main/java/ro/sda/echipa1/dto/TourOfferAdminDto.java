@@ -26,9 +26,7 @@ public class TourOfferAdminDto {
     private TypeOfService typeOfService;
     private Double priceForAnAdult;
     private Double priceForAChild;
-    private Boolean promoted;
-    private Integer numberOfAdult;
-    private Integer numberOfPLacesForChildren;
+
 
     public Continent getContinent() {
         return continent;
@@ -134,29 +132,6 @@ public class TourOfferAdminDto {
         this.priceForAChild = priceForAChild;
     }
 
-    public Boolean getPromoted() {
-        return promoted;
-    }
-
-    public void setPromoted(Boolean promoted) {
-        this.promoted = promoted;
-    }
-
-    public Integer getNumberOfAdult() {
-        return numberOfAdult;
-    }
-
-    public void setNumberOfAdult(Integer numberOfAdult) {
-        this.numberOfAdult = numberOfAdult;
-    }
-
-    public Integer getNumberOfPLacesForChildren() {
-        return numberOfPLacesForChildren;
-    }
-
-    public void setNumberOfPLacesForChildren(Integer numberOfPLacesForChildren) {
-        this.numberOfPLacesForChildren = numberOfPLacesForChildren;
-    }
 }
 
 
