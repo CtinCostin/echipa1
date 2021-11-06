@@ -3,110 +3,175 @@
 </head>
 
 <body>
+    <div th:fragment="footer">
+        <footer class="bg-danger text-center text-white">
+            <!-- Grid container -->
+            <div class="container p-6">
+                <!-- Section: Social media -->
+                <section class="mb-3">
+                    <!-- Facebook -->
+                    <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+                    ><i class="fab fa-facebook-f"></i
+                    ></a>
 
-<div th:fragment="footer">
+                    <!-- Google -->
+                    <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+                    ><i class="fab fa-google"></i
+                    ></a>
 
-    <div class="container">
+                    <!-- Instagram -->
+                    <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+                    ><i class="fab fa-instagram"></i
+                    ></a>
 
-        <footer>
-            <div class="container">
-                ::before
-                <div class="row">
-                    ::before
-                    <div class="col-sm-3">
-                        <div class="footer-section footer-company">
-                            <h3>Mai mult decat o vacanta</h3>
-                            <ul class="list-unstyled">
+                </section>
+                <!-- Section: Social media -->
+
+                <!-- Section: Form -->
+                <section class="">
+                    <form action="">
+                        <!--Grid row-->
+                        <div class="row d-flex justify-content-center">
+                            <!--Grid column-->
+                            <div class="col-auto">
+                                <p class="pt-2">
+                                    <strong>Sign up for our newsletter</strong>
+                                </p>
+                            </div>
+                            <!--Grid column-->
+
+                            <!--Grid column-->
+                            <div class="col-md-5 col-12">
+                                <!-- Email input -->
+                                <div class="form-outline form-white mb-4">
+                                    <input type="email" id="form5Example21" class="form-control" />
+                                    <label class="form-label" for="form5Example21">Email address</label>
+                                </div>
+                            </div>
+                            <!--Grid column-->
+
+                            <!--Grid column-->
+                            <div class="col-auto">
+                                <!-- Submit button -->
+                                <button type="submit" class="btn btn-outline-light mb-4">
+                                    Subscribe
+                                </button>
+                            </div>
+                            <!--Grid column-->
+                        </div>
+                        <!--Grid row-->
+                    </form>
+                </section>
+                <!-- Section: Form -->
+
+                <!-- Section: Text -->
+                <section class="mb-4">
+                    <p>
+                        ~ Nu calatorii departe sa ne gasesti, calatoareste departe cu noi ~
+                    </p>
+                </section>
+                <!-- Section: Text -->
+
+                <!-- Section: Links -->
+                <section class="">
+                    <!--Grid row-->
+                    <div class="row">
+                        <!--Grid column-->
+                        <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+                            <h5 class="text-uppercase">Links</h5>
+
+                            <ul class="list-unstyled mb-0">
                                 <li>
-                                    <a th:ref="/contact">Contact</a>
+                                    <a href="#!" class="text-white">Despre noi</a>
                                 </li>
                                 <li>
-                                    <a th:ref="/despre-noi"/>Despre noi</a>
+                                    <a href="#!" class="text-white">Conditii calatorie</a>
                                 </li>
-                                <li class="footer-social">
-                                    <div class="fa-container facebook">
-                                        <a th:ref="http://www.facebook.com" target="_blank" rel="noopener">...</a>
-                                    </div>
+                                <li>
+                                    <a href="#!" class="text-white">Sfaturi de calatorie</a>
+                                </li>
+                                <li>
+                                    <a href="#!" class="text-white">Termeni si conditii</a>
                                 </li>
                             </ul>
                         </div>
-                    </div>
-                    <div class="col-sm-5">
-                        <div class="footer-section footer-contact">
-                            <h3>Contact</h3>
-                            <ul class="list-unstyled">
+                        <!--Grid column-->
+
+                        <!--Grid column-->
+                        <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+                            <h5 class="text-uppercase">Links</h5>
+
+                            <ul class="list-unstyled mb-0">
+                                <li>
+                                    <a href="#!" class="text-white">Link 1</a>
+                                </li>
+                                <li>
+                                    <a href="#!" class="text-white">Link 2</a>
+                                </li>
+                                <li>
+                                    <a href="#!" class="text-white">Link 3</a>
+                                </li>
+                                <li>
+                                    <a href="#!" class="text-white">Link 4</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <!--Grid column-->
+
+                        <!--Grid column-->
+                        <div class="col-lg-3 col-md-6 mb-4 mb-md-0 col-lg-3-right">
+                            <h5 class="text-uppercase">Contact</h5>
+
+                            <ul class="list-unstyled mb-0">
                                 <li class="clearfix">
-                                    ::before
-                                    <div class="fa-container">
-                                        <i class="fa fa-map-marker">
-                                            ::before
-                                        </i>
+                                    <div class="fa-conatiner">
+                                        <i class="fa fa-map-marker"> Str. Teodor Mihali 4, Cluj-Napoca </i>
                                     </div>
-                                    <div class="text">
-                                        " Str. Pavel Stoica 2A, cam. 1, Timisoara "
-                                    </div>
-                                    ::after
                                 </li>
                                 <li class="clearfix">
-                                    ::before
                                     <div class="fa-container">
                                         <i class="fa fa-clock-o">
-                                            ::before
+                                            Luni-Vineri: 09:00 - 18:00
+                                            <br>
+                                            Sambata: Inchis
+                                            <br>
+                                            Duminica: Inchis
                                         </i>
                                     </div>
-                                    <div class="text">
-                                        " Luni-Vineri: 09:00 - 18:00 "
-                                        <br>
-                                        "Sambata: Inchis "
-                                        <br>
-                                        "Duminica: Inchis "
-                                    </div>
-                                    ::after
                                 </li>
                                 <li class="clearfix">
-                                    ::before
                                     <div class="fa-container">
                                         <i class="fa fa-envelope">
-                                            ::before
+                                            <a href="mailto:office@maimultdecatovacanta.ro" target="_blank">office@maimultdecatovacanta.ro</a>
                                         </i>
                                     </div>
-                                    <div class="text">
-                                        <a th:ref="mailto:office@maimultdecatovacanta.ro" target="_blank">
-                                            office@maimultdecatovacanta.ro
-                                        </a>
-                                    </div>
-                                    ::after
                                 </li>
                                 <li class="clearfix">
-                                    ::before
                                     <div class="fa-container">
-                                        <i class="fa fa-phone">
-                                            ::before
-                                        </i>
+                                        <i class="fa fa-phone"> 0748 888 888 </i>
                                     </div>
-                                    <div class="text">
-                                        " 0749686686 "
-                                    </div>
-                                    ::after
+
                                 </li>
                             </ul>
                         </div>
-                    </div>
-                    <div class="col-sm-4">
-                        <div class="copyright">
-                            " © 2021 SDA, All rights reserved "
-                            <a href="http://www.gtravelcloud.com" target="_blank">Q Travel Cloud</a>
-                            ", un produs Aqua Development. Toate drepturile rezervate. "
-                        </div>
-                    </div>
-                </div>
-            </div>
 
+                        <!--Grid column-->
+                    </div>
+                    <!--Grid row-->
+                </section>
+                <!-- Section: Links -->
+            </div>
+            <!-- Grid container -->
+
+            <!-- Copyright -->
+            <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+                © 2020 Copyright:
+                <a class="text-white" href="https://mdbootstrap.com/">MDBootstrap.com</a>
+            </div>
+            <!-- Copyright -->
         </footer>
+        <!-- Footer -->
 
     </div>
-
-</div>
-
 </body>
 </html>

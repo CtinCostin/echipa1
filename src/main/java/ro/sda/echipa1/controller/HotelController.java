@@ -11,7 +11,6 @@ import ro.sda.echipa1.entities.enums.StarRating;
 import ro.sda.echipa1.service.CityService;
 import ro.sda.echipa1.service.HotelService;
 
-
 import javax.validation.Valid;
 import java.util.List;
 
