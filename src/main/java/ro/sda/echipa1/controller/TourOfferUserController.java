@@ -37,7 +37,7 @@ public class TourOfferUserController {
     private CountryService countryService;
 
 
-    @GetMapping("/")
+    @GetMapping("/tourOfferUser/")
     public String showTourOfferForm(Model model) {
 
         List<TourOfferUser> tourOfferUserList = tourOfferUserService.findAll();
