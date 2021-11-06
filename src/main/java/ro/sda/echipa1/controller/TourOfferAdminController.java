@@ -50,14 +50,13 @@ public class TourOfferAdminController {
         model.addAttribute("countries", countryService.findAll());
         model.addAttribute("cities",cityService.findAll());
         model.addAttribute("travelOption", TravelOption.values());
-        model.addAttribute("hotels", hotelService.getAllHotels());
+        model.addAttribute("hotels", hotelService.findAll());
         model.addAttribute("airports", airportService.findAll());
         model.addAttribute("departureDate", LocalDate.now());
         model.addAttribute("dateOfReturn", LocalDate.now());
         model.addAttribute("numberOfDays", newTourOfferAdmin.getNumberOfDays());
         model.addAttribute("priceForAnAdult", newTourOfferAdmin.getPriceForAnAdult());
         model.addAttribute("priceForAChild", newTourOfferAdmin.getPriceForAChild());
-        model.addAttribute("numberOfPlacesForChildren", newTourOfferAdmin.getNumberOfPLacesForChildren());
         model.addAttribute("typeOfService", TypeOfService.values());
         return "tourOfferAdmin-add";
     }
@@ -81,14 +80,13 @@ public class TourOfferAdminController {
         model.addAttribute("countries", countryService.findAll());
         model.addAttribute("cities",cityService.findAll());
         model.addAttribute("travelOption", TravelOption.values());
-        model.addAttribute("hotels", hotelService.getAllHotels());
+        model.addAttribute("hotels", hotelService.findAll());
         model.addAttribute("airports", airportService.findAll());
         model.addAttribute("departureDate", LocalDate.now());
         model.addAttribute("dateOfReturn", LocalDate.now());
         model.addAttribute("numberOfDays", tourOfferAdminService.findById(id).getNumberOfDays());
         model.addAttribute("priceForAnAdult", tourOfferAdminService.findById(id).getPriceForAnAdult());
         model.addAttribute("priceForAChild", tourOfferAdminService.findById(id).getPriceForAChild());
-        model.addAttribute("numberOfPlacesForChildren", tourOfferAdminService.findById(id).getNumberOfPLacesForChildren());
         model.addAttribute("typeOfService", TypeOfService.values());
 
         return "tourOfferAdmin-edit";
