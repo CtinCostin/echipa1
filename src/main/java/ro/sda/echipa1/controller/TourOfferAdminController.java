@@ -50,7 +50,7 @@ public class TourOfferAdminController {
         model.addAttribute("countries", countryService.findAll());
         model.addAttribute("cities",cityService.findAll());
         model.addAttribute("travelOption", TravelOption.values());
-        model.addAttribute("hotels", hotelService.findAll());
+        model.addAttribute("hotels", hotelService.getAllHotels());
         model.addAttribute("airports", airportService.findAll());
         model.addAttribute("departureDate", LocalDate.now());
         model.addAttribute("dateOfReturn", LocalDate.now());
@@ -80,7 +80,7 @@ public class TourOfferAdminController {
         model.addAttribute("countries", countryService.findAll());
         model.addAttribute("cities",cityService.findAll());
         model.addAttribute("travelOption", TravelOption.values());
-        model.addAttribute("hotels", hotelService.findAll());
+        model.addAttribute("hotels", hotelService.getAllHotels());
         model.addAttribute("airports", airportService.findAll());
         model.addAttribute("departureDate", LocalDate.now());
         model.addAttribute("dateOfReturn", LocalDate.now());
