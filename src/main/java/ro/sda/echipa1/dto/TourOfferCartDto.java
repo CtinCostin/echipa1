@@ -4,13 +4,11 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import ro.sda.echipa1.entities.TourOfferCart;
 import ro.sda.echipa1.entities.TourOfferCartEntry;
-import ro.sda.echipa1.entities.User;
+import ro.sda.echipa1.model.User;
 import ro.sda.echipa1.repository.TourOfferCartRepository;
-import ro.sda.echipa1.service.TourOfferCartEntryService;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 public class TourOfferCartDto {
 
