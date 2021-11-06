@@ -19,10 +19,6 @@ public class TourOfferAdminService {
         this.tourOfferAdminRepository = tourOfferAdminRepository;
     }
 
-    public List<TourOfferAdmin> getAllTours() {
-        return tourOfferAdminRepository.findAll();
-    }
-
     public List<TourOfferAdmin> findAll() {
         return tourOfferAdminRepository.findAll();
     }
@@ -53,8 +49,6 @@ public class TourOfferAdminService {
         existingTourOfferAdmin.setTypeOfService(tourOfferAdminDto.getTypeOfService());
         existingTourOfferAdmin.setPriceForAnAdult(tourOfferAdminDto.getPriceForAnAdult());
         existingTourOfferAdmin.setPriceForAChild(tourOfferAdminDto.getPriceForAChild());
-        existingTourOfferAdmin.setNumberOfAdult(tourOfferAdminDto.getNumberOfAdult());
-        existingTourOfferAdmin.setNumberOfPLacesForChildren(tourOfferAdminDto.getNumberOfPLacesForChildren());
 
         return existingTourOfferAdmin;
     }

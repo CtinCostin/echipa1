@@ -37,8 +37,7 @@ public class TourOfferAdmin {
     private TypeOfService typeOfService;
     private Double priceForAnAdult;
     private Double priceForAChild;
-    private Integer numberOfAdult;
-    private Integer numberOfPLacesForChildren;
+
 
     public TourOfferAdmin() {
     }
@@ -46,8 +45,7 @@ public class TourOfferAdmin {
     public TourOfferAdmin(Long id, String name, Continent continent, Country country, City city,
                           TravelOption travelOption, Airport airport, Hotel hotel, LocalDate departureDate,
                           LocalDate dateOfReturn, Integer numberOfDays, TypeOfService typeOfService,
-                          Double priceForAnAdult, Double priceForAChild, Integer numberOfAdult,
-                          Integer numberOfPLacesForChildren) {
+                          Double priceForAnAdult, Double priceForAChild) {
         this.id = id;
         this.name = name;
         this.continent = continent;
@@ -62,8 +60,7 @@ public class TourOfferAdmin {
         this.typeOfService = typeOfService;
         this.priceForAnAdult = priceForAnAdult;
         this.priceForAChild = priceForAChild;
-        this.numberOfAdult = numberOfAdult;
-        this.numberOfPLacesForChildren = numberOfPLacesForChildren;
+
     }
 
     public Long getId() {
@@ -168,22 +165,6 @@ public class TourOfferAdmin {
 
     public void setPriceForAChild(Double priceForAChild) {
         this.priceForAChild = priceForAChild;
-    }
-
-    public Integer getNumberOfAdult() {
-        return numberOfAdult;
-    }
-
-    public void setNumberOfAdult(Integer numberOfAdult) {
-        this.numberOfAdult = numberOfAdult;
-    }
-
-    public Integer getNumberOfPLacesForChildren() {
-        return numberOfPLacesForChildren;
-    }
-
-    public void setNumberOfPLacesForChildren(Integer numberOfPLacesForChildren) {
-        this.numberOfPLacesForChildren = numberOfPLacesForChildren;
     }
 
     public TravelOption getTravelOption() {
