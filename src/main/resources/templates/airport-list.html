@@ -25,7 +25,7 @@
         <tbody>
 
         <!-- product entry -->
-        <tr th:each="hotel : ${airportInView}">
+        <tr th:each="airport : ${airportsInView}">
             <td th:text="${airport.name}"></td>
             <td th:text="${airport.city.name}"></td>
 

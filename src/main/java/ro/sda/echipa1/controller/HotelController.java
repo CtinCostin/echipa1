@@ -7,10 +7,9 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import ro.sda.echipa1.dto.HotelDto;
 import ro.sda.echipa1.entities.Hotel;
-import ro.sda.echipa1.entities.StarRating;
+import ro.sda.echipa1.entities.enums.StarRating;
 import ro.sda.echipa1.service.CityService;
 import ro.sda.echipa1.service.HotelService;
-
 
 import javax.validation.Valid;
 import java.util.List;
