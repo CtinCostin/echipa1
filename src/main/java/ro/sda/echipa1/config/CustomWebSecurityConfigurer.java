@@ -57,7 +57,6 @@ public class CustomWebSecurityConfigurer extends WebSecurityConfigurerAdapter {
 //Define the formLogin
                 .formLogin()
                 .loginPage("/login")
-                .successForwardUrl("/")
                 .defaultSuccessUrl("/")
                 .permitAll()
                 .and()
