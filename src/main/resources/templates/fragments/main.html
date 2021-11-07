@@ -14,15 +14,17 @@
         <div class="form-row">
             <div class="acqua-engine-classic-wrapper">
                 <div class="form-group col-md-6">
-                    <form >
+                    <form method="post" th:object="${formObject}" th:action="@{/searchOffer}">
                         <div class="row">
                             <div class="col-md-4 mb-3">
                                 <label>Tip Transport</label>
                                 <div>
-                                    <select class="form-select form-select-sm" aria-label=".form-select-sm example">
-                                        <option selected>Open this select menu</option>
-                                        <option value="1">Avion</option>
-                                        <option value="2">Individual</option>
+                                    <select th:field="*{travelOption}" class="form-select form-select-sm" aria-label=".form-select-sm example">
+<!--                                        <option selected value="">Open this select menu</option>-->
+                                        <option th:each="travelOpt: ${travelOption}"
+                                                th:text="${travelOpt}"
+                                                th:value="${travelOpt}">
+                                        </option>
                                     </select>
                                 </div>
                             </div>
@@ -30,59 +32,48 @@
                                 <label>Departure</label>
                                 <div>
                                     <select class="form-select form-select-sm" aria-label=".form-select-sm example">
-                                        <option selected>Open this select menu</option>
-                                        <option value="1">Cluj-Napoca</option>
-                                        <option value="2">Bucuresti</option>
-                                        <option value="3">Timisoara</option>
+<!--                                        <option selected>Open this select menu</option>-->
+                                        <option th:each="city : ${cities}"
+                                                th:text="${city.name}"
+                                                th:value="${city.id}">
+                                        </option>
                                     </select>
                                 </div>
                             </div>
-                            <!--                            <div class="col-md-4 mb-3">-->
-                            <!--                                <label>Tara de destinatie</label>-->
-                            <!--                                <div>-->
-                            <!--                                    <label for="country">Country</label>-->
-                            <!--                                    <select th:field="*{country}" id="country">-->
-                            <!--                                        <option selected>Open this select menu</option>-->
-                            <!--                                        <option th:each="country : ${countries}"-->
-                            <!--                                                th:text="${country.name}"-->
-                            <!--                                                th:value="${country.id}">-->
-                            <!--                                        </option >-->
-                            <!--                                    </select>-->
-                            <!--                                </div>-->
-                            <!--                            </div>-->
-                            <!--                        </div>-->
-                            <!--                        <div class="row">-->
-                            <!--                            <div class=" form-group col-md-6 mb-3">-->
-                            <!--                                <label for="departureDate">Departure Date</label>-->
-                            <!--                                <div class="input-group date" id="datetimepicker1" data-target-input="nearest">-->
-                            <!--                                    <input type="text" class="form-control datetimepicker-input"-->
-                            <!--                                           data-target="#datetimepicker1"-->
-                            <!--                                           th:field="*{departureDate}" id="departureDate" placeholder="Date"/>-->
-                            <!--                                    <div class="input-group-append" data-target="#datetimepicker1"-->
-                            <!--                                         data-toggle="datetimepicker">-->
-                            <!--                                        <div class="input-group-text"><i class="fa fa-calendar-alt"></i></div>-->
-                            <!--                                    </div>-->
-                            <!--                                </div>-->
-                            <!--                            </div>-->
-                            <!--                            <div class="form-group col-md-3 mb-3">-->
-                            <!--                                <label for="dateOfReturn">Return Date</label>-->
-                            <!--                                <div class="input-group date" id="datetimepicker2" data-target-input="nearest">-->
-                            <!--                                    <input type="text" class="form-control datetimepicker-input"-->
-                            <!--                                           data-target="#datetimepicker2"-->
-                            <!--                                           th:field="*{dateOfReturn}" id="dateOfReturn" placeholder="Date"/>-->
-                            <!--                                    <div class="input-group-append" data-target="#datetimepicker2"-->
-                            <!--                                         data-toggle="datetimepicker">-->
-                            <!--                                        <div class="input-group-text"><i class="fa fa-calendar-alt"></i></div>-->
-                            <!--                                    </div>-->
-                            <!--                                </div>-->
-                            <!--                            </div>-->
-                            <!--                        </div>-->
+                            <div class="col-md-4 mb-3">
+                                <label>Tara de destinatie</label>
+                                <div>
+                                    <label for="country">Country</label>
+                                    <select th:field="*{country}" id="country">
+<!--                                        <option selected>Open this select menu</option>-->
+                                        <option th:each="country : ${countries}"
+                                                th:text="${country.name}"
+                                                th:value="${country.id}">
+                                        </option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class=" form-group col-md-6 mb-3">
+                                    <label for="departureDate">Departure Date</label>
+                                    <div class="input-group date" id="datetimepicker1" data-target-input="nearest">
+                                        <input type="text" class="form-control datetimepicker-input"
+                                               data-target="#datetimepicker1"
+                                               th:field="*{departureDate}" id="departureDate" placeholder="Date"/>
+                                        <div class="input-group-append" data-target="#datetimepicker1"
+                                             data-toggle="datetimepicker">
+                                            <div class="input-group-text"><i class="fa fa-calendar-alt"></i></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
                             <div class="row">
                                 <div class="col-md-4 mb-3">
                                     <label>Nopti</label>
                                     <div>
                                         <select class="form-select form-select-sm" aria-label=".form-select-sm example">
-                                            <option selected>Open this select menu</option>
+<!--                                            <option selected>Open this select menu</option>-->
                                             <option value="1">1</option>
                                             <option value="2">2</option>
                                             <option value="3">3</option>
@@ -104,7 +95,7 @@
                                     <label>Camere</label>
                                     <div>
                                         <select class="form-select form-select-sm" aria-label=".form-select-sm example">
-                                            <option selected>Open this select menu</option>
+<!--                                            <option selected>Open this select menu</option>-->
                                             <option value="o camera">One</option>
                                             <option value="doua camere">Two</option>
                                             <option value="trei camere">Three</option>
@@ -204,7 +195,11 @@
                             </div>
                             <button class="btn btn-primary" type="submit">Submit form</button>
                             <div class="search-button text-right">
-                                <button id="packages_new_search_button" type="button" onclick="packages_new_search_form_submit(this)" data-loading-text="Cautam... <span class='loader-spinner inline d16 white'></span>" class="btn btn-success btn-lg o1pen-wait-modal-if-valid">Cauta pachete</button>
+                                <button id="packages_new_search_button" type="button"
+                                        onclick="packages_new_search_form_submit(this)"
+                                        data-loading-text="Cautam... <span class='loader-spinner inline d16 white'></span>"
+                                        class="btn btn-success btn-lg o1pen-wait-modal-if-valid">Cauta pachete
+                                </button>
                             </div>
                         </div>
                     </form>
@@ -293,9 +288,10 @@
     $('#datetimepicker1').datetimepicker({
     format: 'DD/MM/YYYY'
     });
-    $('#datetimepicker2').datetimepicker({
-    format: 'DD/MM/YYYY'
-    });
+
+
+
+
 </script>
 </body>
 </html>
