@@ -49,6 +49,7 @@ public class CustomWebSecurityConfigurer extends WebSecurityConfigurerAdapter {
                 "/register**"
                 , "/bootstrap/**"
                 , "/extra/**"
+                ,"/webjars/**"
                 , "/favicon.ico")
                 .permitAll()
         .anyRequest().authenticated()
@@ -56,6 +57,7 @@ public class CustomWebSecurityConfigurer extends WebSecurityConfigurerAdapter {
 //Define the formLogin
                 .formLogin()
                 .loginPage("/login")
+                .successForwardUrl("/")
                 .defaultSuccessUrl("/")
                 .permitAll()
                 .and()
