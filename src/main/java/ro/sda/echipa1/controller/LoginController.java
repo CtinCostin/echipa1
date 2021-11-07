@@ -44,13 +44,19 @@ public class LoginController {
         //System.out.println("userExists-->"+userExists);
 
         if (userExists != null) {
-            return "redirect:/register?username";
+            return "redirect:/user-select-tour-offer";
         }
         if(result.hasErrors()){
             return "admin/auth/register";
         }
         userService.save(userRegistrationDto);
         return "redirect:/register?success";
+    }
+
+    @GetMapping("/user-select-tour-offer")
+    public String showUserSelectTourPage(Model model) {
+
+        return "user-select-tour-offer";
     }
 
     public IUserService getUserService() {
