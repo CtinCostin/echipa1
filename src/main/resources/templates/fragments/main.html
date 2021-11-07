@@ -20,7 +20,11 @@
                                 <label>Tip Transport</label>
                                 <div>
                                     <select th:field="*{travelOption}" class="form-select form-select-sm" aria-label=".form-select-sm example">
+
                                         <!--                                        <option selected value="">Open this select menu</option>-->
+
+<!--                                        <option selected value="">Open this select menu</option>-->
+
                                         <option th:each="travelOpt: ${travelOption}"
                                                 th:text="${travelOpt}"
                                                 th:value="${travelOpt}">
@@ -32,7 +36,11 @@
                                 <label>Departure</label>
                                 <div>
                                     <select class="form-select form-select-sm" aria-label=".form-select-sm example">
+
                                         <!--                                        <option selected>Open this select menu</option>-->
+
+<!--                                        <option selected>Open this select menu</option>-->
+
                                         <option th:each="city : ${cities}"
                                                 th:text="${city.name}"
                                                 th:value="${city.id}">
@@ -45,7 +53,11 @@
                                 <div>
                                     <label for="country">Country</label>
                                     <select th:field="*{country}" id="country">
+
                                         <!--                                        <option selected>Open this select menu</option>-->
+
+<!--                                        <option selected>Open this select menu</option>-->
+
                                         <option th:each="country : ${countries}"
                                                 th:text="${country.name}"
                                                 th:value="${country.id}">
@@ -67,12 +79,17 @@
                                     </div>
                                 </div>
                             </div>
+
                             <div class="row">
                                 <div class="col-md-4 mb-3">
                                     <label>Nopti</label>
                                     <div>
                                         <select class="form-select form-select-sm" aria-label=".form-select-sm example">
+
                                             <!--                                            <option selected>Open this select menu</option>-->
+
+<!--                                            <option selected>Open this select menu</option>-->
+
                                             <option value="1">1</option>
                                             <option value="2">2</option>
                                             <option value="3">3</option>
@@ -94,7 +111,11 @@
                                     <label>Camere</label>
                                     <div>
                                         <select class="form-select form-select-sm" aria-label=".form-select-sm example">
+
                                             <!--                                            <option selected>Open this select menu</option>-->
+
+<!--                                            <option selected>Open this select menu</option>-->
+
                                             <option value="o camera">One</option>
                                             <option value="doua camere">Two</option>
                                             <option value="trei camere">Three</option>
