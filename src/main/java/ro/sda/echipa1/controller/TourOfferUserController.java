@@ -3,22 +3,18 @@ package ro.sda.echipa1.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import ro.sda.echipa1.dto.TourOfferAdminDto;
 import ro.sda.echipa1.dto.TourOfferUserDto;
-import ro.sda.echipa1.entities.Hotel;
 import ro.sda.echipa1.entities.TourOfferAdmin;
 import ro.sda.echipa1.entities.TourOfferUser;
 import ro.sda.echipa1.entities.enums.TravelOption;
+import ro.sda.echipa1.entities.enums.TypeOfRooms;
 import ro.sda.echipa1.entities.enums.TypeOfService;
 import ro.sda.echipa1.service.*;
 
-import javax.validation.Valid;
 import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Controller
 public class TourOfferUserController {
@@ -39,6 +35,9 @@ public class TourOfferUserController {
     private CountryService countryService;
 
 
+    private TourOfferUser tourOfferUser;
+
+
     @RequestMapping("/")
     public String showTourOfferForm(Model model) {
         List<TourOfferUser> tourOfferUserList = tourOfferUserService.findAll();
@@ -50,8 +49,9 @@ public class TourOfferUserController {
         model.addAttribute("airports", airportService.findAll());
         model.addAttribute("departureDate", LocalDate.now());
 //        model.addAttribute("numberOfDays", tourOfferUserService.findById(id).getNumberOfDays());
-//        model.addAttribute("numberOfRooms", tourOfferUserService.findById(id).getNumberOfRooms());
+        model.addAttribute("typeOfRooms", TypeOfRooms.values());
         model.addAttribute("typeOfService", TypeOfService.values());
+//        model.addAttribute("price", tourOfferUser.getPrice());
 //        model.addAttribute("numberOfAdult", tourOfferUserService.findById(id).getNumberOfAdult());
 //        model.addAttribute("numberOfChildren", tourOfferUserService.findById(id).getNumberOfChildren());
 
@@ -60,19 +60,13 @@ public class TourOfferUserController {
 
     @PostMapping("/searchOffer")
     public String showResultsFromSearch(TourOfferUserDto formObject, Model model) {
-        TourOfferUserDto searchCriteria= formObject;
-        List<TourOfferAdmin> allOffers=tourOfferAdminService.findAll();
-        if (searchCriteria.getCountry() != null){
-            allOffers = allOffers.stream().filter(ofer -> ofer.getCity().getCountry().equals(searchCriteria.getCountry())).collect(Collectors.toList());
-        }
-        if (searchCriteria.getCity()!= null){
-            allOffers = allOffers.stream().filter(ofer -> ofer.getCity().equals(searchCriteria.getCity())).collect(Collectors.toList());
-        }
-
+        List<TourOfferAdminDto> allOffers = tourOfferUserService.searchAvailableOffers(formObject);
 
         model.addAttribute("resultObject",allOffers);
 
         return "tourOfferUser-results";
     }
+
+
 
 }
