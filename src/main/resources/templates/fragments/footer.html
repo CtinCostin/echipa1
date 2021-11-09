@@ -1,177 +1,86 @@
-<html xmlns:th="http://www.thymeleaf.org">
+<!DOCTYPE html>
+<html>
+
 <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Untitled</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
 </head>
 
 <body>
-    <div th:fragment="footer">
-        <footer class="bg-danger text-center text-white">
-            <!-- Grid container -->
-            <div class="container p-6">
-                <!-- Section: Social media -->
-                <section class="mb-3">
-                    <!-- Facebook -->
-                    <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
-                    ><i class="fab fa-facebook-f"></i
-                    ></a>
+<div class="footer-basic">
+    <footer class="bg-dark text-center text-white">
+        <!-- Grid container -->
+        <div class="container p-4 pb-0">
+            <!-- Section: Social media -->
+            <section class="mb-4">
+                <!-- Facebook -->
+                <a
+                        class="btn btn-primary btn-floating m-1"
+                        style="background-color: #3b5998;"
+                        href="#!"
+                        role="button"
+                ><i class="fab fa-facebook-f"></i
+                ></a>
 
-                    <!-- Google -->
-                    <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
-                    ><i class="fab fa-google"></i
-                    ></a>
+                <!-- Google -->
+                <a
+                        class="btn btn-primary btn-floating m-1"
+                        style="background-color: #e0d20c;"
+                        href="#!"
+                        role="button"
+                ><i class="fab fa-google"></i
+                ></a>
 
-                    <!-- Instagram -->
-                    <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
-                    ><i class="fab fa-instagram"></i
-                    ></a>
+                <!-- Instagram -->
+                <a
+                        class="btn btn-primary btn-floating m-1"
+                        style="background-color: #cc0da3;"
+                        href="#!"
+                        role="button"
+                ><i class="fab fa-instagram"></i
+                ></a>
 
-                </section>
-                <!-- Section: Social media -->
+                <!-- Linkedin -->
+                <a
+                        class="btn btn-primary btn-floating m-1"
+                        style="background-color: #0082ca;"
+                        href="#!"
+                        role="button"
+                ><i class="fab fa-linkedin-in"></i
+                ></a>
+                <!-- Github -->
+                <a
+                        class="btn btn-primary btn-floating m-1"
+                        style="background-color: #333333;"
+                        href="#!"
+                        role="button"
+                ><i class="fab fa-github"></i
+                ></a>
+            </section>
+            <ul class="list-inline text-white">
+                <li class="list-inline-item"><a href="#">Home</a></li>
+                <li class="list-inline-item"><a href="#">Servicii</a></li>
+                <li class="list-inline-item"><a href="#">Despre noi</a></li>
+                <li class="list-inline-item"><a href="#">Termeni si conditii</a></li>
+                <li class="list-inline-item"><a href="#">Contact</a></li>
+            </ul>
+            <!-- Section: Social media -->
+        </div>
+        <!-- Grid container -->
 
-                <!-- Section: Form -->
-                <section class="">
-                    <form action="">
-                        <!--Grid row-->
-                        <div class="row d-flex justify-content-center">
-                            <!--Grid column-->
-                            <div class="col-auto">
-                                <p class="pt-2">
-                                    <strong>Sign up for our newsletter</strong>
-                                </p>
-                            </div>
-                            <!--Grid column-->
-
-                            <!--Grid column-->
-                            <div class="col-md-5 col-12">
-                                <!-- Email input -->
-                                <div class="form-outline form-white mb-4">
-                                    <input type="email" id="form5Example21" class="form-control" />
-                                    <label class="form-label" for="form5Example21">Email address</label>
-                                </div>
-                            </div>
-                            <!--Grid column-->
-
-                            <!--Grid column-->
-                            <div class="col-auto">
-                                <!-- Submit button -->
-                                <button type="submit" class="btn btn-outline-light mb-4">
-                                    Subscribe
-                                </button>
-                            </div>
-                            <!--Grid column-->
-                        </div>
-                        <!--Grid row-->
-                    </form>
-                </section>
-                <!-- Section: Form -->
-
-                <!-- Section: Text -->
-                <section class="mb-4">
-                    <p>
-                        ~ Nu calatorii departe sa ne gasesti, calatoareste departe cu noi ~
-                    </p>
-                </section>
-                <!-- Section: Text -->
-
-                <!-- Section: Links -->
-                <section class="">
-                    <!--Grid row-->
-                    <div class="row">
-                        <!--Grid column-->
-                        <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
-                            <h5 class="text-uppercase">Links</h5>
-
-                            <ul class="list-unstyled mb-0">
-                                <li>
-                                    <a href="#!" class="text-white">Despre noi</a>
-                                </li>
-                                <li>
-                                    <a href="#!" class="text-white">Conditii calatorie</a>
-                                </li>
-                                <li>
-                                    <a href="#!" class="text-white">Sfaturi de calatorie</a>
-                                </li>
-                                <li>
-                                    <a href="#!" class="text-white">Termeni si conditii</a>
-                                </li>
-                            </ul>
-                        </div>
-                        <!--Grid column-->
-
-                        <!--Grid column-->
-                        <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
-                            <h5 class="text-uppercase">Links</h5>
-
-                            <ul class="list-unstyled mb-0">
-                                <li>
-                                    <a href="#!" class="text-white">Link 1</a>
-                                </li>
-                                <li>
-                                    <a href="#!" class="text-white">Link 2</a>
-                                </li>
-                                <li>
-                                    <a href="#!" class="text-white">Link 3</a>
-                                </li>
-                                <li>
-                                    <a href="#!" class="text-white">Link 4</a>
-                                </li>
-                            </ul>
-                        </div>
-                        <!--Grid column-->
-
-                        <!--Grid column-->
-                        <div class="col-lg-3 col-md-6 mb-4 mb-md-0 col-lg-3-right">
-                            <h5 class="text-uppercase">Contact</h5>
-
-                            <ul class="list-unstyled mb-0">
-                                <li class="clearfix">
-                                    <div class="fa-conatiner">
-                                        <i class="fa fa-map-marker"> Str. Teodor Mihali 4, Cluj-Napoca </i>
-                                    </div>
-                                </li>
-                                <li class="clearfix">
-                                    <div class="fa-container">
-                                        <i class="fa fa-clock-o">
-                                            Luni-Vineri: 09:00 - 18:00
-                                            <br>
-                                            Sambata: Inchis
-                                            <br>
-                                            Duminica: Inchis
-                                        </i>
-                                    </div>
-                                </li>
-                                <li class="clearfix">
-                                    <div class="fa-container">
-                                        <i class="fa fa-envelope">
-                                            <a href="mailto:office@maimultdecatovacanta.ro" target="_blank">office@maimultdecatovacanta.ro</a>
-                                        </i>
-                                    </div>
-                                </li>
-                                <li class="clearfix">
-                                    <div class="fa-container">
-                                        <i class="fa fa-phone"> 0748 888 888 </i>
-                                    </div>
-
-                                </li>
-                            </ul>
-                        </div>
-
-                        <!--Grid column-->
-                    </div>
-                    <!--Grid row-->
-                </section>
-                <!-- Section: Links -->
-            </div>
-            <!-- Grid container -->
-
-            <!-- Copyright -->
-            <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
-                © 2020 Copyright:
-                <a class="text-white" href="https://mdbootstrap.com/">MDBootstrap.com</a>
-            </div>
-            <!-- Copyright -->
-        </footer>
-        <!-- Footer -->
-
-    </div>
+        <!-- Copyright -->
+        <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+            Company Name © 2020
+        </div>
+        <!-- Copyright -->
+    </footer>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.3/js/bootstrap.bundle.min.js"></script>
 </body>
+
 </html>

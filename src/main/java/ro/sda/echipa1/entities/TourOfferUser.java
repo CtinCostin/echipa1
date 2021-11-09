@@ -1,6 +1,7 @@
 package ro.sda.echipa1.entities;
 
 import org.springframework.format.annotation.DateTimeFormat;
+import ro.sda.echipa1.entities.enums.TypeOfRooms;
 import ro.sda.echipa1.entities.enums.TravelOption;
 import ro.sda.echipa1.entities.enums.TypeOfService;
 
@@ -34,13 +35,15 @@ public class TourOfferUser {
     private Integer numberOfChildren;
     private Double price;
     private int stock;
+    @Enumerated(EnumType.STRING)
+    private TypeOfRooms typeOfRooms;
 
     public TourOfferUser() {
     }
 
     public TourOfferUser(TravelOption travelOption, Country country, City city, Airport airport,
                          LocalDate departureDate, Integer numberOfDays, Integer numberOfRooms,
-                         TypeOfService typeOfService, Integer numberOfAdult, Integer numberOfChildren, Double price, int stock) {
+                         TypeOfService typeOfService, Integer numberOfAdult, Integer numberOfChildren, Double price, int stock, TypeOfRooms typeOfRooms) {
         this.travelOption = travelOption;
         this.country = country;
         this.city = city;
@@ -53,8 +56,16 @@ public class TourOfferUser {
         this.numberOfChildren = numberOfChildren;
         this.price = price;
         this.stock = stock;
+        this.typeOfRooms = typeOfRooms;
     }
 
+    public TypeOfRooms getTypeOfRooms() {
+        return typeOfRooms;
+    }
+
+    public void setTypeOfRooms(TypeOfRooms typeOfRooms) {
+        this.typeOfRooms = typeOfRooms;
+    }
 
     public Long getId() {
         return id;

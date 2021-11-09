@@ -3,6 +3,7 @@
       xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Vacanta ta de vis</title>
     <link th:rel="stylesheet" th:href="@{/assets/tempusdominus-bootstrap-4/tempusdominus-bootstrap-4.min.css}"/>
     <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/5.1.3/css/bootstrap.min.css} "/>
@@ -19,6 +20,13 @@
                             <div class="col-md-4 mb-3">
                                 <label>Tip Transport</label>
                                 <div>
+
+                                    <select th:field="*{travelOption}" class="form-select form-select-sm"
+                                            aria-label=".form-select-sm example">
+                                        <option th:each="travelOption: ${travelOption}"
+                                                th:text="${travelOption}"
+                                                th:value="${travelOption}">
+
                                     <select th:field="*{travelOption}" class="form-select form-select-sm" aria-label=".form-select-sm example">
 
                                         <!--                                        <option selected value="">Open this select menu</option>-->
@@ -28,6 +36,7 @@
                                         <option th:each="travelOpt: ${travelOption}"
                                                 th:text="${travelOpt}"
                                                 th:value="${travelOpt}">
+
                                         </option>
                                     </select>
                                 </div>
@@ -35,11 +44,16 @@
                             <div class="col-md-4 mb-3">
                                 <label>Departure</label>
                                 <div>
+
+                                    <select th:field="*{city}" class="form-select form-select-sm"
+                                            aria-label=".form-select-sm example">
+
                                     <select class="form-select form-select-sm" aria-label=".form-select-sm example">
 
                                         <!--                                        <option selected>Open this select menu</option>-->
 
 <!--                                        <option selected>Open this select menu</option>-->
+
 
                                         <option th:each="city : ${cities}"
                                                 th:text="${city.name}"
@@ -51,12 +65,16 @@
                             <div class="col-md-4 mb-3">
                                 <label>Tara de destinatie</label>
                                 <div>
+                                    <select th:field="*{country}" class="form-select from-select-sm"
+                                            aria-label=".form-select-sm example">
+
                                     <label for="country">Country</label>
                                     <select th:field="*{country}" id="country">
 
                                         <!--                                        <option selected>Open this select menu</option>-->
 
 <!--                                        <option selected>Open this select menu</option>-->
+
 
                                         <option th:each="country : ${countries}"
                                                 th:text="${country.name}"
@@ -65,8 +83,8 @@
                                     </select>
                                 </div>
                             </div>
-                            <div class="row">
-                                <div class=" form-group col-md-6 mb-3">
+                            <div class=" form-row">
+                                <div class=" form-group col-md-6">
                                     <label for="departureDate">Departure Date</label>
                                     <div class="input-group date" id="datetimepicker1" data-target-input="nearest">
                                         <input type="text" class="form-control datetimepicker-input"
@@ -84,6 +102,12 @@
                                 <div class="col-md-4 mb-3">
                                     <label>Nopti</label>
                                     <div>
+
+                                        <select th:field="*{numberOfDays}" class="form-select form-select-sm"
+                                                aria-label=".form-select-sm example">
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+
                                         <select class="form-select form-select-sm" aria-label=".form-select-sm example">
 
                                             <!--                                            <option selected>Open this select menu</option>-->
@@ -120,9 +144,22 @@
                                             <option value="doua camere">Two</option>
                                             <option value="trei camere">Three</option>
                                             <option value="patru camere">Four</option>
+
                                         </select>
                                     </div>
                                 </div>
+                                <!--                                <div class="col-md-4 mb-3">-->
+                                <!--                                    <label>Tip Camera</label>-->
+                                <!--                                    <div>-->
+                                <!--                                        <select th:field="*{typeOfRooms}" class="form-select form-select-sm"-->
+                                <!--                                                aria-label=".form-select-sm example">-->
+                                <!--                                            <option th:each="typeOfRooms: ${typeOfRooms}"-->
+                                <!--                                                    th:text="${typeOfRooms}"-->
+                                <!--                                                    th:value="${typeOfRooms}">-->
+                                <!--                                            </option>-->
+                                <!--                                        </select>-->
+                                <!--                                    </div>-->
+                                <!--                                </div>-->
                             </div>
                             <div class="row">
                                 <div id="package_search_room_1_container" class="row room-container" style="">
@@ -130,73 +167,22 @@
                                         <label>Camera</label>
                                     </div>
                                     <div class="col-sm-2 col-xs-6">
-                                        <label for="package_search_room_1_no_of_adults">Adulti</label>
-                                        <select id="package_search_room_1_no_of_adults" class="form-control visible">
-                                            <option>1</option>
-                                            <option selected="">2</option>
-                                            <option>3</option>
-                                            <option>4</option>
-                                            <option>5</option>
-                                            <option>6</option>
-                                            <option>7</option>
-                                            <option>8</option>
+                                        <label>Adulti</label>
+                                        <select th:field="*{numberOfAdult}" class="form-select form-select-sm"
+                                                aria-label=".form-select-sm example">
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                            <option value="3">3</option>
+                                            <option value="4">4</option>
                                         </select>
                                     </div>
                                     <div class="col-sm-2 col-xs-6">
-                                        <label for="package_search_room_1_no_of_children">Copii</label>
-                                        <select id="package_search_room_1_no_of_children" class="form-control visible">
-                                            <option>0</option>
-                                            <option selected="">1</option>
-                                            <option>2</option>
-                                        </select>
-                                    </div>
-                                    <div class="room-child-age col-sm-2 col-xs-6">
-                                        <label for="package_search_room_1_first_child_age" style="">Copil</label>
-                                        <select id="package_search_room_1_first_child_age" class="form-control visible"
-                                                style="">
-                                            <option value="0" selected="">&lt; 1 an</option>
-                                            <option value="1">1 an</option>
-                                            <option value="2">2 ani</option>
-                                            <option value="3">3 ani</option>
-                                            <option value="4">4 ani</option>
-                                            <option value="5">5 ani</option>
-                                            <option value="6">6 ani</option>
-                                            <option value="7">7 ani</option>
-                                            <option value="8">8 ani</option>
-                                            <option value="9">9 ani</option>
-                                            <option value="10">10 ani</option>
-                                            <option value="11">11 ani</option>
-                                            <option value="12">12 ani</option>
-                                            <option value="13">13 ani</option>
-                                            <option value="14">14 ani</option>
-                                            <option value="15">15 ani</option>
-                                            <option value="16">16 ani</option>
-                                            <option value="17">17 ani</option>
-                                        </select>
-                                    </div>
-                                    <div class="room-child-age col-sm-2 col-xs-6">
-                                        <label for="package_search_room_1_second_child_age"
-                                               style="display: none;">Copil</label>
-                                        <select id="package_search_room_1_second_child_age" class="form-control"
-                                                style="display: none;">
-                                            <option value="0" selected="">&lt; 1 an</option>
-                                            <option value="1">1 an</option>
-                                            <option value="2">2 ani</option>
-                                            <option value="3">3 ani</option>
-                                            <option value="4">4 ani</option>
-                                            <option value="5">5 ani</option>
-                                            <option value="6">6 ani</option>
-                                            <option value="7">7 ani</option>
-                                            <option value="8">8 ani</option>
-                                            <option value="9">9 ani</option>
-                                            <option value="10">10 ani</option>
-                                            <option value="11">11 ani</option>
-                                            <option value="12">12 ani</option>
-                                            <option value="13">13 ani</option>
-                                            <option value="14">14 ani</option>
-                                            <option value="15">15 ani</option>
-                                            <option value="16">16 ani</option>
-                                            <option value="17">17 ani</option>
+                                        <label>Copii</label>
+                                        <select th:field="*{numberOfChildren}" class="form-select form-select-sm"
+                                                aria-label=".form-select-sm example">
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                            <option value="3">3</option>
                                         </select>
                                     </div>
                                 </div>
@@ -213,29 +199,17 @@
                                     </div>
                                 </div>
                             </div>
-                            <button class="btn btn-primary" type="submit">Submit form</button>
-                            <div class="search-button text-right">
-                                <button id="packages_new_search_button" type="button"
-                                        onclick="packages_new_search_form_submit(this)"
-                                        data-loading-text="Cautam... <span class='loader-spinner inline d16 white'></span>"
-                                        class="btn btn-success btn-lg o1pen-wait-modal-if-valid">Cauta pachete
-                                </button>
-                            </div>
+                            <button class="btn btn-primary" type="submit">Cauta Oferte</button>
                         </div>
                     </form>
                 </div>
             </div>
         </div>
     </div>
-    </div>
 
-
-    </div><!-- /acqua-engine-classic-wrapper -->
-    </div>
-    </div>
     <div data-v-bd92c560 class="q-mt-xxl">
         <div data-v-bd92c560 class="ct-frame-row">
-            <div data-v-bd92c560 class="col-xs-12 col-md">
+            <div data-v-bd92c560 class="col-xs-12 col-">
                 <div data-v-516dbc7b data-v-bd92c560>
                     <div class="row gutter-md">
                         <div class="col-xs-12 col-lg-4"
@@ -284,14 +258,12 @@
             </div>
         </div>
     </div>
-    </div>
-</main>
-<script th:src="@{/webjars/jquery/jquery.min.js}"></script>
-<script th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
-<script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
-<script th:src="@{/assets/moment/moment.min.js}"></script>
-<script th:src="@{/assets/tempusdominus-bootstrap-4/tempusdominus-bootstrap-4.min.js}"></script>
-<script>
+    <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+    <script th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
+    <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+    <script th:src="@{/assets/moment/moment.min.js}"></script>
+    <script th:src="@{/assets/tempusdominus-bootstrap-4/tempusdominus-bootstrap-4.min.js}"></script>
+    <script>
     $.fn.datetimepicker.Constructor.Default = $.extend({}, $.fn.datetimepicker.Constructor.Default, {
         icons: {
             time: 'far fa-clock',
@@ -309,9 +281,8 @@
     format: 'DD/MM/YYYY'
     });
 
-
-
-
 </script>
+</main>
+
 </body>
 </html>
