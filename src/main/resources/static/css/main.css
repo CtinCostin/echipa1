@@ -5,7 +5,7 @@ html, body {
 }
 
 body {
-    display: felx;
+    display: flex;
     flex-direction: column;
 }
 

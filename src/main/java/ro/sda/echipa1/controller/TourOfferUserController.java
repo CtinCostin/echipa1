@@ -49,11 +49,7 @@ public class TourOfferUserController {
         model.addAttribute("cities",cityService.findAll());
         model.addAttribute("airports", airportService.findAll());
         model.addAttribute("departureDate", LocalDate.now());
-//        model.addAttribute("numberOfDays", tourOfferUserService.findById(id).getNumberOfDays());
-//        model.addAttribute("numberOfRooms", tourOfferUserService.findById(id).getNumberOfRooms());
         model.addAttribute("typeOfService", TypeOfService.values());
-//        model.addAttribute("numberOfAdult", tourOfferUserService.findById(id).getNumberOfAdult());
-//        model.addAttribute("numberOfChildren", tourOfferUserService.findById(id).getNumberOfChildren());
 
         return "user-select-tour-offer";
     }
@@ -68,6 +64,10 @@ public class TourOfferUserController {
         if (searchCriteria.getCity()!= null){
             allOffers = allOffers.stream().filter(ofer -> ofer.getCity().equals(searchCriteria.getCity())).collect(Collectors.toList());
         }
+//        if (searchCriteria.getPrice() != null){
+//            Double price = tourOfferUserService.calculatePrice();
+//            allOffers = allOffers.stream().filter(ofer -> ofer.getPriceForAnAdult().equals(searchCriteria.getPrice())).collect(Collectors.toList());
+//        }
 
 
         model.addAttribute("resultObject",allOffers);

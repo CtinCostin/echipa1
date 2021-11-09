@@ -50,6 +50,7 @@ public class CustomWebSecurityConfigurer extends WebSecurityConfigurerAdapter {
                 , "/bootstrap/**"
                 , "/extra/**"
                 ,"/webjars/**"
+                ,"assets/**"
                 , "/favicon.ico")
                 .permitAll()
         .anyRequest().authenticated()

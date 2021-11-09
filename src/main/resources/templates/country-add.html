@@ -13,7 +13,7 @@
         <form method="post" th:action="@{/country/add}" th:object="${country}">
 
             <div>
-                <label for="name">Name</label>
+                <label for="name">City Name</label>
                 <input id="name" th:field="*{name}" type="text">
                 <span th:if="${#fields.hasErrors('name')}" th:error="*{name}" class="text-danger"></span>
             </div>
@@ -30,7 +30,7 @@
 
             <div>
                 <a th:href="@{/country}">
-                    <button class="btn btn-secondary" id="cancel" name="cancel" type="button">Cancel</button>
+                    <button class="btn btn-secondary" id="cancel" name="cancel" type="submit">Cancel</button>
                 </a>
                 <button class="btn btn-primary" id="save" name="save" type="submit">Save</button>
             </div>

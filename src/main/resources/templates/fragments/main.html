@@ -19,8 +19,8 @@
                             <div class="col-md-4 mb-3">
                                 <label>Tip Transport</label>
                                 <div>
-                                    <select th:field="*{travelOption}" class="form-select form-select-sm" aria-label=".form-select-sm example">
-                                        <!--                                        <option selected value="">Open this select menu</option>-->
+                                    <select th:field="*{travelOption}" class="form-select form-select-sm"
+                                            aria-label=".form-select-sm example">
                                         <option th:each="travelOpt: ${travelOption}"
                                                 th:text="${travelOpt}"
                                                 th:value="${travelOpt}">
@@ -29,10 +29,10 @@
                                 </div>
                             </div>
                             <div class="col-md-4 mb-3">
-                                <label>Departure</label>
+                                <label>Orasul de plecare</label>
                                 <div>
-                                    <select class="form-select form-select-sm" aria-label=".form-select-sm example">
-                                        <!--                                        <option selected>Open this select menu</option>-->
+                                    <select th:field="*{city}" class="form-select form-select-sm"
+                                            aria-label=".form-select-sm example">
                                         <option th:each="city : ${cities}"
                                                 th:text="${city.name}"
                                                 th:value="${city.id}">
@@ -45,7 +45,6 @@
                                 <div>
                                     <label for="country">Country</label>
                                     <select th:field="*{country}" id="country">
-                                        <!--                                        <option selected>Open this select menu</option>-->
                                         <option th:each="country : ${countries}"
                                                 th:text="${country.name}"
                                                 th:value="${country.id}">
@@ -206,12 +205,7 @@
             </div>
         </div>
     </div>
-    </div>
 
-
-    </div><!-- /acqua-engine-classic-wrapper -->
-    </div>
-    </div>
     <div data-v-bd92c560 class="q-mt-xxl">
         <div data-v-bd92c560 class="ct-frame-row">
             <div data-v-bd92c560 class="col-xs-12 col-md">
@@ -287,9 +281,6 @@
     $('#datetimepicker1').datetimepicker({
     format: 'DD/MM/YYYY'
     });
-
-
-
 
 </script>
 </body>
