@@ -9,8 +9,13 @@ html, body {
 }
 
 body {
+
+    display: flex;
+    flex-direction: column;
+
       font-family: "Helvetica Neue",sans-serif;
       font-weight: lighter;
+
 }
 
 header {

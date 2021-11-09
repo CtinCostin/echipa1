@@ -2,15 +2,20 @@ package ro.sda.echipa1.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+
 import ro.sda.echipa1.dto.TourOfferAdminDto;
 import ro.sda.echipa1.dto.TourOfferUserDto;
 import ro.sda.echipa1.entities.TourOfferAdmin;
+
 import ro.sda.echipa1.entities.TourOfferUser;
 import ro.sda.echipa1.repository.TourOfferUserRepository;
 
 import java.util.List;
+
 import java.util.Optional;
 import java.util.stream.Collectors;
+
 
 @Service
 public class TourOfferUserService {
@@ -21,6 +26,7 @@ public class TourOfferUserService {
 
     @Autowired
     private TourOfferAdminService tourOfferAdminService;
+
 
 
     @Autowired
@@ -66,6 +72,16 @@ public class TourOfferUserService {
         tourOfferUserRepository.save(tourOfferUser);
     }
 
+
+//    public Double calculatePrice() {
+//        Integer numberOfAdults = tourOfferUser.getNumberOfAdult();
+//        Integer numberOfChildren = tourOfferUser.getNumberOfChildren();
+//        Double price = numberOfAdults * tourOfferUser.getPrice() + numberOfChildren * tourOfferUser.getPrice();
+//
+//        return price;
+//
+//    }
+
     /**
      * Retrieves offers based on search criteria
      * @param searchCriteria
@@ -108,6 +124,7 @@ public class TourOfferUserService {
                 .build();
         tourOfferAdmin.setCalculatedPrice(priceCalculator.calculatePrice(calculationParameters));
    }
+
 
 
 }

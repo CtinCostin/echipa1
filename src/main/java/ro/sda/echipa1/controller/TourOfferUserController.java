@@ -48,6 +48,9 @@ public class TourOfferUserController {
         model.addAttribute("cities",cityService.findAll());
         model.addAttribute("airports", airportService.findAll());
         model.addAttribute("departureDate", LocalDate.now());
+
+        model.addAttribute("typeOfService", TypeOfService.values());
+
 //        model.addAttribute("numberOfDays", tourOfferUserService.findById(id).getNumberOfDays());
         model.addAttribute("typeOfRooms", TypeOfRooms.values());
         model.addAttribute("typeOfService", TypeOfService.values());
@@ -55,12 +58,29 @@ public class TourOfferUserController {
 //        model.addAttribute("numberOfAdult", tourOfferUserService.findById(id).getNumberOfAdult());
 //        model.addAttribute("numberOfChildren", tourOfferUserService.findById(id).getNumberOfChildren());
 
+
         return "user-select-tour-offer";
     }
 
     @PostMapping("/searchOffer")
     public String showResultsFromSearch(TourOfferUserDto formObject, Model model) {
+
+        TourOfferUserDto searchCriteria= formObject;
+        List<TourOfferAdmin> allOffers=tourOfferAdminService.findAll();
+        if (searchCriteria.getCountry() != null){
+            allOffers = allOffers.stream().filter(ofer -> ofer.getCity().getCountry().equals(searchCriteria.getCountry())).collect(Collectors.toList());
+        }
+        if (searchCriteria.getCity()!= null){
+            allOffers = allOffers.stream().filter(ofer -> ofer.getCity().equals(searchCriteria.getCity())).collect(Collectors.toList());
+        }
+//        if (searchCriteria.getPrice() != null){
+//            Double price = tourOfferUserService.calculatePrice();
+//            allOffers = allOffers.stream().filter(ofer -> ofer.getPriceForAnAdult().equals(searchCriteria.getPrice())).collect(Collectors.toList());
+//        }
+
+
         List<TourOfferAdminDto> allOffers = tourOfferUserService.searchAvailableOffers(formObject);
+
 
         model.addAttribute("resultObject",allOffers);
 

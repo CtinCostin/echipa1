@@ -23,6 +23,10 @@
 
                                     <select th:field="*{travelOption}" class="form-select form-select-sm"
                                             aria-label=".form-select-sm example">
+
+
+                                    <select th:field="*{travelOption}" class="form-select form-select-sm"
+                                            aria-label=".form-select-sm example">
                                         <option th:each="travelOption: ${travelOption}"
                                                 th:text="${travelOption}"
                                                 th:value="${travelOption}">
@@ -33,6 +37,7 @@
 
 <!--                                        <option selected value="">Open this select menu</option>-->
 
+
                                         <option th:each="travelOpt: ${travelOption}"
                                                 th:text="${travelOpt}"
                                                 th:value="${travelOpt}">
@@ -42,8 +47,12 @@
                                 </div>
                             </div>
                             <div class="col-md-4 mb-3">
-                                <label>Departure</label>
+                                <label>Orasul de plecare</label>
                                 <div>
+
+                                    <select th:field="*{city}" class="form-select form-select-sm"
+                                            aria-label=".form-select-sm example">
+
 
                                     <select th:field="*{city}" class="form-select form-select-sm"
                                             aria-label=".form-select-sm example">
@@ -53,6 +62,7 @@
                                         <!--                                        <option selected>Open this select menu</option>-->
 
 <!--                                        <option selected>Open this select menu</option>-->
+
 
 
                                         <option th:each="city : ${cities}"
@@ -71,9 +81,11 @@
                                     <label for="country">Country</label>
                                     <select th:field="*{country}" id="country">
 
+
                                         <!--                                        <option selected>Open this select menu</option>-->
 
 <!--                                        <option selected>Open this select menu</option>-->
+
 
 
                                         <option th:each="country : ${countries}"
