@@ -20,11 +20,23 @@
                             <div class="col-md-4 mb-3">
                                 <label>Tip Transport</label>
                                 <div>
+
                                     <select th:field="*{travelOption}" class="form-select form-select-sm"
                                             aria-label=".form-select-sm example">
                                         <option th:each="travelOption: ${travelOption}"
                                                 th:text="${travelOption}"
                                                 th:value="${travelOption}">
+
+                                    <select th:field="*{travelOption}" class="form-select form-select-sm" aria-label=".form-select-sm example">
+
+                                        <!--                                        <option selected value="">Open this select menu</option>-->
+
+<!--                                        <option selected value="">Open this select menu</option>-->
+
+                                        <option th:each="travelOpt: ${travelOption}"
+                                                th:text="${travelOpt}"
+                                                th:value="${travelOpt}">
+
                                         </option>
                                     </select>
                                 </div>
@@ -32,8 +44,17 @@
                             <div class="col-md-4 mb-3">
                                 <label>Departure</label>
                                 <div>
+
                                     <select th:field="*{city}" class="form-select form-select-sm"
                                             aria-label=".form-select-sm example">
+
+                                    <select class="form-select form-select-sm" aria-label=".form-select-sm example">
+
+                                        <!--                                        <option selected>Open this select menu</option>-->
+
+<!--                                        <option selected>Open this select menu</option>-->
+
+
                                         <option th:each="city : ${cities}"
                                                 th:text="${city.name}"
                                                 th:value="${city.id}">
@@ -46,6 +67,15 @@
                                 <div>
                                     <select th:field="*{country}" class="form-select from-select-sm"
                                             aria-label=".form-select-sm example">
+
+                                    <label for="country">Country</label>
+                                    <select th:field="*{country}" id="country">
+
+                                        <!--                                        <option selected>Open this select menu</option>-->
+
+<!--                                        <option selected>Open this select menu</option>-->
+
+
                                         <option th:each="country : ${countries}"
                                                 th:text="${country.name}"
                                                 th:value="${country.id}">
@@ -72,10 +102,49 @@
                                 <div class="col-md-4 mb-3">
                                     <label>Nopti</label>
                                     <div>
+
                                         <select th:field="*{numberOfDays}" class="form-select form-select-sm"
                                                 aria-label=".form-select-sm example">
                                             <option value="1">1</option>
                                             <option value="2">2</option>
+
+                                        <select class="form-select form-select-sm" aria-label=".form-select-sm example">
+
+                                            <!--                                            <option selected>Open this select menu</option>-->
+
+<!--                                            <option selected>Open this select menu</option>-->
+
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                            <option value="3">3</option>
+                                            <option value="4">4</option>
+                                            <option value="5">5</option>
+                                            <option value="6">6</option>
+                                            <option value="7">7</option>
+                                            <option value="8">8</option>
+                                            <option value="9">9</option>
+                                            <option value="10">10</option>
+                                            <option value="11">11</option>
+                                            <option value="12">12</option>
+                                            <option value="13">13</option>
+                                            <option value="14">14</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                    <label>Camere</label>
+                                    <div>
+                                        <select class="form-select form-select-sm" aria-label=".form-select-sm example">
+
+                                            <!--                                            <option selected>Open this select menu</option>-->
+
+<!--                                            <option selected>Open this select menu</option>-->
+
+                                            <option value="o camera">One</option>
+                                            <option value="doua camere">Two</option>
+                                            <option value="trei camere">Three</option>
+                                            <option value="patru camere">Four</option>
+
                                         </select>
                                     </div>
                                 </div>
