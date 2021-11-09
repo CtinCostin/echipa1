@@ -11,6 +11,7 @@ import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 import ro.sda.echipa1.service.IUserService;
 
@@ -50,18 +51,27 @@ public class CustomWebSecurityConfigurer extends WebSecurityConfigurerAdapter {
                 , "/bootstrap/**"
                 , "/extra/**"
                 ,"/webjars/**"
+
                 ,"assets/**"
+
+
+                ,"/plugins/**"
+
+                ,"/assets/**"
+ 
+
                 , "/favicon.ico")
                 .permitAll()
-        .anyRequest().authenticated()
+                .anyRequest().authenticated()
                 .and()
 //Define the formLogin
                 .formLogin()
                 .loginPage("/login")
+                .successForwardUrl("/")
                 .defaultSuccessUrl("/")
                 .permitAll()
                 .and()
- //Define Logout behavior
+                //Define Logout behavior
                 .logout()
                 .invalidateHttpSession(true)
                 .clearAuthentication(true)
@@ -71,7 +81,7 @@ public class CustomWebSecurityConfigurer extends WebSecurityConfigurerAdapter {
 
     }
     public void configure(WebSecurity web) throws Exception {
-       // web.ignoring().antMatchers("/resources/static/**").anyRequest();
+        // web.ignoring().antMatchers("/resources/static/**").anyRequest();
     }
 
 

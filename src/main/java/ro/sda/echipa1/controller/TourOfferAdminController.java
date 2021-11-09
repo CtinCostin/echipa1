@@ -39,6 +39,7 @@ public class TourOfferAdminController {
 
         List<TourOfferAdmin> tourOfferAdminList = tourOfferAdminService.findAll();
         model.addAttribute("tourOfferInView", tourOfferAdminList);
+
         return "tourOfferAdmin-list";
     }
 

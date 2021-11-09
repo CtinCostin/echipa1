@@ -18,13 +18,13 @@ public class TourOfferUserDto {
     private City city;
     private Airport airport;
     private LocalDate departureDate;
-    private Integer numberOfDays;
-    private Integer numberOfRooms;
+    private int numberOfDays;
+    private int numberOfRooms;
 
     private TypeOfService typeOfService;
-    private Integer numberOfAdult;
-    private Integer numberOfChildren;
-    private Double price;
+    private int numberOfAdult;
+    private int numberOfChildren;
+    private double price;
     private int stock;
 
     public TourOfferUserDto() {
