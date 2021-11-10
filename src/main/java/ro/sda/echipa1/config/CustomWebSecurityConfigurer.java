@@ -50,13 +50,14 @@ public class CustomWebSecurityConfigurer extends WebSecurityConfigurerAdapter {
                 "/register**"
                 , "/bootstrap/**"
                 , "/extra/**"
-                ,"/webjars/**"
+                , "/webjars/**"
 
-                ,"/plugins/**"
+                , "/plugins/**"
 
-                ,"/assets/**"
- 
-                , "/favicon.ico")
+                , "/assets/**"
+
+                , "/favicon.ico"
+                , "/cazare-Romania")
                 .permitAll()
                 .anyRequest().authenticated()
                 .and()
@@ -76,6 +77,7 @@ public class CustomWebSecurityConfigurer extends WebSecurityConfigurerAdapter {
                 .permitAll();
 
     }
+
     public void configure(WebSecurity web) throws Exception {
         // web.ignoring().antMatchers("/resources/static/**").anyRequest();
     }

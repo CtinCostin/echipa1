@@ -41,11 +41,11 @@ public class TourOfferUserController {
     @RequestMapping("/")
     public String showTourOfferForm(Model model) {
         List<TourOfferUser> tourOfferUserList = tourOfferUserService.findAll();
-        model.addAttribute("formObject",new TourOfferUserDto());
+        model.addAttribute("formObject", new TourOfferUserDto());
         model.addAttribute("tourOfferUserInView", tourOfferUserList);
         model.addAttribute("travelOption", TravelOption.values());
         model.addAttribute("countries", countryService.findAll());
-        model.addAttribute("cities",cityService.findAll());
+        model.addAttribute("cities", cityService.findAll());
         model.addAttribute("airports", airportService.findAll());
         model.addAttribute("departureDate", LocalDate.now());
 //        model.addAttribute("numberOfDays", tourOfferUserService.findById(id).getNumberOfDays());
@@ -62,9 +62,16 @@ public class TourOfferUserController {
     public String showResultsFromSearch(TourOfferUserDto formObject, Model model) {
         List<TourOfferAdminDto> allOffers = tourOfferUserService.searchAvailableOffers(formObject);
 
-        model.addAttribute("resultObject",allOffers);
-
+        model.addAttribute("resultObject", allOffers);
+        model.addAttribute("travelOption", TravelOption.values());
+        model.addAttribute("countries", countryService.findAll());
+        model.addAttribute("cities", cityService.findAll());
+        model.addAttribute("airports", airportService.findAll());
+        model.addAttribute("departureDate", LocalDate.now());
+        model.addAttribute("typeOfRooms", TypeOfRooms.values());
+        model.addAttribute("typeOfService", TypeOfService.values());
         return "tourOfferUser-results";
     }
+}
 
 
