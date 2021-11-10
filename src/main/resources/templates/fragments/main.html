@@ -11,91 +11,39 @@
 </head>
 <body>
 <main>
-    <div class="container">
-        <div class="form-row">
-            <div class="acqua-engine-classic-wrapper">
-                <div class="form-group col-md-6">
-                    <form method="post" th:object="${formObject}" th:action="@{/searchOffer}">
-                        <div class="row">
-                            <div class="col-md-4 mb-3">
-                                <label>Tip Transport</label>
-                                <div>
-
-                                    <select th:field="*{travelOption}" class="form-select form-select-sm"
-                                            aria-label=".form-select-sm example">
-
-
-                                    <select th:field="*{travelOption}" class="form-select form-select-sm"
-                                            aria-label=".form-select-sm example">
-                                        <option th:each="travelOption: ${travelOption}"
-                                                th:text="${travelOption}"
-                                                th:value="${travelOption}">
-
-                                    <select th:field="*{travelOption}" class="form-select form-select-sm" aria-label=".form-select-sm example">
-
-                                        <!--                                        <option selected value="">Open this select menu</option>-->
-
-<!--                                        <option selected value="">Open this select menu</option>-->
-
-
-                                        <option th:each="travelOpt: ${travelOption}"
-                                                th:text="${travelOpt}"
-                                                th:value="${travelOpt}">
-
-                                        </option>
-                                    </select>
+    <div class="wrapper">
+        <div class="container">
+            <div class="form-row">
+                <div class="acqua-engine-classic-wrapper">
+                    <div class="form-group col-md-6">
+                        <form method="post" th:object="${formObject}" th:action="@{/searchOffer}">
+                            <div class="row">
+                                <div class="col-md-4 mb-3">
+                                    <label>Tip Transport</label>
+                                    <div>
+                                        <select th:field="*{travelOption}" class="form-select form-select-sm"
+                                                aria-label=".form-select-sm example">
+                                            <option th:each="travelOption: ${travelOption}"
+                                                    th:text="${travelOption}"
+                                                    th:value="${travelOption}">
+                                            </option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                    <label>Orasul de plecare</label>
+                                    <div>
+                                        <select class="form-select form-select-sm"
+                                                aria-label=".form-select-sm example">
+                                            <option th:each="city : ${cities}"
+                                                    th:text="${city.name}"
+                                                    th:value="${city.id}">
+                                            </option>
+                                        </select>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="col-md-4 mb-3">
-                                <label>Orasul de plecare</label>
-                                <div>
-
-                                    <select th:field="*{city}" class="form-select form-select-sm"
-                                            aria-label=".form-select-sm example">
-
-
-                                    <select th:field="*{city}" class="form-select form-select-sm"
-                                            aria-label=".form-select-sm example">
-
-                                    <select class="form-select form-select-sm" aria-label=".form-select-sm example">
-
-                                        <!--                                        <option selected>Open this select menu</option>-->
-
-<!--                                        <option selected>Open this select menu</option>-->
-
-
-
-                                        <option th:each="city : ${cities}"
-                                                th:text="${city.name}"
-                                                th:value="${city.id}">
-                                        </option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="col-md-4 mb-3">
-                                <label>Tara de destinatie</label>
-                                <div>
-                                    <select th:field="*{country}" class="form-select from-select-sm"
-                                            aria-label=".form-select-sm example">
-
-                                    <label for="country">Country</label>
-                                    <select th:field="*{country}" id="country">
-
-
-                                        <!--                                        <option selected>Open this select menu</option>-->
-
-<!--                                        <option selected>Open this select menu</option>-->
-
-
-
-                                        <option th:each="country : ${countries}"
-                                                th:text="${country.name}"
-                                                th:value="${country.id}">
-                                        </option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class=" form-row">
+                            <div class="row">
                                 <div class=" form-group col-md-6">
                                     <label for="departureDate">Departure Date</label>
                                     <div class="input-group date" id="datetimepicker1" data-target-input="nearest">
@@ -108,24 +56,27 @@
                                         </div>
                                     </div>
                                 </div>
+
+                                <div class="col-md-4 mb-3">
+                                    <label>Tara de destinatie</label>
+                                    <div>
+                                        <select th:field="*{country}" class="form-select from-select-sm"
+                                                aria-label=".form-select-sm example">
+                                            <option th:each="country : ${countries}"
+                                                    th:text="${country.name}"
+                                                    th:value="${country.id}">
+                                            </option>
+                                        </select>
+                                    </div>
+                                </div>
                             </div>
 
                             <div class="row">
                                 <div class="col-md-4 mb-3">
                                     <label>Nopti</label>
                                     <div>
-
                                         <select th:field="*{numberOfDays}" class="form-select form-select-sm"
                                                 aria-label=".form-select-sm example">
-                                            <option value="1">1</option>
-                                            <option value="2">2</option>
-
-                                        <select class="form-select form-select-sm" aria-label=".form-select-sm example">
-
-                                            <!--                                            <option selected>Open this select menu</option>-->
-
-<!--                                            <option selected>Open this select menu</option>-->
-
                                             <option value="1">1</option>
                                             <option value="2">2</option>
                                             <option value="3">3</option>
@@ -133,13 +84,6 @@
                                             <option value="5">5</option>
                                             <option value="6">6</option>
                                             <option value="7">7</option>
-                                            <option value="8">8</option>
-                                            <option value="9">9</option>
-                                            <option value="10">10</option>
-                                            <option value="11">11</option>
-                                            <option value="12">12</option>
-                                            <option value="13">13</option>
-                                            <option value="14">14</option>
                                         </select>
                                     </div>
                                 </div>
@@ -147,31 +91,13 @@
                                     <label>Camere</label>
                                     <div>
                                         <select class="form-select form-select-sm" aria-label=".form-select-sm example">
-
-                                            <!--                                            <option selected>Open this select menu</option>-->
-
-<!--                                            <option selected>Open this select menu</option>-->
-
                                             <option value="o camera">One</option>
                                             <option value="doua camere">Two</option>
                                             <option value="trei camere">Three</option>
                                             <option value="patru camere">Four</option>
-
                                         </select>
                                     </div>
                                 </div>
-                                <!--                                <div class="col-md-4 mb-3">-->
-                                <!--                                    <label>Tip Camera</label>-->
-                                <!--                                    <div>-->
-                                <!--                                        <select th:field="*{typeOfRooms}" class="form-select form-select-sm"-->
-                                <!--                                                aria-label=".form-select-sm example">-->
-                                <!--                                            <option th:each="typeOfRooms: ${typeOfRooms}"-->
-                                <!--                                                    th:text="${typeOfRooms}"-->
-                                <!--                                                    th:value="${typeOfRooms}">-->
-                                <!--                                            </option>-->
-                                <!--                                        </select>-->
-                                <!--                                    </div>-->
-                                <!--                                </div>-->
                             </div>
                             <div class="row">
                                 <div id="package_search_room_1_container" class="row room-container" style="">
@@ -190,7 +116,8 @@
                                     </div>
                                     <div class="col-sm-2 col-xs-6">
                                         <label>Copii</label>
-                                        <select th:field="*{numberOfChildren}" class="form-select form-select-sm"
+                                        <select th:field="*{numberOfChildren}"
+                                                class="form-select form-select-sm"
                                                 aria-label=".form-select-sm example">
                                             <option value="1">1</option>
                                             <option value="2">2</option>
@@ -212,13 +139,12 @@
                                 </div>
                             </div>
                             <button class="btn btn-primary" type="submit">Cauta Oferte</button>
-                        </div>
-                    </form>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-
     <div data-v-bd92c560 class="q-mt-xxl">
         <div data-v-bd92c560 class="ct-frame-row">
             <div data-v-bd92c560 class="col-xs-12 col-">
@@ -276,24 +202,25 @@
     <script th:src="@{/assets/moment/moment.min.js}"></script>
     <script th:src="@{/assets/tempusdominus-bootstrap-4/tempusdominus-bootstrap-4.min.js}"></script>
     <script>
-    $.fn.datetimepicker.Constructor.Default = $.extend({}, $.fn.datetimepicker.Constructor.Default, {
-        icons: {
-            time: 'far fa-clock',
-            date: 'far fa-calendar',
-            up: 'fas fa-arrow-up',
-            down: 'fas fa-arrow-down',
-            previous: 'fas fa-chevron-left',
-            next: 'fas fa-chevron-right',
-            today: 'far fa-calendar-check-o',
-            clear: 'far fa-trash',
-            close: 'far fa-times'
-        } });
+$.fn.datetimepicker.Constructor.Default = $.extend({}, $.fn.datetimepicker.Constructor.Default, {
+    icons: {
+        time: 'far fa-clock',
+        date: 'far fa-calendar',
+        up: 'fas fa-arrow-up',
+        down: 'fas fa-arrow-down',
+        previous: 'fas fa-chevron-left',
+        next: 'fas fa-chevron-right',
+        today: 'far fa-calendar-check-o',
+        clear: 'far fa-trash',
+        close: 'far fa-times'
+    } });
 
-    $('#datetimepicker1').datetimepicker({
-    format: 'DD/MM/YYYY'
-    });
+$('#datetimepicker1').datetimepicker({
+format: 'DD/MM/YYYY'
+});
 
-</script>
+
+    </script>
 </main>
 
 </body>
