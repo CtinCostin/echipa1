@@ -64,7 +64,6 @@ public class TourOfferUserController {
         model.addAttribute("departureDate", LocalDate.now());
         model.addAttribute("typeOfService", TypeOfService.values());
         model.addAttribute("typeOfRooms", TypeOfRooms.values());
-        model.addAttribute("typeOfService", TypeOfService.values());
         return "tourOfferUser-results";
     }
 }
