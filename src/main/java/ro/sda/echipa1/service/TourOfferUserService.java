@@ -2,18 +2,12 @@ package ro.sda.echipa1.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-
 import ro.sda.echipa1.dto.TourOfferAdminDto;
 import ro.sda.echipa1.dto.TourOfferUserDto;
 import ro.sda.echipa1.entities.TourOfferAdmin;
-
 import ro.sda.echipa1.entities.TourOfferUser;
 import ro.sda.echipa1.repository.TourOfferUserRepository;
-
 import java.util.List;
-
-import java.util.Optional;
 import java.util.stream.Collectors;
 
 

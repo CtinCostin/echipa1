@@ -3,18 +3,9 @@ package ro.sda.echipa1.web.dto;
 
 public class UserRegistrationDto {
 
-	//@NotEmpty(message = "First name can't be empty!")
 	private String firstName;
-
-	//@NotEmpty(message = "Last name can't be empty!")
 	private String lastName;
-
-	//@NotEmpty(message = "Email name can't be empty!")
-	//@Email(message = "*Please provide a valid Email")
 	private String userName;
-
-	//@Length(min = 5, message = "*Your password must have at least 5 characters")
-	//@NotEmpty(message = "*Please provide your password")
 	private String password;
 
 	public UserRegistrationDto(){
