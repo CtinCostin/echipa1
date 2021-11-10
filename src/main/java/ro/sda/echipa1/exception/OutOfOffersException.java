@@ -1,4 +1,4 @@
-package ro.sda.echipa1;
+package ro.sda.echipa1.exception;
 
 public class OutOfOffersException extends RuntimeException {
 

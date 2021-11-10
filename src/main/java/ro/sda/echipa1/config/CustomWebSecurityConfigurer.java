@@ -50,6 +50,7 @@ public class CustomWebSecurityConfigurer extends WebSecurityConfigurerAdapter {
                 "/register**"
                 , "/bootstrap/**"
                 , "/extra/**"
+
                 , "/webjars/**"
 
                 , "/plugins/**"
@@ -58,6 +59,7 @@ public class CustomWebSecurityConfigurer extends WebSecurityConfigurerAdapter {
 
                 , "/favicon.ico"
                 , "/cazare-Romania")
+
                 .permitAll()
                 .anyRequest().authenticated()
                 .and()

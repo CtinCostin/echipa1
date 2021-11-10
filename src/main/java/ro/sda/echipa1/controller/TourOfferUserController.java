@@ -33,8 +33,6 @@ public class TourOfferUserController {
     private ContinentService continentService;
     @Autowired
     private CountryService countryService;
-
-
     private TourOfferUser tourOfferUser;
 
 
@@ -48,12 +46,9 @@ public class TourOfferUserController {
         model.addAttribute("cities", cityService.findAll());
         model.addAttribute("airports", airportService.findAll());
         model.addAttribute("departureDate", LocalDate.now());
-//        model.addAttribute("numberOfDays", tourOfferUserService.findById(id).getNumberOfDays());
+        model.addAttribute("typeOfService", TypeOfService.values());
         model.addAttribute("typeOfRooms", TypeOfRooms.values());
         model.addAttribute("typeOfService", TypeOfService.values());
-//        model.addAttribute("price", tourOfferUser.getPrice());
-//        model.addAttribute("numberOfAdult", tourOfferUserService.findById(id).getNumberOfAdult());
-//        model.addAttribute("numberOfChildren", tourOfferUserService.findById(id).getNumberOfChildren());
 
         return "user-select-tour-offer";
     }
@@ -61,15 +56,14 @@ public class TourOfferUserController {
     @PostMapping("/searchOffer")
     public String showResultsFromSearch(TourOfferUserDto formObject, Model model) {
         List<TourOfferAdminDto> allOffers = tourOfferUserService.searchAvailableOffers(formObject);
-
         model.addAttribute("resultObject", allOffers);
         model.addAttribute("travelOption", TravelOption.values());
         model.addAttribute("countries", countryService.findAll());
         model.addAttribute("cities", cityService.findAll());
         model.addAttribute("airports", airportService.findAll());
         model.addAttribute("departureDate", LocalDate.now());
-        model.addAttribute("typeOfRooms", TypeOfRooms.values());
         model.addAttribute("typeOfService", TypeOfService.values());
+        model.addAttribute("typeOfRooms", TypeOfRooms.values());
         return "tourOfferUser-results";
     }
 }
