@@ -49,6 +49,18 @@ public class ButtonsController {
         return "contact";
     }
 
+    @GetMapping("/despre_noi")
+    public String showAboutPage(Model model) {
+
+        return "despre_noi";
+    }
+
+    @GetMapping("/termeni_si_conditii")
+    public String showTermsPage(Model model) {
+
+        return "termeni_si_conditii";
+    }
+
 
 
 
