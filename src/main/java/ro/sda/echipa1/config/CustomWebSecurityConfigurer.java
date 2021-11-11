@@ -57,7 +57,9 @@ public class CustomWebSecurityConfigurer extends WebSecurityConfigurerAdapter {
                 , "/assets/**"
 
                 , "/favicon.ico"
-                , "/cazare-Romania")
+                , "/cazare-Romania"
+                , "/despre_noi"
+                , "/termeni_si_conditii")
 
                 .permitAll()
                 .anyRequest().authenticated()
