@@ -87,18 +87,21 @@ public class TourOfferUserService {
 
         //Filter by search criteria
         if (searchCriteria.getCountry() != null){
-            allOffers = allOffers.stream().filter(ofer -> ofer.getCity().getCountry().equals(searchCriteria.getCountry())).collect(Collectors.toList());
+            allOffers = allOffers.stream().filter(ofer -> ofer.getCity().getCountry().equals(searchCriteria.getCountry()))
+                    .collect(Collectors.toList());
         }
         if (searchCriteria.getCity()!= null){
-            allOffers = allOffers.stream().filter(ofer -> ofer.getCity().equals(searchCriteria.getCity())).collect(Collectors.toList());
+            allOffers = allOffers.stream().filter(ofer -> ofer.getCity().equals(searchCriteria.getCity()))
+                    .collect(Collectors.toList());
         }
+
 
 
         //Collect and calculate price after search
         List<TourOfferAdminDto> result = allOffers.stream()
                 .map(TourOfferAdmin::convertToDto)
                 .collect(Collectors.toList());
-         result.parallelStream().forEach(t->calculateOfferPrice(searchCriteria,t));       ;
+         result.parallelStream().forEach(t->calculateOfferPrice(searchCriteria,t));
 
         return result;
     }
