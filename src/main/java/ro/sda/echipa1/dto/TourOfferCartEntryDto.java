@@ -1,5 +1,5 @@
 package ro.sda.echipa1.dto;
-
+;
 import ro.sda.echipa1.entities.TourOfferUser;
 
 public class TourOfferCartEntryDto {
@@ -37,11 +37,11 @@ public class TourOfferCartEntryDto {
         this.price = price;
     }
 
-    public TourOfferUser getTourOfferUser() {
+    public TourOfferUser getTourOffer() {
         return tourOfferUser;
     }
 
-    public void setTourOfferUser(TourOfferUser tourOfferUser) {
-        this.tourOfferUser = tourOfferUser;
+    public void setTourOfferUser(TourOfferUser tourOffer) {
+        this.tourOfferUser = tourOffer;
     }
 }

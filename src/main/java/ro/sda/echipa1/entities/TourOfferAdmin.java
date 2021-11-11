@@ -1,7 +1,9 @@
 package ro.sda.echipa1.entities;
 
 import org.springframework.format.annotation.DateTimeFormat;
+import ro.sda.echipa1.dto.TourOfferAdminDto;
 import ro.sda.echipa1.entities.enums.TravelOption;
+import ro.sda.echipa1.entities.enums.TypeOfRooms;
 import ro.sda.echipa1.entities.enums.TypeOfService;
 
 import javax.persistence.*;
@@ -24,6 +26,8 @@ public class TourOfferAdmin {
     private City city;
     @Enumerated(EnumType.STRING)
     private TravelOption travelOption;
+    @Enumerated(EnumType.STRING)
+    private TypeOfRooms typeOfRooms;
     @ManyToOne
     private Airport airport;
     @ManyToOne
@@ -43,7 +47,7 @@ public class TourOfferAdmin {
     }
 
     public TourOfferAdmin(Long id, String name, Continent continent, Country country, City city,
-                          TravelOption travelOption, Airport airport, Hotel hotel, LocalDate departureDate,
+                          TravelOption travelOption, TypeOfRooms typeOfRooms, Airport airport, Hotel hotel, LocalDate departureDate,
                           LocalDate dateOfReturn, Integer numberOfDays, TypeOfService typeOfService,
                           Double priceForAnAdult, Double priceForAChild) {
         this.id = id;
@@ -52,6 +56,7 @@ public class TourOfferAdmin {
         this.country = country;
         this.city = city;
         this.travelOption = travelOption;
+        this.typeOfRooms = typeOfRooms;
         this.airport = airport;
         this.hotel = hotel;
         this.departureDate = departureDate;
@@ -61,7 +66,9 @@ public class TourOfferAdmin {
         this.priceForAnAdult = priceForAnAdult;
         this.priceForAChild = priceForAChild;
 
+
     }
+
 
     public Long getId() {
         return id;
@@ -173,6 +180,34 @@ public class TourOfferAdmin {
 
     public void setTravelOption(TravelOption travelOption) {
         this.travelOption = travelOption;
+    }
+
+    public TypeOfRooms getTypeOfRooms() {
+        return typeOfRooms;
+    }
+
+    public void setTypeOfRooms(TypeOfRooms typeOfRooms) {
+        this.typeOfRooms = typeOfRooms;
+    }
+
+    @Transient
+    public TourOfferAdminDto convertToDto(){
+        return TourOfferAdminDto.builder()
+                .id(id)
+                .name(name)
+                .continent(continent)
+                .country(country)
+                .city(city)
+                .travelOption(travelOption)
+                .airport(airport)
+                .hotel(hotel)
+                .departureDate(departureDate)
+                .dateOfReturn(dateOfReturn)
+                .numberOfDays(numberOfDays)
+                .typeOfService(typeOfService)
+                .priceForAnAdult(priceForAnAdult)
+                .priceForAChild(priceForAChild)
+                .calculatedPrice(0.0D).build();
     }
 }
 

@@ -22,7 +22,7 @@ public class City {
     private Country country;
 
     @OneToMany(mappedBy = "city",
-            cascade = CascadeType.ALL)
+            cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Hotel> hotelList = new ArrayList<>();
 
     @OneToOne(mappedBy = "city")

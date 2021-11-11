@@ -3,17 +3,24 @@ package ro.sda.echipa1.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import ro.sda.echipa1.dto.TourOfferAdminDto;
+import ro.sda.echipa1.dto.TourOfferUserDto;
 import ro.sda.echipa1.entities.TourOfferAdmin;
 import ro.sda.echipa1.entities.TourOfferUser;
 import ro.sda.echipa1.repository.TourOfferUserRepository;
-
 import java.util.List;
-import java.util.Optional;
+import java.util.stream.Collectors;
+
 
 @Service
 public class TourOfferUserService {
 
     private TourOfferUserRepository tourOfferUserRepository;
+    @Autowired
+    private PriceCalculator priceCalculator;
+
+    @Autowired
+    private TourOfferAdminService tourOfferAdminService;
+
 
 
     @Autowired
@@ -59,17 +66,61 @@ public class TourOfferUserService {
         tourOfferUserRepository.save(tourOfferUser);
     }
 
-    public Double calculatePrice(Long id, TourOfferUser tourOfferUser, TourOfferAdminDto tourOfferAdminDto) {
-        Optional<TourOfferUser> tourOfferUserOptional = tourOfferUserRepository.findById(id);
-        Integer numberOfAdults = tourOfferUser.getNumberOfAdult();
-        Integer numberOfChildren = tourOfferUser.getNumberOfChildren();
-        Double price = numberOfAdults * tourOfferAdminDto.getPriceForAnAdult() + numberOfChildren *
-                tourOfferAdminDto.getPriceForAChild();
-        tourOfferUserOptional.get().setPrice(price);
 
-        return price;
+//    public Double calculatePrice() {
+//        Integer numberOfAdults = tourOfferUser.getNumberOfAdult();
+//        Integer numberOfChildren = tourOfferUser.getNumberOfChildren();
+//        Double price = numberOfAdults * tourOfferUser.getPrice() + numberOfChildren * tourOfferUser.getPrice();
+//
+//        return price;
+//
+//    }
 
+    /**
+     * Retrieves offers based on search criteria
+     * @param searchCriteria
+     * @return
+     */
+    public List<TourOfferAdminDto>  searchAvailableOffers(TourOfferUserDto searchCriteria) {
+        //Retrive all data
+        List<TourOfferAdmin> allOffers=tourOfferAdminService.findAll();
+
+        //Filter by search criteria
+        if (searchCriteria.getCountry() != null){
+            allOffers = allOffers.stream().filter(ofer -> ofer.getCity().getCountry().equals(searchCriteria.getCountry())).collect(Collectors.toList());
+        }
+        if (searchCriteria.getCity()!= null){
+            allOffers = allOffers.stream().filter(ofer -> ofer.getCity().equals(searchCriteria.getCity())).collect(Collectors.toList());
+        }
+
+
+        //Collect and calculate price after search
+        List<TourOfferAdminDto> result = allOffers.stream()
+                .map(TourOfferAdmin::convertToDto)
+                .collect(Collectors.toList());
+         result.parallelStream().forEach(t->calculateOfferPrice(searchCriteria,t));       ;
+
+        return result;
     }
+
+    /**
+     * Calculates price for an offer based on searched criteria
+     * @param tourOfferUserDto - searched criteria
+     * @param tourOfferAdmin - hotelOffer
+     */
+   private void calculateOfferPrice(TourOfferUserDto tourOfferUserDto, TourOfferAdminDto tourOfferAdmin){
+        CalculationParameters calculationParameters = CalculationParameters.builder()
+                .numberOfDays(tourOfferUserDto.getNumberOfDays())
+                .numberOfKids(tourOfferUserDto.getNumberOfChildren())
+                .numberOfAdults(tourOfferUserDto.getNumberOfAdult())
+                .price4Adult(tourOfferAdmin.getPriceForAnAdult())
+                .price4Kid(tourOfferAdmin.getPriceForAChild())
+                .build();
+        tourOfferAdmin.setCalculatedPrice(priceCalculator.calculatePrice(calculationParameters));
+   }
+
+
+
 }
 
 

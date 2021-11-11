@@ -102,6 +102,7 @@ public class TourOfferAdminController {
         return "redirect:/tourOfferAdmin/";
     }
 
+
     @GetMapping("/{id}/delete")
     public String delete(@PathVariable Long id) {
         tourOfferAdminService.delete(id);

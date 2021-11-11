@@ -3,19 +3,24 @@
 
 <head>
     <div th:replace="fragments/head-css :: head-css"/>
+
+    <div th:replace="fragments/header-js :: header-js"/>
+
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport" />
 <!--    <div th:replace="fragments/header-js :: header-js"/>-->
+
 
 </head>
 <body>
 <div th:replace="fragments/navbar :: navbar"/>
-<h1>Mai mult decat o vacanta</h1>
+
 
 <div th:replace="fragments/main :: main"/>
 
 
 <div th:replace="fragments/footer :: footer"/>
 <div th:replace="fragments/footer-css :: footer-css"/>
+<!--<div th:replace="fragments/footer-js :: footer-js"/>-->
 </body>
 
 </html>
