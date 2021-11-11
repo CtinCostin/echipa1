@@ -25,6 +25,18 @@ public class CazareRomania {
 
         return "cazare-Romania";
     }
+
+    @GetMapping("/despre_noi")
+    public String showAboutUsPage(Model model) {
+
+        return "despre_noi";
+    }
+
+    @GetMapping("/termeni_si_conditii")
+    public String showTerms(Model model) {
+
+        return "termeni_si_conditii";
+    }
 }
 
 //    @GetMapping("/add")
