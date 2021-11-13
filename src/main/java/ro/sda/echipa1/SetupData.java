@@ -21,6 +21,7 @@ public class SetupData implements ApplicationListener<ContextRefreshedEvent> {
         if (alreadySetup)
             return;
         createRoleIfNotFound("ADMIN");
+        createRoleIfNotFound("USER");
     }
 
     @Transactional
