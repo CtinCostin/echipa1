@@ -67,14 +67,6 @@ public class TourOfferUserService {
     }
 
 
-//    public Double calculatePrice() {
-//        Integer numberOfAdults = tourOfferUser.getNumberOfAdult();
-//        Integer numberOfChildren = tourOfferUser.getNumberOfChildren();
-//        Double price = numberOfAdults * tourOfferUser.getPrice() + numberOfChildren * tourOfferUser.getPrice();
-//
-//        return price;
-//
-//    }
 
     /**
      * Retrieves offers based on search criteria
@@ -97,10 +89,14 @@ public class TourOfferUserService {
 
 
 
+
         //Collect and calculate price after search
         List<TourOfferAdminDto> result = allOffers.stream()
                 .map(TourOfferAdmin::convertToDto)
                 .collect(Collectors.toList());
+        if(result.contains(tourOfferAdminService.searchByName("Cazare Romania"))) {
+
+        }
          result.parallelStream().forEach(t->calculateOfferPrice(searchCriteria,t));
 
         return result;
