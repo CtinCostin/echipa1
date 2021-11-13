@@ -2,15 +2,12 @@
     border-bottom: 3px solid red;
 }
 
-body {
-
+/*body {
     display: flex;
     flex-direction: column;
-
-      font-family: "Helvetica Neue",sans-serif;
-      font-weight: lighter;
-
-}
+    font-family: "Helvetica Neue",sans-serif;
+    font-weight: lighter;
+}*/
 
 header {
       width: 100%;
@@ -117,12 +114,237 @@ nav ul li a {
       }
 
 }
+.wrapper {
+  margin: 0 auto;
+  font-family: monospace;
+  width: 800px;
 
+  /* Center vertically and horizontally */
+  display: flex;
+  justify-content: center;
+  align-items: start;
+
+}
+
+<style>
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: red;
+  color: white;
+  text-align: center;
+}
+</style>
 
 body {
-    background: url('https://www.eubuscoimoveis.com.br/noticias/smaniottoimoveis/392/27415377.jpeg') no-repeat;
-    width: 100%;
-    height: 100vh;
-    background-size: 100%;
+    color: #000;
+    overflow-x: hidden;
+    height: 100%;
+    background-color: #E1BEE7;
+    background-repeat: no-repeat
 }
+
+.card {
+    position : left;
+    width: 400px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px 0px #AA00FF;
+    margin-top: 50px;
+    margin-bottom: 50px
+    height: 50%;
+}
+
+.set-p {
+    padding-left: 15px;
+    padding-right: 15px
+}
+
+.fa-angle-left,
+.fa-angle-right {
+    position: absolute;
+    color: #757575;
+    font-size: 80px;
+    top: 100px;
+    cursor: pointer
+}
+
+#left {
+    left: 2%
+}
+
+#left:hover {
+    color: #E0E0E0
+}
+
+#right {
+    right: 2%
+}
+
+#right:hover {
+    color: #E0E0E0
+}
+
+.image {
+    object-fit: cover;
+    width: 100%;
+    height: 200px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    display: none
+}
+
+.image.active {
+    display: block
+}
+
+.rating {
+    background-color: #3D5AFE;
+    color: #fff;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px
+}
+
+.grade {
+    font-size: 18px
+}
+
+.line {
+    height: 1px;
+    background-color: #E0E0E0
+}
+
+.text-sm {
+    font-size: 14px
+}
+
+body {
+    background: url('https://www.eubuscoimoveis.com.br/noticias/smaniottoimoveis/392/27415377.jpeg');
+    background-repeat:no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    width: 100%;
+    height: 100%;
+    background-size: 100%;
+    margin-right: auto;
+    margin-left:  auto;
+    padding-right: 30px;
+    padding-left:  30px;
+}
+
+
+.cazareRomania {
+    background: url('https://www.wallpapertip.com/wmimgs/51-516241_transfgr-an.jpg');
+    background-repeat:no-repeat;
+            background-size: cover;
+            background-attachment: fixed;
+            width: 100%;
+            height: 100%;
+            background-size: 100%;
+            margin-right: auto;
+            margin-left:  auto;
+            padding-right: 30px;
+            padding-left:  30px
+}
+
+.cityBreak {
+    background: url('https://www.wallpapertip.com/wmimgs/5-51525_london-bridge-wallpaper-4k.jpg');
+    background-repeat:no-repeat;
+            background-size: cover;
+            background-attachment: fixed;
+            width: 100%;
+            height: 100%;
+            background-size: 100%;
+            margin-right: auto;
+            margin-left:  auto;
+            padding-right: 30px;
+            padding-left:  30px
+}
+
+.contact {
+    background: url('https://www.wallpapertip.com/wmimgs/80-809180_notebook-wallpaper-hd.jpg');
+    background-repeat:no-repeat;
+            background-size: cover;
+            background-attachment: fixed;
+            width: 100%;
+            height: 100%;
+            background-size: 100%;
+            margin-right: auto;
+            margin-left:  auto;
+            padding-right: 30px;
+            padding-left:  30px
+}
+
+.despreNoi {
+    background: url('https://www.vacantede10.ro/resources/quick-sell-template-ro-2/2018/1114/Calatoreste.png');
+    background-repeat:no-repeat;
+            background-size: cover;
+            background-attachment: fixed;
+            width: 100%;
+            height: 100%;
+            background-size: 100%;
+            margin-right: auto;
+            margin-left:  auto;
+            padding-right: 30px;
+            padding-left:  30px
+}
+
+.termeniSiConditii {
+    background: url('https://www.wallpapertip.com/wmimgs/154-1546044_court-ruling.jpg');
+    background-repeat:no-repeat;
+        background-size: cover;
+        background-attachment: fixed;
+        width: 100%;
+        height: 100%;
+        background-size: 100%;
+        margin-right: auto;
+        margin-left:  auto;
+        padding-right: 30px;
+        padding-left:  30px;
+}
+
+.login-page {
+    background: url('https://www.wallpapertip.com/wmimgs/96-966863_incredible-hd-wallpapers-of-security-full-hd-1080p.jpg');
+    background-repeat:no-repeat;
+            background-size: cover;
+            background-attachment: fixed;
+            width: 100%;
+            height: 100%;
+            background-size: 100%;
+            margin-right: auto;
+            margin-left:  auto;
+            padding-right: 30px;
+            padding-left:  30px;
+}
+
+.promotii {
+    background: url('https://www.wallpapertip.com/wmimgs/34-347600_-.jpg');
+    background-repeat:no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    width: 100%;
+    height: 100%;
+    background-size: 100%;
+    margin-right: auto;
+    margin-left:  auto;
+    padding-right: 30px;
+    padding-left:  30px;
+}
+
+.continent {
+    background: url('https://www.wallpapertip.com/wmimgs/5-58416_hd-earth-wallpapers-4k-ultra-hd-earth.png');
+    background-repeat:no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    width: 100%;
+    height: 100%;
+    background-size: 100%;
+    margin-right: auto;
+    margin-left:  auto;
+    padding-right: 30px;
+    padding-left:  30px;
+    }
+
 
