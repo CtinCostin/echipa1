@@ -46,16 +46,11 @@
     <script src="/assets/js/plugins.js?"></script>
 
 
-<body class="www_vacantede10_ro contact pc">
+<body class="contact">
 <div th:replace="fragments/navbar :: navbar"/></div>
-<div id="cookie-bar" class="fixed bottom"><p>By continuing to use the site, you agree to the use of cookies. We use
-    cookies to track usage and preferences.<a href="" class="cb-enable">Accept cookies</a><a href="" class="cb-disable">Dissallow
-        cookies</a></p></div>
-
 
 <div class="wrapper">
     <div class="acqua-contact-page">
-
         <div id="map_canvas" class="acqua-contact-map olMap">
             <div id="OpenLayers_Map_2_OpenLayers_ViewPort"
                  class="olMapViewport olControlDragPanActive olControlZoomBoxActive olControlPinchZoomActive olControlNavigationActive olControlSelectFeatureActive"
@@ -63,53 +58,49 @@
                 <div id="OpenLayers_Map_2_OpenLayers_Container"
                      style="position: absolute; z-index: 749; left: 0px; top: 0px;">
                     <div id="OpenLayers_Layer_OSM_18" dir="ltr" class="olLayerDiv olLayerGrid"
-                         style="position: absolute; width: 100%; height: 100%; z-index: 100;"><img class="olTileImage"
-                                                                                                   crossorigin="anonymous"
-                                                                                                   src="https://b.tile.openstreetmap.org/14/9160/5845.png"
-                                                                                                   id="null"
-                                                                                                   style="visibility: inherit; opacity: 1; position: absolute; left: 310px; top: 58px; width: 256px; height: 256px;"><img
-                            class="olTileImage" crossorigin="anonymous"
-                            src="https://c.tile.openstreetmap.org/14/9160/5844.png" id="null"
-                            style="visibility: inherit; opacity: 1; position: absolute; left: 310px; top: -198px; width: 256px; height: 256px;"><img
-                            class="olTileImage" crossorigin="anonymous"
-                            src="https://a.tile.openstreetmap.org/14/9161/5845.png" id="null"
-                            style="visibility: inherit; opacity: 1; position: absolute; left: 566px; top: 58px; width: 256px; height: 256px;"><img
-                            class="olTileImage" crossorigin="anonymous"
-                            src="https://a.tile.openstreetmap.org/14/9159/5845.png" id="null"
-                            style="visibility: inherit; opacity: 1; position: absolute; left: 54px; top: 58px; width: 256px; height: 256px;"><img
-                            class="olTileImage" crossorigin="anonymous"
-                            src="https://a.tile.openstreetmap.org/14/9160/5846.png" id="null"
-                            style="visibility: inherit; opacity: 1; position: absolute; left: 310px; top: 314px; width: 256px; height: 256px;"><img
-                            class="olTileImage" crossorigin="anonymous"
-                            src="https://a.tile.openstreetmap.org/14/9161/5844.png" id="null"
-                            style="visibility: inherit; opacity: 1; position: absolute; left: 566px; top: -198px; width: 256px; height: 256px;"><img
-                            class="olTileImage" crossorigin="anonymous"
-                            src="https://a.tile.openstreetmap.org/14/9159/5844.png" id="null"
-                            style="visibility: inherit; opacity: 1; position: absolute; left: 54px; top: -198px; width: 256px; height: 256px;"><img
-                            class="olTileImage" crossorigin="anonymous"
-                            src="https://c.tile.openstreetmap.org/14/9161/5846.png" id="null"
-                            style="visibility: inherit; opacity: 1; position: absolute; left: 566px; top: 314px; width: 256px; height: 256px;"><img
-                            class="olTileImage" crossorigin="anonymous"
-                            src="https://c.tile.openstreetmap.org/14/9159/5846.png" id="null"
-                            style="visibility: inherit; opacity: 1; position: absolute; left: 54px; top: 314px; width: 256px; height: 256px;"><img
-                            class="olTileImage" crossorigin="anonymous"
-                            src="https://b.tile.openstreetmap.org/14/9162/5845.png" id="null"
-                            style="visibility: inherit; opacity: 1; position: absolute; left: 822px; top: 58px; width: 256px; height: 256px;"><img
-                            class="olTileImage" crossorigin="anonymous"
-                            src="https://c.tile.openstreetmap.org/14/9158/5845.png" id="null"
-                            style="visibility: inherit; opacity: 1; position: absolute; left: -202px; top: 58px; width: 256px; height: 256px;"><img
-                            class="olTileImage" crossorigin="anonymous"
-                            src="https://a.tile.openstreetmap.org/14/9162/5844.png" id="null"
-                            style="visibility: inherit; opacity: 1; position: absolute; left: 822px; top: -198px; width: 256px; height: 256px;"><img
-                            class="olTileImage" crossorigin="anonymous"
-                            src="https://b.tile.openstreetmap.org/14/9158/5844.png" id="null"
-                            style="visibility: inherit; opacity: 1; position: absolute; left: -202px; top: -198px; width: 256px; height: 256px;"><img
-                            class="olTileImage" crossorigin="anonymous"
-                            src="https://c.tile.openstreetmap.org/14/9162/5846.png" id="null"
-                            style="visibility: inherit; opacity: 1; position: absolute; left: 822px; top: 314px; width: 256px; height: 256px;"><img
-                            class="olTileImage" crossorigin="anonymous"
-                            src="https://a.tile.openstreetmap.org/14/9158/5846.png" id="null"
-                            style="visibility: inherit; opacity: 1; position: absolute; left: -202px; top: 314px; width: 256px; height: 256px;">
+                         style="position: absolute; width: 100%; height: 100%; z-index: 100;"><img class="olTileImage" crossorigin="anonymous" src="https://b.tile.openstreetmap.org/14/9160/5845.png" id="null" style="visibility: inherit; opacity: 1; position: absolute; left: 310px; top: 58px; width: 256px; height: 256px;">
+<!--                            class="olTileImage" crossorigin="anonymous"-->
+<!--                            src="https://c.tile.openstreetmap.org/14/9160/5844.png" id="null"-->
+<!--                            style="visibility: inherit; opacity: 1; position: absolute; left: 310px; top: -198px; width: 256px; height: 256px;"><img-->
+<!--                            class="olTileImage" crossorigin="anonymous"-->
+<!--                            src="https://a.tile.openstreetmap.org/14/9161/5845.png" id="null"-->
+<!--                            style="visibility: inherit; opacity: 1; position: absolute; left: 566px; top: 58px; width: 256px; height: 256px;"><img-->
+<!--                            class="olTileImage" crossorigin="anonymous"-->
+<!--                            src="https://a.tile.openstreetmap.org/14/9159/5845.png" id="null"-->
+<!--                            style="visibility: inherit; opacity: 1; position: absolute; left: 54px; top: 58px; width: 256px; height: 256px;"><img-->
+<!--                            class="olTileImage" crossorigin="anonymous"-->
+<!--                            src="https://a.tile.openstreetmap.org/14/9160/5846.png" id="null"-->
+<!--                            style="visibility: inherit; opacity: 1; position: absolute; left: 310px; top: 314px; width: 256px; height: 256px;"><img-->
+<!--                            class="olTileImage" crossorigin="anonymous"-->
+<!--                            src="https://a.tile.openstreetmap.org/14/9161/5844.png" id="null"-->
+<!--                            style="visibility: inherit; opacity: 1; position: absolute; left: 566px; top: -198px; width: 256px; height: 256px;"><img-->
+<!--                            class="olTileImage" crossorigin="anonymous"-->
+<!--                            src="https://a.tile.openstreetmap.org/14/9159/5844.png" id="null"-->
+<!--                            style="visibility: inherit; opacity: 1; position: absolute; left: 54px; top: -198px; width: 256px; height: 256px;"><img-->
+<!--                            class="olTileImage" crossorigin="anonymous"-->
+<!--                            src="https://c.tile.openstreetmap.org/14/9161/5846.png" id="null"-->
+<!--                            style="visibility: inherit; opacity: 1; position: absolute; left: 566px; top: 314px; width: 256px; height: 256px;"><img-->
+<!--                            class="olTileImage" crossorigin="anonymous"-->
+<!--                            src="https://c.tile.openstreetmap.org/14/9159/5846.png" id="null"-->
+<!--                            style="visibility: inherit; opacity: 1; position: absolute; left: 54px; top: 314px; width: 256px; height: 256px;"><img-->
+<!--                            class="olTileImage" crossorigin="anonymous"-->
+<!--                            src="https://b.tile.openstreetmap.org/14/9162/5845.png" id="null"-->
+<!--                            style="visibility: inherit; opacity: 1; position: absolute; left: 822px; top: 58px; width: 256px; height: 256px;"><img-->
+<!--                            class="olTileImage" crossorigin="anonymous"-->
+<!--                            src="https://c.tile.openstreetmap.org/14/9158/5845.png" id="null"-->
+<!--                            style="visibility: inherit; opacity: 1; position: absolute; left: -202px; top: 58px; width: 256px; height: 256px;"><img-->
+<!--                            class="olTileImage" crossorigin="anonymous"-->
+<!--                            src="https://a.tile.openstreetmap.org/14/9162/5844.png" id="null"-->
+<!--                            style="visibility: inherit; opacity: 1; position: absolute; left: 822px; top: -198px; width: 256px; height: 256px;"><img-->
+<!--                            class="olTileImage" crossorigin="anonymous"-->
+<!--                            src="https://b.tile.openstreetmap.org/14/9158/5844.png" id="null"-->
+<!--                            style="visibility: inherit; opacity: 1; position: absolute; left: -202px; top: -198px; width: 256px; height: 256px;"><img-->
+<!--                            class="olTileImage" crossorigin="anonymous"-->
+<!--                            src="https://c.tile.openstreetmap.org/14/9162/5846.png" id="null"-->
+<!--                            style="visibility: inherit; opacity: 1; position: absolute; left: 822px; top: 314px; width: 256px; height: 256px;"><img-->
+<!--                            class="olTileImage" crossorigin="anonymous"-->
+<!--                            src="https://a.tile.openstreetmap.org/14/9158/5846.png" id="null"-->
+<!--                            style="visibility: inherit; opacity: 1; position: absolute; left: -202px; top: 314px; width: 256px; height: 256px;">-->
                     </div>
                     <div id="OpenLayers_Layer_Markers_20" dir="ltr" class="olLayerDiv"
                          style="position: absolute; width: 100%; height: 100%; z-index: 330;"></div>
