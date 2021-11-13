@@ -10,6 +10,7 @@
     <link th:href="@{webjars/font-awesome/5.11.2/css/all.css} "/>
 </head>
 <body>
+<div th:replace="fragments/navbar :: navbar"/>
 
 <div  class="q-card-main q-card-container ct-item-content">
     <table class="table table-sm">
@@ -43,5 +44,7 @@
     </table>
 
 </div>
+<div th:replace="fragments/footer :: footer"/>
+<div th:replace="fragments/footer-css :: footer-css"/>
 </body>
 </html>

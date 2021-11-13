@@ -28,6 +28,7 @@ public class TourOfferAdminDto {
     private Double priceForAnAdult;
     private Double priceForAChild;
 
+
     public Double getCalculatedPrice() {
         return calculatedPrice;
     }
