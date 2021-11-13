@@ -9,6 +9,7 @@
     <link th:rel="stylesheet" th:href="@{/webjars/font-awesome/5.15.4/css/all.css} "/>
 </head>
 <body>
+<div th:replace="fragments/navbar :: navbar"/>
 <div align="center">
     <h1>Create new hotel</h1>
 
@@ -64,6 +65,7 @@
 <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
 <script th:src="@{/assets/moment/moment.min.js}"></script>
 <script th:src="@{/assets/tempusdominus-bootstrap-4/tempusdominus-bootstrap-4.min.js}"></script>
-
+<div th:replace="fragments/footer :: footer"/>
+<div th:replace="fragments/footer-css :: footer-css"/>
 </body>
 </html>
