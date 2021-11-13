@@ -1,5 +1,4 @@
 package ro.sda.echipa1.service;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -22,10 +21,12 @@ public class UserServiceImpl implements IUserService{
     private IRoleRepository roleRepository;
     private BCryptPasswordEncoder passwordEncoder;
 
+
     public UserServiceImpl(IUserRepository userRepository, IRoleRepository roleRepository, BCryptPasswordEncoder passwordEncoder) {
         this.userRepository = userRepository;
         this.roleRepository = roleRepository;
         this.passwordEncoder = passwordEncoder;
+
     }
 
     @Override
@@ -37,10 +38,12 @@ public class UserServiceImpl implements IUserService{
                 ,registrationDto.getLastName()
                 , registrationDto.getUserName()
                 ,passwordEncoder.encode(registrationDto.getPassword())
-                , Arrays.asList(roleRepository.findByName("ADMIN")));
+                , Arrays.asList(roleRepository.findByName("USER")));
 
         return userRepository.save(user);
     }
+
+
 
     @Override
     public User findByUsername(String username) {

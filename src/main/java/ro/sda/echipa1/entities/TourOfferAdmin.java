@@ -43,6 +43,7 @@ public class TourOfferAdmin {
     private Double priceForAChild;
 
 
+
     public TourOfferAdmin() {
     }
 
@@ -66,8 +67,8 @@ public class TourOfferAdmin {
         this.priceForAnAdult = priceForAnAdult;
         this.priceForAChild = priceForAChild;
 
-
     }
+
 
 
     public Long getId() {

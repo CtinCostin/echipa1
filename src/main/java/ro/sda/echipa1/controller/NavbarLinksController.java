@@ -9,17 +9,19 @@ import ro.sda.echipa1.service.TourOfferAdminService;
 
 import java.util.List;
 
+
 @Controller
-public class ButtonsController {
+public class NavbarLinksController {
 
     @Autowired
     private TourOfferAdminService tourOfferAdminService;
 
+    private TourOfferAdmin tourOfferAdmin;
+
 
     @GetMapping("/cazare-Romania")
     public String showOffersRomania(Model model) {
-
-        List<TourOfferAdmin> tourOfferAdminList = tourOfferAdminService.findAll();
+        List<TourOfferAdmin> tourOfferAdminList = tourOfferAdminService.searchByName("Cazare Romania");
         model.addAttribute("tourOfferInView", tourOfferAdminList);
 
         return "cazare-Romania";
@@ -28,7 +30,7 @@ public class ButtonsController {
     @GetMapping("/city-break")
     public String showCityBreak(Model model) {
 
-        List<TourOfferAdmin> tourOfferAdminList = tourOfferAdminService.findAll();
+        List<TourOfferAdmin> tourOfferAdminList = tourOfferAdminService.searchByName("City Break");
         model.addAttribute("tourOfferInView", tourOfferAdminList);
 
         return "city-break";
@@ -37,7 +39,7 @@ public class ButtonsController {
     @GetMapping("/promotii")
     public String showPromoted(Model model) {
 
-        List<TourOfferAdmin> tourOfferAdminList = tourOfferAdminService.findAll();
+        List<TourOfferAdmin> tourOfferAdminList = tourOfferAdminService.searchByName("Promotii");
         model.addAttribute("tourOfferInView", tourOfferAdminList);
 
         return "promotii";
@@ -61,8 +63,14 @@ public class ButtonsController {
         return "termeni_si_conditii";
     }
 
-
-
+//    @PostMapping("/cazare-Romania")
+//    public String showOffersFromCazareRomania(
+//
+//            @ModelAttribute TourOfferAdmin tourOfferAdmin) {
+//
+//        tourOfferAdminService.updateNew(tourOfferAdmin);
+//        return "redirect:/tourOfferAdmin/";
+//    }
 
 
 }
