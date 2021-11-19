@@ -14,7 +14,7 @@ import javax.validation.Valid;
 import java.util.List;
 
 @Controller
-@RequestMapping("/tourOfferCart")
+@RequestMapping("/cos-cumparaturi")
 public class TourOfferCartController {
 
     @Autowired

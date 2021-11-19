@@ -42,7 +42,7 @@ public class CustomWebSecurityConfigurer extends WebSecurityConfigurerAdapter {
 
     @Override
     public void configure(HttpSecurity http) throws Exception {
-        http.authorizeRequests().
+        http.authorizeRequests().antMatchers("/", "/cazare-Romania", "/city-break", "/promotii", "/contact").permitAll().
                 antMatchers(
                 "/hotel"
                 , "/continent"
