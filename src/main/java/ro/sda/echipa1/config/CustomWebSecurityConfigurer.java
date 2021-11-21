@@ -11,13 +11,10 @@ import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 import ro.sda.echipa1.service.IUserService;
 
-/**
- * Created by noman.
- */
+
 @Configuration
 @EnableWebSecurity
 public class CustomWebSecurityConfigurer extends WebSecurityConfigurerAdapter {
@@ -43,27 +40,31 @@ public class CustomWebSecurityConfigurer extends WebSecurityConfigurerAdapter {
         auth.authenticationProvider(authenticationProvider());
     }
 
-
     @Override
     public void configure(HttpSecurity http) throws Exception {
-        http.authorizeRequests().antMatchers(
+        http.authorizeRequests().
+                antMatchers(
+                "/hotel"
+                , "/continent"
+                , "/country"
+                , "/airport"
+                , "/city"
+                , "/tourOfferAdmin")
+                .hasRole("ADMIN")
+                .antMatchers(
                 "/register**"
                 , "/bootstrap/**"
                 , "/extra/**"
-
                 , "/webjars/**"
-
                 , "/plugins/**"
-
                 , "/assets/**"
-
                 , "/favicon.ico"
-                , "/cazare-Romania")
-
+                , "/cazare-Romania"
+                , "/despre_noi"
+                , "/termeni_si_conditii")
                 .permitAll()
                 .anyRequest().authenticated()
                 .and()
-//Define the formLogin
                 .formLogin()
                 .loginPage("/login")
                 .successForwardUrl("/")
@@ -76,7 +77,10 @@ public class CustomWebSecurityConfigurer extends WebSecurityConfigurerAdapter {
                 .clearAuthentication(true)
                 .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
                 .logoutSuccessUrl("/login?logout")
-                .permitAll();
+                .permitAll()
+                .and()
+                .authorizeRequests();
+
 
     }
 

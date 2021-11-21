@@ -1,6 +1,6 @@
 package ro.sda.echipa1.dto;
 
-import lombok.Builder;
+import lombok.*;
 import org.springframework.format.annotation.DateTimeFormat;
 import ro.sda.echipa1.entities.*;
 import ro.sda.echipa1.entities.enums.TravelOption;
@@ -9,6 +9,10 @@ import ro.sda.echipa1.entities.enums.TypeOfService;
 import java.time.LocalDate;
 
 @Builder
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
 public class TourOfferAdminDto {
 
     private Long id;
@@ -27,6 +31,7 @@ public class TourOfferAdminDto {
     private TypeOfService typeOfService;
     private Double priceForAnAdult;
     private Double priceForAChild;
+
 
     public Double getCalculatedPrice() {
         return calculatedPrice;
