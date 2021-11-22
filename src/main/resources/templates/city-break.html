@@ -3,64 +3,169 @@
       xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title></title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/5.15.4/css/font-awesome.min.css">
-    <link href="//maxcdn.bootstrapcdn.com/bootstrap/5.1.3/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 
 <body class="cityBreak">
 <div th:replace="fragments/navbar :: navbar"/></div>
 
-<div class="container-fluid px-4 py-5 mx-auto">
-    <div class="row d-flex justify-content-center">
-        <div class="card border-0">
-            <div class="row set-p justify-content-center">
-                <div> <img id="first" class="image" src="https://i.imgur.com/3pcJdqF.jpg"> <img class="image" src="https://i.imgur.com/zFRM6Ww.jpg"> <img class="image active" src="https://i.imgur.com/oDSYIAB.jpg"> <img class="image" src="https://i.imgur.com/lfEnSRg.jpg"> <img id="last" class="image" src="https://i.imgur.com/gl9AZz0.jpg"> </div> <span class="fa fa-angle-left" id="left"></span> <span class="fa fa-angle-right" id="right"></span>
-                <div class="col-12">
-                    <div class="row px-3 mt-4 mb-3">
-                        <p class="rating mb-0 px-2 mr-3"><strong>8.0</strong></p>
-                        <p class="text-primary mb-0 mr-2 grade"><strong>Very Good</strong></p>
-                        <p class="text-secondary mb-0 mr-2">&middot;</p>
-                        <p class="text-secondary mb-0">14,954 reviews</p>
+<div class="container">
+    <div class="hotel-card bg-white rounded-lg shadow overflow-hidden d-block d-lg-flex">
+        <div class="hotel-card_images">
+            <div id="bootstrapCarousel" class="carousel slide h-100" data-ride="carousel">
+                <div class="carousel-inner h-100">
+                    <div class="carousel-item h-100">
+                        <img src="images/hotel1.jpg" class="d-block w-100" alt="Hotel Image">
                     </div>
-                    <div class="row px-3">
-                        <h3 class="font-weight-bold">The Athens Gate Hotel</h3>
+                    <div class="carousel-item h-100">
+                        <img src="images/hotel2.jpg" class="d-block w-100" alt="Hotel Image">
                     </div>
-                    <div class="row px-3 mb-2 mt-2"> <span class="fa fa-star text-warning mr-1"></span> <span class="fa fa-star text-warning mr-1"></span> <span class="fa fa-star text-warning mr-1"></span> <span class="fa fa-star text-warning mr-1"></span> </div>
-                    <div class="row px-3">
-                        <h5 class="mb-1">1 bedroom &middot; + breakfast &middot;</h5>
+                    <div class="carousel-item h-100 active">
+                        <img src="images/hotel3.jpg" class="d-block w-100" alt="Hotel Image">
                     </div>
-                    <div class="row px-3">
-                        <p class="mb-4">Grecia, Atena &middot; 2.6 km from center</p>
+                </div>
+                <a class="carousel-control-prev" href="#bootstrapCarousel" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#bootstrapCarousel" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
+        </div>
+        <div class="hotel-card_info p-4">
+            <div class="d-flex align-items-center mb-2">
+                <h5 class="mb-0 mr-2">Hotel Rainer</h5>
+                <div>
+                    <i class="fa fa-star text-warning"></i>
+                    <i class="fa fa-star text-warning"></i>
+                    <i class="fa fa-star text-warning"></i>
+                    <i class="fa fa-star text-warning"></i>
+                    <i class="fa fa-star text-warning"></i>
+                </div>
+                <a href="#!" class="text-dark ml-auto"><i class="far fa-heart fa-lg"></i></a>
+            </div>
+            <div class="d-flex justify-content-between align-items-end">
+                <div class="hotel-card_details">
+                    <div class="text-muted mb-2">
+                        <i class="fas fa-map-marker-alt"></i> Brasov
                     </div>
-                    <div class="line"></div>
-                    <div class="row px-3 mt-4">
-                        <h5 class="text-secondary mb-1">Sky Suite</h5>
+                    <div class="mb-2">
+                        <span class="badge badge-primary">4.5</span>
+                        <a href="#!" class="text-muted">(245 ratings &amp; 56 reviews)</a></div>
+                    <div class="amnities d-flex mb-3">
+                        <img class="mr-2" src="images/icons/desk-bell.svg" data-toggle="tooltip" data-placement="top" title="" alt="Desk bell" data-original-title="Desk bell">
+                        <img class="mr-2" src="images/icons/single-bed.svg" data-toggle="tooltip" data-placement="top" title="" alt="Single Bed" data-original-title="Single Bed">
+                        <img class="mr-2" src="images/icons/towels.svg" data-toggle="tooltip" data-placement="top" title="" alt="Towels" data-original-title="Towels">
+                        <img class="mr-2" src="images/icons/wifi.svg" data-toggle="tooltip" data-placement="top" title="" alt="Wifi" data-original-title="Wifi">
+                        <img class="mr-2" src="images/icons/breakfast.svg" data-toggle="tooltip" data-placement="top" title="" alt="Breakfast" data-original-title="Breakfast">
+
                     </div>
-                    <div class="row px-3 mb-4">
-                        <h2 class="text-success mb-1 font-weight-bold">€ 300<span class="ml-2 text-muted text-sm"></span></h2>
+                    <ul class="hotel-checklist pl-0 mb-0">
+                        <li><i class="fa fa-check text-success"></i> Lorem ipsum dolor</li>
+                        <li><i class="fa fa-check text-success"></i> Cras lectus purus, </li>
+                        <li><i class="fa fa-check text-success"></i> ornare eget congue</li>
+                    </ul>
+                </div>
+                <div class="hotel-card_pricing text-center">
+                    <h3>€ 125</h3>
+                    <div class="d-flex">
+                        <h6 class="text-striked text-muted mr-2"> € 250</h6>
+                        <h6 class="text-success">50% off</h6>
                     </div>
+                    <button class="btn btn-primary">Check Rooms</button>
                 </div>
             </div>
         </div>
     </div>
 </div>
 
-<!--<div class="card" style="width: 18rem;">-->
-<!--    <img class="card-img-top" src="" alt="Card image cap">-->
-<!--    <div class="card-body">-->
-<!--        <h5 class="card-title">City Break</h5>-->
-<!--        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>-->
-<!--        <a href="#" class="btn btn-primary">Detalii</a>-->
-<!--    </div>-->
-<!--</div>-->
-<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/5.1.3/js/bootstrap.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<br>
 
+
+<div class="container">
+    <div class="hotel-card bg-white rounded-lg shadow overflow-hidden d-block d-lg-flex">
+        <div class="hotel-card_images">
+            <div id="bootstrapCarousell" class="carousel slide h-100" data-ride="carousel">
+                <div class="carousel-inner h-100">
+                    <div class="carousel-item h-100 active">
+                        <img src="images/image.jpg" class="d-block w-100" alt="Hotel Image">
+                    </div>
+                    <div class="carousel-item h-100 active">
+                        <img src="images/hotel3.jpg" class="d-block w-100" alt="Hotel Image">
+                    </div>
+                </div>
+                <a class="carousel-control-prev" href="#bootstrapCarousel" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#bootstrapCarousel" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
+        </div>
+        <div class="hotel-card_info p-4">
+            <div class="d-flex align-items-center mb-2">
+                <h5 class="mb-0 mr-2">Hotel Rainer</h5>
+                <div>
+                    <i class="fa fa-star text-warning"></i>
+                    <i class="fa fa-star text-warning"></i>
+                    <i class="fa fa-star text-warning"></i>
+                    <i class="fa fa-star text-warning"></i>
+                    <i class="fa fa-star text-warning"></i>
+                </div>
+                <a href="#!" class="text-dark ml-auto"><i class="far fa-heart fa-lg"></i></a>
+            </div>
+            <div class="d-flex justify-content-between align-items-end">
+                <div class="hotel-card_details">
+                    <div class="text-muted mb-2">
+                        <i class="fas fa-map-marker-alt"></i> Brasov
+                    </div>
+                    <div class="mb-2">
+                        <span class="badge badge-primary">4.5</span>
+                        <a href="#!" class="text-muted">(245 ratings &amp; 56 reviews)</a></div>
+                    <div class="amnities d-flex mb-3">
+                        <img class="mr-2" src="images/icons/desk-bell.svg" data-toggle="tooltip" data-placement="top" title="" alt="Desk bell" data-original-title="Desk bell">
+                        <img class="mr-2" src="images/icons/single-bed.svg" data-toggle="tooltip" data-placement="top" title="" alt="Single Bed" data-original-title="Single Bed">
+                        <img class="mr-2" src="images/icons/towels.svg" data-toggle="tooltip" data-placement="top" title="" alt="Towels" data-original-title="Towels">
+                        <img class="mr-2" src="images/icons/wifi.svg" data-toggle="tooltip" data-placement="top" title="" alt="Wifi" data-original-title="Wifi">
+                        <img class="mr-2" src="images/icons/breakfast.svg" data-toggle="tooltip" data-placement="top" title="" alt="Breakfast" data-original-title="Breakfast">
+
+                    </div>
+                    <ul class="hotel-checklist pl-0 mb-0">
+                        <li><i class="fa fa-check text-success"></i> Lorem ipsum dolor</li>
+                        <li><i class="fa fa-check text-success"></i> Cras lectus purus, </li>
+                        <li><i class="fa fa-check text-success"></i> ornare eget congue</li>
+                    </ul>
+                </div>
+                <div class="hotel-card_pricing text-center">
+                    <h3>€ 125</h3>
+                    <div class="d-flex">
+                        <h6 class="text-striked text-muted mr-2"> € 250</h6>
+                        <h6 class="text-success">50% off</h6>
+                    </div>
+                    <button class="btn btn-primary">Check Rooms</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<!--<script src="https://code.jquery.com/jquery-3.6.0.js"></script>-->
+<!--<script src="//maxcdn.bootstrapcdn.com/bootstrap/5.1.3/js/bootstrap.min.js"></script>-->
+<!--<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>-->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+		$(function () {
+			$('[data-toggle="tooltip"]').tooltip()
+		})
+	</script>
 
 <div th:replace="fragments/footer :: footer"/>
 <div th:replace="fragments/footer-css :: footer-css"/>

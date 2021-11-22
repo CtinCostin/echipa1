@@ -42,26 +42,44 @@ public class CustomWebSecurityConfigurer extends WebSecurityConfigurerAdapter {
 
     @Override
     public void configure(HttpSecurity http) throws Exception {
-        http.authorizeRequests().antMatchers("/", "/cazare-Romania", "/city-break", "/promotii", "/contact").permitAll().
+
+        http.authorizeRequests().
+                antMatchers("/"
+                        , "/cazare-Romania"
+                        , "/city-break"
+                        , "/promotii"
+                        , "/contact"
+                        , "/bootstrap/**"
+                        , "/extra/**"
+                        , "/webjars/**"
+                        , "/plugins/**"
+                        , "/assets/**"
+                        , "/favicon.ico"
+                        , "/dist/**"
+                        , "/cazare-Romania"
+                        , "/despre_noi"
+                        , "/termeni_si_conditii").permitAll().
                 antMatchers(
-                "/hotel"
-                , "/continent"
-                , "/country"
-                , "/airport"
-                , "/city"
-                , "/tourOfferAdmin")
+                        "/hotel"
+                        , "/continent"
+                        , "/country"
+                        , "/airport"
+                        , "/city"
+                        , "/tourOfferAdmin")
                 .hasRole("ADMIN")
                 .antMatchers(
-                "/register**"
-                , "/bootstrap/**"
-                , "/extra/**"
-                , "/webjars/**"
-                , "/plugins/**"
-                , "/assets/**"
-                , "/favicon.ico"
-                , "/cazare-Romania"
-                , "/despre_noi"
-                , "/termeni_si_conditii")
+                        "/register**"
+                        , "/bootstrap/**"
+                        , "/extra/**"
+                        , "/webjars/**"
+                        , "/plugins/**"
+                        , "/assets/**"
+                        ,"/css/**"
+                        , "/favicon.ico"
+                        , "/dist/**"
+                        , "/cazare-Romania"
+                        , "/despre_noi"
+                        , "/termeni_si_conditii")
                 .permitAll()
                 .anyRequest().authenticated()
                 .and()

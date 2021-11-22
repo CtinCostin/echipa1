@@ -1,7 +1,6 @@
 package ro.sda.echipa1.entities;
 
 import ro.sda.echipa1.entities.enums.TourOfferCartStatus;
-import ro.sda.echipa1.model.User;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -21,8 +20,8 @@ public class TourOfferCart {
 
     private Double totalPrice;
 
-    @OneToOne
-    private User user;
+//    @OneToOne
+//    private User user;
 
     @Enumerated(EnumType.STRING)
     private TourOfferCartStatus tourOfferCartStatus;
@@ -32,10 +31,9 @@ public class TourOfferCart {
 
     }
 
-    public TourOfferCart(List<TourOfferCartEntry> tourOfferCartEntries, Double totalPrice, User user, TourOfferCartStatus tourOfferCartStatus) {
+    public TourOfferCart(List<TourOfferCartEntry> tourOfferCartEntries, Double totalPrice, TourOfferCartStatus tourOfferCartStatus) {
         this.tourOfferCartEntries = tourOfferCartEntries;
         this.totalPrice = totalPrice;
-        this.user = user;
         this.tourOfferCartStatus = tourOfferCartStatus;
     }
 
@@ -65,13 +63,13 @@ public class TourOfferCart {
         this.totalPrice = totalPrice;
     }
 
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
-    }
+//    public User getUser() {
+//        return user;
+//    }
+//
+//    public void setUser(User user) {
+//        this.user = user;
+//    }
 
     public TourOfferCartStatus getTourOfferCartStatus() {
         return tourOfferCartStatus;

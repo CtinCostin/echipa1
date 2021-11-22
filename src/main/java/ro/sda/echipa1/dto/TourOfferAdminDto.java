@@ -7,10 +7,11 @@ import ro.sda.echipa1.entities.enums.TravelOption;
 import ro.sda.echipa1.entities.enums.TypeOfService;
 
 import java.time.LocalDate;
+import java.util.Date;
 
 @Builder
-@AllArgsConstructor
 @NoArgsConstructor
+@AllArgsConstructor
 @Getter
 @Setter
 public class TourOfferAdminDto {
@@ -24,131 +25,23 @@ public class TourOfferAdminDto {
     private Airport airport;
     private Hotel hotel;
     @DateTimeFormat(pattern = "dd/MM/yyyy")
-    private LocalDate departureDate;
+    private Date departureDate;
     @DateTimeFormat(pattern = "dd/MM/yyyy")
-    private LocalDate dateOfReturn;
+    private Date dateOfReturn;
     private Integer numberOfDays;
     private TypeOfService typeOfService;
     private Double priceForAnAdult;
     private Double priceForAChild;
+    private Double calculatedPrice;
 
-
-    public Double getCalculatedPrice() {
-        return calculatedPrice;
-    }
-
-    public void setCalculatedPrice(Double calculatedPrice) {
+    public void setCalculatedPrice(Double calculatedPrice){
         this.calculatedPrice = calculatedPrice;
     }
 
-    private Double calculatedPrice;
-
-
-    public Continent getContinent() {
-        return continent;
+    public static void main(String[] args) {
+        LocalDate date = LocalDate.parse("13/11/2021");
+        System.out.println(date);
     }
-
-    public void setContinent(Continent continent) {
-        this.continent = continent;
-    }
-
-    public Country getCountry() {
-        return country;
-    }
-
-    public void setCountry(Country country) {
-        this.country = country;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public City getCity() {
-        return city;
-    }
-
-    public void setCity(City city) {
-        this.city = city;
-    }
-
-    public Airport getAirport() {
-        return airport;
-    }
-
-    public void setAirport(Airport airport) {
-        this.airport = airport;
-    }
-
-    public Hotel getHotel() {
-        return hotel;
-    }
-
-    public void setHotel(Hotel hotel) {
-        this.hotel = hotel;
-    }
-
-    public LocalDate getDepartureDate() {
-        return departureDate;
-    }
-
-    public void setDepartureDate(LocalDate departureDate) {
-        this.departureDate = departureDate;
-    }
-
-    public LocalDate getDateOfReturn() {
-        return dateOfReturn;
-    }
-
-    public void setDateOfReturn(LocalDate dateOfReturn) {
-        this.dateOfReturn = dateOfReturn;
-    }
-
-    public Integer getNumberOfDays() {
-        return numberOfDays;
-    }
-
-    public void setNumberOfDays(Integer numberOfDays) {
-        this.numberOfDays = numberOfDays;
-    }
-
-    public TypeOfService getTypeOfService() {
-        return typeOfService;
-    }
-
-    public void setTypeOfService(TypeOfService typeOfService) {
-        this.typeOfService = typeOfService;
-    }
-
-    public Double getPriceForAnAdult() {
-        return priceForAnAdult;
-    }
-
-    public void setPriceForAnAdult(Double priceForAnAdult) {
-        this.priceForAnAdult = priceForAnAdult;
-    }
-
-    public Double getPriceForAChild() {
-        return priceForAChild;
-    }
-
-    public void setPriceForAChild(Double priceForAChild) {
-        this.priceForAChild = priceForAChild;
-    }
-
-
 }
 
 
