@@ -63,14 +63,5 @@ public class NavbarLinksController {
         return "termeni_si_conditii";
     }
 
-//    @PostMapping("/cazare-Romania")
-//    public String showOffersFromCazareRomania(
-//
-//            @ModelAttribute TourOfferAdmin tourOfferAdmin) {
-//
-//        tourOfferAdminService.updateNew(tourOfferAdmin);
-//        return "redirect:/tourOfferAdmin/";
-//    }
-
 
 }
