@@ -8,11 +8,14 @@ import ro.sda.echipa1.entities.TourOfferAdmin;
 import ro.sda.echipa1.repository.TourOfferAdminRepository;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class TourOfferAdminService {
 
     private TourOfferAdminRepository tourOfferAdminRepository;
+
+    private TourOfferAdmin tourOfferAdmin;
 
     @Autowired
     public TourOfferAdminService(TourOfferAdminRepository tourOfferAdminRepository) {
@@ -26,7 +29,7 @@ public class TourOfferAdminService {
 
     public TourOfferAdmin findById(Long id) {
         return tourOfferAdminRepository.findById(id).orElseThrow(
-                ()-> new RuntimeException("tour not found!"));
+                () -> new RuntimeException("tour not found!"));
     }
 
     public void update(Long id, TourOfferAdminDto tourOfferAdminDto) {
@@ -37,6 +40,7 @@ public class TourOfferAdminService {
     }
 
     private TourOfferAdmin updateEntity(TourOfferAdminDto tourOfferAdminDto, TourOfferAdmin existingTourOfferAdmin) {
+        existingTourOfferAdmin.setTravelOption(tourOfferAdminDto.getTravelOption());
         existingTourOfferAdmin.setName(tourOfferAdminDto.getName());
         existingTourOfferAdmin.setContinent(tourOfferAdminDto.getContinent());
         existingTourOfferAdmin.setCountry(tourOfferAdminDto.getCountry());
@@ -53,16 +57,10 @@ public class TourOfferAdminService {
         return existingTourOfferAdmin;
     }
 
-    public void updateNew(TourOfferAdmin tourOfferAdmin) {
+    public List<TourOfferAdmin> searchByName(String name) {
 
-        String name = tourOfferAdmin.getName();
-        tourOfferAdminRepository.findByNameIgnoreCase(name)
-                .filter(existingTourOffer -> existingTourOffer.getId().equals(tourOfferAdmin.getId()))
-                .map(existingTourOffer -> tourOfferAdminRepository.save(tourOfferAdmin))
-                .orElseThrow(() -> {
+        return tourOfferAdminRepository.findByNameStartingWith(name);
 
-                    throw new RuntimeException("tourOffer already exist");
-                });
     }
 
 
@@ -74,4 +72,6 @@ public class TourOfferAdminService {
     public void save(TourOfferAdmin tourOfferAdmin) {
         tourOfferAdminRepository.save(tourOfferAdmin);
     }
+
+
 }

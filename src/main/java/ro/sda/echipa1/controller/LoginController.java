@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import ro.sda.echipa1.model.User;
+
 import ro.sda.echipa1.service.IUserService;
 import ro.sda.echipa1.web.dto.UserRegistrationDto;
 
@@ -53,8 +54,8 @@ public class LoginController {
         return "redirect:/register?success";
     }
 
-    @GetMapping("/user-select-tour-offer")
-    public String showUserSelectTourPage(Model model) {
+    @GetMapping("")
+    public String showHomePage(Model model) {
 
         return "user-select-tour-offer";
     }
@@ -62,7 +63,6 @@ public class LoginController {
     public IUserService getUserService() {
         return userService;
     }
-
     public void setUserService(IUserService userService) {
         this.userService = userService;
     }

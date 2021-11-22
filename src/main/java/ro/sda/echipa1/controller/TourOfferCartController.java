@@ -40,7 +40,7 @@ public class TourOfferCartController {
         model.addAttribute("tourOfferCart", newTourOfferCart);
         model.addAttribute("tourOfferCartEntries", tourOfferCartEntryService.getAllTourOffersCartEntries());
         model.addAttribute("totalPrice", newTourOfferCart.getTotalPrice());
-        model.addAttribute("user", newTourOfferCart.getUser());
+//        model.addAttribute("user", newTourOfferCart.getUser());
         return "tourOfferCart-add";
     }
 

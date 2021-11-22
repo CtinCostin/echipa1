@@ -10,6 +10,7 @@
     <link th:href="@{webjars/font-awesome/5.11.2/css/all.css} "/>
 </head>
 <body>
+<div th:replace="fragments/navbar :: navbar"/>
 
 <div align="center">
     <h1>Tour Offer Cart</h1>
@@ -50,6 +51,8 @@
     </table>
 
 </div>
+<div th:replace="fragments/footer :: footer"/>
+<div th:replace="fragments/footer-css :: footer-css"/>
 
 </body>
 </html>
