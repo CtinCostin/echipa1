@@ -4,7 +4,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import ro.sda.echipa1.entities.TourOfferCart;
 import ro.sda.echipa1.entities.TourOfferCartEntry;
-import ro.sda.echipa1.model.User;
 import ro.sda.echipa1.repository.TourOfferCartRepository;
 
 import java.util.ArrayList;
@@ -20,7 +19,7 @@ public class TourOfferCartDto {
 
     private Double totalPrice;
 
-    private User user;
+//    private User user;
     private TourOfferCartRepository tourOfferCartRepository;
 
 
@@ -48,13 +47,13 @@ public class TourOfferCartDto {
         this.totalPrice = totalPrice;
     }
 
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
-    }
+//    public User getUser() {
+//        return user;
+//    }
+//
+//    public void setUser(User user) {
+//        this.user = user;
+//    }
 
     public TourOfferCart getCurrentCart(TourOfferCart tourOfferCart) {
 
