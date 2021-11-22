@@ -30,13 +30,16 @@
                     <li><a href="http://localhost:8081/promotii">Promotii</a></li>
                     <li><a href="http://localhost:8081/contact">Contact</a></li>
                     <li><a href="http://localhost:8081/cos-cumparaturi">Cos</a></li>
-                    <br>
+              <br>
+
                     <li sec:authorize="hasAuthority('ADMIN')"><a href="http://localhost:8081/tourOfferAdmin/">Creaza oferte de vacanta</a></li>
                     <li sec:authorize="hasAuthority('ADMIN')"><a href="http://localhost:8081/continent/">Afiseaza continentele</a></li>
                     <li sec:authorize="hasAuthority('ADMIN')"><a href="http://localhost:8081/country/">Afiseaza tarile</a></li>
                     <li sec:authorize="hasAuthority('ADMIN')"><a href="http://localhost:8081/city/">Afiseaza orasele</a></li>
                     <li sec:authorize="hasAuthority('ADMIN')"><a href="http://localhost:8081/airport/">Afiseaza aeroporturi</a></li>
                     <li sec:authorize="hasAuthority('ADMIN')"><a href="http://localhost:8081/hotel/">Afiseaza hoteluri</a></li>
+
+
                 </ul>
             </div>
         </nav>

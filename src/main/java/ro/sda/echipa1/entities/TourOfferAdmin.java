@@ -1,5 +1,9 @@
 package ro.sda.echipa1.entities;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 import org.springframework.format.annotation.DateTimeFormat;
 import ro.sda.echipa1.dto.TourOfferAdminDto;
 import ro.sda.echipa1.entities.enums.TravelOption;
@@ -8,9 +12,14 @@ import ro.sda.echipa1.entities.enums.TypeOfService;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.Date;
 
 @Entity
 @Table(name = "tour_offer_admin")
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
 public class TourOfferAdmin {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -33,9 +42,9 @@ public class TourOfferAdmin {
     @ManyToOne
     private Hotel hotel;
     @DateTimeFormat(pattern = "dd/MM/yyyy")
-    private LocalDate departureDate;
+    private Date departureDate;
     @DateTimeFormat(pattern = "dd/MM/yyyy")
-    private LocalDate dateOfReturn;
+    private Date dateOfReturn;
     private Integer numberOfDays;
     @Enumerated(EnumType.STRING)
     private TypeOfService typeOfService;
@@ -44,152 +53,7 @@ public class TourOfferAdmin {
 
 
 
-    public TourOfferAdmin() {
-    }
 
-    public TourOfferAdmin(Long id, String name, Continent continent, Country country, City city,
-                          TravelOption travelOption, TypeOfRooms typeOfRooms, Airport airport, Hotel hotel, LocalDate departureDate,
-                          LocalDate dateOfReturn, Integer numberOfDays, TypeOfService typeOfService,
-                          Double priceForAnAdult, Double priceForAChild) {
-        this.id = id;
-        this.name = name;
-        this.continent = continent;
-        this.country = country;
-        this.city = city;
-        this.travelOption = travelOption;
-        this.typeOfRooms = typeOfRooms;
-        this.airport = airport;
-        this.hotel = hotel;
-        this.departureDate = departureDate;
-        this.dateOfReturn = dateOfReturn;
-        this.numberOfDays = numberOfDays;
-        this.typeOfService = typeOfService;
-        this.priceForAnAdult = priceForAnAdult;
-        this.priceForAChild = priceForAChild;
-
-    }
-
-
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public Continent getContinent() {
-        return continent;
-    }
-
-    public void setContinent(Continent continent) {
-        this.continent = continent;
-    }
-
-    public Country getCountry() {
-        return country;
-    }
-
-    public void setCountry(Country country) {
-        this.country = country;
-    }
-
-    public City getCity() {
-        return city;
-    }
-
-    public void setCity(City city) {
-        this.city = city;
-    }
-
-    public Airport getAirport() {
-        return airport;
-    }
-
-    public void setAirport(Airport airport) {
-        this.airport = airport;
-    }
-
-    public Hotel getHotel() {
-        return hotel;
-    }
-
-    public void setHotel(Hotel hotel) {
-        this.hotel = hotel;
-    }
-
-    public LocalDate getDepartureDate() {
-        return departureDate;
-    }
-
-    public void setDepartureDate(LocalDate departureDate) {
-        this.departureDate = departureDate;
-    }
-
-    public LocalDate getDateOfReturn() {
-        return dateOfReturn;
-    }
-
-    public void setDateOfReturn(LocalDate dateOfReturn) {
-        this.dateOfReturn = dateOfReturn;
-    }
-
-    public Integer getNumberOfDays() {
-        return numberOfDays;
-    }
-
-    public void setNumberOfDays(Integer numberOfDays) {
-        this.numberOfDays = numberOfDays;
-    }
-
-    public TypeOfService getTypeOfService() {
-        return typeOfService;
-    }
-
-    public void setTypeOfService(TypeOfService typeOfService) {
-        this.typeOfService = typeOfService;
-    }
-
-    public Double getPriceForAnAdult() {
-        return priceForAnAdult;
-    }
-
-    public void setPriceForAnAdult(Double priceForAnAdult) {
-        this.priceForAnAdult = priceForAnAdult;
-    }
-
-    public Double getPriceForAChild() {
-        return priceForAChild;
-    }
-
-    public void setPriceForAChild(Double priceForAChild) {
-        this.priceForAChild = priceForAChild;
-    }
-
-    public TravelOption getTravelOption() {
-        return travelOption;
-    }
-
-    public void setTravelOption(TravelOption travelOption) {
-        this.travelOption = travelOption;
-    }
-
-    public TypeOfRooms getTypeOfRooms() {
-        return typeOfRooms;
-    }
-
-    public void setTypeOfRooms(TypeOfRooms typeOfRooms) {
-        this.typeOfRooms = typeOfRooms;
-    }
 
     @Transient
     public TourOfferAdminDto convertToDto(){
