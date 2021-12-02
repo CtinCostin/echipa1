@@ -58,8 +58,6 @@
                                             th:value="${city.id}">
                                     </option>
                                 </select>
-                                <select id="test">
-                                </select>
                             </div>
                         </div>
                         <div class="col-md-6 mb-4">
@@ -74,6 +72,15 @@
                                 </select>
                             </div>
                         </div>
+                    </div>
+
+                    <div class="col-md-6 mb-4">
+                        <label>Regiunea de destinatie</label>
+                        <div>
+                            <select id="test" class="placeholder">
+                            </select>
+                        </div>
+
                     </div>
 
                     <div class="row">
@@ -159,7 +166,7 @@
                 <div data-v-516dbc7b data-v-bd92c560>
                     <div class="row gutter-md">
                         <div class="col-xs-12 col-lg-4"
-                             onclick="document.location.href:'https://location8081/sejur-oferte-vacante'">
+                             onclick="document.location.href,'https://location8081/sejur-oferte-vacante'">
                             <div class="q-pa-lg text-center cursor-pointer"
                                  style="border-radius:10px; background-color: #ebf1fb;">
                                 <div style="background-image: url('https://chr-static-obj.ams3.cdn.digitaloceanspaces.com/gallery/snK0pzq3RPiAyPwOyjDpb1KKYJtv2pM6gf2Pu82g.jpeg'); background-size: cover; background-position: 50% 50%; height: 220px;">
@@ -330,9 +337,9 @@ $('#test').select2({
     placeholder: "Select an option",
 <!--    theme: "bootstrap-5",-->
     theme: "classic",
-    containerCssClass: "select2--small", // For Select2 v4.0
-    selectionCssClass: "select2--small", // For Select2 v4.1
-    dropdownCssClass: "select2--small",
+<!--    containerCssClass: "select2&#45;&#45;small", // For Select2 v4.0-->
+<!--    selectionCssClass: "select2&#45;&#45;small", // For Select2 v4.1-->
+<!--    dropdownCssClass: "select2&#45;&#45;small",-->
     allowClear: true,
     closeOnSelect: true,
     ajax: {
@@ -349,6 +356,8 @@ $('#test').select2({
         }
     }
 });
+
+
 
 
 
