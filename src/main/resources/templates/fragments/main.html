@@ -58,8 +58,6 @@
                                             th:value="${city.id}">
                                     </option>
                                 </select>
-                                <select id="test">
-                                </select>
                             </div>
                         </div>
                         <div class="col-md-6 mb-4">
@@ -74,6 +72,15 @@
                                 </select>
                             </div>
                         </div>
+                    </div>
+
+                    <div class="col-md-6 mb-4">
+                        <label>Regiunea de destinatie</label>
+                        <div>
+                            <select id="test" class="placeholder">
+                            </select>
+                        </div>
+
                     </div>
 
                     <div class="row">
@@ -330,9 +337,9 @@ $('#test').select2({
     placeholder: "Select an option",
 <!--    theme: "bootstrap-5",-->
     theme: "classic",
-    containerCssClass: "select2--small", // For Select2 v4.0
-    selectionCssClass: "select2--small", // For Select2 v4.1
-    dropdownCssClass: "select2--small",
+<!--    containerCssClass: "select2&#45;&#45;small", // For Select2 v4.0-->
+<!--    selectionCssClass: "select2&#45;&#45;small", // For Select2 v4.1-->
+<!--    dropdownCssClass: "select2&#45;&#45;small",-->
     allowClear: true,
     closeOnSelect: true,
     ajax: {
@@ -349,6 +356,8 @@ $('#test').select2({
         }
     }
 });
+
+
 
 
 
