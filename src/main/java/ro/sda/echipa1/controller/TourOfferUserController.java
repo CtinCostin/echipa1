@@ -60,7 +60,6 @@ public class TourOfferUserController {
         model.addAttribute("travelOption", TravelOption.values());
         model.addAttribute("countries", countryService.findAll());
         model.addAttribute("cities", cityService.findAll());
-
         model.addAttribute("airports", airportService.findAll());
         model.addAttribute("departureDate", LocalDate.now());
         model.addAttribute("typeOfService", TypeOfService.values());
