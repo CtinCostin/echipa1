@@ -70,6 +70,7 @@ public class TourOfferAdmin {
                 .dateOfReturn(dateOfReturn)
                 .numberOfDays(numberOfDays)
                 .typeOfService(typeOfService)
+                .typeOfRooms(typeOfRooms)
                 .priceForAnAdult(priceForAnAdult)
                 .priceForAChild(priceForAChild)
                 .calculatedPrice(0.0D).build();

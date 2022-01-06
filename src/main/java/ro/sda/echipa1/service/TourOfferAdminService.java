@@ -51,6 +51,7 @@ public class TourOfferAdminService {
         existingTourOfferAdmin.setDateOfReturn(tourOfferAdminDto.getDateOfReturn());
         existingTourOfferAdmin.setNumberOfDays(tourOfferAdminDto.getNumberOfDays());
         existingTourOfferAdmin.setTypeOfService(tourOfferAdminDto.getTypeOfService());
+        existingTourOfferAdmin.setTypeOfRooms(tourOfferAdminDto.getTypeOfRooms());
         existingTourOfferAdmin.setPriceForAnAdult(tourOfferAdminDto.getPriceForAnAdult());
         existingTourOfferAdmin.setPriceForAChild(tourOfferAdminDto.getPriceForAChild());
 
