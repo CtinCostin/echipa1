@@ -4,6 +4,7 @@ import lombok.*;
 import org.springframework.format.annotation.DateTimeFormat;
 import ro.sda.echipa1.entities.*;
 import ro.sda.echipa1.entities.enums.TravelOption;
+import ro.sda.echipa1.entities.enums.TypeOfRooms;
 import ro.sda.echipa1.entities.enums.TypeOfService;
 
 import java.time.LocalDate;
@@ -30,6 +31,7 @@ public class TourOfferAdminDto {
     private Date dateOfReturn;
     private Integer numberOfDays;
     private TypeOfService typeOfService;
+    private TypeOfRooms typeOfRooms;
     private Double priceForAnAdult;
     private Double priceForAChild;
     private Double calculatedPrice;
@@ -38,10 +40,6 @@ public class TourOfferAdminDto {
         this.calculatedPrice = calculatedPrice;
     }
 
-    public static void main(String[] args) {
-        LocalDate date = LocalDate.parse("13/11/2021");
-        System.out.println(date);
-    }
 }
 
 
