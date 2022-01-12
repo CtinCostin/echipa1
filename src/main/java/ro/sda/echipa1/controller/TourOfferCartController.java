@@ -26,7 +26,7 @@ public class TourOfferCartController {
 
     @GetMapping("/shoppingCart")
     public ModelAndView shoppingCart() {
-        ModelAndView modelAndView = new ModelAndView("/cos-cumparaturi");
+        ModelAndView modelAndView = new ModelAndView("/shoppingCart");
         modelAndView.addObject("offers", tourOfferCartService.getOffersInCart());
         modelAndView.addObject("total", tourOfferCartService.getTotal());
         return modelAndView;
