@@ -31,6 +31,7 @@
                     <li><a href="http://localhost:8081/contact">Contact</a></li>
                     <li><a href="http://localhost:8081/cos-cumparaturi">Cos</a></li>
                     <li><a href="http://localhost:8081/login">Contul meu</a></li>
+                    <li sec:authorize="hasAuthority('USER')"><a href="http://localhost:8081/logout">Deconectare</a></li>
               <br>
 
                     <li sec:authorize="hasAuthority('ADMIN')"><a href="http://localhost:8081/tourOfferAdmin/">Creaza oferte de vacanta</a></li>
@@ -39,6 +40,8 @@
                     <li sec:authorize="hasAuthority('ADMIN')"><a href="http://localhost:8081/city/">Afiseaza orasele</a></li>
                     <li sec:authorize="hasAuthority('ADMIN')"><a href="http://localhost:8081/airport/">Afiseaza aeroporturi</a></li>
                     <li sec:authorize="hasAuthority('ADMIN')"><a href="http://localhost:8081/hotel/">Afiseaza hoteluri</a></li>
+                    <li sec:authorize="hasAuthority('ADMIN')"><a href="http://localhost:8081/logout">Admin/deconectare</a></li>
+
 
 
                 </ul>
