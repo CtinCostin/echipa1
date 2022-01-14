@@ -21,17 +21,16 @@ public class CustomWebSecurityConfigurer extends WebSecurityConfigurerAdapter {
 
     @Autowired
     private IUserService userService;
+    @Autowired
+    private BCryptPasswordEncoder passwordEncoder;
 
-    @Bean
-    public BCryptPasswordEncoder passwordEncoder() {
-        return new BCryptPasswordEncoder();
-    }
+
 
     @Bean
     public DaoAuthenticationProvider authenticationProvider() {
         DaoAuthenticationProvider auth = new DaoAuthenticationProvider();
         auth.setUserDetailsService(userService);
-        auth.setPasswordEncoder(passwordEncoder());
+        auth.setPasswordEncoder(passwordEncoder);
         return auth;
     }
 
@@ -58,7 +57,8 @@ public class CustomWebSecurityConfigurer extends WebSecurityConfigurerAdapter {
                         , "/dist/**"
                         , "/cazare-Romania"
                         , "/despre_noi"
-                        , "/termeni_si_conditii").permitAll().
+                        , "/termeni_si_conditii"
+                        , "/searchOffer").permitAll().
                 antMatchers(
                         "/hotel"
                         , "/continent"
@@ -74,7 +74,7 @@ public class CustomWebSecurityConfigurer extends WebSecurityConfigurerAdapter {
                         , "/webjars/**"
                         , "/plugins/**"
                         , "/assets/**"
-                        ,"/css/**"
+                        , "/css/**"
                         , "/favicon.ico"
                         , "/dist/**"
                         , "/cazare-Romania"
@@ -89,7 +89,6 @@ public class CustomWebSecurityConfigurer extends WebSecurityConfigurerAdapter {
                 .defaultSuccessUrl("/")
                 .permitAll()
                 .and()
-                //Define Logout behavior
                 .logout()
                 .invalidateHttpSession(true)
                 .clearAuthentication(true)
