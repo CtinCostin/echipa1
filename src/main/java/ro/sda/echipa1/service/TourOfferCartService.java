@@ -30,9 +30,8 @@ import java.util.*;
 //import java.util.ArrayList;
 //import java.util.List;
 //import java.util.Optional;
-//
+
 @Service
-//@Scope(value = WebApplicationContext.SCOPE_SESSION)
 public class TourOfferCartService {
 
     private TourOfferUserRepository tourOfferUserRepository;
