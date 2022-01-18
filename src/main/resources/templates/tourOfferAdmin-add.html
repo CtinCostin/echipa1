@@ -134,6 +134,16 @@
                                     </option>
                                 </select>
                             </div>
+
+                            <div class="form-group col-md-6">
+                                <label for="typeOfRooms">Type Of Rooms</label>
+                                <select th:field="*{typeOfRooms}" id="typeOfRooms">
+                                    <option th:each="typeOfRooms : ${typeOfRooms}"
+                                            th:text="${typeOfRooms}" th:value="${typeOfRooms}">
+                                    </option>
+                                </select>
+                            </div>
+
                         </div>
                         <div class="form-row">
                             <div class="form-group col-md-6">
@@ -147,7 +157,8 @@
                             </div>
                         </div>
 
-                           <div class="form-row">
+                        
+                        <div class="form-row">
                             <div class="form-group col-md-6">
                                 <a th:href="@{/tourOfferAdmin}">
                                     <button class="btn btn-secondary" id="cancel" name="cancel" type="submit">Cancel

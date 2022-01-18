@@ -7,6 +7,7 @@ import ro.sda.echipa1.entities.enums.TypeOfService;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.Date;
 
 @Entity
 @Table(name = "tour_offer_user")
@@ -26,7 +27,7 @@ public class TourOfferUser {
     @ManyToOne
     private Airport airport;
     @DateTimeFormat(pattern = "dd/MM/yyyy")
-    private LocalDate departureDate;
+    private Date departureDate;
     private Integer numberOfDays;
     private Integer numberOfRooms;
     @Enumerated(EnumType.STRING)
@@ -42,7 +43,7 @@ public class TourOfferUser {
     }
 
     public TourOfferUser(TravelOption travelOption, Country country, City city, Airport airport,
-                         LocalDate departureDate, Integer numberOfDays, Integer numberOfRooms,
+                         Date departureDate, Integer numberOfDays, Integer numberOfRooms,
                          TypeOfService typeOfService, Integer numberOfAdult, Integer numberOfChildren, Double price, int stock, TypeOfRooms typeOfRooms) {
         this.travelOption = travelOption;
         this.country = country;
@@ -107,11 +108,11 @@ public class TourOfferUser {
         this.airport = airport;
     }
 
-    public LocalDate getDepartureDate() {
+    public Date getDepartureDate() {
         return departureDate;
     }
 
-    public void setDepartureDate(LocalDate departureDate) {
+    public void setDepartureDate(Date departureDate) {
         this.departureDate = departureDate;
     }
 

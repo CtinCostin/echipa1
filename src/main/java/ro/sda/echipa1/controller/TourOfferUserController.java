@@ -66,6 +66,7 @@ public class TourOfferUserController {
         model.addAttribute("typeOfRooms", TypeOfRooms.values());
         return "tourOfferUser-results";
     }
+
 }
 
 

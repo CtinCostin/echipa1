@@ -58,6 +58,7 @@ public class TourOfferUserService {
         existingTourOfferUser.setTypeOfService(tourOfferUser.getTypeOfService());
         existingTourOfferUser.setNumberOfAdult(tourOfferUser.getNumberOfAdult());
         existingTourOfferUser.setNumberOfChildren(tourOfferUser.getNumberOfChildren());
+        existingTourOfferUser.setTypeOfRooms(tourOfferUser.getTypeOfRooms());
 
         return existingTourOfferUser;
     }
