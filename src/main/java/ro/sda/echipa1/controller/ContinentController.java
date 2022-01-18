@@ -5,7 +5,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
-import ro.sda.echipa1.dto.AirportDto;
 import ro.sda.echipa1.dto.ContinentDto;
 import ro.sda.echipa1.entities.Continent;
 import ro.sda.echipa1.service.ContinentService;

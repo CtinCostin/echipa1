@@ -2,79 +2,62 @@ package ro.sda.echipa1.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
-import ro.sda.echipa1.dto.TourOfferCartDto;
-import ro.sda.echipa1.entities.TourOfferCart;
-import ro.sda.echipa1.service.TourOfferCartEntryService;
+import org.springframework.web.servlet.ModelAndView;
+import ro.sda.echipa1.OutOfOffersException;
+import ro.sda.echipa1.entities.TourOfferUser;
 import ro.sda.echipa1.service.TourOfferCartService;
+import ro.sda.echipa1.service.TourOfferUserService;
 
-import javax.validation.Valid;
-import java.util.List;
 
 @Controller
-@RequestMapping("/tourOfferCart")
 public class TourOfferCartController {
 
-    @Autowired
     private TourOfferCartService tourOfferCartService;
 
+    private TourOfferUserService tourOfferUserService;
+
     @Autowired
-    private TourOfferCartEntryService tourOfferCartEntryService;
-
-
-    @GetMapping("/")
-    public String showTourOfferCartPage(Model model) {
-
-        List<TourOfferCart> tourOfferCarts = tourOfferCartService.getAllTourOffers();
-        model.addAttribute("tourOfferCartInView", tourOfferCarts);
-
-        // resolved by the view resolver
-        return "tourOfferCart-list";
+    public TourOfferCartController(TourOfferCartService tourOfferCartService, TourOfferUserService tourOfferUserService) {
+        this.tourOfferCartService = tourOfferCartService;
+        this.tourOfferUserService = tourOfferUserService;
     }
 
-    @GetMapping("/add")
-    public String showAddForm(Model model) {
-        TourOfferCart newTourOfferCart = new TourOfferCart();
-        model.addAttribute("tourOfferCart", newTourOfferCart);
-        model.addAttribute("tourOfferCartEntries", tourOfferCartEntryService.getAllTourOffersCartEntries());
-        model.addAttribute("totalPrice", newTourOfferCart.getTotalPrice());
-//        model.addAttribute("user", newTourOfferCart.getUser());
-        return "tourOfferCart-add";
+
+    @GetMapping("/shoppingCart")
+    public ModelAndView shoppingCart() {
+        ModelAndView modelAndView = new ModelAndView("/shoppingCart");
+        modelAndView.addObject("offers", tourOfferCartService.getOffersInCart());
+        modelAndView.addObject("total", tourOfferCartService.getTotal());
+        return modelAndView;
     }
 
-    @PostMapping("/add")
-    public String addNewTourOfferCart(@Valid TourOfferCart tourOfferCart, BindingResult bindingResult) {
-        if (bindingResult.hasErrors()) {
-            return "tourOfferCart-add";
+    @GetMapping("/shoppingCart/addOffer/{offerId}")
+    public ModelAndView addOfferToCart(@PathVariable("offerId") Long offerId) {
+        TourOfferUser offer = tourOfferUserService.findById(offerId);
+        if (offer != null) {
+            tourOfferCartService.addOffer(offer);
         }
-        tourOfferCartService.save(tourOfferCart);
-        return "redirect:/tourOfferCart/";
+        return shoppingCart();
     }
 
-    @GetMapping("/{id}/edit")
-    public String showEditForm(Model model,
-                               @PathVariable Long id) {
-
-        model.addAttribute("tourOfferCart", tourOfferCartService.findById(id));
-        return "tourOfferCart-edit";
+    @GetMapping("/shoppingCart/removeOffer/{offerId}")
+    public ModelAndView removeOfferFromCart(@PathVariable("offerId") Long offerId) {
+        TourOfferUser offer = tourOfferUserService.findById(offerId);
+        if (offer != null) {
+            tourOfferCartService.removeOffer(offer);
+        }
+        return shoppingCart();
     }
 
-    @PostMapping("/{id}/edit")
-    public String edit(
-            @PathVariable Long id,
-            @ModelAttribute TourOfferCartDto tourOfferCartDto) {
-
-        tourOfferCartService.update(id, tourOfferCartDto);
-        return "redirect:/tourOfferCart/";
+    @GetMapping("/shoppingCart/checkout")
+    public ModelAndView checkout() {
+        try {
+            tourOfferCartService.checkout();
+        } catch (OutOfOffersException exception) {
+            return shoppingCart().addObject("outOfOffersMessage", exception.getMessage());
+        }
+        return shoppingCart();
     }
-
-    @GetMapping("/{id}/delete")
-    public String delete(@PathVariable Long id) {
-        tourOfferCartService.delete(id);
-        return "redirect:/tourOfferCart/";
-    }
-
 
 }
