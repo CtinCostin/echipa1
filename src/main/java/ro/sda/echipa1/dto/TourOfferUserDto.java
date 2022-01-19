@@ -1,5 +1,6 @@
 package ro.sda.echipa1.dto;
 
+import org.springframework.format.annotation.DateTimeFormat;
 import ro.sda.echipa1.entities.Airport;
 import ro.sda.echipa1.entities.City;
 import ro.sda.echipa1.entities.Country;
@@ -8,6 +9,7 @@ import ro.sda.echipa1.entities.enums.TypeOfService;
 
 
 import java.time.LocalDate;
+import java.util.Date;
 
 public class TourOfferUserDto {
 
@@ -17,7 +19,8 @@ public class TourOfferUserDto {
     private Country country;
     private City city;
     private Airport airport;
-    private LocalDate departureDate;
+    @DateTimeFormat(pattern = "dd/MM/yyyy")
+    private Date departureDate;
     private int numberOfDays;
     private int numberOfRooms;
 
@@ -31,7 +34,7 @@ public class TourOfferUserDto {
     }
 
     public TourOfferUserDto(TravelOption travelOption, Country country, City city, Airport airport,
-                            LocalDate departureDate, Integer numberOfDays, Integer numberOfRooms,
+                            Date departureDate, Integer numberOfDays, Integer numberOfRooms,
                             TypeOfService typeOfService, Integer numberOfAdult, Integer numberOfChildren, Double price, int stock) {
         this.travelOption = travelOption;
         this.country = country;
@@ -88,11 +91,11 @@ public class TourOfferUserDto {
         this.airport = airport;
     }
 
-    public LocalDate getDepartureDate() {
+    public Date getDepartureDate() {
         return departureDate;
     }
 
-    public void setDepartureDate(LocalDate departureDate) {
+    public void setDepartureDate(Date departureDate) {
         this.departureDate = departureDate;
     }
 
