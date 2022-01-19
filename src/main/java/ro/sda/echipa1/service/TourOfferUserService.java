@@ -22,9 +22,6 @@ public class TourOfferUserService {
     private PriceCalculator priceCalculator;
 
     @Autowired
-    private CardsCalc cardsCalc;
-
-    @Autowired
     private TourOfferAdminService tourOfferAdminService;
 
     @Autowired
@@ -124,21 +121,6 @@ public class TourOfferUserService {
         tourOfferAdmin.setCalculatedPrice(priceCalculator.calculatePrice(calculationParameters));
     }
 
-    public List<HotelDto> searchAvailableHotels (TourOfferUserDto searchHotel){
-        List<Hotel> allOffer = hotelService.findAll();
-        if (searchHotel.getHotel()!=null){
-            allOffer = allOffer.stream().filter(offer -> offer.getName().equals(searchHotel.getHotel())).collect(Collectors.toList());
-        }
-
-        List<HotelDto> result = allOffer.stream().map(Hotel::convertToDto).collect(Collectors.toList());
-        result.parallelStream().forEach(s -> calculateHotelCards(searchHotel, s));
-        return result;
-    }
-
-    private void calculateHotelCards (TourOfferUserDto tourOfferUserDto, HotelDto hotelDto){
-        CardsParam cardsParameters = CardsParam.builder().hotel(tourOfferUserDto.getHotel()).build();
-        hotelDto.setCardsCalc(cardsCalc.calculateCards(cardsParameters));
-    }
 
 
 }

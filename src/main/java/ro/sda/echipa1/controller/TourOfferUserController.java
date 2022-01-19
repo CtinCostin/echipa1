@@ -57,9 +57,7 @@ public class TourOfferUserController {
     @PostMapping("/searchOffer")
     public String showResultsFromSearch(TourOfferUserDto formObject, Model model) {
         List<TourOfferAdminDto> allOffers = tourOfferUserService.searchAvailableOffers(formObject);
-        List<HotelDto> allCards = tourOfferUserService.searchAvailableHotels(formObject);
         model.addAttribute("resultObject", allOffers);
-        model.addAttribute("resultCard", allCards);
         model.addAttribute("hotels", hotelService.findAll());
         model.addAttribute("travelOption", TravelOption.values());
         model.addAttribute("countries", countryService.findAll());
