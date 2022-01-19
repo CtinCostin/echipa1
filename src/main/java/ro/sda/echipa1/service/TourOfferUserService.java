@@ -2,8 +2,10 @@ package ro.sda.echipa1.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import ro.sda.echipa1.dto.HotelDto;
 import ro.sda.echipa1.dto.TourOfferAdminDto;
 import ro.sda.echipa1.dto.TourOfferUserDto;
+import ro.sda.echipa1.entities.Hotel;
 import ro.sda.echipa1.entities.TourOfferAdmin;
 import ro.sda.echipa1.entities.TourOfferUser;
 import ro.sda.echipa1.repository.TourOfferUserRepository;
@@ -20,7 +22,13 @@ public class TourOfferUserService {
     private PriceCalculator priceCalculator;
 
     @Autowired
+    private CardsCalc cardsCalc;
+
+    @Autowired
     private TourOfferAdminService tourOfferAdminService;
+
+    @Autowired
+    private HotelService hotelService;
 
 
     @Autowired
@@ -114,6 +122,22 @@ public class TourOfferUserService {
                 .price4Kid(tourOfferAdmin.getPriceForAChild())
                 .build();
         tourOfferAdmin.setCalculatedPrice(priceCalculator.calculatePrice(calculationParameters));
+    }
+
+    public List<HotelDto> searchAvailableHotels (TourOfferUserDto searchHotel){
+        List<Hotel> allOffer = hotelService.findAll();
+        if (searchHotel.getHotel()!=null){
+            allOffer = allOffer.stream().filter(offer -> offer.getName().equals(searchHotel.getHotel())).collect(Collectors.toList());
+        }
+
+        List<HotelDto> result = allOffer.stream().map(Hotel::convertToDto).collect(Collectors.toList());
+        result.parallelStream().forEach(s -> calculateHotelCards(searchHotel, s));
+        return result;
+    }
+
+    private void calculateHotelCards (TourOfferUserDto tourOfferUserDto, HotelDto hotelDto){
+        CardsParam cardsParameters = CardsParam.builder().hotel(tourOfferUserDto.getHotel()).build();
+        hotelDto.setCardsCalc(cardsCalc.calculateCards(cardsParameters));
     }
 
 

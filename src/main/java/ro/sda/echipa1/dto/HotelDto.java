@@ -1,45 +1,26 @@
 package ro.sda.echipa1.dto;
 
+import lombok.*;
 import ro.sda.echipa1.entities.City;
+import ro.sda.echipa1.entities.Hotel;
 import ro.sda.echipa1.entities.enums.StarRating;
+import ro.sda.echipa1.service.CardsCalc;
 
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
 public class HotelDto {
 
     private String name;
     private String description;
     private StarRating starRating;
     private City city;
+    private CardsCalc cardsCalc;
+    private Hotel hotel;
 
-    public StarRating getStarRating() {
-        return starRating;
-    }
-
-    public void setStarRating(StarRating starRating) {
-        this.starRating = starRating;
-    }
-
-    public City getCity() {
-        return city;
-    }
-
-    public void setCity(City city) {
-        this.city = city;
-    }
-
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
+    public void setCardsCalc(Hotel hotel) {
+        this.hotel = hotel;
     }
 }
