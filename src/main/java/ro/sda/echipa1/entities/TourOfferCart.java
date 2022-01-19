@@ -15,8 +15,6 @@ public class TourOfferCart {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @OneToMany
-    private List<TourOfferCartEntry> tourOfferCartEntries = new ArrayList<>();
 
     private Double totalPrice;
 
@@ -31,8 +29,8 @@ public class TourOfferCart {
 
     }
 
-    public TourOfferCart(List<TourOfferCartEntry> tourOfferCartEntries, Double totalPrice, TourOfferCartStatus tourOfferCartStatus) {
-        this.tourOfferCartEntries = tourOfferCartEntries;
+    public TourOfferCart(Double totalPrice, TourOfferCartStatus tourOfferCartStatus) {
+
         this.totalPrice = totalPrice;
         this.tourOfferCartStatus = tourOfferCartStatus;
     }
@@ -47,13 +45,6 @@ public class TourOfferCart {
         this.id = id;
     }
 
-    public List<TourOfferCartEntry> getTourOfferCartEntries() {
-        return tourOfferCartEntries;
-    }
-
-    public void setTourOfferCartEntries(List<TourOfferCartEntry> tourOfferCartEntries) {
-        this.tourOfferCartEntries = tourOfferCartEntries;
-    }
 
     public Double getTotalPrice() {
         return totalPrice;

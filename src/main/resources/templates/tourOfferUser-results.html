@@ -79,7 +79,9 @@
                         <h6 class="text-striked text-muted mr-2"> € 170</h6>
                         <h6 class="text-success">50% off</h6>
                     </div>
-                    <button class="btn btn-primary">Check Rooms</button>
+                    <a th:href="@{/shoppingCart}">
+                        <button class="btn btn-secondary" id="cancel" name="cancel" type="submit">Buy</button>
+                    </a>
                 </div>
             </div>
         </div>
@@ -106,49 +108,3 @@
 
 </html>
 
-<!--<!DOCTYPE html>-->
-<!--<html xmlns="http://www.w3.org/1999/xhtml"-->
-<!--      xmlns:th="http://www.thymeleaf.org">-->
-<!--<head>-->
-<!--    <meta charset="utf-8"/>-->
-<!--    <title>TourOfferCart</title>-->
-<!--    <link th:href="@{webjars/bootstrap/4.0.0-2/css/bootstrap.min.css}"/>-->
-<!--    <link th:href="@{https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css}"/>-->
-<!--    <link th:href="@{webjars/bootstrap/4.0.0-2/css/bootstrap.min.css} "/>-->
-<!--    <link th:href="@{webjars/font-awesome/5.11.2/css/all.css} "/>-->
-<!--</head>-->
-<!--<body>-->
-<!--<div th:replace="fragments/navbar :: navbar"/>-->
-
-<!--<div  class="q-card-main q-card-container ct-item-content">-->
-<!--    <table class="table table-sm">-->
-<!--        <thead>-->
-<!--        <tr>-->
-<!--            <th>Name</th>-->
-<!--            <th>Star Rating</th>-->
-<!--            <th>Description</th>-->
-<!--            <th>City</th>-->
-<!--            <th>Price</th>-->
-
-
-<!--        </tr>-->
-<!--        </thead>-->
-
-<!--        <tbody>-->
-
-<!--        <tr th:each="offer : ${resultObject}">-->
-<!--            <td th:text="${offer.hotel.name}"></td>-->
-<!--            <td th:text="${offer.hotel.starRating}"></td>-->
-<!--            <td th:text="${offer.hotel.description}"></td>-->
-<!--            <td th:text="${offer.hotel.city.name}"></td>-->
-<!--            <td th:text="${offer.calculatedPrice}"></td>-->
-
-<!--        </tr>-->
-<!--        </tbody>-->
-<!--    </table>-->
-
-<!--</div>-->
-<!--<div th:replace="fragments/footer :: footer"/>-->
-<!--<div th:replace="fragments/footer-css :: footer-css"/>-->
-<!--</body>-->
-<!--</html>-->
