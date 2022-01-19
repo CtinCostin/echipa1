@@ -1,9 +1,7 @@
 package ro.sda.echipa1.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Service;
-import org.springframework.web.context.WebApplicationContext;
 import ro.sda.echipa1.OutOfOffersException;
 import ro.sda.echipa1.entities.TourOfferUser;
 import ro.sda.echipa1.repository.TourOfferCartRepository;

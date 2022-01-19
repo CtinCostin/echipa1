@@ -9,7 +9,6 @@ import ro.sda.echipa1.entities.enums.TravelOption;
 import ro.sda.echipa1.entities.enums.TypeOfService;
 
 
-import java.time.LocalDate;
 import java.util.Date;
 
 public class TourOfferUserDto {

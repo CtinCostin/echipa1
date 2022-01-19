@@ -74,10 +74,7 @@
                     </ul>
                 </div>
                 <div class="hotel-card_pricing text-center">
-                    <h3>€ 85</h3>
-                    <div class="d-flex">
-                        <h6 class="text-striked text-muted mr-2"> € 170</h6>
-                        <h6 class="text-success">50% off</h6>
+                    <h3 th:text="${item.calculatedPrice}"></h3>
                     </div>
                     <a th:href="@{/shoppingCart}">
                         <button class="btn btn-secondary" id="cancel" name="cancel" type="submit">Buy</button>
