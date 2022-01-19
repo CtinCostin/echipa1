@@ -4,6 +4,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 import ro.sda.echipa1.entities.Airport;
 import ro.sda.echipa1.entities.City;
 import ro.sda.echipa1.entities.Country;
+import ro.sda.echipa1.entities.Hotel;
 import ro.sda.echipa1.entities.enums.TravelOption;
 import ro.sda.echipa1.entities.enums.TypeOfService;
 
@@ -23,6 +24,7 @@ public class TourOfferUserDto {
     private Date departureDate;
     private int numberOfDays;
     private int numberOfRooms;
+    private Hotel hotel;
 
     private TypeOfService typeOfService;
     private int numberOfAdult;
@@ -35,7 +37,7 @@ public class TourOfferUserDto {
 
     public TourOfferUserDto(TravelOption travelOption, Country country, City city, Airport airport,
                             Date departureDate, Integer numberOfDays, Integer numberOfRooms,
-                            TypeOfService typeOfService, Integer numberOfAdult, Integer numberOfChildren, Double price, int stock) {
+                            TypeOfService typeOfService, Integer numberOfAdult, Integer numberOfChildren, Double price, int stock, Hotel hotel) {
         this.travelOption = travelOption;
         this.country = country;
         this.city = city;
@@ -48,8 +50,17 @@ public class TourOfferUserDto {
         this.numberOfChildren = numberOfChildren;
         this.price = price;
         this.stock = stock;
+        this.hotel =hotel;
+
     }
 
+    public Hotel getHotel() {
+        return hotel;
+    }
+
+    public void setHotel(Hotel hotel) {
+        this.hotel = hotel;
+    }
 
     public Long getId() {
         return id;

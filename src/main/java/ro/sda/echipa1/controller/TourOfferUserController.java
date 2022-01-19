@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import ro.sda.echipa1.dto.HotelDto;
 import ro.sda.echipa1.dto.TourOfferAdminDto;
 import ro.sda.echipa1.dto.TourOfferUserDto;
 import ro.sda.echipa1.entities.TourOfferAdmin;
@@ -56,7 +57,10 @@ public class TourOfferUserController {
     @PostMapping("/searchOffer")
     public String showResultsFromSearch(TourOfferUserDto formObject, Model model) {
         List<TourOfferAdminDto> allOffers = tourOfferUserService.searchAvailableOffers(formObject);
+        List<HotelDto> allCards = tourOfferUserService.searchAvailableHotels(formObject);
         model.addAttribute("resultObject", allOffers);
+        model.addAttribute("resultCard", allCards);
+        model.addAttribute("hotels", hotelService.findAll());
         model.addAttribute("travelOption", TravelOption.values());
         model.addAttribute("countries", countryService.findAll());
         model.addAttribute("cities", cityService.findAll());
