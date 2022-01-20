@@ -264,7 +264,7 @@ body {
 }
 
 .contact {
-    background: url('https://www.wallpapertip.com/wmimgs/80-809180_notebook-wallpaper-hd.jpg');
+    background: url('https://www.wallpapertip.com/wmimgs/82-820018_692621-title-man-made-telephone-close-up-wallpaper.jpg');
     background-repeat:no-repeat;
             background-size: cover;
             background-attachment: fixed;
@@ -275,6 +275,7 @@ body {
             margin-left:  auto;
             padding-right: 30px;
             padding-left:  30px
+
 }
 
 .despreNoi {
@@ -292,17 +293,19 @@ body {
 }
 
 .termeniSiConditii {
-    background: url('https://www.wallpapertip.com/wmimgs/154-1546044_court-ruling.jpg');
+    background: url('https://www.wallpapertip.com/wmimgs/227-2279361_pen-wallpaper-5-5616-x-3744-stmednet.jpg');
     background-repeat:no-repeat;
         background-size: cover;
         background-attachment: fixed;
         width: 100%;
         height: 100%;
         background-size: 100%;
-        margin-right: auto;
-        margin-left:  auto;
+        margin-right: 0px;
+        margin-left:  0px;
         padding-right: 30px;
         padding-left:  30px;
+
+
 }
 
 .login-page {
@@ -348,5 +351,14 @@ body {
     padding-right: 30px;
     padding-left:  30px;
     }
+
+#footer {
+    position: fixed;
+    height: 50px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    margin-button: 0px;
+}
 
 

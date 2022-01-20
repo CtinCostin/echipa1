@@ -7,7 +7,6 @@ import ro.sda.echipa1.entities.enums.TravelOption;
 import ro.sda.echipa1.entities.enums.TypeOfRooms;
 import ro.sda.echipa1.entities.enums.TypeOfService;
 
-import java.time.LocalDate;
 import java.util.Date;
 
 @Builder
@@ -39,6 +38,8 @@ public class TourOfferAdminDto {
     public void setCalculatedPrice(Double calculatedPrice){
         this.calculatedPrice = calculatedPrice;
     }
+
+
 
 }
 
