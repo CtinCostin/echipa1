@@ -6,12 +6,14 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.springframework.format.annotation.DateTimeFormat;
 import ro.sda.echipa1.dto.TourOfferAdminDto;
+import ro.sda.echipa1.entities.enums.StarRating;
 import ro.sda.echipa1.entities.enums.TravelOption;
 import ro.sda.echipa1.entities.enums.TypeOfRooms;
 import ro.sda.echipa1.entities.enums.TypeOfService;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.Objects;
 
 @Entity
 @Table(name = "tour_offer_admin")
@@ -49,6 +51,10 @@ public class TourOfferAdmin {
     private TypeOfService typeOfService;
     private Double priceForAnAdult;
     private Double priceForAChild;
+    private StarRating starRating;
+    private int stock;
+    private Double price;
+
 
 
 
@@ -70,9 +76,23 @@ public class TourOfferAdmin {
                 .numberOfDays(numberOfDays)
                 .typeOfService(typeOfService)
                 .typeOfRooms(typeOfRooms)
+                .starRating(starRating)
                 .priceForAnAdult(priceForAnAdult)
                 .priceForAChild(priceForAChild)
                 .calculatedPrice(0.0D).build();
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        TourOfferAdmin that = (TourOfferAdmin) o;
+        return Objects.equals(getId(), that.getId());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getId());
     }
 }
 

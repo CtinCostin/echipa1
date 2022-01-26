@@ -3,9 +3,10 @@ package ro.sda.echipa1.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import ro.sda.echipa1.OutOfOffersException;
+import ro.sda.echipa1.entities.TourOfferAdmin;
 import ro.sda.echipa1.entities.TourOfferUser;
+import ro.sda.echipa1.repository.TourOfferAdminRepository;
 import ro.sda.echipa1.repository.TourOfferCartRepository;
-import ro.sda.echipa1.repository.TourOfferUserRepository;
 
 import java.math.BigDecimal;
 import java.util.*;
@@ -13,37 +14,37 @@ import java.util.*;
 @Service
 public class TourOfferCartService {
 
-    private TourOfferUserRepository tourOfferUserRepository;
+    private TourOfferAdminRepository tourOfferAdminRepository;
 
     private TourOfferCartRepository tourOfferCartRepository;
 
-    private Map<TourOfferUser, Integer> offers = new HashMap<>();
+    private Map<TourOfferAdmin, Double> offers = new HashMap<>();
 
     @Autowired
-    public TourOfferCartService(TourOfferUserRepository tourOfferUserRepository, TourOfferCartRepository tourOfferCartRepository) {
-        this.tourOfferUserRepository = tourOfferUserRepository;
+    public TourOfferCartService(TourOfferAdminRepository tourOfferAdminRepository, TourOfferCartRepository tourOfferCartRepository) {
+        this.tourOfferAdminRepository = tourOfferAdminRepository;
         this.tourOfferCartRepository = tourOfferCartRepository;
     }
 
     //    If tourOfferUser is in the map just increment quantity by 1.
 //    If tourOfferUser is not in the map with, add it with quantity 1
 
-    public void addOffer(TourOfferUser tourOfferUser) {
+    public void addOffer(TourOfferAdmin tourOfferUser, double price) {
         if (offers.containsKey(tourOfferUser)) {
-            offers.replace(tourOfferUser, offers.get(tourOfferUser) + 1);
+            offers.replace(tourOfferUser, offers.get(tourOfferUser) + price);
         } else {
-            offers.put(tourOfferUser, 1);
+            offers.put(tourOfferUser, price);
         }
     }
 
     //    If tourOfferUser is in the map with quantity > 1, just decrement quantity by 1.
 //    If tourOfferUser is in the map with quantity 1, remove it from map
 
-    public void removeOffer(TourOfferUser tourOfferUser) {
+    public void removeOffer(TourOfferAdmin tourOfferUser, double price) {
         if (offers.containsKey(tourOfferUser)) {
-            if (offers.get(tourOfferUser) > 1)
-                offers.replace(tourOfferUser, offers.get(tourOfferUser) - 1);
-            else if (offers.get(tourOfferUser) == 1) {
+            if (offers.get(tourOfferUser) > price)
+                offers.replace(tourOfferUser, offers.get(tourOfferUser) - price);
+            else if (offers.get(tourOfferUser) == price) {
                 offers.remove(tourOfferUser);
             }
         }
@@ -51,7 +52,7 @@ public class TourOfferCartService {
 
     //  @return unmodifiable copy of the map
 
-    public Map<TourOfferUser, Integer> getOffersInCart() {
+    public Map<TourOfferAdmin, Double> getOffersInCart() {
         return Collections.unmodifiableMap(offers);
     }
 
@@ -59,23 +60,23 @@ public class TourOfferCartService {
 //    @throws OutOfOffersException
 
     public void checkout() throws OutOfOffersException {
-        TourOfferUser tourOfferUser;
-        for (Map.Entry<TourOfferUser, Integer> entry : offers.entrySet()) {
-            Long tourOfferUserKey = entry.getKey().getId();
-            // Refresh quantity for every product before checking
-            tourOfferUser = tourOfferUserRepository.findById(tourOfferUserKey).orElseThrow();
-            if (tourOfferUser.getStock() < entry.getValue())
-                throw new OutOfOffersException();
-            entry.getKey().setStock(tourOfferUser.getStock() - entry.getValue());
-            tourOfferUserRepository.save(entry.getKey());
+        TourOfferAdmin tourOfferAdmin;
+        for (Map.Entry<TourOfferAdmin, Double> entry : offers.entrySet()) {
+//            Long tourOfferUserKey = entry.getKey().getId();
+//            // Refresh quantity for every product before checking
+//            tourOfferAdmin = tourOfferAdminRepository.findById(tourOfferUserKey).orElseThrow();
+//            if (tourOfferAdmin.getStock() < entry.getValue())
+//                throw new OutOfOffersException();
+//            entry.getKey().setStock(tourOfferAdmin.getStock() - entry.getValue());
+//            tourOfferAdminRepository.save(entry.getKey());
         }
-        tourOfferUserRepository.flush();
+        tourOfferAdminRepository.flush();
         offers.clear();
     }
 
     public double getTotal() {
         return offers.entrySet().stream()
-                .map(entry -> BigDecimal.valueOf(entry.getKey().getPrice() * entry.getValue()))
+                .map(entry -> BigDecimal.valueOf(entry.getValue()))
                 .reduce(BigDecimal::add)
                 .orElse(BigDecimal.ZERO).doubleValue();
     }

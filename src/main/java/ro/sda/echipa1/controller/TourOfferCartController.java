@@ -5,7 +5,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import ro.sda.echipa1.OutOfOffersException;
+import ro.sda.echipa1.entities.TourOfferAdmin;
 import ro.sda.echipa1.entities.TourOfferUser;
+import ro.sda.echipa1.service.TourOfferAdminService;
 import ro.sda.echipa1.service.TourOfferCartService;
 import ro.sda.echipa1.service.TourOfferUserService;
 
@@ -15,12 +17,12 @@ public class TourOfferCartController {
 
     private TourOfferCartService tourOfferCartService;
 
-    private TourOfferUserService tourOfferUserService;
+    private TourOfferAdminService tourOfferAdminService;
 
     @Autowired
-    public TourOfferCartController(TourOfferCartService tourOfferCartService, TourOfferUserService tourOfferUserService) {
+    public TourOfferCartController(TourOfferCartService tourOfferCartService, TourOfferAdminService tourOfferAdminService) {
         this.tourOfferCartService = tourOfferCartService;
-        this.tourOfferUserService = tourOfferUserService;
+        this.tourOfferAdminService = tourOfferAdminService;
     }
 
 
@@ -33,19 +35,19 @@ public class TourOfferCartController {
     }
 
     @GetMapping("/shoppingCart/addOffer/{offerId}")
-    public ModelAndView addOfferToCart(@PathVariable("offerId") Long offerId) {
-        TourOfferUser offer = tourOfferUserService.findById(offerId);
+    public ModelAndView addOfferToCart(@PathVariable("offerId") Long offerId,  @RequestParam("price") double price) {
+        TourOfferAdmin offer = tourOfferAdminService.findById(offerId);
         if (offer != null) {
-            tourOfferCartService.addOffer(offer);
+            tourOfferCartService.addOffer(offer, price);
         }
         return shoppingCart();
     }
 
     @GetMapping("/shoppingCart/removeOffer/{offerId}")
-    public ModelAndView removeOfferFromCart(@PathVariable("offerId") Long offerId) {
-        TourOfferUser offer = tourOfferUserService.findById(offerId);
+    public ModelAndView removeOfferFromCart(@PathVariable("offerId") Long offerId, @RequestParam("price") double price) {
+        TourOfferAdmin offer = tourOfferAdminService.findById(offerId);
         if (offer != null) {
-            tourOfferCartService.removeOffer(offer);
+            tourOfferCartService.removeOffer(offer, price);
         }
         return shoppingCart();
     }

@@ -5,6 +5,7 @@ import ro.sda.echipa1.entities.Airport;
 import ro.sda.echipa1.entities.City;
 import ro.sda.echipa1.entities.Country;
 import ro.sda.echipa1.entities.Hotel;
+import ro.sda.echipa1.entities.enums.StarRating;
 import ro.sda.echipa1.entities.enums.TravelOption;
 import ro.sda.echipa1.entities.enums.TypeOfService;
 
@@ -24,6 +25,7 @@ public class TourOfferUserDto {
     private int numberOfDays;
     private int numberOfRooms;
     private Hotel hotel;
+    private StarRating starRating;
 
     private TypeOfService typeOfService;
     private int numberOfAdult;
@@ -36,7 +38,7 @@ public class TourOfferUserDto {
 
     public TourOfferUserDto(TravelOption travelOption, Country country, City city, Airport airport,
                             Date departureDate, Integer numberOfDays, Integer numberOfRooms,
-                            TypeOfService typeOfService, Integer numberOfAdult, Integer numberOfChildren, Double price, int stock, Hotel hotel) {
+                            TypeOfService typeOfService, Integer numberOfAdult, Integer numberOfChildren, Double price, int stock, Hotel hotel, StarRating starRating) {
         this.travelOption = travelOption;
         this.country = country;
         this.city = city;
@@ -50,6 +52,7 @@ public class TourOfferUserDto {
         this.price = price;
         this.stock = stock;
         this.hotel =hotel;
+        this.starRating = starRating;
 
     }
 
@@ -163,6 +166,14 @@ public class TourOfferUserDto {
 
     public void setStock(int stock) {
         this.stock = stock;
+    }
+
+    public StarRating getStarRating() {
+        return starRating;
+    }
+
+    public void setStarRating(StarRating starRating) {
+        this.starRating = starRating;
     }
 }
 
