@@ -36,24 +36,18 @@
         </div>
         <div class="hotel-card_info p-4">
             <div class="d-flex align-items-center mb-2">
-                <h5 class="mb-0 mr-2" th:text="${item.hotel.name}">Hotel Ramada</h5>
+                <h5 class="mb-0 mr-2" th:text="${item.hotel.name}"></h5>
                 <div>
-                    <i class="fa fa-star text-warning"></i>
-                    <i class="fa fa-star text-warning"></i>
-                    <i class="fa fa-star text-warning"></i>
-                    <i class="fa fa-star text-warning"></i>
-                    <i class="fa fa-star text-warning"></i>
+                    <h6 class="mb-0 mr-2" th:text="${item.hotel.starRating}"></h6>
+
                 </div>
                 <a href="#!" class="text-dark ml-auto"><i class="far fa-heart fa-lg"></i></a>
             </div>
             <div class="d-flex justify-content-between align-items-end">
                 <div class="hotel-card_details">
                     <div class="text-muted mb-2">
-                        <i class="fas fa-map-marker-alt"></i> Constanta
+                        <i class="fas fa-map-marker-alt" th:text="${item.city.name}"></i>
                     </div>
-                    <div class="mb-2">
-                        <span class="badge badge-primary">4.5</span>
-                        <a href="#!" class="text-muted">(245 ratings &amp; 56 reviews)</a></div>
                     <div class="amnities d-flex mb-3">
                         <img class="mr-2" src="images/icons/desk-bell.svg" data-toggle="tooltip" data-placement="top"
                              title="" alt="Desk bell" data-original-title="Desk bell">
@@ -68,18 +62,15 @@
 
                     </div>
                     <ul class="hotel-checklist pl-0 mb-0">
-                        <li><i class="fa fa-check text-success"></i> Lorem ipsum dolor</li>
-                        <li><i class="fa fa-check text-success"></i> Cras lectus purus,</li>
-                        <li><i class="fa fa-check text-success"></i> ornare eget congue</li>
+                        <li><i class="fa fa-check text-success" th:text="${item.hotel.description}"></i> </li>
+
                     </ul>
                 </div>
                 <div class="hotel-card_pricing text-center">
-                    <h3>€ 85</h3>
-                    <div class="d-flex">
-                        <h6 class="text-striked text-muted mr-2"> € 170</h6>
-                        <h6 class="text-success">50% off</h6>
-                    </div>
-                    <a th:href="@{/shoppingCart}">
+                    <h3 th:text="${item.calculatedPrice}"></h3> <span>&#8364;</span>
+                    <!--                    <span>&#8364;</span>-->
+
+                    <a th:href="@{/shoppingCart/addOffer/{offerId}(offerId= ${item.id},price=${item.calculatedPrice})}">
                         <button class="btn btn-secondary" id="cancel" name="cancel" type="submit">Buy</button>
                     </a>
                 </div>
