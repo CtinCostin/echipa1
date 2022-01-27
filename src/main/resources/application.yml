@@ -5,7 +5,8 @@ spring:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://localhost:3306/javaremote22_echipa1?createDatabaseIfNotExist=true
     username: root
-    password: Lufthansa7
+password: root
+
   jpa:
     hibernate:
       ddl-auto: update

@@ -3,6 +3,7 @@ package ro.sda.echipa1.dto;
 import lombok.*;
 import org.springframework.format.annotation.DateTimeFormat;
 import ro.sda.echipa1.entities.*;
+import ro.sda.echipa1.entities.enums.StarRating;
 import ro.sda.echipa1.entities.enums.TravelOption;
 import ro.sda.echipa1.entities.enums.TypeOfRooms;
 import ro.sda.echipa1.entities.enums.TypeOfService;
@@ -34,6 +35,9 @@ public class TourOfferAdminDto {
     private Double priceForAnAdult;
     private Double priceForAChild;
     private Double calculatedPrice;
+    private StarRating starRating;
+    private int stock;
+    private Double price;
 
     public void setCalculatedPrice(Double calculatedPrice){
         this.calculatedPrice = calculatedPrice;

@@ -54,6 +54,9 @@ public class TourOfferAdminService {
         existingTourOfferAdmin.setTypeOfRooms(tourOfferAdminDto.getTypeOfRooms());
         existingTourOfferAdmin.setPriceForAnAdult(tourOfferAdminDto.getPriceForAnAdult());
         existingTourOfferAdmin.setPriceForAChild(tourOfferAdminDto.getPriceForAChild());
+        existingTourOfferAdmin.setStarRating(tourOfferAdminDto.getStarRating());
+        existingTourOfferAdmin.setStock(tourOfferAdminDto.getStock());
+        existingTourOfferAdmin.setPrice(tourOfferAdminDto.getPrice());
 
         return existingTourOfferAdmin;
     }

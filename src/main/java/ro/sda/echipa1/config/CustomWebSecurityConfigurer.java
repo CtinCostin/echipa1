@@ -25,7 +25,6 @@ public class CustomWebSecurityConfigurer extends WebSecurityConfigurerAdapter {
     private BCryptPasswordEncoder passwordEncoder;
 
 
-
     @Bean
     public DaoAuthenticationProvider authenticationProvider() {
         DaoAuthenticationProvider auth = new DaoAuthenticationProvider();
@@ -79,7 +78,8 @@ public class CustomWebSecurityConfigurer extends WebSecurityConfigurerAdapter {
                         , "/dist/**"
                         , "/cazare-Romania"
                         , "/despre_noi"
-                        , "/termeni_si_conditii")
+                        , "/termeni_si_conditii"
+                        , "/shoppingCart")
                 .permitAll()
                 .anyRequest().authenticated()
                 .and()

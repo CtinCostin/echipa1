@@ -9,6 +9,7 @@ import ro.sda.echipa1.dto.TourOfferAdminDto;
 import ro.sda.echipa1.dto.TourOfferUserDto;
 import ro.sda.echipa1.entities.TourOfferAdmin;
 import ro.sda.echipa1.entities.TourOfferUser;
+import ro.sda.echipa1.entities.enums.StarRating;
 import ro.sda.echipa1.entities.enums.TravelOption;
 import ro.sda.echipa1.entities.enums.TypeOfRooms;
 import ro.sda.echipa1.entities.enums.TypeOfService;
@@ -34,6 +35,7 @@ public class TourOfferUserController {
     private ContinentService continentService;
     @Autowired
     private CountryService countryService;
+
     private TourOfferUser tourOfferUser;
 
 
@@ -49,7 +51,7 @@ public class TourOfferUserController {
         model.addAttribute("departureDate", LocalDate.now());
         model.addAttribute("typeOfService", TypeOfService.values());
         model.addAttribute("typeOfRooms", TypeOfRooms.values());
-        model.addAttribute("typeOfService", TypeOfService.values());
+
 
         return "user-select-tour-offer";
     }
@@ -66,6 +68,7 @@ public class TourOfferUserController {
         model.addAttribute("departureDate", LocalDate.now());
         model.addAttribute("typeOfService", TypeOfService.values());
         model.addAttribute("typeOfRooms", TypeOfRooms.values());
+        model.addAttribute("starRating", StarRating.values());
         return "tourOfferUser-results";
     }
 

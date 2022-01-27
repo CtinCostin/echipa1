@@ -7,6 +7,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import ro.sda.echipa1.dto.TourOfferAdminDto;
 import ro.sda.echipa1.entities.TourOfferAdmin;
+import ro.sda.echipa1.entities.enums.StarRating;
 import ro.sda.echipa1.entities.enums.TravelOption;
 import ro.sda.echipa1.entities.enums.TypeOfRooms;
 import ro.sda.echipa1.entities.enums.TypeOfService;
@@ -61,6 +62,8 @@ public class TourOfferAdminController {
         model.addAttribute("priceForAChild", newTourOfferAdmin.getPriceForAChild());
         model.addAttribute("typeOfService", TypeOfService.values());
         model.addAttribute("typeOfRooms", TypeOfRooms.values());
+        model.addAttribute("starRating", StarRating.values());
+        model.addAttribute("stock", newTourOfferAdmin.getStock());
         return "tourOfferAdmin-add";
     }
 
@@ -92,6 +95,8 @@ public class TourOfferAdminController {
         model.addAttribute("priceForAChild", tourOfferAdminService.findById(id).getPriceForAChild());
         model.addAttribute("typeOfService", TypeOfService.values());
         model.addAttribute("typeOfRooms", TypeOfRooms.values());
+        model.addAttribute("starRating", StarRating.values());
+        model.addAttribute("stock", tourOfferAdminService.findById(id).getStock());
 
         return "tourOfferAdmin-edit";
     }
