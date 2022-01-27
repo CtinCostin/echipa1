@@ -36,6 +36,8 @@ public class TourOfferAdminDto {
     private Double priceForAChild;
     private Double calculatedPrice;
     private StarRating starRating;
+    private int stock;
+    private Double price;
 
     public void setCalculatedPrice(Double calculatedPrice){
         this.calculatedPrice = calculatedPrice;

@@ -143,6 +143,15 @@
                                     </option>
                                 </select>
                             </div>
+                            <div class="form-group col-md-6">
+                                <label for="starRating">Star Rating</label>
+                                <select th:field="*{starRating}" id="starRating">
+                                    <option th:each="starRating : ${starRating}"
+                                            th:text="${starRating}" th:value="${starRating}">
+                                    </option>
+                                </select>
+                            </div>
+
                         </div>
 
                         <div class="form-row">
@@ -155,6 +164,11 @@
                             <div class="form-group col-md-6">
                                 <label for="priceForAChild">PriceForAChild</label>
                                 <input id="priceForAChild" th:field="*{priceForAChild}" type="text">
+                            </div>
+
+                            <div class="form-group col-md-6">
+                                <label for="stock">Stock</label>
+                                <input id="stock" th:field="*{stock}" type="text">
                             </div>
                         </div>
 
