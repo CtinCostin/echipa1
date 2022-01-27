@@ -42,6 +42,8 @@ public class TourOfferAdmin {
     private Airport airport;
     @ManyToOne
     private Hotel hotel;
+
+    private StarRating starRating;
     @DateTimeFormat(pattern = "dd/MM/yyyy")
     private Date departureDate;
     @DateTimeFormat(pattern = "dd/MM/yyyy")
@@ -51,8 +53,6 @@ public class TourOfferAdmin {
     private TypeOfService typeOfService;
     private Double priceForAnAdult;
     private Double priceForAChild;
-    @Enumerated(EnumType.STRING)
-    private StarRating starRating;
     private int stock;
     private Double price;
 
@@ -72,6 +72,7 @@ public class TourOfferAdmin {
                 .travelOption(travelOption)
                 .airport(airport)
                 .hotel(hotel)
+                .starRating(starRating)
                 .departureDate(departureDate)
                 .dateOfReturn(dateOfReturn)
                 .numberOfDays(numberOfDays)

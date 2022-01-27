@@ -61,6 +61,7 @@ public class TourOfferUserController {
         List<TourOfferAdminDto> allOffers = tourOfferUserService.searchAvailableOffers(formObject);
         model.addAttribute("resultObject", allOffers);
         model.addAttribute("hotels", hotelService.findAll());
+        model.addAttribute("starRating", StarRating.values());
         model.addAttribute("travelOption", TravelOption.values());
         model.addAttribute("countries", countryService.findAll());
         model.addAttribute("cities", cityService.findAll());
