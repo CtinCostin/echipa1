@@ -51,6 +51,7 @@ public class TourOfferAdmin {
     private TypeOfService typeOfService;
     private Double priceForAnAdult;
     private Double priceForAChild;
+    @Enumerated(EnumType.STRING)
     private StarRating starRating;
     private int stock;
     private Double price;
