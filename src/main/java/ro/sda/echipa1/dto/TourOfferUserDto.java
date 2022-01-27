@@ -10,7 +10,6 @@ import ro.sda.echipa1.entities.enums.TravelOption;
 import ro.sda.echipa1.entities.enums.TypeOfService;
 
 
-import java.time.LocalDate;
 import java.util.Date;
 
 public class TourOfferUserDto {
@@ -20,13 +19,14 @@ public class TourOfferUserDto {
     private TravelOption travelOption;
     private Country country;
     private City city;
+    private StarRating starRating;
     private Airport airport;
     @DateTimeFormat(pattern = "dd/MM/yyyy")
     private Date departureDate;
     private int numberOfDays;
     private int numberOfRooms;
     private Hotel hotel;
-    private StarRating starRating;
+
 
     private TypeOfService typeOfService;
     private int numberOfAdult;
@@ -43,6 +43,7 @@ public class TourOfferUserDto {
         this.travelOption = travelOption;
         this.country = country;
         this.city = city;
+        this.starRating = starRating;
         this.airport = airport;
         this.departureDate = departureDate;
         this.numberOfDays = numberOfDays;
