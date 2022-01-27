@@ -25,6 +25,7 @@ public class TourOfferAdminDto {
     private TravelOption travelOption;
     private Airport airport;
     private Hotel hotel;
+    private StarRating starRating;
     @DateTimeFormat(pattern = "dd/MM/yyyy")
     private Date departureDate;
     @DateTimeFormat(pattern = "dd/MM/yyyy")
@@ -35,7 +36,7 @@ public class TourOfferAdminDto {
     private Double priceForAnAdult;
     private Double priceForAChild;
     private Double calculatedPrice;
-    private StarRating starRating;
+
     private int stock;
     private Double price;
 

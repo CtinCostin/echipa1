@@ -7,7 +7,6 @@ import ro.sda.echipa1.entities.enums.TravelOption;
 import ro.sda.echipa1.entities.enums.TypeOfService;
 
 import javax.persistence.*;
-import java.time.LocalDate;
 import java.util.Date;
 
 @Entity
@@ -27,6 +26,7 @@ public class TourOfferUser {
     private City city;
     @ManyToOne
     private Airport airport;
+    private StarRating starRating;
     @DateTimeFormat(pattern = "dd/MM/yyyy")
     private Date departureDate;
     private Integer numberOfDays;
@@ -39,19 +39,20 @@ public class TourOfferUser {
     private int stock;
     @Enumerated(EnumType.STRING)
     private TypeOfRooms typeOfRooms;
-    @Enumerated(EnumType.STRING)
-    private StarRating starRating;
+
+
 
     public TourOfferUser() {
     }
 
     public TourOfferUser(TravelOption travelOption, Country country, City city, Airport airport,
-                         Date departureDate, Integer numberOfDays, Integer numberOfRooms,
+             Date departureDate, Integer numberOfDays, Integer numberOfRooms,
                          TypeOfService typeOfService, Integer numberOfAdult, Integer numberOfChildren, Double price, int stock, TypeOfRooms typeOfRooms, StarRating starRating) {
         this.travelOption = travelOption;
         this.country = country;
         this.city = city;
         this.airport = airport;
+        this.starRating = starRating;
         this.departureDate = departureDate;
         this.numberOfDays = numberOfDays;
         this.numberOfRooms = numberOfRooms;
@@ -63,6 +64,8 @@ public class TourOfferUser {
         this.typeOfRooms = typeOfRooms;
         this.starRating = starRating;
     }
+
+
 
     public TypeOfRooms getTypeOfRooms() {
         return typeOfRooms;
