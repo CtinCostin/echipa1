@@ -3,8 +3,8 @@ package ro.sda.echipa1.entities;
 import ro.sda.echipa1.entities.enums.TourOfferCartStatus;
 
 import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.List;
+
+
 
 
 @Entity
@@ -34,8 +34,6 @@ public class TourOfferCart {
         this.totalPrice = totalPrice;
         this.tourOfferCartStatus = tourOfferCartStatus;
     }
-
-
 
     public Long getId() {
         return id;
