@@ -40,6 +40,7 @@ public class TourOfferAdminDto {
     private Double priceForAnAdult;
     private Double priceForAChild;
     private Double calculatedPrice;
+
     private int stock;
     private Double price;
 

@@ -55,6 +55,8 @@ public class TourOfferAdmin {
     private Double priceForAChild;
     private int stock;
     private Double price;
+    private Integer numberOfAdult;
+    private Integer numberOfChildren;
 
 
 
@@ -78,9 +80,10 @@ public class TourOfferAdmin {
                 .numberOfDays(numberOfDays)
                 .typeOfService(typeOfService)
                 .typeOfRooms(typeOfRooms)
-                .starRating(starRating)
                 .priceForAnAdult(priceForAnAdult)
                 .priceForAChild(priceForAChild)
+                .numberOfAdult(numberOfAdult)
+                .numberOfChildren(numberOfChildren)
                 .calculatedPrice(0.0D).build();
     }
 

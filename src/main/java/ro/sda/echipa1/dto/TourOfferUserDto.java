@@ -7,9 +7,12 @@ import ro.sda.echipa1.entities.Country;
 import ro.sda.echipa1.entities.Hotel;
 import ro.sda.echipa1.entities.enums.StarRating;
 import ro.sda.echipa1.entities.enums.TravelOption;
+import ro.sda.echipa1.entities.enums.TypeOfRooms;
 import ro.sda.echipa1.entities.enums.TypeOfService;
 
 
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import java.util.Date;
 
 public class TourOfferUserDto {
@@ -19,6 +22,7 @@ public class TourOfferUserDto {
     private TravelOption travelOption;
     private Country country;
     private City city;
+    @Enumerated(EnumType.STRING)
     private StarRating starRating;
     private Airport airport;
     @DateTimeFormat(pattern = "dd/MM/yyyy")
@@ -26,20 +30,22 @@ public class TourOfferUserDto {
     private int numberOfDays;
     private int numberOfRooms;
     private Hotel hotel;
-
-
+    @Enumerated(EnumType.STRING)
     private TypeOfService typeOfService;
     private int numberOfAdult;
     private int numberOfChildren;
     private double price;
     private int stock;
+    @Enumerated(EnumType.STRING)
+    private TypeOfRooms typeOfRooms;
 
     public TourOfferUserDto() {
     }
 
     public TourOfferUserDto(TravelOption travelOption, Country country, City city, Airport airport,
                             Date departureDate, Integer numberOfDays, Integer numberOfRooms,
-                            TypeOfService typeOfService, Integer numberOfAdult, Integer numberOfChildren, Double price, int stock, Hotel hotel, StarRating starRating) {
+                            TypeOfService typeOfService, Integer numberOfAdult, Integer numberOfChildren, Double price, int stock, Hotel hotel, StarRating starRating,
+                            TypeOfRooms typeOfRooms) {
         this.travelOption = travelOption;
         this.country = country;
         this.city = city;
@@ -54,7 +60,7 @@ public class TourOfferUserDto {
         this.price = price;
         this.stock = stock;
         this.hotel =hotel;
-        this.starRating = starRating;
+        this.typeOfRooms = typeOfRooms;
 
     }
 
@@ -176,6 +182,14 @@ public class TourOfferUserDto {
 
     public void setStarRating(StarRating starRating) {
         this.starRating = starRating;
+    }
+
+    public TypeOfRooms getTypeOfRooms() {
+        return typeOfRooms;
+    }
+
+    public void setTypeOfRooms(TypeOfRooms typeOfRooms) {
+        this.typeOfRooms = typeOfRooms;
     }
 }
 

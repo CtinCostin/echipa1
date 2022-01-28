@@ -29,11 +29,11 @@ public class TourOfferCartService {
     //    If tourOfferUser is in the map just increment quantity by 1.
 //    If tourOfferUser is not in the map with, add it with quantity 1
 
-    public void addOffer(TourOfferAdmin tourOfferUser, double price) {
-        if (offers.containsKey(tourOfferUser)) {
-            offers.replace(tourOfferUser, offers.get(tourOfferUser) + price);
+    public void addOffer(TourOfferAdmin tourOfferAdmin, double price) {
+        if (offers.containsKey(tourOfferAdmin)) {
+            offers.replace(tourOfferAdmin, offers.get(tourOfferAdmin) + price);
         } else {
-            offers.put(tourOfferUser, price);
+            offers.put(tourOfferAdmin, price);
         }
     }
 

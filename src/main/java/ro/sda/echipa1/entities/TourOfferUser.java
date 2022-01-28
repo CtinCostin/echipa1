@@ -26,6 +26,7 @@ public class TourOfferUser {
     private City city;
     @ManyToOne
     private Airport airport;
+    @Enumerated(EnumType.STRING)
     private StarRating starRating;
     @DateTimeFormat(pattern = "dd/MM/yyyy")
     private Date departureDate;
@@ -62,7 +63,7 @@ public class TourOfferUser {
         this.price = price;
         this.stock = stock;
         this.typeOfRooms = typeOfRooms;
-        this.starRating = starRating;
+
     }
 
 

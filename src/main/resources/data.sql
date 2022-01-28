@@ -162,7 +162,6 @@ insert into hotel values (72, 'Acest hotel situat la 6 km de moscheea Hassan II 
 
                           'Casablanca Le Lido Thalasso & Spa (ex Riad Salam)', 'FOUR_STARS', 36);
 
-
 INSERT INTO tour_offer_admin (`id`,`dateOfReturn`,`departureDate`,`name`,`numberOfDays`,`price`,`priceForAChild`,`priceForAnAdult`,`starRating`,`stock`,`travelOption`,`typeOfRooms`,`typeOfService`,`airport_id`,`city_id`,`continent_id`,`country_id`,`hotel_id`) VALUES (2,'2021-10-30 00:00:00.000000','2021-11-29 00:00:00.000000','Hotel Rainer',1,125,60,125,'FOUR_STARS',4,'INDIVIDUAL','STANDARD_ROOM','BED_AND_BREAKFAST',2,2,1,1,4);
 INSERT INTO tour_offer_admin (`id`,`dateOfReturn`,`departureDate`,`name`,`numberOfDays`,`price`,`priceForAChild`,`priceForAnAdult`,`starRating`,`stock`,`travelOption`,`typeOfRooms`,`typeOfService`,`airport_id`,`city_id`,`continent_id`,`country_id`,`hotel_id`) VALUES (3,'2021-10-30 00:00:00.000000','2021-10-29 00:00:00.000000','Grand Hotel',1,125,50,125,'FOUR_STARS',3,'INDIVIDUAL','STANDARD_ROOM','HALF_BOARD',2,2,1,1,6);
 INSERT INTO tour_offer_admin (`id`,`dateOfReturn`,`departureDate`,`name`,`numberOfDays`,`price`,`priceForAChild`,`priceForAnAdult`,`starRating`,`stock`,`travelOption`,`typeOfRooms`,`typeOfService`,`airport_id`,`city_id`,`continent_id`,`country_id`,`hotel_id`) VALUES (4,'2021-11-08 00:00:00.000000','2021-11-07 00:00:00.000000','Ramada by Wyndham Constanta',1,156,70,156,'FIVE_STARS',10,'INDIVIDUAL','STANDARD_ROOM','HALF_BOARD',1,1,1,1,1);
