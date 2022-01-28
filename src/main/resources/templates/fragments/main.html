@@ -122,6 +122,15 @@
                         <div id="package_search_room_1_container" class="row room-container" style="">
                             <div class="col-sm-4 label-cell">
                                 <label>Camera</label>
+                                <div>
+                                    <select th:field="*{typeOfRooms}" class="form-select form-select-sm"
+                                            aria-label=".form-select-sm example">
+                                        <option th:each="typeOfRooms: ${typeOfRooms}"
+                                                th:text="${typeOfRooms}"
+                                                th:value="${typeOfRooms}">
+                                        </option>
+                                    </select>
+                                </div>
                             </div>
                             <div class="col-sm-4 col-xs-6">
                                 <label>Adulti</label>
