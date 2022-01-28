@@ -8,6 +8,8 @@ import ro.sda.echipa1.entities.enums.TravelOption;
 import ro.sda.echipa1.entities.enums.TypeOfRooms;
 import ro.sda.echipa1.entities.enums.TypeOfService;
 
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import java.util.Date;
 
 @Builder
@@ -22,9 +24,11 @@ public class TourOfferAdminDto {
     private Continent continent;
     private Country country;
     private City city;
+    @Enumerated(EnumType.STRING)
     private TravelOption travelOption;
     private Airport airport;
     private Hotel hotel;
+    @Enumerated(EnumType.STRING)
     private StarRating starRating;
     @DateTimeFormat(pattern = "dd/MM/yyyy")
     private Date departureDate;
@@ -36,7 +40,6 @@ public class TourOfferAdminDto {
     private Double priceForAnAdult;
     private Double priceForAChild;
     private Double calculatedPrice;
-
     private int stock;
     private Double price;
 

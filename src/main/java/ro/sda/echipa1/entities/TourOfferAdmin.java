@@ -42,7 +42,7 @@ public class TourOfferAdmin {
     private Airport airport;
     @ManyToOne
     private Hotel hotel;
-
+    @Enumerated(EnumType.STRING)
     private StarRating starRating;
     @DateTimeFormat(pattern = "dd/MM/yyyy")
     private Date departureDate;
