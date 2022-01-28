@@ -45,6 +45,79 @@ public class NavbarLinksController {
         return "promotii";
     }
 
+    @GetMapping("/vacante")
+    public String showVacante(Model model) {
+        List<TourOfferAdmin> tourOfferAdminList = tourOfferAdminService.searchByName("vacante");
+        model.addAttribute("tourOfferInView", tourOfferAdminList);
+
+        return "vacante";
+    }
+
+    @GetMapping("/bilete-de-avion")
+    public String showBileteAvion(Model model) {
+        List<TourOfferAdmin> tourOfferAdminList = tourOfferAdminService.searchByName("bilete-de-avion");
+        model.addAttribute("tourOfferInView", tourOfferAdminList);
+
+        return "bilete-de-avion";
+    }
+
+    @GetMapping("/charter-exotic")
+    public String showCharterExotic(Model model) {
+        List<TourOfferAdmin> tourOfferAdminList = tourOfferAdminService.searchByName("charter-exotic");
+        model.addAttribute("tourOfferInView", tourOfferAdminList);
+
+        return "charter-exotic";
+    }
+
+    @GetMapping("/circuite")
+    public String showCircuite(Model model) {
+        List<TourOfferAdmin> tourOfferAdminList = tourOfferAdminService.searchByName("circuite");
+        model.addAttribute("tourOfferInView", tourOfferAdminList);
+
+        return "circuite";
+    }
+
+    @GetMapping("/exotice")
+    public String showExotice(Model model) {
+        List<TourOfferAdmin> tourOfferAdminList = tourOfferAdminService.searchByName("exotice");
+        model.addAttribute("tourOfferInView", tourOfferAdminList);
+
+        return "exotice";
+    }
+
+    @GetMapping("/craciun-2022")
+    public String showCraciun(Model model) {
+        List<TourOfferAdmin> tourOfferAdminList = tourOfferAdminService.searchByName("craciun-2022");
+        model.addAttribute("tourOfferInView", tourOfferAdminList);
+
+        return "craciun-2022";
+    }
+
+    @GetMapping("/revelion-2022")
+    public String showRevelion(Model model) {
+        List<TourOfferAdmin> tourOfferAdminList = tourOfferAdminService.searchByName("revelion-2022");
+        model.addAttribute("tourOfferInView", tourOfferAdminList);
+
+        return "revelion-2022";
+    }
+
+    @GetMapping("/senior-voyage")
+    public String showSeniorVoyage(Model model) {
+        List<TourOfferAdmin> tourOfferAdminList = tourOfferAdminService.searchByName("senior-voyage");
+        model.addAttribute("tourOfferInView", tourOfferAdminList);
+
+        return "senior-voyage";
+    }
+
+    @GetMapping("/ski")
+    public String showSki(Model model) {
+        List<TourOfferAdmin> tourOfferAdminList = tourOfferAdminService.searchByName("ski");
+        model.addAttribute("tourOfferInView", tourOfferAdminList);
+
+        return "ski";
+    }
+
+
     @GetMapping("/contact")
     public String showContact() {
 
