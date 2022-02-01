@@ -37,6 +37,14 @@ public class TourOfferCartService {
         }
     }
 
+//    public void addOfferPeriod(TourOfferAdmin tourOfferAdmin, double price) {
+//        if (offers.containsKey(tourOfferAdmin)) {
+//            offers.replace(tourOfferAdmin, offers.get(tourOfferAdmin) + price);
+//        } else {
+//            offers.put(tourOfferAdmin, price);
+//        }
+//    }
+
     //    If tourOfferUser is in the map with quantity > 1, just decrement quantity by 1.
 //    If tourOfferUser is in the map with quantity 1, remove it from map
 

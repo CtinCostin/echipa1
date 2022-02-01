@@ -40,6 +40,9 @@ public class TourOfferAdminDto {
     private Double priceForAnAdult;
     private Double priceForAChild;
     private Double calculatedPrice;
+    private Integer numberOfAdult;
+    private Integer numberOfChildren;
+    private Date calculatedHolidayPeriod;
 
     private int stock;
     private Double price;
@@ -48,8 +51,9 @@ public class TourOfferAdminDto {
         this.calculatedPrice = calculatedPrice;
     }
 
-
-
+    public void setCalculatedHolidayPeriod(Date calculatedHolidayPeriod) {
+        this.calculatedHolidayPeriod = calculatedHolidayPeriod;
+    }
 }
 
 

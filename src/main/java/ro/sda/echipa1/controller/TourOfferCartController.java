@@ -5,8 +5,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import ro.sda.echipa1.OutOfOffersException;
+import ro.sda.echipa1.dto.TourOfferAdminDto;
 import ro.sda.echipa1.entities.TourOfferAdmin;
-import ro.sda.echipa1.entities.TourOfferUser;
 import ro.sda.echipa1.service.TourOfferAdminService;
 import ro.sda.echipa1.service.TourOfferCartService;
 import ro.sda.echipa1.service.TourOfferUserService;
@@ -18,19 +18,23 @@ public class TourOfferCartController {
     private TourOfferCartService tourOfferCartService;
 
     private TourOfferAdminService tourOfferAdminService;
+    private TourOfferUserService tourOfferUserService;
 
     @Autowired
-    public TourOfferCartController(TourOfferCartService tourOfferCartService, TourOfferAdminService tourOfferAdminService) {
+    public TourOfferCartController(TourOfferCartService tourOfferCartService, TourOfferAdminService tourOfferAdminService, TourOfferUserService tourOfferUserService) {
         this.tourOfferCartService = tourOfferCartService;
         this.tourOfferAdminService = tourOfferAdminService;
+        this.tourOfferUserService = tourOfferUserService;
     }
 
 
     @GetMapping("/shoppingCart")
     public ModelAndView shoppingCart() {
         ModelAndView modelAndView = new ModelAndView("/shoppingCart");
+        TourOfferAdminDto tourOfferAdminDto1 = new TourOfferAdminDto();
         modelAndView.addObject("offers", tourOfferCartService.getOffersInCart());
         modelAndView.addObject("total", tourOfferCartService.getTotal());
+        modelAndView.addObject("period", tourOfferUserService.calculateHoliday(tourOfferAdminDto1));
         return modelAndView;
     }
 
