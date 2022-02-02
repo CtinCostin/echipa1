@@ -4,9 +4,13 @@
 
 <head>
     <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link th:rel="stylesheet" th:href="@{/assets/tempusdominus-bootstrap-4/tempusdominus-bootstrap-4.min.css}"/>
     <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/5.1.3/css/bootstrap.min.css} "/>
     <link th:rel="stylesheet" th:href="@{/webjars/font-awesome/5.15.4/css/all.css} "/>
+    <link th:rel="stylesheet" th:href="@{/assets/select2_4.0.13/css/select2.css}"/>
+    <link th:rel="stylesheet" th:href="@{/assets/select2_4.0.13/css/select2.min.css}"/>
+    <link th:rel="stylesheet" th:href="@{/assets/select2-bootstrap-5-theme-master/dist/select2-bootstrap-5-theme.css}"/>
     <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 
@@ -58,7 +62,27 @@
                             <div class="acqua-hotel-city"><h4 th:text="${offer.getKey().city.name}">City</h4></div>
 
                             <div class="acqua-hotel-period">
-                                <h2 class="col-md-11" th:inline="text">Period: [[${period}]] </h2>
+                                <h2 class="col-md-11" th:text="${offer.getKey().departureDate}">Data: </h2>
+                            </div>
+
+                            <div class="acqua-hotel-numberDays">
+                                <h2 class="col-md-11" th:text="${offer.getKey().numberOfDays}">Nr nopti: </h2>
+                            </div>
+
+                            <div class="acqua-hotel-typeOfRooms">
+                                <h2 class="col-md-11" th:text="${offer.getKey().typeOfRooms}">Tip camera: </h2>
+                            </div>
+
+                            <div class="acqua-hotel-typeOfService">
+                                <h2 class="col-md-11" th:text="${offer.getKey().typeOfService}">Tip serviciu: </h2>
+                            </div>
+
+                            <div class="acqua-hotel-numberOfAdults">
+                                <h2 class="col-md-11" th:text="${offer.getKey().numberOfAdult}">Numar adulti: </h2>
+                            </div>
+
+                            <div class="acqua-hotel-numberOfChildren">
+                                <h2 class="col-md-11" th:text="${offer.getKey().numberOfChildren}">Numar copii: </h2>
                             </div>
 
                             <div>
@@ -67,7 +91,7 @@
 							   <a class="show-conditions-info" data-toggle="tooltip" title=""
                                   data-original-title="Aceasta camera este disponibila. Veti primi imediat confirmarea rezervarii.">disponibil
                                </a>
-							</span><!-- /conditions-item -->
+							    </span><!-- /conditions-item -->
                             </div>
 
                         </div><!-- /acqua-booking-info-section -->
@@ -294,9 +318,9 @@
                                         <label for="dataNasterii*">Data nasterii</label>
                                         <div class="input-group date" id="datetimepicker2" data-target-input="nearest">
                                             <input type="text" class="form-control datetimepicker-input"
-                                                   data-target="#datetimepicker1"
+                                                   data-target="#datetimepicker2"
                                                    id="dataNasterii*" placeholder="Date"/>
-                                            <div class="input-group-append" data-target="#datetimepicker1"
+                                            <div class="input-group-append" data-target="#datetimepicker2"
                                                  data-toggle="datetimepicker">
                                                 <div class="input-group-text"><i class="fa fa-calendar-alt"></i></div>
                                             </div>
@@ -395,79 +419,72 @@
                         </div><!-- /info-box payment -->
                         <input type="hidden" name="test_print_console" value="test_test_test">
                         <script>
-$('input[type=radio][name=payment_method]').change(function() {
-    var provider = ($('input[name=payment_method]:checked').val());
-    if (provider=='payl8r'){
-        $('#id_for_pay_calc').show();
-    }
-    else{
-        $('#id_for_pay_calc').hide();
-    }
+                        $('input[type=radio][name=payment_method]').change(function() {
+                        var provider = ($('input[name=payment_method]:checked').val());
+                        if (provider=='payl8r'){
+                        $('#id_for_pay_calc').show();
+                        }
+                        else{
+                         $('#id_for_pay_calc').hide();
+                         }
 
-        if(provider == 'credex'){
-                $('.credex_fields input, .credex_fields select').prop('required', 'true');
-                $('.credex_fields').show();
+                          if(provider == 'credex'){
+                            $('.credex_fields input, .credex_fields select').prop('required', 'true');
+                             $('.credex_fields').show();
 
-                $('#judet_credex').on('change', function() {
-                    var url = 'https://www.vacantede10.ro/hotels/get_credex_localities';
-                    $.ajax({
-                        type: "POST",
-                        url: url,
-                        data: {region_id: this.value},
-                        success: function (response) {
-                            var localities = $.parseJSON(response);
-                            $('#oras_credex').find('option').not(':first').remove();
-                            $.each(localities, function(index, value) {
+                             $('#judet_credex').on('change', function() {
+                                var url = 'https://www.vacantede10.ro/hotels/get_credex_localities';
+                              $.ajax({
+                               type: "POST",
+                                url: url,
+                                data: {region_id: this.value},
+                                 success: function (response) {
+                                var localities = $.parseJSON(response);
+                                 $('#oras_credex').find('option').not(':first').remove();
+                                 $.each(localities, function(index, value) {
                                 $('#oras_credex').append($('<option>', {
                                         value: value,
                                         text : value
                                 }));
-                            });
-                        },
-                    });
-                });
-            } else{
-                $('.credex_fields input, .credex_fields select').removeAttr('required');
-                $('.credex_fields').hide();
-            }
+                                });
+                                },
+                                 });
+                                 });
+                                } else{
+                                $('.credex_fields input, .credex_fields select').removeAttr('required');
+                                $('.credex_fields').hide();
+                                }
 
-            // Validare CNP
-            $("#cnp_credex").on('change keyup paste', function () {
-                var p_cnp = $("#cnp_credex").val();
-                var i=0 , year=0 , hashResult=0 , cnp=[] , hashTable=[2,7,9,1,4,6,3,5,8,2,7,9];
-                if( p_cnp.length !== 13 ) { return false; }
-                for( i=0 ; i<13 ; i++ ) {
-                    cnp[i] = parseInt( p_cnp.charAt(i) , 10 );
-                    if( isNaN( cnp[i] ) ) { return false; }
-                    if( i < 12 ) { hashResult = hashResult + ( cnp[i] * hashTable[i] ); }
-                }
-                hashResult = hashResult % 11;
-                if( hashResult === 10 ) { hashResult = 1; }
-                year = (cnp[1]*10)+cnp[2];
-                switch( cnp[0] ) {
-                    case 1  : case 2 : { year += 1900; } break;
-                    case 3  : case 4 : { year += 1800; } break;
-                    case 5  : case 6 : { year += 2000; } break;
-                    case 7  : case 8 : case 9 : { year += 2000; if( year > ( parseInt( new Date().getYear() , 10 ) - 14 ) ) { year -= 100; } } break;
-                    default : { return false; }
-                }
-                if( year < 1800 || year > 2099 ) { return false; }
-                if(( cnp[12] === hashResult ) === false) {
-                    $( "#cnp_credex" ).css('border', '2px solid red');
-                    alert("Codul numeric personal nu este valid!");
-                } else{
-                    $( "#cnp_credex" ).css('border', '2px solid green');
-                }
-            });
+                                                // Validare CNP
+                                                $("#cnp_credex").on('change keyup paste', function () {
+                                                    var p_cnp = $("#cnp_credex").val();
+                                                    var i=0 , year=0 , hashResult=0 , cnp=[] , hashTable=[2,7,9,1,4,6,3,5,8,2,7,9];
+                                                    if( p_cnp.length !== 13 ) { return false; }
+                                                    for( i=0 ; i<13 ; i++ ) {
+                                                        cnp[i] = parseInt( p_cnp.charAt(i) , 10 );
+                                                        if( isNaN( cnp[i] ) ) { return false; }
+                                                        if( i < 12 ) { hashResult = hashResult + ( cnp[i] * hashTable[i] ); }
+                                                    }
+                                                    hashResult = hashResult % 11;
+                                                    if( hashResult === 10 ) { hashResult = 1; }
+                                                    year = (cnp[1]*10)+cnp[2];
+                                                    switch( cnp[0] ) {
+                                                        case 1  : case 2 : { year += 1900; } break;
+                                                        case 3  : case 4 : { year += 1800; } break;
+                                                        case 5  : case 6 : { year += 2000; } break;
+                                                        case 7  : case 8 : case 9 : { year += 2000; if( year > ( parseInt( new Date().getYear() , 10 ) - 14 ) ) { year -= 100; } } break;
+                                                        default : { return false; }
+                                                    }
+                                                    if( year < 1800 || year > 2099 ) { return false; }
+                                                    if(( cnp[12] === hashResult ) === false) {
+                                                        $( "#cnp_credex" ).css('border', '2px solid red');
+                                                        alert("Codul numeric personal nu este valid!");
+                                                    } else{
+                                                        $( "#cnp_credex" ).css('border', '2px solid green');
+                                                    }
+                                                });
 
-});
-
-
-
-
-
-
-
+                                    });
 
 
                         </script>
@@ -500,8 +517,14 @@ $('input[type=radio][name=payment_method]').change(function() {
         </div>
     </div>
 </div>
-
+<script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+<script th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
+<script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+<script th:src="@{/assets/moment/moment.min.js}"></script>
+<script th:src="@{/assets/tempusdominus-bootstrap-4/tempusdominus-bootstrap-4.min.js}"></script>
+<script th:src="@{/assets/select2_4.0.13/js/select2.full.js}"></script>
 <script>
+
 
 $.fn.datetimepicker.Constructor.Default = $.extend({}, $.fn.datetimepicker.Constructor.Default, {
     icons: {
@@ -517,6 +540,9 @@ $.fn.datetimepicker.Constructor.Default = $.extend({}, $.fn.datetimepicker.Const
     } });
 
 $('#datetimepicker1').datetimepicker({
+format: 'DD/MM/YYYY'
+});
+$('#datetimepicker2').datetimepicker({
 format: 'DD/MM/YYYY'
 });
 
