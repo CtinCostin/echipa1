@@ -4,7 +4,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import ro.sda.echipa1.OutOfOffersException;
 import ro.sda.echipa1.entities.TourOfferAdmin;
-import ro.sda.echipa1.entities.TourOfferUser;
 import ro.sda.echipa1.repository.TourOfferAdminRepository;
 import ro.sda.echipa1.repository.TourOfferCartRepository;
 

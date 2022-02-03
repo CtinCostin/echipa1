@@ -104,7 +104,6 @@ public class TourOfferUserService {
     }
 
 
-
     /**
      * Calculates price for an offer based on searched criteria
      *
@@ -139,8 +138,8 @@ public class TourOfferUserService {
         List<TourOfferAdmin> allOffers = tourOfferAdminService.findAll();
 
 
-            allOffers = allOffers.stream().filter(ofer -> ofer.getDepartureDate().equals(searchCriteria.getDepartureDate()))
-                    .collect(Collectors.toList());
+        allOffers = allOffers.stream().filter(ofer -> ofer.getDepartureDate().equals(searchCriteria.getDepartureDate()))
+                .collect(Collectors.toList());
 
         //Collect and calculate price after search
         List<TourOfferAdminDto> result = allOffers.stream()
