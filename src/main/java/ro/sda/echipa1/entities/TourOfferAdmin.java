@@ -82,8 +82,6 @@ public class TourOfferAdmin {
                 .typeOfRooms(typeOfRooms)
                 .priceForAnAdult(priceForAnAdult)
                 .priceForAChild(priceForAChild)
-                .numberOfAdult(numberOfAdult)
-                .numberOfChildren(numberOfChildren)
                 .calculatedPrice(0.0D).build();
     }
 

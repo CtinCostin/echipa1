@@ -104,7 +104,6 @@ public class TourOfferUserService {
     }
 
 
-
     /**
      * Calculates price for an offer based on searched criteria
      *
