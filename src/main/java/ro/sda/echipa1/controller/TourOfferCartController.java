@@ -34,7 +34,6 @@ public class TourOfferCartController {
         TourOfferAdminDto tourOfferAdminDto1 = new TourOfferAdminDto();
         modelAndView.addObject("offers", tourOfferCartService.getOffersInCart());
         modelAndView.addObject("total", tourOfferCartService.getTotal());
-        modelAndView.addObject("period", tourOfferUserService.calculateHoliday(tourOfferAdminDto1));
         return modelAndView;
     }
 
