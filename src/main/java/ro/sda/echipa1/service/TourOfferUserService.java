@@ -121,36 +121,6 @@ public class TourOfferUserService {
         tourOfferAdmin.setCalculatedPrice(priceCalculator.calculatePrice(calculationParameters));
     }
 
-    public void calculatePeriodHoliday(TourOfferAdminDto tourOfferUserDto, TourOfferAdminDto tourOfferAdminDto) {
-        PeriodCalculator periodCalculator = new PeriodCalculator(
-                tourOfferUserDto.getNumberOfDays(),
-                tourOfferUserDto.getDepartureDate());
-        tourOfferAdminDto.setCalculatedHolidayPeriod(
-                periodCalculator.calculatePeriod(
-                        tourOfferUserDto.getDepartureDate()
-                        , tourOfferUserDto.getNumberOfDays()));
-
-    }
-
-
-    public List<TourOfferAdminDto> calculateHoliday(TourOfferAdminDto searchCriteria) {
-        //Retrive all data
-        List<TourOfferAdmin> allOffers = tourOfferAdminService.findAll();
-
-
-        allOffers = allOffers.stream().filter(ofer -> ofer.getDepartureDate().equals(searchCriteria.getDepartureDate()))
-                .collect(Collectors.toList());
-
-        //Collect and calculate price after search
-        List<TourOfferAdminDto> result = allOffers.stream()
-                .map(TourOfferAdmin::convertToDto)
-                .collect(Collectors.toList());
-
-        result.parallelStream().forEach(t -> calculatePeriodHoliday(searchCriteria, t));
-
-
-        return result;
-    }
 
 
 }
