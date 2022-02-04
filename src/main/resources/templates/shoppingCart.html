@@ -695,19 +695,17 @@
                             ><strong>TERMENII SI CONDITIILE DE REZERVARE</strong></a
                             >.
                         </label>
-                        <div>
-                            <a th:href="@{/airport}">
-                                <button class="btn btn-primary" type="submit">
-                                    Finalizeaza rezervarea
-                                </button>
-                            </a>
-                        </div>
                     </div>
                 </div>
                 </form>
             </div>
         </div>
     </div>
+</div>
+<div class="actions">
+    <a th:href="@{/vacanta-placuta}">
+        <button class="btn btn-primary" id="cancel" name="cancel" type="submit">Finalizeaza rezervarea</button>
+    </a>
 </div>
 <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
 <script th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
