@@ -68,7 +68,8 @@ public class CustomWebSecurityConfigurer extends WebSecurityConfigurerAdapter {
                         , "/ski/**"
                         , "/despre_noi"
                         , "/termeni_si_conditii"
-                        , "/searchOffer").permitAll().
+                        , "/searchOffer"
+                        , "/vacanta-placuta").permitAll().
                 antMatchers(
                         "/hotel"
                         , "/continent"

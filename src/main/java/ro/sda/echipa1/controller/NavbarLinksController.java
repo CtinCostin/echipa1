@@ -23,25 +23,20 @@ public class NavbarLinksController {
     public String showOffersRomania(Model model) {
         List<TourOfferAdmin> tourOfferAdminList = tourOfferAdminService.searchByName("Cazare Romania");
         model.addAttribute("tourOfferInView", tourOfferAdminList);
-
         return "cazare-Romania";
     }
 
     @GetMapping("/city-break")
     public String showCityBreak(Model model) {
-
         List<TourOfferAdmin> tourOfferAdminList = tourOfferAdminService.searchByName("City Break");
         model.addAttribute("tourOfferInView", tourOfferAdminList);
-
         return "city-break";
     }
 
     @GetMapping("/promotii")
     public String showPromoted(Model model) {
-
         List<TourOfferAdmin> tourOfferAdminList = tourOfferAdminService.searchByName("Promotii");
         model.addAttribute("tourOfferInView", tourOfferAdminList);
-
         return "promotii";
     }
 
@@ -49,23 +44,20 @@ public class NavbarLinksController {
     public String showVacante(Model model) {
         List<TourOfferAdmin> tourOfferAdminList = tourOfferAdminService.searchByName("vacante");
         model.addAttribute("tourOfferInView", tourOfferAdminList);
-
         return "vacante";
     }
 
-    @GetMapping("/estival")
-    public String showEstivall(Model model) {
-        List<TourOfferAdmin> tourOfferAdminList = tourOfferAdminService.searchByName("estivall");
+    @GetMapping("/bilete-de-avion")
+    public String showBileteAvion(Model model) {
+        List<TourOfferAdmin> tourOfferAdminList = tourOfferAdminService.searchByName("bilete-de-avion");
         model.addAttribute("tourOfferInView", tourOfferAdminList);
-
-        return "estival";
+        return "bilete-de-avion";
     }
 
     @GetMapping("/charter-exotic")
     public String showCharterExotic(Model model) {
         List<TourOfferAdmin> tourOfferAdminList = tourOfferAdminService.searchByName("charter-exotic");
         model.addAttribute("tourOfferInView", tourOfferAdminList);
-
         return "charter-exotic";
     }
 
@@ -73,7 +65,6 @@ public class NavbarLinksController {
     public String showCircuite(Model model) {
         List<TourOfferAdmin> tourOfferAdminList = tourOfferAdminService.searchByName("circuite");
         model.addAttribute("tourOfferInView", tourOfferAdminList);
-
         return "circuite";
     }
 
@@ -81,7 +72,6 @@ public class NavbarLinksController {
     public String showExotice(Model model) {
         List<TourOfferAdmin> tourOfferAdminList = tourOfferAdminService.searchByName("exotice");
         model.addAttribute("tourOfferInView", tourOfferAdminList);
-
         return "exotice";
     }
 
@@ -89,7 +79,6 @@ public class NavbarLinksController {
     public String showCraciun(Model model) {
         List<TourOfferAdmin> tourOfferAdminList = tourOfferAdminService.searchByName("craciun-2022");
         model.addAttribute("tourOfferInView", tourOfferAdminList);
-
         return "craciun-2022";
     }
 
@@ -97,7 +86,6 @@ public class NavbarLinksController {
     public String showRevelion(Model model) {
         List<TourOfferAdmin> tourOfferAdminList = tourOfferAdminService.searchByName("revelion-2022");
         model.addAttribute("tourOfferInView", tourOfferAdminList);
-
         return "revelion-2022";
     }
 
@@ -105,7 +93,6 @@ public class NavbarLinksController {
     public String showSeniorVoyage(Model model) {
         List<TourOfferAdmin> tourOfferAdminList = tourOfferAdminService.searchByName("senior-voyage");
         model.addAttribute("tourOfferInView", tourOfferAdminList);
-
         return "senior-voyage";
     }
 
@@ -113,36 +100,29 @@ public class NavbarLinksController {
     public String showSki(Model model) {
         List<TourOfferAdmin> tourOfferAdminList = tourOfferAdminService.searchByName("ski");
         model.addAttribute("tourOfferInView", tourOfferAdminList);
-
         return "ski";
     }
 
 
     @GetMapping("/contact")
     public String showContact() {
-
         return "contact";
     }
 
     @GetMapping("/despre_noi")
     public String showAboutPage(Model model) {
-
         return "despre_noi";
     }
 
     @GetMapping("/termeni_si_conditii")
     public String showTermsPage(Model model) {
-
         return "termeni_si_conditii";
     }
 
-
-    @GetMapping("/shopping_cart")
-    public String showShoppingCartPage(Model model) {
-
-        return "shopping_cart";
+    @GetMapping("/vacanta-placuta")
+    public String showText(Model model) {
+        return "vacanta-placuta";
     }
-
 
 
 }
