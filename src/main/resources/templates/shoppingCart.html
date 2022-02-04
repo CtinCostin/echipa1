@@ -10,341 +10,278 @@
     <link th:rel="stylesheet" th:href="@{/assets/select2_4.0.13/css/select2.css}"/>
     <link th:rel="stylesheet" th:href="@{/assets/select2_4.0.13/css/select2.min.css}"/>
     <link th:rel="stylesheet" th:href="@{/assets/select2-bootstrap-5-theme-master/dist/select2-bootstrap-5-theme.css}"/>
-    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/shopping-cart.css">
+
+
 
 </head>
 
-<body>
+<body class="shoppingCart">
 <div th:replace="fragments/navbar :: navbar"/>
 
-<div class="wrapper11">
+<div class="wrapper11" style="color: white;">
     <div th:each="offer : ${offers.entrySet()}">
-        <div class="container padtb20 acqua-booking bg-container">
-            <h1>
-                <small>Rezervare online de pachete</small>
-                <br/>
-                <a
-                        th:text="${offer.getKey().name}"
-                        th:href="@{'/searchOffer' + ${offer.getKey().hotel.name}}"
-                ></a>
-            </h1>
+        <div class="container11 padtb20 acqua-booking bg-container">
+            <h3>
+                <small>Rezervare online de pachete</small></h3>
+            <div class="hotelColor">
+                <h2>
+                    <a th:text="${offer.getKey().name}"
+                       th:href="@{'/searchOffer' + ${offer.getKey().hotel.name}}"
+                    ></a>
+                </h2>
+            </div>
+
+            <br>
 
             <div class="row">
                 <div class="col-sm-4 col-sm-push-8">
-                    <h2 class="acqua-booking-info-title">Sumarul rezervarii</h2>
-                    <div
-                            class="acqua-booking-info"
-                            id="booking-info-div1"
-                            style="padding-top: 0px"
-                    >
+                    <div class="acqua-booking-total-price"
+                            id="price_to_fix_packages"
+                            >
+
+                        <h2 class="acqua-booking-info-title">Sumarul rezervarii</h2>
                         <div
-                                class="acqua-booking-total-price"
-                                id="price_to_fix_packages"
+                                class="acqua-booking-info"
+                                id="booking-info-div1"
                                 style="
-                    top: 105px;
-                    border: 1px solid rgb(204, 204, 204);
-                    z-index: 1000;
-                    position: static;
-                    width: 336.66px;
-                  "
-                        >
+                                top: 105px;
+                                border: 2px solid rgb(204, 204, 204);
+                                z-index: 1000;
+                                position: static;
+                                width: 336.66px;
+                                padding-top: 0px">
                             <div>
                                 <h2 class="col-md-11" th:inline="text">
                                     Total: [[${total}]] <span>&#8364;</span>
                                 </h2>
                             </div>
-                        </div>
-                        <h3 class="acqua-booking-info-section-name flight">
-                            <span class="icon-container"><i class="fa fa-bed"></i></span>
-                            +
-                            <span class="icon-container"
-                            ><i class="fa fa-plane"></i
-                            ></span>
+                            <h3 class="acqua-booking-info-section-name flight">
+                                <span class="icon-container"><i class="fa fa-bed"></i></span>
+                                +
+                                <span class="icon-container"
+                                ><i class="fa fa-plane"></i
+                                ></span>
 
-                            Detalii pachet
-                        </h3>
-                        <div class="acqua-booking-info-section" id="booking-info-div2">
-                            <div class="acqua-hotel-image">
-                                <img
-                                        src="https://cdn.quick-sell.ro/7848b3b12083b6d65e517c12e1924565/http%3A%2F%2Fquick-sell.ibe.qtravel.ro%2Fresources%2Fibe%2Fstatic_data%2Famaratour%2Fimages_4%2F20214121430191.jpg"
-                                        alt=""
-                                        width="300px"
-                                        height="200px"
+                                Detalii pachet
+                            </h3>
+                            <div class="acqua-booking-info-section" id="booking-info-div2">
+                                <div class="acqua-hotel-image">
+                                    <img
+                                            src="https://cdn.quick-sell.ro/7848b3b12083b6d65e517c12e1924565/http%3A%2F%2Fquick-sell.ibe.qtravel.ro%2Fresources%2Fibe%2Fstatic_data%2Famaratour%2Fimages_4%2F20214121430191.jpg"
+                                            alt=""
+                                            width="300px"
+                                            height="200px"
 
-                                        class="img-responsive"
-                                />
-                            </div>
-
-                            <div class="acqua-hotel-name">
-                                <strong
-                                ><a
-                                        th:text="${offer.getKey().name}"
-                                        th:href="@{'/searchOffer' + ${offer.getKey().hotel.name}}"
-                                ></a>
-                                </strong>
-                                <h3 th:text="${offer.getKey().hotel.starRating}">
-                                    Star rating
-                                </h3>
-                            </div>
-
-                            <div class="acqua-hotel-city">
-                                <h4 th:text="${offer.getKey().city.name}">City</h4>
-                            </div>
-
-                            <div class="acqua-hotel-period">
-
-                                <h2 class="col-md-11" th:inline="text">
-                                    Period: [[${period}]]
-                                </h2>
-                                <h2 class="col-md-11" th:text="${offer.getKey().departureDate}">Data: </h2>
-                            </div>
-
-                            <div class="acqua-hotel-numberDays">
-                                <h2 class="col-md-11" th:text="${offer.getKey().numberOfDays}">Nr nopti: </h2>
-                            </div>
-
-                            <div class="acqua-hotel-typeOfRooms">
-                                <h2 class="col-md-11" th:text="${offer.getKey().typeOfRooms}">Tip camera: </h2>
-                            </div>
-
-                            <div class="acqua-hotel-typeOfService">
-                                <h2 class="col-md-11" th:text="${offer.getKey().typeOfService}">Tip serviciu: </h2>
-                            </div>
-
-                            <div class="acqua-hotel-numberOfAdults">
-                                <h2 class="col-md-11" th:text="${offer.getKey().numberOfAdult}">Numar adulti: </h2>
-                            </div>
-
-                            <div class="acqua-hotel-numberOfChildren">
-                                <h2 class="col-md-11" th:text="${offer.getKey().numberOfChildren}">Numar copii: </h2>
-                            </div>
-
-                            <div>
-                                <strong>Disponibilitate</strong>:
-                                <span class="text-success">
-                      <a
-                              class="show-conditions-info"
-                              data-toggle="tooltip"
-                              title=""
-                              data-original-title="Aceasta camera este disponibila. Veti primi imediat confirmarea rezervarii."
-                      >disponibil
-                      </a> </span
-                                ><!-- /conditions-item -->
-
-							   <a class="show-conditions-info" data-toggle="tooltip" title=""
-                                  data-original-title="Aceasta camera este disponibila. Veti primi imediat confirmarea rezervarii.">disponibil
-                               </a>
-							    </span><!-- /conditions-item -->
-                            </div>
-                        </div>
-                        <!-- /acqua-booking-info-section -->
-
-                        <div id="extra-services-rates">
-                            <table class="table table-condensed table-hovered"></table>
-                        </div>
-                    </div>
-                    <!-- /acqua-booking-info -->
-                </div>
-                <!-- /col-sm-4 col-sm-push-8 -->
-
-                <style>
-              .line_has_leads {
-                border: 1px solid #ccc;
-                width: 100%;
-                border-radius: 5px;
-                background: #f2f2f2;
-                padding: 5px;
-                font-size: 13px;
-              }
-
-
-                </style>
-                <div class="line_has_leads" id="extra_lead" style="display: none">
-                    <div>
-                        Datele de mai jos pot fi colectate si folosite pentru a te ajuta
-                        in procesul de cumparare inclusiv pentru a-ti trimite posibile
-                        oferte sau recomandari alternative dar și promotii legate de
-                        cautarea ta specifica, prin email sau apel telefonic.
-                    </div>
-                    <div style="text-align: center; margin-top: 12px">
-                        <button
-                                id="accept_has_leads"
-                                style="
-                    background-color: #5bb227;
-                    border-color: #5bb227;
-                    margin-right: 25px;
-                    padding: 3px 5px;
-                  "
-                                class="btn btn-xs btn-primary"
-                                type="submit"
-                        >
-                            Sunt de acord
-                        </button>
-                        <a
-                                style="cursor: pointer; border-bottom: 1px solid #ccc"
-                                id="declide_has_leads"
-                        >
-                            Nu doresc recomandari</a
-                        >
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-8 col-sm-pull-4">
-                <form
-                        action=""
-                        method="POST"
-                        name="hotel-booking-form"
-                        id="hotel-booking-form"
-                >
-                    <h2>Detalii facturare</h2>
-
-                    <div class="info-box authentication">
-                        <div id="book-noaccount-form">
-                            <div class="row options">
-                                <div class="form-group col-sm-5">
-                                    <label class="radio-inline">
-                                        <input
-                                                type="radio"
-                                                name="new_customer_type"
-                                                id="new_customer_type_0"
-                                                value="0"
-                                                checked="checked"
-                                                onclick="new_customer_individual_or_company_select()"
-                                        />
-                                        persoana fizica
-                                    </label>
+                                            class="img-responsive"
+                                    />
                                 </div>
-                                <div class="form-group col-sm-7">
-                                    <label class="radio-inline">
-                                        <input
-                                                type="radio"
-                                                name="new_customer_type"
-                                                id="new_customer_type_1"
-                                                value="1"
-                                                onclick="new_customer_individual_or_company_select()"
-                                        />
-                                        persoana juridica
-                                    </label>
+
+                                <div class="acqua-hotel-name">
+                                    <strong>
+                                        <h2>
+                                            <a
+                                                    th:text="${offer.getKey().name}"
+                                                    th:href="@{'/searchOffer' + ${offer.getKey().hotel.name}}">
+                                            </a>
+                                        </h2>
+                                    </strong>
+                                    <h4>
+                                        <p style="margin: 0; display: inline;">Star Rating: </p>
+                                        <p style="margin: 0; display: inline;" align="right"
+                                           th:text="${offer.getKey().hotel.starRating}"></p>
+                                    </h4>
+
+                                </div>
+                                <div class="acqua-hotel-city">
+                                    <h4>
+                                        <p style="margin: 0; display: inline;">Oras: </p>
+                                        <p style="margin: 0; display: inline;" align="right"
+                                           th:text="${offer.getKey().city.name}"></p>
+                                    </h4>
+                                </div>
+
+                                <div>
+                                    <strong>Disponibilitate</strong>:
+                                    <span class="text-success">
+                                        <a
+                                                class="show-conditions-info"
+                                                data-toggle="tooltip"
+                                                title=""
+                                                data-original-title="Aceasta camera este disponibila. Veti primi imediat confirmarea rezervarii.">disponibil
+                                        </a>
+                                    </span>
                                 </div>
                             </div>
-                            <!-- /row options -->
+                        </div>
+                    </div>
+                </div>
 
-                            <div class="row" id="new_customer_individual">
-                                <div class="form-group col-sm-1 select-title">
-                                    <label for="new_customer_individual_title"
-                                    >Titlu *
-                                        <select
-                                                class="form-control input-sm"
-                                                name="new_customer_individual_title"
-                                                id="new_customer_individual_title"
-                                                required=""
-                                        >
-                                            <option value="" selected=""></option>
-                                            <option value="Mr">Dl</option>
-                                            <option value="Mrs">Dna</option>
-                                            <option value="Miss">Dra</option>
-                                        </select>
+
+                <div class="col-sm-8 col-sm-pull-4">
+                    <form
+                            action=""
+                            method="POST"
+                            name="hotel-booking-form"
+                            id="hotel-booking-form"
+                    >
+                        <h2>Detalii facturare</h2>
+
+                        <div class="info-box authentication">
+                            <div id="book-noaccount-form"
+                                 style="
+                                top: 90px;
+                                border: 2px solid rgb(204, 204, 204);
+                                z-index: 1000;
+                                position: static;
+                                width: 900 px;
+                                padding: 10px;
+                                margin-bottom: 20px">
+                                <div class="row options">
+                                    <div class="form-group col-sm-5">
+                                        <label class="radio-inline">
+                                            <input
+                                                    type="radio"
+                                                    name="new_customer_type"
+                                                    id="new_customer_type_0"
+                                                    value="0"
+                                                    checked="checked"
+                                                    onclick="new_customer_individual_or_company_select()"
+                                            />
+                                            persoana fizica
+                                        </label>
+                                    </div>
+                                    <div class="form-group col-sm-7">
+                                        <label class="radio-inline">
+                                            <input
+                                                    type="radio"
+                                                    name="new_customer_type"
+                                                    id="new_customer_type_1"
+                                                    value="1"
+                                                    onclick="new_customer_individual_or_company_select()"
+                                            />
+                                            persoana juridica
+                                        </label>
+                                    </div>
+                                </div>
+                                <!-- /row options -->
+
+                                <div class="row" id="new_customer_individual">
+                                    <div class="form-group col-sm-1 select-title">
+                                        <label for="new_customer_individual_title"
+                                        >Titlu *
+                                            <select
+                                                    class="form-control input-sm"
+                                                    name="new_customer_individual_title"
+                                                    id="new_customer_individual_title"
+                                                    required=""
+                                            >
+                                                <option value="" selected=""></option>
+                                                <option value="Mr">Dl</option>
+                                                <option value="Mrs">Dna</option>
+                                                <option value="Miss">Dra</option>
+                                            </select>
+                                        </label>
+                                    </div>
+                                    <div class="form-group col-sm-3">
+                                        <label for="new_customer_individual_first_name"
+                                        >Prenume *
+                                            <input
+                                                    name="new_customer_individual_first_name"
+                                                    type="text"
+                                                    id="new_customer_individual_first_name"
+                                                    class="form-control input-sm normal_chars_class"
+                                                    value=""
+                                                    required=""
+                                            />
+                                        </label>
+                                    </div>
+                                    <div class="form-group col-sm-2">
+                                        <label for="new_customer_individual_last_name"
+                                        >Nume *
+                                            <input
+                                                    name="new_customer_individual_last_name"
+                                                    type="text"
+                                                    id="new_customer_individual_last_name"
+                                                    class="form-control input-sm normal_chars_class"
+                                                    value=""
+                                                    required=""
+                                            />
+                                        </label>
+                                    </div>
+
+                                    <div class="form-group col-sm-2">
+                                        <label for="new_customer_phone"
+                                        >Telefon *
+                                            <input
+                                                    type="tel"
+                                                    name="new_customer_phone"
+                                                    id="new_customer_phone"
+                                                    class="form-control input-sm"
+                                                    value=""
+                                                    required=""
+                                            />
+                                        </label>
+                                    </div>
+                                    <div class="form-group col-sm-3">
+                                        <label for="new_customer_email"
+                                        >Email *
+                                            <input
+                                                    type="email"
+                                                    name="new_customer_email"
+                                                    id="new_customer_email"
+                                                    class="form-control input-sm"
+                                                    value=""
+                                                    required=""
+                                            />
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div
+                                    class="row"
+                                    id="new_customer_company"
+                                    style="display: none"
+                            >
+                                <div class="form-group col-sm-6">
+                                    <label for="new_customer_company_name"
+                                    >Nume Companie
+                                        <input
+                                                name="new_customer_company_name"
+                                                type="text"
+                                                id="new_customer_company_name"
+                                                class="form-control input-sm normal_chars_class"
+                                                value=""
+                                        />
                                     </label>
                                 </div>
                                 <div class="form-group col-sm-3">
-                                    <label for="new_customer_individual_first_name"
-                                    >Prenume *
-                                        <input
-                                                name="new_customer_individual_first_name"
-                                                type="text"
-                                                id="new_customer_individual_first_name"
-                                                class="form-control input-sm normal_chars_class"
-                                                value=""
-                                                required=""
-                                        />
-                                    </label>
-                                </div>
-                                <div class="form-group col-sm-2">
-                                    <label for="new_customer_individual_last_name"
-                                    >Nume *
-                                        <input
-                                                name="new_customer_individual_last_name"
-                                                type="text"
-                                                id="new_customer_individual_last_name"
-                                                class="form-control input-sm normal_chars_class"
-                                                value=""
-                                                required=""
-                                        />
-                                    </label>
-                                </div>
-
-                                <div class="form-group col-sm-2">
-                                    <label for="new_customer_phone"
-                                    >Telefon *
+                                    <label for="new_customer_company_registration_number"
+                                    >Nr. inreg. la Reg. Com.
                                         <input
                                                 type="tel"
-                                                name="new_customer_phone"
-                                                id="new_customer_phone"
+                                                name="new_customer_company_registration_number"
+                                                id="new_customer_company_registration_number"
                                                 class="form-control input-sm"
                                                 value=""
-                                                required=""
                                         />
                                     </label>
                                 </div>
                                 <div class="form-group col-sm-3">
-                                    <label for="new_customer_email"
-                                    >Email *
+                                    <label for="new_customer_company_vat_number"
+                                    >CUI/CIF
                                         <input
-                                                type="email"
-                                                name="new_customer_email"
-                                                id="new_customer_email"
+                                                type="text"
+                                                name="new_customer_company_vat_number"
+                                                id="new_customer_company_vat_number"
                                                 class="form-control input-sm"
                                                 value=""
-                                                required=""
                                         />
                                     </label>
                                 </div>
                             </div>
-                        </div>
-
-                        <div
-                                class="row"
-                                id="new_customer_company"
-                                style="display: none"
-                        >
-                            <div class="form-group col-sm-6">
-                                <label for="new_customer_company_name"
-                                >Nume Companie
-                                    <input
-                                            name="new_customer_company_name"
-                                            type="text"
-                                            id="new_customer_company_name"
-                                            class="form-control input-sm normal_chars_class"
-                                            value=""
-                                    />
-                                </label>
-                            </div>
-                            <div class="form-group col-sm-3">
-                                <label for="new_customer_company_registration_number"
-                                >Nr. inreg. la Reg. Com.
-                                    <input
-                                            type="tel"
-                                            name="new_customer_company_registration_number"
-                                            id="new_customer_company_registration_number"
-                                            class="form-control input-sm"
-                                            value=""
-                                    />
-                                </label>
-                            </div>
-                            <div class="form-group col-sm-3">
-                                <label for="new_customer_company_vat_number"
-                                >CUI/CIF
-                                    <input
-                                            type="text"
-                                            name="new_customer_company_vat_number"
-                                            id="new_customer_company_vat_number"
-                                            class="form-control input-sm"
-                                            value=""
-                                    />
-                                </label>
-                            </div>
-                        </div>
-                        <script type="text/javascript">
+                            <script type="text/javascript">
                   function new_customer_individual_or_company_select() {
                     if ($("input[name=new_customer_type]:checked").val() == 0) {
                       $("#new_customer_company").hide();
@@ -355,99 +292,38 @@
                     }
                   }
 
+                            </script>
 
-                        </script>
-
-                        <h2>Detalii turisti</h2>
-                        <div class="info-box passengers">
-                            <h3>Camera 1 <span class="persons">(detalii)</span></h3>
-
-                            <div class="row">
-                                <div class="form-group col-sm-2 select-title">
-                                    <label
-                                    ><strong>1. Adult</strong>
-                                        <select
-                                                class="form-control input-sm"
-                                                name="booking_request_rooms[1][travellers][1][title]"
-                                        >
-                                            <option value="Mr">Dl</option>
-                                            <option value="Mrs">Dna</option>
-                                            <option value="Miss">Dra</option>
-                                        </select>
-                                    </label>
-                                </div>
-
-                                <input
-                                        type="hidden"
-                                        name="booking_request_rooms[1][travellers][1][type]"
-                                        value="adult"
-                                />
-
-                                <div class="form-group col-sm-3">
-                                    <label>Prenume *</label>
-                                    <input
-                                            type="text"
-                                            class="form-control input-sm normal_chars_class"
-                                            name="booking_request_rooms[1][travellers][1][first_name]"
-                                            value=""
-                                            required=""
-                                    />
-                                </div>
-
-                                <div class="form-group col-sm-3">
-                                    <label>Nume *</label>
-                                    <input
-                                            type="text"
-                                            class="form-control input-sm normal_chars_class"
-                                            name="booking_request_rooms[1][travellers][1][last_name]"
-                                            value=""
-                                            required=""
-                                    />
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="dataNasterii">Data nasterii</label>
-                                    <div
-                                            class="input-group date"
-                                            id="datetimepicker1"
-                                            data-target-input="nearest"
-                                    >
-                                        <input
-                                                type="text"
-                                                class="form-control datetimepicker-input"
-                                                data-target="#datetimepicker1"
-                                                id="dataNasterii"
-                                                placeholder="Date"
-                                        />
-                                        <div
-                                                class="input-group-append"
-                                                data-target="#datetimepicker1"
-                                                data-toggle="datetimepicker"
-                                        >
-                                            <div class="input-group-text">
-                                                <i class="fa fa-calendar-alt"></i>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                            <h2>Detalii turisti</h2>
+                            <div class="info-box passengers"
+                                 style="
+                                top: 90px;
+                                border: 2px solid rgb(204, 204, 204);
+                                z-index: 1000;
+                                position: static;
+                                width: 900 px;
+                                padding: 10px;
+                                margin-bottom: 20px">
+                                <h3>Camera 1 <span class="persons">(detalii)</span></h3>
 
                                 <div class="row">
                                     <div class="form-group col-sm-2 select-title">
-                                        <label><strong>2. Adult</strong></label>
-                                        <select
-                                                id="first_traveller_title"
-                                                class="form-control input-sm"
-                                                name="booking_request_rooms[1][travellers][2][title]"
-                                        >
-                                            <option value="Mr">Dl</option>
-                                            <option value="Mrs">Dna</option>
-                                            <option value="Miss">Dra</option>
-                                        </select>
+                                        <label
+                                        ><strong>1. Adult</strong>
+                                            <select
+                                                    class="form-control input-sm"
+                                                    name="booking_request_rooms[1][travellers][1][title]"
+                                            >
+                                                <option value="Mr">Dl</option>
+                                                <option value="Mrs">Dna</option>
+                                                <option value="Miss">Dra</option>
+                                            </select>
+                                        </label>
                                     </div>
 
                                     <input
                                             type="hidden"
-                                            name="booking_request_rooms[1][travellers][2][type]"
+                                            name="booking_request_rooms[1][travellers][1][type]"
                                             value="adult"
                                     />
 
@@ -455,9 +331,8 @@
                                         <label>Prenume *</label>
                                         <input
                                                 type="text"
-                                                id="first_traveller_first_name"
                                                 class="form-control input-sm normal_chars_class"
-                                                name="booking_request_rooms[1][travellers][2][first_name]"
+                                                name="booking_request_rooms[1][travellers][1][first_name]"
                                                 value=""
                                                 required=""
                                         />
@@ -467,155 +342,252 @@
                                         <label>Nume *</label>
                                         <input
                                                 type="text"
-                                                id="first_traveller_last_name"
                                                 class="form-control input-sm normal_chars_class"
-                                                name="booking_request_rooms[1][travellers][2][last_name]"
+                                                name="booking_request_rooms[1][travellers][1][last_name]"
                                                 value=""
                                                 required=""
                                         />
                                     </div>
 
                                     <div class="form-group">
-                                        <label for="dataNasterii*">Data nasterii</label>
+                                        <label for="dataNasterii">Data nasterii</label>
+                                        <div
+                                                class="input-group date"
+                                                id="datetimepicker1"
+                                                data-target-input="nearest"
+                                        >
+                                            <input
+                                                    type="text"
+                                                    class="form-control datetimepicker-input"
+                                                    data-target="#datetimepicker1"
+                                                    id="dataNasterii"
+                                                    placeholder="Date"
+                                            />
+                                            <div
+                                                    class="input-group-append"
+                                                    data-target="#datetimepicker1"
+                                                    data-toggle="datetimepicker"
+                                            >
+                                                <div class="input-group-text">
+                                                    <i class="fa fa-calendar-alt"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
 
-                                        <div class="input-group date" id="datetimepicker2" data-target-input="nearest">
-                                            <input type="text" class="form-control datetimepicker-input"
-                                                   data-target="#datetimepicker2"
-                                                   id="dataNasterii*" placeholder="Date"/>
-                                            <div class="input-group-append" data-target="#datetimepicker2"
-                                                 data-toggle="datetimepicker">
-                                                <div class="input-group-text"><i class="fa fa-calendar-alt"></i></div>
+                                    <div class="row">
+                                        <div class="form-group col-sm-2 select-title">
+                                            <label><strong>2. Adult</strong></label>
+                                            <select
+                                                    id="first_traveller_title"
+                                                    class="form-control input-sm"
+                                                    name="booking_request_rooms[1][travellers][2][title]"
+                                            >
+                                                <option value="Mr">Dl</option>
+                                                <option value="Mrs">Dna</option>
+                                                <option value="Miss">Dra</option>
+                                            </select>
+                                        </div>
 
+                                        <input
+                                                type="hidden"
+                                                name="booking_request_rooms[1][travellers][2][type]"
+                                                value="adult"
+                                        />
+
+                                        <div class="form-group col-sm-3">
+                                            <label>Prenume *</label>
+                                            <input
+                                                    type="text"
+                                                    id="first_traveller_first_name"
+                                                    class="form-control input-sm normal_chars_class"
+                                                    name="booking_request_rooms[1][travellers][2][first_name]"
+                                                    value=""
+                                                    required=""
+                                            />
+                                        </div>
+
+                                        <div class="form-group col-sm-3">
+                                            <label>Nume *</label>
+                                            <input
+                                                    type="text"
+                                                    id="first_traveller_last_name"
+                                                    class="form-control input-sm normal_chars_class"
+                                                    name="booking_request_rooms[1][travellers][2][last_name]"
+                                                    value=""
+                                                    required=""
+                                            />
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="dataNasterii*">Data nasterii</label>
+
+                                            <div class="input-group date" id="datetimepicker2"
+                                                 data-target-input="nearest">
+                                                <input type="text" class="form-control datetimepicker-input"
+                                                       data-target="#datetimepicker2"
+                                                       id="dataNasterii*" placeholder="Date"/>
+                                                <div class="input-group-append" data-target="#datetimepicker2"
+                                                     data-toggle="datetimepicker">
+                                                    <div class="input-group-text"><i
+                                                            class="fa fa-calendar-alt"></i>
+                                                    </div>
+
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
 
-                        <h2>Observatii</h2>
+                            <h2>Observatii</h2>
 
-                        <div class="info-box notes">
-                            <label>Adaugati aici eventualele observatii.</label>
-                            <textarea
-                                    rows="3"
-                                    class="form-control"
-                                    name="remarks"
-                            ></textarea>
-                        </div>
-
-                        <h2>Politica de plata</h2>
-                        <div class="info-box payment">
-                            <ul class="list-unstyled mb0">
-                                <li>
-                                    Plata integrala
-                                    <h2 class="col-md-11" th:inline="text">
-                                        Plata integrala in valoare de: [[${total}]]
-                                        <span>&#8364;</span>
-                                    </h2>
-                                    <span id="hotel_full_pay_id"></span>
-                                </li>
-                            </ul>
-                        </div>
-
-                        <h2>Modalitate de plata</h2>
-                        <div class="info-box payment">
-                            <div class="radio cash clearfix">
-                                <label>
-                                    <input
-                                            type="radio"
-                                            name="payment_method"
-                                            value="cash"
-                                            checked="checked"
-                                    />
-                                    Cash
-                                </label>
-                                <div class="details">
-                                    Daca alegeti aceasta metoda de plata trebuie sa va
-                                    prezentati la biroul nostru pentru a achita cash
-                                    rezervarea. Atentie: Disponibilitatea si pretul se pot
-                                    schimba.
-                                </div>
+                            <div class="info-box notes"
+                                 style="
+                                top: 90px;
+                                border: 2px solid rgb(204, 204, 204);
+                                z-index: 1000;
+                                position: static;
+                                width: 900 px;
+                                padding: 10px;
+                                margin-bottom: 20px">
+                                <label>Adaugati aici eventualele observatii.</label>
+                                <textarea
+                                        rows="3"
+                                        class="form-control"
+                                        name="remarks"
+                                ></textarea>
                             </div>
 
-                            <div class="radio bank_transfer clearfix">
-                                <label>
-                                    <input
-                                            type="radio"
-                                            name="payment_method"
-                                            value="bank_transfer"
-                                    />
-                                    Transfer bancar
-                                </label>
-                                <div class="details">
-                                    Daca alegeti aceasta metoda de plata veti primi detaliile
-                                    de plata pe email.
-                                </div>
+                            <h2>Politica de plata</h2>
+                            <div class="info-box payment"
+                                 style="
+                                top: 90px;
+                                border: 2px solid rgb(204, 204, 204);
+                                z-index: 1000;
+                                position: static;
+                                width: 900 px;
+                                padding: 10px;
+                                margin-bottom: 20px">
+                                <ul class="list-unstyled mb0">
+                                    <li>
+                                        Plata integrala
+                                        <h2 class="col-md-11" th:inline="text">
+                                            Plata integrala in valoare de: [[${total}]]
+                                            <span>&#8364;</span>
+                                        </h2>
+                                        <span id="hotel_full_pay_id"></span>
+                                    </li>
+                                </ul>
                             </div>
 
-                            <div class="radio plati_online clearfix">
-                                <label>
-                                    <input
-                                            type="radio"
-                                            name="payment_method"
-                                            value="plati_online"
-                                    />
-                                    Plati.online
-                                </label>
-
-                                <div class="details">
-                                    Plata online prin card (Visa/Maestro/Mastercard). Vei fi
-                                    redirectionat catre pagina Raiffeisen Plationline.
-                                    <div
-                                            class="payment-creditcard-logo"
-                                            style="display: none"
-                                    >
-                                        <img
-                                                src="/assets/img/logo/logo_ecommerce_raiffeisen.jpg"
-                                                alt=""
+                            <h2>Modalitate de plata</h2>
+                            <div class="info-box payment" style="
+                                top: 90px;
+                                border: 2px solid rgb(204, 204, 204);
+                                z-index: 1000;
+                                position: static;
+                                width: 900 px;
+                                padding: 10px;
+                                margin-bottom: 20px">
+                                <div class="radio cash clearfix">
+                                    <label>
+                                        <input
+                                                type="radio"
+                                                name="payment_method"
+                                                value="cash"
+                                                checked="checked"
                                         />
+                                        Cash
+                                    </label>
+                                    <div class="details">
+                                        Daca alegeti aceasta metoda de plata trebuie sa va
+                                        prezentati la biroul nostru pentru a achita cash
+                                        rezervarea. Atentie: Disponibilitatea si pretul se pot
+                                        schimba.
+                                    </div>
+                                </div>
+
+                                <div class="radio bank_transfer clearfix">
+                                    <label>
+                                        <input
+                                                type="radio"
+                                                name="payment_method"
+                                                value="bank_transfer"
+                                        />
+                                        Transfer bancar
+                                    </label>
+                                    <div class="details">
+                                        Daca alegeti aceasta metoda de plata veti primi detaliile
+                                        de plata pe email.
+                                    </div>
+                                </div>
+
+                                <div class="radio plati_online clearfix">
+                                    <label>
+                                        <input
+                                                type="radio"
+                                                name="payment_method"
+                                                value="plati_online"
+                                        />
+                                        Plati.online
+                                    </label>
+
+                                    <div class="details">
+                                        Plata online prin card (Visa/Maestro/Mastercard). Vei fi
+                                        redirectionat catre pagina Raiffeisen Plationline.
+                                        <div
+                                                class="payment-creditcard-logo"
+                                                style="display: none"
+                                        >
+                                            <img
+                                                    src="/assets/img/logo/logo_ecommerce_raiffeisen.jpg"
+                                                    alt=""
+                                            />
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="radio mobilpay clearfix">
+                                    <label>
+                                        <input
+                                                type="radio"
+                                                name="payment_method"
+                                                value="mobilpay"
+                                        />
+                                        Plata cu cardul
+                                    </label>
+                                    <div class="details">
+                                        Daca alegeti aceasta metoda de plata veti fi
+                                        redirectionati catre site-ul MobilPay pentru a finaliza
+                                        plata.
+                                        <div class="payment-creditcard-logo">
+                                            <img src="/assets/img/logo/logo-visa.jpg" alt=""/>
+                                            <img
+                                                    src="/assets/img/logo/logo-verified-by-visa.jpg"
+                                                    alt=""
+                                            />
+                                            <img
+                                                    src="/assets/img/logo/logo-mastercard.jpg"
+                                                    alt=""
+                                            />
+                                            <img
+                                                    src="/assets/img/logo/logo-mastercard-securecode.jpg"
+                                                    alt=""
+                                            />
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-
-                            <div class="radio mobilpay clearfix">
-                                <label>
-                                    <input
-                                            type="radio"
-                                            name="payment_method"
-                                            value="mobilpay"
-                                    />
-                                    Plata cu cardul
-                                </label>
-                                <div class="details">
-                                    Daca alegeti aceasta metoda de plata veti fi
-                                    redirectionati catre site-ul MobilPay pentru a finaliza
-                                    plata.
-                                    <div class="payment-creditcard-logo">
-                                        <img src="/assets/img/logo/logo-visa.jpg" alt=""/>
-                                        <img
-                                                src="/assets/img/logo/logo-verified-by-visa.jpg"
-                                                alt=""
-                                        />
-                                        <img
-                                                src="/assets/img/logo/logo-mastercard.jpg"
-                                                alt=""
-                                        />
-                                        <img
-                                                src="/assets/img/logo/logo-mastercard-securecode.jpg"
-                                                alt=""
-                                        />
-                                    </div>
-                                </div>
-                            </div>
                         </div>
-                        <!-- /info-box payment -->
-                        <input
-                                type="hidden"
-                                name="test_print_console"
-                                value="test_test_test"
-                        />
-                        <script>
+                    </form>
+                    <!-- /info-box payment -->
+                    <input
+                            type="hidden"
+                            name="test_print_console"
+                            value="test_test_test"
+                    />
+                    <script>
 
                         $('input[type=radio][name=payment_method]').change(function() {
                         var provider = ($('input[name=payment_method]:checked').val());
@@ -686,41 +658,52 @@
 
 
 
-                        </script>
 
-                        <div class="terms clearfix">
-                            <label for="terms_and_conditions">
-                                <input
-                                        type="checkbox"
-                                        id="terms_and_conditions"
-                                        name="terms_and_conditions"
-                                        value="1"
-                                        required=""
-                                />
-                                Sunt de acord cu
-                                <a
-                                        href="javascript:void(0)"
-                                        data-toggle="modal"
-                                        data-target="#gdpr-terms"
-                                ><strong>CONDITIILE GDPR</strong></a
-                                >
-                                si
-                                <a
-                                        href="javascript:void(0)"
-                                        data-toggle="modal"
-                                        data-target="#reservation-terms"
-                                ><strong>TERMENII SI CONDITIILE DE REZERVARE</strong></a
-                                >.
-                            </label>
-                            <div>
-                                <a th:href="@{/airport}">
-                                    <button class="btn btn-primary" type="submit">
-                                        Finalizeaza rezervarea
-                                    </button>
-                                </a>
-                            </div>
+
+
+
+
+
+
+
+
+
+
+                    </script>
+
+                    <div class="terms clearfix">
+                        <label for="terms_and_conditions">
+                            <input
+                                    type="checkbox"
+                                    id="terms_and_conditions"
+                                    name="terms_and_conditions"
+                                    value="1"
+                                    required=""
+                            />
+                            Sunt de acord cu
+                            <a
+                                    href="javascript:void(0)"
+                                    data-toggle="modal"
+                                    data-target="#gdpr-terms"
+                            ><strong>CONDITIILE GDPR</strong></a
+                            >
+                            si
+                            <a
+                                    href="javascript:void(0)"
+                                    data-toggle="modal"
+                                    data-target="#reservation-terms"
+                            ><strong>TERMENII SI CONDITIILE DE REZERVARE</strong></a
+                            >.
+                        </label>
+                        <div>
+                            <a th:href="@{/airport}">
+                                <button class="btn btn-primary" type="submit">
+                                    Finalizeaza rezervarea
+                                </button>
+                            </a>
                         </div>
                     </div>
+                </div>
                 </form>
             </div>
         </div>
@@ -775,6 +758,17 @@ format: 'DD/MM/YYYY'
 $('#datetimepicker2').datetimepicker({
 format: 'DD/MM/YYYY'
 });
+
+
+
+
+
+
+
+
+
+
+
 
 </script>
 

@@ -53,7 +53,6 @@ public class TourOfferUser {
         this.country = country;
         this.city = city;
         this.airport = airport;
-        this.starRating = starRating;
         this.departureDate = departureDate;
         this.numberOfDays = numberOfDays;
         this.numberOfRooms = numberOfRooms;

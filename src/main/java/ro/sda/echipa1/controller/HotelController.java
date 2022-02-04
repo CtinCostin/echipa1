@@ -29,7 +29,7 @@ public class HotelController {
 
         List<Hotel> hotel = hotelService.findAll();
         model.addAttribute("hotelsInView", hotel);
- 
+
         return "hotel-list";
     }
 
@@ -70,7 +70,7 @@ public class HotelController {
             @PathVariable Long id,
             @ModelAttribute HotelDto hotelDto) {
 
-       hotelService.update(id, hotelDto);
+        hotelService.update(id, hotelDto);
         return "redirect:/hotel/";
     }
 

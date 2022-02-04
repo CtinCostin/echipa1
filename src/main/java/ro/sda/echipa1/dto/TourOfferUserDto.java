@@ -49,7 +49,6 @@ public class TourOfferUserDto {
         this.travelOption = travelOption;
         this.country = country;
         this.city = city;
-        this.starRating = starRating;
         this.airport = airport;
         this.departureDate = departureDate;
         this.numberOfDays = numberOfDays;
