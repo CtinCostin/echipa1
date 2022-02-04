@@ -53,12 +53,12 @@ public class NavbarLinksController {
         return "vacante";
     }
 
-    @GetMapping("/bilete-de-avion")
-    public String showBileteAvion(Model model) {
-        List<TourOfferAdmin> tourOfferAdminList = tourOfferAdminService.searchByName("bilete-de-avion");
+    @GetMapping("/estival")
+    public String showEstivall(Model model) {
+        List<TourOfferAdmin> tourOfferAdminList = tourOfferAdminService.searchByName("estivall");
         model.addAttribute("tourOfferInView", tourOfferAdminList);
 
-        return "bilete-de-avion";
+        return "estival";
     }
 
     @GetMapping("/charter-exotic")
@@ -135,6 +135,14 @@ public class NavbarLinksController {
 
         return "termeni_si_conditii";
     }
+
+
+    @GetMapping("/shopping_cart")
+    public String showShoppingCartPage(Model model) {
+
+        return "shopping_cart";
+    }
+
 
 
 }

@@ -49,7 +49,7 @@
                     </div>
                     <div class="row">
                         <div class="col-md-6 mb-4">
-                            <label>Orasul de plecare</label>
+                            <label>Orasul de destinatie</label>
                             <div>
                                 <select th:field="*{city}" class="form-select form-select-sm"
                                         aria-label=".form-select-sm example">
@@ -182,32 +182,28 @@
             <div data-v-bd92c560 class="col-xs-12 col-">
                 <div data-v-516dbc7b data-v-bd92c560>
                     <div class="row gutter-md">
-                        <div class="col-xs-12 col-lg-4"
-                             onclick="document.location.href,'https://location8081/sejur-oferte-vacante'">
+                        <div class="col-xs-12 col-lg-4">
                             <div class="q-pa-lg text-center cursor-pointer"
                                  style="border-radius:10px; background-color: #ebf1fb;">
-                                <div style="background-image: url('https://chr-static-obj.ams3.cdn.digitaloceanspaces.com/gallery/snK0pzq3RPiAyPwOyjDpb1KKYJtv2pM6gf2Pu82g.jpeg'); background-size: cover; background-position: 50% 50%; height: 220px;">
-                                </div>
+                                <div style="background-image: url('https://chr-static-obj.ams3.cdn.digitaloceanspaces.com/gallery/snK0pzq3RPiAyPwOyjDpb1KKYJtv2pM6gf2Pu82g.jpeg'); background-size: cover; background-position: 50% 50%; height: 220px;"></div>
                                 <div class="text-menu-color q-my-lg"
                                      style="text-transform: uppercase; font-size: 36px;">Vacante
                                 </div>
-                                <button class="btn btn-primary" type="submit">Descopera Ofertele</button>
-<!--                                <div>-->
-<!--                                    <a href="/sejur-oferte-vacante">Descopera ofertele</a>-->
-<!--                                </div>-->
+                                <a th:href="@{/vacante}">
+                                    <button class="btn btn-primary" type="submit">Descopera Ofertele</button>
+                                </a>
                             </div>
                         </div>
-                        <div class="col-xs-12 col-lg-4" onclick="document.location.href='/turism-circuite'">
+                        <div class="col-xs-12 col-lg-4">
                             <div class="q-pa-lg text-center cursor-pointer"
                                  style="border-radius:10px; background-color: #ebf1fb;">
                                 <div style="background-image: url('https://chr-static-obj.ams3.cdn.digitaloceanspaces.com/gallery/cJTrXWmoQrClKXIAoRlLk0EwV8z4Xa8zKbYiXA68.jpeg'); background-size: cover; background-position: 50% 50%; height: 220px;"></div>
                                 <div class="text-menu-color q-my-lg"
                                      style="text-transform: uppercase; font-size: 36px;">Circuite
                                 </div>
-                                <button class="btn btn-primary" type="submit">Descopera Ofertele</button>
-<!--                                <div>-->
-<!--                                    <a href="/turism-circuite">Descopera ofertele</a>-->
-<!--                                </div>-->
+                                <a th:href="@{/circuite}">
+                                    <button class="btn btn-primary" type="submit">Descopera Ofertele</button>
+                                </a>
                             </div>
                         </div>
                         <div class="col-xs-12 col-lg-4"
@@ -218,10 +214,10 @@
                                 <div class="text-menu-color q-my-lg"
                                      style="text-transform: uppercase; font-size: 36px;">Revelion 2022
                                 </div>
-                                <button class="btn btn-primary" type="submit">Descopera Ofertele</button>
-<!--                                <div>-->
-<!--                                    <a href="/oferte-revelion-2022">Descopera ofertele</a>-->
-<!--                                </div>-->
+                                <a th:href="@{/revelion-2022}">
+                                    <button class="btn btn-primary" type="submit">Descopera Ofertele</button>
+                                </a>
+
                             </div>
                         </div>
                     </div>
@@ -244,8 +240,11 @@
                                 <div style="background-image: url('https://chr-static-obj.ams3.cdn.digitaloceanspaces.com/gallery/nzyJi5UpNrk1Lr8T2ZWPQnKt4b8VLbCN8OBCxavG.jpeg'); background-size: cover; background-position: 50% 50%; height: 220px;"></div>
                                 <div class="text-menu-color q-my-lg"
                                      style="text-transform: uppercase; font-size: 36px;">senior voyage<br></div>
-                                <button class="btn btn-primary" type="submit">Descopera Ofertele</button>
-<!--                                <div><a href="/programe-senior-voyage">Descopera ofertele</a></div>-->
+                                <a th:href="@{/senior-voyage}">
+                                    <button class="btn btn-primary" type="submit">Descopera Ofertele</button>
+                                </a>
+
+
                             </div>
                         </div>
 
@@ -256,8 +255,9 @@
                                 <div class="text-menu-color q-my-lg"
                                      style="text-transform: uppercase; font-size: 36px;">Charter exotic
                                 </div>
-                                <button class="btn btn-primary" type="submit">Descopera Ofertele</button>
-<!--                                <div><a href="/vacante-circuite-exotice#pachete">Descopera ofertele</a></div>-->
+                                <a th:href="@{/charter-exotic}">
+                                    <button class="btn btn-primary" type="submit">Descopera Ofertele</button>
+                                </a>
                             </div>
                         </div>
 
@@ -268,8 +268,9 @@
                                 <div class="text-menu-color q-my-lg"
                                      style="text-transform: uppercase; font-size: 36px;">SKI
                                 </div>
-                                <button class="btn btn-primary" type="submit">Descopera Ofertele</button>
-<!--                                <div><a href="/skiplus-vacante-iarna">Descopera ofertele</a></div>-->
+                                <a th:href="@{/ski}">
+                                    <button class="btn btn-primary" type="submit">Descopera Ofertele</button>
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -297,8 +298,9 @@
                                 <div class="text-menu-color q-my-lg"
                                      style="text-transform: uppercase; font-size: 36px;">Exotice
                                 </div>
-                                <button class="btn btn-primary" type="submit">Descopera Ofertele</button>
-<!--                                <div><a href="/vacante-circuite-exotice">Descopera ofertele</a></div>-->
+                                <a th:href="@{/exotice}">
+                                    <button class="btn btn-primary" type="submit">Descopera Ofertele</button>
+                                </a>
                             </div>
                         </div>
 
@@ -308,11 +310,11 @@
                                  style="border-radius: 10px; background-color: #ebf1fb;">
                                 <div style="background-image: url('https://chr-static-obj.ams3.cdn.digitaloceanspaces.com/gallery/alrBtFuQbQlC5Z0XNNlbJg3b9wAmkNJ2MKFlekBI.jpeg'); background-size: cover; background-position: 50% 50%; height: 220px;"></div>
                                 <div class="text-menu-color q-my-lg"
-                                     style="text-transform: uppercase; font-size: 36px;">Bilete de avion
+                                     style="text-transform: uppercase; font-size: 36px;">Estivall
                                 </div>
-                                <button class="btn btn-primary" type="submit">Descopera Ofertele</button>
-<!--                                <div><a href="https://citybreaks.christiantour.ro/bilete-de-avion/">Descopera-->
-<!--                                    ofertele</a></div>-->
+                                <a th:href="@{/estival}">
+                                    <button class="btn btn-primary" type="submit">Descopera Ofertele</button>
+                                </a>
                             </div>
                         </div>
 
@@ -324,8 +326,9 @@
                                 <div class="text-menu-color q-my-lg"
                                      style="text-transform: uppercase; font-size: 36px;">Craciun 2022
                                 </div>
-                                <button class="btn btn-primary" type="submit">Descopera Ofertele</button>
-<!--                                <div><a href="/oferte-craciun-2021">Descopera ofertele</a></div>-->
+                                <a th:href="@{/craciun-2022}">
+                                    <button class="btn btn-primary" type="submit">Descopera Ofertele</button>
+                                </a>
                             </div>
                         </div>
                     </div>

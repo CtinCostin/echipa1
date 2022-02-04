@@ -12,6 +12,7 @@
 <div th:replace="fragments/navbar :: navbar"/>
 <div align="center">
     <h1>Create new continent</h1>
+    <a th:href="@{/continent/add}">Create continent</a>
 
     <div>
         <form method="post" th:action="@{/continent/add}" th:object="${continent}">

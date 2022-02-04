@@ -83,6 +83,7 @@ public class TourOfferAdmin {
                 .priceForAnAdult(priceForAnAdult)
                 .priceForAChild(priceForAChild)
                 .calculatedPrice(0.0D).build();
+
     }
 
     @Override
